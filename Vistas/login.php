@@ -12,11 +12,14 @@
   </head>
   <body>
     <section class="material-half-bg">
-      <div class="cover"></div>
+      <div class="cover" style="background-color:#513F47;"></div>
     </section>
     <section class="login-content">
-      <div class="logo">
-        <h1>Rent a Car Chacon</h1>
+      <div class="logo" style="font:400 16px/1.8 sans-serif;
+        color:#FF8E31;
+       ">
+        <h1
+        >Rent a Car Chacon</h1>
       </div>
       <div class="login-box">
         <form class="login-form" action="Vistas/inicio.php">
@@ -36,7 +39,7 @@
             </div>
           </div>
           <div class="form-group btn-container">
-            <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Iniciar</button>
+            <button class="btn btn-primary btn-block" style="background-color: #FF8E31;"><i class="fa fa-sign-in fa-lg fa-fw"></i>Iniciar</button>
           </div>
         </form>
         <form class="forget-form" action="index.html">
@@ -62,7 +65,7 @@
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <script type="text/javascript">
-      // Login Page Flipbox control
+      // Login Page Flipbox control para la vuelta de olvido de password
       $('.login-content [data-toggle="flip"]').click(function() {
       	$('.login-box').toggleClass('flipped');
       	return false;
