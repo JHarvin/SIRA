@@ -48,25 +48,67 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-            <div class="info">
-              <h4>G. Contrato</h4>
-              <p><b>10</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-location-arrow fa-3x"></i>
-            <div class="info">
-              <h4>Contactos</h4>
-              <p><b>500</b></p>
-            </div>
-          </div>
-        </div>
+       
+       
         
-        <div id="imagen">
-          <img class="rounded-circle user-image" src="../images/logo.png">
+        <div id="baterias">
+        <h3>Catalogo</h3>
+          <table id="table"  class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Modelo</th>
+                  <th>tipo</th>
+                   <th>Precio por unidad</th>
+                  <th>Descripcion</th>
+                  <th>Fecha </th>
+                  
+                 <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>H</td>
+                  <td>75644
+                  
+                  </td>
+                  <td>Seador
+                  
+                  </td>
+                  <td>05049807-4
+                  
+                  </td>
+                  <td>09004033 
+                  
+                  </td>
+                  
+                 
+                  
+                  <td>
+                    
+                    <button class="btn btn-warning" type="button" ><i class="fa fa-fw fa-lg fa fa-wrench"></i></button>
+                     
+                      
+                      
+                       
+                       
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          
+          
       </div>
         
       </div>
