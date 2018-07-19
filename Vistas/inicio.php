@@ -66,6 +66,7 @@
         </div>
         
         <div id="imagen">
+         pRUEBA GIT
           <img class="rounded-circle user-image" src="../images/logo.png">
       </div>
         
