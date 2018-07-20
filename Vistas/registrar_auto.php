@@ -180,7 +180,7 @@
       <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Tipo de combustible">
     </div>
     <div class="form-group col-md-6">
-      <label for="color">costo por dia de alquiler</label>
+      <label for="color">costosssss por dia de alquiler</label>
       <input type="text" class="form-control" id="color" placeholder="costo por dia de alquiler">
     </div>
      
