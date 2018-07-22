@@ -23,7 +23,9 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          
           <li class="breadcrumb-item"><a href="#">Incio</a></li>
+          
         </ul>
       </div>
 <div class="row">
@@ -57,10 +59,10 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-location-arrow fa-3x"></i>
+          <div class="widget-small danger coloured-icon"><i class="icon fa fa-cart-plus fa-3x"></i>
             <div class="info">
-              <h4>Contactos</h4>
-              <p><b>500</b></p>
+           <a href="bateriaInicio.php"><h4>Ir a Ventas</h4></a>  
+              
             </div>
           </div>
         </div>
