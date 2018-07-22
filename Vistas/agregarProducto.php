@@ -40,10 +40,24 @@
       <input type="text" class="form-control" placeholder="Descripcion del producto o nombre del producto">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Precio de Venta">
+      <input type="text" class="form-control" placeholder="Precio de compra">
     </div>
     <div class="col">
       <input type="text" class="form-control" placeholder="Cantidad">
+    </div>
+    
+    
+  </div>
+  <br>
+  <div class="form-row">
+    
+    <div class="col-2">
+      <input type="text" class="form-control" placeholder="Precio de venta">
+    </div>
+   
+   
+    <div class="col-4">
+      <input type="date" class="form-control">
     </div>
     
     
