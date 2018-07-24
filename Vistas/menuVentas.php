@@ -4,16 +4,16 @@
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
         
-        <!--Para cambiar al modulo de ventas-->
-        
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-shopping-cart fa-lg">Venta de Baterias</i></a>
+        <!--para cambiar al modulo de renta de vehiculos-->
+         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-car fa-lg">Renta de vehiculos</i></a>
          
          <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="bateriaInicio.php"><i class="fa fa-cart-plus fa-lg"></i> Ir a ventas</a></li>
+            <li><a class="dropdown-item" href="inicio.php"><i class="fa fa-road fa-lg"></i> Ir a modulo rentas </a></li>
             
           </ul>
          
           </li>
+        
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg">Seguridad</i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
@@ -31,18 +31,18 @@
       
       <ul class="app-menu">
         <li><a class="app-menu__item active" href="inicio.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Inicio</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-address-card-o"></i><span class="app-menu__label">Clientes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-address-card-o"></i><span class="app-menu__label">Ventas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="alquiler.php"><i class="icon fa fa-circle-o"></i> Registrar Clinte</a></li>
+            <li><a class="treeview-item" href="generarVentas.php"><i class="icon fa fa-circle-o"></i> Generar Ventas</a></li>
            
             
-            <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Clientes registrados</a></li>
+            <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Consultar Ventas</a></li>
           </ul>
         </li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">Autos</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">ABaterias</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="registrar_auto.php"><i class="icon fa fa-circle-o"></i> Registrar auto</a></li>
+            <li><a class="treeview-item" href="agregarProducto.php"><i class="icon fa fa-circle-o"></i> Agregar Baterias</a></li>
            
             
             <li><a class="treeview-item" href="listado_auto.php"><i class="icon fa fa-circle-o"></i> Autos registrados</a></li>
