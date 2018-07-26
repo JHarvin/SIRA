@@ -21,19 +21,30 @@
           <h1><i class="fa fa-inbox"></i> Cajero : Administrador</h1>
           <p>Venta de baterias</p>
         </div>
-        <div>
-         <input type="text" class="form-control" placeholder="Cliente">
-         <input type="date" class="form-control">
-        </div>
-        <div>
-         <input type="text" class="form-control" placeholder="Cliente">
-         <input type="date" class="form-control">
-        </div>
+        
+         
       </div>
 <div class="row">
        <div  class="col-md-12">
-           <div class="card">
-          
+           <div class="card col-md-3" style="float:right;">
+               <div class="card-tittle" style="background-color:orange; ">
+                   <h2>Datos de factura:</h2>
+               </div>
+               Fecha de emison
+               <input type="date" class="form-control">
+               <br>
+               <input type="text" class="form-control" placeholder="Cliente">
+               <br>
+               <input type="text" class="form-control" placeholder="Importe cliente">
+               <br>
+               <input type="text" class="form-control" placeholder="Vuelto">
+               <br>
+               <button class="btn btn-info" id="factura">Imprimir factura</button>
+           </div>
+           <div class="card col-md-9">
+          <div class="card-title">
+              <h3>Productos</h3>
+          </div>
          <form>
   <div class="form-row">
     
@@ -62,7 +73,9 @@
                
            </div>
            
-           <div class="card table table-responsive">
+            
+           
+           <div class="card col-md-9 ">
                
                <table class="table table-striped">
                    <thead>
@@ -98,7 +111,7 @@
                </div>
            </div>
            
-           
+          
            
            
            
@@ -106,7 +119,7 @@
            
            
        </div>
-       
+      
    
        
         

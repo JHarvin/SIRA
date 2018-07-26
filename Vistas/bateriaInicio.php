@@ -28,7 +28,7 @@
       </div>
 <div class="row">
        
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6">
           <div class="widget-small info coloured-icon"><i class="icon fa fa-road fa-3x"></i>
             <div class="info">
               <h4>
@@ -42,7 +42,7 @@
        
        
         
-        <div class="card" id="baterias">
+        <div class="card col-md-6" id="baterias">
         <div class="card-tittle"><h3>Catalogo</h3></div>
         
           <table id="table"  class="table table-striped">
