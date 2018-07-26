@@ -19,12 +19,16 @@
  <div class="app-title">
         <div>
           <h1><i class="fa fa-inbox"></i> Cajero : Administrador</h1>
-          <p>Rent a car chacon</p>
+          <p>Venta de baterias</p>
         </div>
-        <ul class="app-breadcrumb breadcrumb">
-          
-          
-        </ul>
+        <div>
+         <input type="text" class="form-control" placeholder="Cliente">
+         <input type="date" class="form-control">
+        </div>
+        <div>
+         <input type="text" class="form-control" placeholder="Cliente">
+         <input type="date" class="form-control">
+        </div>
       </div>
 <div class="row">
        <div  class="col-md-12">
@@ -103,7 +107,7 @@
            
        </div>
        
-       
+   
        
         
         
@@ -111,7 +115,7 @@
       </div>
       
       
-      
+     
       
 </main>
 

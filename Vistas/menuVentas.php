@@ -1,11 +1,11 @@
 <!-- Navbar-->
-    <header class="app-header" style="background-color:#8D8D8D;"><a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">Rent a Car Chacon</a>
+    <header class="app-header" style="background-color:#8D8D8D;"><a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">Baterias Chacon</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
         
         <!--para cambiar al modulo de renta de vehiculos-->
-         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-car fa-lg">Renta de vehiculos</i></a>
+         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-car fa-lg"> Cambiar a modulo </i></a>
          
          <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="inicio.php"><i class="fa fa-road fa-lg"></i> Ir a modulo rentas </a></li>
