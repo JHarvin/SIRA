@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html lang="es">
  <head>
- <title>Inicio</title>
+ <title>Generar Venta</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,7 +52,35 @@
       <input type="text" class="form-control" placeholder="Código">
     </div>
     <div class="col-7">
-      <input type="text" class="form-control" placeholder="Descripcion del producto o nombre del producto">
+      
+         <select class="form-control" id="demoSelect" multiple="">
+                <optgroup label="Select Cities">
+                  <option>Ahmedabad</option>
+                  <option>Surat</option>
+                  <option>Vadodara</option>
+                  <option>Rajkot</option>
+                  <option>Bhavnagar</option>
+                  <option>Jamnagar</option>
+                  <option>Gandhinagar</option>
+                  <option>Nadiad</option>
+                  <option>Morvi</option>
+                  <option>Surendranagar</option>
+                  <option>Junagadh</option>
+                  <option>Gandhidham</option>
+                  <option>Veraval</option>
+                  <option>Ghatlodiya</option>
+                  <option>Bharuch</option>
+                  <option>Anand</option>
+                  <option>Porbandar</option>
+                  <option>Godhra</option>
+                  <option>Navsari</option>
+                  <option>Dahod</option>
+                  <option>Botad</option>
+                  <option>Kapadwanj</option>
+                </optgroup>
+              </select>
+           
+      
     </div>
     <div class="col">
       <input type="text" class="form-control" placeholder="Precio de Venta">
@@ -145,14 +173,17 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    
     <!-- The javascript plugin to display page loading on top-->
     <script src="../js/plugins/pace.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/select2.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
 
-  $('#search').quicksearch('table tbody tr');								
+  $('#search').quicksearch('table tbody tr');
+           $('#demoSelect').select2();
 });
     </script>
 </body>

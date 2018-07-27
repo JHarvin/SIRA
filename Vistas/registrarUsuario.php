@@ -26,20 +26,38 @@
           <div class="tile">
             <h3 class="tile-title">Registrar Usuario</h3>
             <div class="tile-body">
-              <form>
-                <div class="form-group">
+              <form class="row">
+                <div class="form-group col-md-4">
                   <label class="control-label">Nombre</label>
                   <input class="form-control" type="text" placeholder="Escriba su nombre completo">
                 </div>
-                <div class="form-group">
+                <div class=" col-md-4">
                   <label class="control-label">Telefono</label>
                   <input class="form-control" type="tel" placeholder="Ingrese numero de telefono">
                 </div>
-                <div class="form-group">
-                  <label class="control-label">Dirección</label>
-                  <textarea class="form-control" rows="4" placeholder="Ingrese su dirección"></textarea>
+                <div class="form-group col-md-4">
+                  <label class="control-label">E-mail</label>
+                  <input type="email" class="form-control" placeholder="email" id="mail">
                 </div>
-                <div class="form-group">
+                
+                <div class="form-group col-md-4">
+                  <label class="control-label">Digite un nombre de usuario</label>
+                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username">
+                </div>
+                
+                <div class="form-group col-md-4">
+                  <label class="control-label">Digite contraseña</label>
+                  <input type="password" class="form-control" placeholder="Contraseña" id="password">
+                </div>
+                <div class="form-group col-md-4">
+                  <label class="control-label">Vuelva a escribir la contraseña</label>
+                  <input type="password" class="form-control" placeholder="Otra vez" id="rPassword">
+                </div>
+                <div class="form-group col-md-12">
+                  <label class="control-label">Dirección</label>
+                  <textarea class="form-control" rows="2" placeholder="Ingrese su dirección"></textarea>
+                </div>
+                <div class="form-group col-md-12">
                   <label class="control-label">Genero</label>
                   <div class="form-check">
                     <label class="form-check-label">
