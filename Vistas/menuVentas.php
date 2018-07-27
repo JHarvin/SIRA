@@ -30,8 +30,8 @@
     <aside class="app-sidebar">
       
       <ul class="app-menu">
-        <li><a class="app-menu__item active" href="inicio.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Inicio</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-address-card-o"></i><span class="app-menu__label">Ventas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li><a class="app-menu__item active" href="bateriaInicio.php"><i class="app-menu__icon fa fa-folder-open"></i><span class="app-menu__label">Catalogo</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-shopping-cart"></i><span class="app-menu__label">Ventas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="generarVentas.php"><i class="icon fa fa-circle-o"></i> Generar Ventas</a></li>
            
@@ -40,7 +40,7 @@
           </ul>
         </li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">Baterias</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-battery-half"></i><span class="app-menu__label">Baterias</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="agregarProducto.php"><i class="icon fa fa-circle-o"></i> Agregar Baterias</a></li>
            
@@ -53,9 +53,9 @@
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Reportes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Vehiculos</a></li>
-            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Alquileres</a></li>
-            <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Clientes</a></li>
+           
+           
+            
             <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Ficha de contacto</a></li>
           </ul>
         </li>

@@ -23,7 +23,7 @@
       <main class="app-content">
         <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Consulta de ventas</h1>
+          <h1><i class="fa fa-money"></i> Consulta de ventas</h1>
           <p>Baterias</p>
         </div>
        

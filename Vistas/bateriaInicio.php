@@ -18,17 +18,14 @@
  <main class="app-content">
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Inicio</h1>
-          <p>Rent a car chacon</p>
+          <h1><i class="fa fa-folder-open"></i> Catalogo de baterias</h1>
+          <p>Baterias</p>
         </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Incio</a></li>
-        </ul>
+        
       </div>
 <div class="row">
        
-        <div class="col-md-6">
+        <div class="col-md-6 col-lg-3">
           <div class="widget-small info coloured-icon"><i class="icon fa fa-road fa-3x"></i>
             <div class="info">
               <h4>
@@ -42,7 +39,7 @@
        
        
         
-        <div class="card col-md-6" id="baterias">
+        <div class="card col-md-12" id="baterias">
         <div class="card-tittle"><h3>Catalogo</h3></div>
         
           <table id="table"  class="table table-striped">
