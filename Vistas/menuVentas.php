@@ -36,16 +36,16 @@
             <li><a class="treeview-item" href="generarVentas.php"><i class="icon fa fa-circle-o"></i> Generar Ventas</a></li>
            
             
-            <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Consultar Ventas</a></li>
+            <li><a class="treeview-item" href="consultarVentas.php"><i class="icon fa fa-circle-o"></i> Consultar Ventas</a></li>
           </ul>
         </li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">ABaterias</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">Baterias</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="agregarProducto.php"><i class="icon fa fa-circle-o"></i> Agregar Baterias</a></li>
            
             
-            <li><a class="treeview-item" href="listado_auto.php"><i class="icon fa fa-circle-o"></i> Autos registrados</a></li>
+           
           </ul>
         </li>
         

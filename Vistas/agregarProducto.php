@@ -29,7 +29,9 @@
 <div class="row">
        <div  class="col-md-12">
            <div class="card">
-          
+          <div class="card-title">
+              <h4>Agregar baterias</h4>
+          </div>
          <form>
   <div class="form-row">
     
@@ -65,7 +67,7 @@
   
    <div class="card-footer">
        <button class="btn btn-primary">Agregar Producto</button>
-       <button class="btn btn-success">Nuevo Cliente</button>
+       
    </div> 
   
 </form>
@@ -104,7 +106,7 @@
               <h3> <label>Total:</label></h3>
                <div class="card-footer">
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
-                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar Venta</button>
+                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar Compra</button>
                </div>
            </div>
            
