@@ -1,3 +1,8 @@
+<?php 
+
+require_once "../Controladores/ControladorMostrarUsuarios.php";
+
+?>
 !DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,6 +51,13 @@
                 </tr>
               </thead>
               <tbody>
+               
+               <?php 
+                  #--Llamamos al controlador antes instanciando la clase
+                  $mostrar=new MostrarUsuariosController();
+                  $mostrar->vistaUsuariosController();
+                  
+                  ?>
                 <tr>
                   <td>Harvin Jeffeth Ramos Alfaro</td>
                   <td>7566844

@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,15 +25,15 @@
         >Rent a Car Chacon</h1>
       </div>
       <div class="login-box">
-        <form class="login-form" action="Vistas/inicio.php">
+        <form class="login-form" method="post">
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Incio de sesion</h3>
           <div class="form-group">
             <label class="control-label">Nombre de usuario</label>
-            <input class="form-control" type="text" placeholder="Nombre de usuario" autofocus>
+            <input id="usuarioLog" name="usuarioLog" class="form-control" type="text" placeholder="Nombre de usuario" autofocus required>
           </div>
           <div class="form-group">
             <label class="control-label">Contraseña</label>
-            <input class="form-control" type="password" placeholder="Contraseña">
+            <input id="usuarioPass" name="usuarioPass" class="form-control" type="password" placeholder="Contraseña" required>
           </div>
           <div class="form-group">
             <div class="utility">
@@ -39,9 +42,16 @@
             </div>
           </div>
           <div class="form-group btn-container">
-            <button class="btn btn-primary btn-block" style="background-color: #FF8E31;"><i class="fa fa-sign-in fa-lg fa-fw"></i>Iniciar</button>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #FF8E31;"><i class="fa fa-sign-in fa-lg fa-fw"></i>Iniciar</button>
           </div>
         </form>
+        <?php 
+          
+          $ingreso=new MvcController();
+          $ingreso->inicioSesionController();
+          
+          ?>
+        
         <form class="forget-form" action="index.html">
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿Olvido la contraseña?</h3>
           <div class="form-group">
