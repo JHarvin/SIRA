@@ -21,7 +21,7 @@ Class RegistrarUsuarioController{
         $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
         
         if( $respuesta=="success"){
-            header("location:registrarUsuario.php");
+            //header("location:registrarUsuario.php");
         }
         
         
