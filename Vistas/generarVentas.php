@@ -183,6 +183,7 @@
       $(function () {
 
   $('#search').quicksearch('table tbody tr');
+          
            $('#demoSelect').select2();
 });
     </script>

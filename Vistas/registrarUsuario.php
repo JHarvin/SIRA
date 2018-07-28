@@ -26,28 +26,28 @@
           <div class="tile">
             <h3 class="tile-title">Registrar Usuario</h3>
             <div class="tile-body">
-              <form class="row">
+              <form action="post" class="row">
                 <div class="form-group col-md-4">
                   <label class="control-label">Nombre</label>
-                  <input class="form-control" type="text" placeholder="Escriba su nombre completo">
+                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo">
                 </div>
                 <div class=" col-md-4">
                   <label class="control-label">Telefono</label>
-                  <input class="form-control" type="tel" placeholder="Ingrese numero de telefono">
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono">
                 </div>
                 <div class="form-group col-md-4">
                   <label class="control-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="email" id="mail">
+                  <input type="email" class="form-control" placeholder="email" id="email" name="email">
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label class="control-label">Digite un nombre de usuario</label>
-                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username">
+                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username">
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label class="control-label">Digite contraseña</label>
-                  <input type="password" class="form-control" placeholder="Contraseña" id="password">
+                  <input type="password" class="form-control" placeholder="Contraseña" id="password" name="password">
                 </div>
                 <div class="form-group col-md-4">
                   <label class="control-label">Vuelva a escribir la contraseña</label>
@@ -55,27 +55,37 @@
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Dirección</label>
-                  <textarea class="form-control" rows="2" placeholder="Ingrese su dirección"></textarea>
+                  <textarea id="direccion" name="direccion" class="form-control" rows="2" placeholder="Ingrese su dirección"></textarea>
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Genero</label>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Masculino
+                      <input id="masculino" class="form-check-input" type="radio" name="gender">Masculino
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Femenino
+                      <input id="femenino" class="form-check-input" type="radio" name="gender">Femenino
                     </label>
                   </div>
                 </div>
                
+                <div class="tile-footer">
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+            </div>
+               
               </form>
+              
+              <?php 
+                #--para guardar registros se llama a la clase y funcion
+                $registro=RegistrarUsuarioController();
+                $registro->registrarController();
+                
+                ?>
+              
             </div>
-            <div class="tile-footer">
-              <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
-            </div>
+           
           </div>
         </div>
         
