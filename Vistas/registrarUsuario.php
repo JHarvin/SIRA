@@ -1,3 +1,8 @@
+
+<?php 
+require_once"../Controladores/ControladorRegistroUsuarios.php";
+?>
+
 !DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +31,7 @@
           <div class="tile">
             <h3 class="tile-title">Registrar Usuario</h3>
             <div class="tile-body">
-              <form action="post" class="row">
+              <form method="post" class="row">
                 <div class="form-group col-md-4">
                   <label class="control-label">Nombre</label>
                   <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo">
@@ -72,14 +77,14 @@
                 </div>
                
                 <div class="tile-footer">
-              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="submit" onclick=""><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
             </div>
                
               </form>
               
               <?php 
                 #--para guardar registros se llama a la clase y funcion
-                $registro=RegistrarUsuarioController();
+                $registro= new RegistrarUsuarioController();
                 $registro->registrarController();
                 
                 ?>

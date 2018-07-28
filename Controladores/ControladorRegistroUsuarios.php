@@ -1,4 +1,5 @@
 <?php 
+require_once "../Modelos/ModeloRegistrarUsuario.php";
 #Registro de usuarios 
 #------------------------------------
 #---Iniciado por Harvin Ramos--------
@@ -9,6 +10,7 @@ Class RegistrarUsuarioController{
     
     public function registrarController(){
         #--Variable array para capturar datos--------
+        if(isset($_POST["nombre"])){
         $datosControladorRegistro =array("nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], 
         "email"=>$_POST["email"],
         "direccion"=>$_POST["direccion"],
@@ -23,7 +25,7 @@ Class RegistrarUsuarioController{
         
         
         
-        
+        }
         
     }
     
