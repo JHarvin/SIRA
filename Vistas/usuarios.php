@@ -45,8 +45,9 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
                   <th>Nombre</th>
                   <th>Telefono</th>
                    <th>Dirección</th>
+                  <th>Nombre de usuario</th>
                   <th>Contraseña</th>
-                  <th>Nombre Usuario</th>
+                  <th>Acción</th>
                  
                 </tr>
               </thead>
@@ -58,27 +59,9 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
                   $mostrar->vistaUsuariosController();
                   
                   ?>
-                <tr>
-                  <td>Harvin Jeffeth Ramos Alfaro</td>
-                  <td>7566844
-                  <button class="btn btn-info" data-toggle="modal" data-target="#myModal">Editar</button>
-                  </td>
-                  <td>Sexta decima San salvador</td>
-                  <td>Si</td>
-                  <td>clark</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+               
+                 
+                
               </tbody>
             </table>
           </div>

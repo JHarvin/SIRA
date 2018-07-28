@@ -15,7 +15,8 @@ class MostrarUsuariosController{
                   <td>'.$item["telefono"].'
                   
                   </td>
-                  <td>Sexta decima San salvador</td>
+                  <td>'.$item["direccion"].'</td>
+                  <td>'.$item["username"].'</td>
                   <td>Si</td>
                   <td><button class="btn btn-info" data-toggle="modal" data-target="#myModal">Editar</button></td>
                 </tr>
