@@ -20,7 +20,9 @@ Class RegistrarUsuarioController{
         
         $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
         
-        echo $respuesta;
+        if( $respuesta=="success"){
+            header("location:registrarUsuario.php");
+        }
         
         
         
