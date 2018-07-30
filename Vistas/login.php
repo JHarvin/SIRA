@@ -1,5 +1,9 @@
 <?php
 
+#--se ejecuta cuando se sale del programa destruye la sesion para que no puede ingresar nadie mas
+session_start();
+session_destroy();
+
 ?>
 <!DOCTYPE html>
 <html>

@@ -28,6 +28,9 @@ class MvcController{
               $respuesta["password"]==$_POST["usuarioPass"]
               ){
                 
+               session_start();
+                $_SESSION["validar"]=true;
+               
                 header("location:Vistas/inicio.php"); 
                 
                 

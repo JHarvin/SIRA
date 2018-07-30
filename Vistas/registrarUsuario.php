@@ -17,7 +17,8 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
     <link rel="stylesheet" href="../css/toastr.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-
+<!--Archivo de validacion-->
+    <script src="js/validarRegistro.js"></script>
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
@@ -31,18 +32,18 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
           <div class="tile">
             <h3 class="tile-title">Registrar Usuario</h3>
             <div class="tile-body">
-              <form method="post" class="row">
+              <form method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-4">
-                  <label class="control-label">Nombre</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo">
+                  <label class="control-label" for="nombre">Nombre</label>
+                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real">
                 </div>
                 <div class=" col-md-4">
                   <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono">
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9">
                 </div>
                 <div class="form-group col-md-4">
-                  <label class="control-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="email" id="email" name="email">
+                  <label for="email" class="control-label">E-mail</label>
+                  <input type="email" class="form-control" placeholder="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group col-md-4">
@@ -51,8 +52,8 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
                 </div>
                 
                 <div class="form-group col-md-4">
-                  <label class="control-label">Digite contraseña</label>
-                  <input type="password" class="form-control" placeholder="Contraseña" id="password" name="password">
+                  <label class="control-label" for="password">Digite contraseña</label>
+                  <input type="password" pattern=".{4,}" title="4 o mas caracteres" class="form-control" placeholder="Contraseña" id="password" name="password">
                 </div>
                 <div class="form-group col-md-4">
                   <label class="control-label">Vuelva a escribir la contraseña</label>
@@ -77,7 +78,7 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
                 </div>
                
                 <div class="tile-footer">
-              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="submit" onclick=""><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="submit" ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</button>
             </div>
                
               </form>
@@ -106,6 +107,7 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
+    
     
     <script>
      function alerta(){

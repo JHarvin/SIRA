@@ -1,4 +1,20 @@
- <!DOCTYPE html>
+<?php 
+
+#---poner este codigo en todas la pantallas para iniciar sesion y que no sea corrupta
+#---por motivos que la app esta en proceso, solo la tienen los archivos inicio.php y login.php
+session_start();
+if(!$_SESSION["validar"]){
+    
+
+    header("location:../index.php");
+    exit();
+}
+
+
+?>
+ 
+
+   <!DOCTYPE html>
 <html lang="es">
  <head>
  <title>Inicio</title>
