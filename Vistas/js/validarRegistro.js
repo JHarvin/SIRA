@@ -30,7 +30,7 @@ function validarRegistro(){
     
     //---validar registro
     
-    if(nombre!=" "){
+    if(nombre!=" " || nombre!=""){
         var caracteres=nombre.length;
         var expresion=/^[a-zA-Z]*$/;
         if(caracteres<7){
@@ -58,7 +58,7 @@ function validarRegistro(){
     }
     
     
-    toastr.success("Usuario guardado");
+    
     
     return true;
     

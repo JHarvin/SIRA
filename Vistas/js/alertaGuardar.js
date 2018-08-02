@@ -2,5 +2,5 @@
 
 $("#btnRegistrar").onclick(function(){
     
-    
+    toastr.success("guardado");
 });

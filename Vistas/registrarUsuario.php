@@ -15,8 +15,67 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <!-- libreria para notificaciones toast-->
     <link rel="stylesheet" href="../css/toastr.css">
+    <script src="../js/toastr.js"></script>
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    
+    <!-- include the RTL css files-->
+
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+    
+    
+   
+
+    
+
+</script>
+
+    
+    <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+    
+</script>
+    
+    
+    
+
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
+    
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
 </head>      
@@ -32,36 +91,36 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
           <div class="tile">
             <h3 class="tile-title">Registrar Usuario</h3>
             <div class="tile-body">
-              <form method="post" onsubmit="return validarRegistro();" class="row">
+              <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-4">
                   <label class="control-label" for="nombre">Nombre</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real">
+                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
                 </div>
                 <div class=" col-md-4">
                   <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9">
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" required>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="email" class="control-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="email" id="email" name="email" required>
+                  <input type="email" class="form-control" placeholder="email" id="email" name="email" value="" required >
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label class="control-label">Digite un nombre de usuario</label>
-                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username">
+                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username" value="" required>
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label class="control-label" for="password">Digite contraseña</label>
-                  <input type="password" pattern=".{4,}" title="4 o mas caracteres" class="form-control" placeholder="Contraseña" id="password" name="password">
+                  <input type="password" pattern=".{4,}" title="4 o mas caracteres" class="form-control" placeholder="Contraseña" id="password" name="password" value="" required>
                 </div>
                 <div class="form-group col-md-4">
                   <label class="control-label">Vuelva a escribir la contraseña</label>
-                  <input type="password" class="form-control" placeholder="Otra vez" id="rPassword">
+                  <input type="password" class="form-control" placeholder="Otra vez" id="rPassword" value="" required>
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Dirección</label>
-                  <textarea id="direccion" name="direccion" class="form-control" rows="2" placeholder="Ingrese su dirección"></textarea>
+                  <textarea id="direccion" name="direccion" class="form-control" rows="2" placeholder="Ingrese su dirección" value="" required></textarea>
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Genero</label>
@@ -78,7 +137,7 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
                 </div>
                
                 <div class="tile-footer">
-              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="submit" ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</button>
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</button>
             </div>
                
               </form>
@@ -103,36 +162,20 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
       
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/notify.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/toastr.js"></script>
+    
     
     
     <script>
      function alerta(){
         toastr.success("Usuario Guardado");
 
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  
-  "hideMethod": "fadeOut"
-}
-          
 
+          
+ 
           
       }
         

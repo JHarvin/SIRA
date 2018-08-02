@@ -33,12 +33,19 @@ class RegistrarUsuarioController{
         $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
         
         if( $respuesta=="success"){
-            echo' <div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Hecho!</strong> Datos guardados con exito incorrectos.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>';
+            echo' 
+             
+            <script type="text/javascript">
+             alertify.set("notifier","position", "top-center");
+
+          alertify.success("Registro Guardado    ✔");
+
+
+
+
+        
+            </script>
+            ';
         }
         
         
