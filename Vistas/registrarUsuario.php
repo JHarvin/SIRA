@@ -120,7 +120,7 @@ alertify.defaults.theme.input = "form-control";
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Dirección</label>
-                  <textarea id="direccion" name="direccion" class="form-control" rows="2" placeholder="Ingrese su dirección" value="" required></textarea>
+                  <textarea id="direccion" name="direccion" class="form-control" rows="1" placeholder="Ingrese su dirección" value="" required></textarea>
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Genero</label>
@@ -192,6 +192,8 @@ alertify.defaults.theme.input = "form-control";
 } 
         
     </script>
+    
+   
     
     
     </body>

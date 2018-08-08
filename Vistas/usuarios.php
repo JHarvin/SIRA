@@ -99,7 +99,80 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
   </div>
 </div>
      
+      
+      <!-- modal para modificar los datos de los usuarios -->
        
+       <div class="modal" id="datosUsuario">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Actualizar Datos de Usuario </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      
+       <form>
+                  <div class="row mb-4">
+                    <div class="col-md-4">
+                      <label>Nombre Completo</label>
+                      <input id="updateNomber" name="updateNombre" class="form-control" type="text">
+                    </div>
+                    <div class="col-md-4">
+                      <label>Telefono</label>
+                      <input id="updateTelefono" name="updateTelefono" class="form-control" type="text">
+                    </div>
+                     <div class="col-md-4">
+                      <label>Email</label>
+                      <input id="updateEmail" name="updateEmail" class="form-control" type="text">
+                    </div>
+                  </div>
+                  <div class="row">
+                   
+                    <div class="clearfix"></div>
+                    <div class="col-md-12">
+                      <label>Dirección</label>
+                      <input class="form-control" type="text">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-4">
+                      <label>Nombre de Usuario</label>
+                      <input id="updateUsername" name="updateUsername" class="form-control" type="text">
+                    </div>
+                    
+                    <div class="col-md-4">
+                      <label>Contraseña</label>
+                      <input id="updatePass" name="updatePass" class="form-control" type="password">
+                    </div>
+                  </div>
+                 
+                </form>
+       
+         
+            
+              
+          </div>
+          
+          
+          
+     
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
+        |
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Atras</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+       
+        <!-- fin modal datos de los usuarios -->
+          
       
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>

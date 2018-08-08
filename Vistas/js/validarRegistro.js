@@ -52,6 +52,8 @@ function validarRegistro(){
             
             return false;
         }
+        
+       
     }
     
     //---para validar contraseña tiene que ser mayor a 4
@@ -78,6 +80,8 @@ function validarRegistro(){
         
     }
     
+
+   
     
     
     

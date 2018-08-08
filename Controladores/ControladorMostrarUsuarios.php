@@ -18,7 +18,7 @@ class MostrarUsuariosController{
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["username"].'</td>
                   <td>Si</td>
-                  <td><button class="btn btn-info" data-toggle="modal" data-target="#myModal">Editar</button></td>
+                  <td><button class="btn btn-info" data-toggle="modal" data-target="#datosUsuario">Editar</button></td>
                 </tr>
         
         ';
