@@ -98,7 +98,7 @@ alertify.defaults.theme.input = "form-control";
                 </div>
                 <div class=" col-md-4">
                   <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" required>
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);" required>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="email" class="control-label">E-mail</label>
@@ -116,7 +116,7 @@ alertify.defaults.theme.input = "form-control";
                 </div>
                 <div class="form-group col-md-4">
                   <label class="control-label">Vuelva a escribir la contraseña</label>
-                  <input type="password" class="form-control" placeholder="Otra vez" id="rPassword" value="" required>
+                  <input type="password" class="form-control" placeholder="Otra vez" id="rPassword" name="rPassword" value="" required>
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Dirección</label>
@@ -126,12 +126,12 @@ alertify.defaults.theme.input = "form-control";
                   <label class="control-label">Genero</label>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input id="masculino" class="form-check-input" type="radio" name="gender">Masculino
+                      <input id="masculino" class="form-check-input" type="radio" name="masculino">Masculino
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input id="femenino" class="form-check-input" type="radio" name="gender">Femenino
+                      <input id="femenino" class="form-check-input" type="radio" name="femenino">Femenino
                     </label>
                   </div>
                 </div>
@@ -166,20 +166,33 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/jquery.maskedinput.min.js"></script>
     
+      <script type="text/javascript">
+      
+ jQuery(function($){
+            // Definimos las mascaras para cada input
+            
+            $("#telefono").mask("9999-9999");
+            
+        });
+          
+        
+    </script>
     
     
     <script>
-     function alerta(){
-        toastr.success("Usuario Guardado");
-
-
-          
- 
-          
-      }
-        
+   
+         #funcionpara valida solo numero en el campo de telefono
+          function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+} 
         
     </script>
+    
+    
     </body>
 </html>

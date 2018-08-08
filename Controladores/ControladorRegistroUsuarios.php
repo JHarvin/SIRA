@@ -7,6 +7,7 @@ require_once "../Modelos/ModeloRegistrarUsuario.php";
 #-------------------------------------------------------------
 
 class RegistrarUsuarioController{
+    //--se utilizara para guardar el genero
     
     public function registrarController(){
         #--Variable array para capturar datos--------
@@ -14,6 +15,8 @@ class RegistrarUsuarioController{
           isset($_POST["direccion"]) && !empty($_POST["direccion"]) &&
            isset($_POST["username"]) && !empty($_POST["username"]) &&
            isset($_POST["password"]) && !empty($_POST["password"])
+           
+           
           ){
             
             # validacion que todo este correcto es decir caracteres y cantidad de estos lado servidor
@@ -21,13 +24,19 @@ class RegistrarUsuarioController{
             if(preg_match('/^[a-zA-Z]+$/',$_POST["nombre"]) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST["email"]) &&
               preg_match('/^[0-9]+$/',$_POST["telefono"])
               ){}
-            
-            
-        $datosControladorRegistro =array("nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], 
+            if(isset($_POST["masculino"]) ){
+                $genero="M";
+            }
+            else if(isset($_POST["femenino"])){
+                $genero="F";
+            }
+            #--strtoupper transforma todas las letras a mayusculas
+        $datosControladorRegistro =array("nombre"=>strtoupper($_POST["nombre"]), "telefono"=>$_POST["telefono"], 
         "email"=>$_POST["email"],
         "direccion"=>$_POST["direccion"],
         "username"=>$_POST["username"],
-        "password"=>$_POST["password"]);
+        "password"=>$_POST["password"],
+        "genero"=>$genero);
         
         
         $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
@@ -47,6 +56,23 @@ class RegistrarUsuarioController{
             </script>
             ';
         }
+            
+            else {
+               echo' 
+             
+            <script type="text/javascript">
+             alertify.set("notifier","position", "top-center");
+
+          alertify.error("Algo salio mal :(");
+
+
+
+
+        
+            </script>
+            ';  
+                
+            }
         
         
         
