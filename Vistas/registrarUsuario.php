@@ -98,7 +98,7 @@ alertify.defaults.theme.input = "form-control";
                 </div>
                 <div class=" col-md-4">
                   <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);" required>
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="email" class="control-label">E-mail</label>
@@ -115,7 +115,7 @@ alertify.defaults.theme.input = "form-control";
                   <input type="password" pattern=".{4,}" title="4 o mas caracteres" class="form-control" placeholder="Contraseña" id="password" name="password" value="" required>
                 </div>
                 <div class="form-group col-md-4">
-                  <label class="control-label">Vuelva a escribir la contraseña</label>
+                  <label for="rPassword" class="control-label">Vuelva a escribir la contraseña</label>
                   <input type="password" class="form-control" placeholder="Otra vez" id="rPassword" name="rPassword" value="" required>
                 </div>
                 <div class="form-group col-md-12">

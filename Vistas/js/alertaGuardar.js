@@ -1,6 +1,5 @@
-#--para mostrar mensaje de registro guardado
+//--para mostrar mensaje de registro guardado
 
-$("#btnRegistrar").onclick(function(){
-    
-    toastr.success("guardado");
-});
+function alertaGuardado(){
+    toastr.success("Registro Modificado con exito");
+}

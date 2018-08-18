@@ -19,7 +19,7 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
     <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-
+<script src="../Vistas/js/validarRegistro.js"></script>
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
@@ -34,11 +34,16 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
             
             <h3 class="tile-title">Usuarios Registrados</h3>
              <div class="box input-group" style="margin-left:25px;">
+             
   <div class="container-2">
-      <span class="icon"><i class="fa fa-search"></i></span>
+      <i class="glyphicon glyphicon-search"></i>
         <input  type="search" id="search" />
            </div>
         </div>
+            
+          
+          
+        
             <table id="table"  class="table table-striped">
               <thead>
                 <tr>
@@ -115,11 +120,11 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
       <!-- Modal body -->
       <div class="modal-body">
       
-       <form>
+       
                   <div class="row mb-4">
                     <div class="col-md-4">
                       <label>Nombre Completo</label>
-                      <input id="updateNomber" name="updateNombre" class="form-control" type="text">
+                      <input id="updateNombre" name="updateNombre" class="form-control" type="text">
                     </div>
                     <div class="col-md-4">
                       <label>Telefono</label>
@@ -127,7 +132,7 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
                     </div>
                      <div class="col-md-4">
                       <label>Email</label>
-                      <input id="updateEmail" name="updateEmail" class="form-control" type="text">
+                      <input id="updateEmail" name="updateEmail" class="form-control" type="email">
                     </div>
                   </div>
                   <div class="row">
@@ -135,7 +140,7 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
                     <div class="clearfix"></div>
                     <div class="col-md-12">
                       <label>Dirección</label>
-                      <input class="form-control" type="text">
+                      <input id="updateDireccion" name="updateDireccion" class="form-control" type="text">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-4">
@@ -145,11 +150,11 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
                     
                     <div class="col-md-4">
                       <label>Contraseña</label>
-                      <input id="updatePass" name="updatePass" class="form-control" type="password">
+                      <input id="updatePass" name="updatePass" class="form-control" type="password" placeholder="Escriba la nueva contraseña" required>
                     </div>
                   </div>
-                 
-                </form>
+                 <input id="id" name="id" type="hidden" >
+                
        
          
             
@@ -161,7 +166,7 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
      
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
+        <button id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
         |
         <button type="button" class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i> Atras</button>
@@ -181,6 +186,21 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+    <script src="../js/jquery.maskedinput.min.js"></script>
+    
+      <script type="text/javascript">
+      
+ jQuery(function($){
+            // Definimos las mascaras para cada input, se valida automaticamente
+            
+            $("#updateTelefono").mask("9999-9999");
+            
+        });
+          
+        
+    </script>
+    
+    
     <script>
      function alerta(){
         toastr.success("Usuario Guardado");
@@ -218,5 +238,50 @@ toastr.options = {
   $('#search').quicksearch('table tbody tr');								
 });
     </script>
+    
+    <script>
+    //---Funcion para detectar el clic y obtener los datos
+      $("table tbody tr").click(function() {
+          //---se obtiene el indice de la tabla
+  var nombre = $(this).find("td:eq(0)").text();
+  var telefono=$(this).find("td:eq(1)").text();
+  var direccion=$(this).find("td:eq(2)").text();
+  var usuario=$(this).find("td:eq(3)").text();  
+  var id=$(this).find("td:eq(6)").text(); 
+          
+          //---poniendo los datos en los inputs del modal
+          
+          $('#updateNombre').val(nombre);
+          $('#updateTelefono').val(telefono);
+          $('#updateDireccion').val(direccion);
+          $('#updateUsername').val(usuario);
+          $('#id').val(id);
+          //--falta la accion para actualizar email
+          $("#updateEmail").val("falta este item");
+  
+});
+    </script>
+    
+    <script type="text/javascript">
+    $(document).ready(function(){
+        
+        $('#btnGuardarNuevo').click(function(){
+            //---se obtienen los datos del modal
+            ///---alert("entra al boton");
+            
+            nombreUpdate=$('#updateNombre').val();
+            telefonoUpdate=$('#updateTelefono').val();
+            direccionUpdate=$('#updateDireccion').val();
+            userUpdate=$('#updateUsername').val();
+            passUpdate=$('#updatePass').val();
+            idUpdate=$('#id').val();
+            //---luego se llama la funcion que esta en Vistas/js/validarRegistro.js
+           actualizar(idUpdate,nombreUpdate,telefonoUpdate,direccionUpdate,userUpdate,passUpdate);
+        });
+    });
+    
+    </script>
+    
+    
     </body>
 </html>

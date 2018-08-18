@@ -1,6 +1,6 @@
 <?php 
 require_once "Conexion.php";
-Class LoginModel extends Conexion{
+class LoginModel extends Conexion{
     #---Esta funcion verifica los datos recibidos de la vista del login
     #---------------------------------------------------------------
     public function verificar($datosModelLogin, $tabla){

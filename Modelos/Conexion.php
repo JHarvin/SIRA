@@ -1,6 +1,6 @@
 <?php 
 
-Class Conexion{
+class Conexion{
     
     public function conectar(){
         $link =new PDO("mysql:host=localhost;dbname=sira_bd","root","");

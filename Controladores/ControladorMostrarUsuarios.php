@@ -18,7 +18,11 @@ class MostrarUsuariosController{
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["username"].'</td>
                   <td>Si</td>
-                  <td><button class="btn btn-info" data-toggle="modal" data-target="#datosUsuario">Editar</button></td>
+                  
+                  <td><a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <button class="btn btn-danger" data-toggle="modal" data-target="#datosUsuario"><i class="fa fa-trash-o"></i></button>
+                  </td>
+                 
                 </tr>
         
         ';

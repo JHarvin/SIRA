@@ -49,7 +49,7 @@ class RegistrarUsuarioController{
 
           alertify.success("Registro Guardado    ✔");
 
-
+        
 
 
         
