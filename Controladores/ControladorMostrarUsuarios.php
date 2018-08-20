@@ -20,12 +20,47 @@ class MostrarUsuariosController{
                   <td>Si</td>
                   
                   <td><a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
-                  <button class="btn btn-danger" data-toggle="modal" data-target="#datosUsuario"><i class="fa fa-trash-o"></i></button>
+                  <a href="usuarios.php?idb='.$item["idpersonal"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
                   </td>
                  
                 </tr>
         
         ';
+        }
+    }
+    
+    
+     #BORRAR USUARIOS
+    #------------------------------
+    public function borrarUsuarioController(){
+        if(isset($_GET["idb"])){
+            $idController=$_GET["idb"];
+            
+            $respuesta=MostrarUsuarios::borrarUsarioModel($idController,"tpersonal");
+            
+            if($respuesta=="success"){
+                  echo '
+                
+               <script>
+                alertify.set("notifier","position", "top-center");
+               alertify.success("Usuario Eliminado");
+               </script>
+                
+                
+                ';
+                
+            }
+            else{
+                  echo '
+                
+               <script>
+                alertify.set("notifier","position", "top-center");
+               alertify.error("Error al borrar en el servidor");
+               </script>
+                
+                
+                ';
+            }
         }
     }
     

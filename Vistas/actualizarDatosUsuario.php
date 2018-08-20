@@ -1,49 +1,25 @@
 
 <?php 
-require_once"../Modelos/Conexion.php";
-#-------Variables para poner los datos en los input text luego de haber seleccionado el usuario
-#---------------------------------------------------------------------
-
-//----consulta por el id para mostrarlos en los input text
-class SeleccionarUsuario extends Conexion{
-  public  $id;
-    public function seleccionar(){
-        $idpersonal=$this->id;
-         $stmt =Conexion::conectar()->prepare("SELECT nombre,telefono,direccion,username,password FROM tpersonal WHERE idpersonal= :id");
-        echo '<script>alert('.$idpersonal.');</script>';
-        $stmt->bindParam(":id",$idpersonal,PDO::PARAM_STR);
-       // $stmt->bindParam(":usuarioPass",$datosModelLogin["usuarioPass"],PDO::PARAM_STR);
-        
-        $stmt->execute();
-            
-        return $stmt->fetch();
-        
-       
-        
-    }
+session_start();
+if(!$_SESSION["validar"]){
     
+
+    header("location:../index.php");
+    exit();
 }
 
+#--------------------Made by Harvin Ramos---------------
+require_once"../Controladores/ControladorActualizarDatos.php";
+#-------------------------------------------------------------
+#-se instancia y se llama a la funcion en el controlador que se encarga de llamar al modelo que ejecuta la consulta devolviendo un array para luego poner los datos del usuario seleccionado
+#---------------------------------------------------------------
+$editarUsuario=new ActualizarDatosController();
+$datosVista=$editarUsuario->editarUsuarioController();
 
-    
-    
-    
-   $seleccinar=new SeleccionarUsuario();
-    $seleccinar->id=$_POST["id"];
-   $respuesta= $seleccinar->seleccionar();
-    
-
-//echo '<script>alert(""+$respuesta);</script>';
-    $nombreS= $nombre=$respuesta["nombre"];
-        $telefono=$respuesta["telefono"];
-        $direccion=$respuesta["direccion"];
-        $user=$respuesta["username"];
-        $pass=$respuesta["password"];
     
 
 ?>
 
-!DOCTYPE html>
 <html lang="es">
 <head>
 
@@ -142,13 +118,13 @@ alertify.defaults.theme.input = "form-control";
                   <div class="row mb-4">
                     <div class="col-md-4">
                       <label for="Nombre">Nombre Completo</label>
-                      <input id="Nombre" name="Nombre" class="form-control" type="text" value="<?php $respuesta["nombre"]; ?>"
+                      <input id="Nombre" name="Nombre" class="form-control" type="text" value="<?php echo $datosVista["nombre"]; ?>"
                     
                         maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required >
                     </div>
                     <div class="col-md-4">
                       <label for="Telefono">Telefono</label>
-                      <input id="Telefono" name="Telefono" class="form-control" type="text" required>
+                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required>
                     </div>
                      <div class="col-md-4">
                       <label>Email</label>
@@ -160,21 +136,21 @@ alertify.defaults.theme.input = "form-control";
                     <div class="clearfix"></div>
                     <div class="col-md-12">
                       <label>Dirección</label>
-                      <input id="Direccion" name="Direccion" class="form-control" type="text" required>
+                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-4">
                       <label>Nombre de Usuario</label>
-                      <input id="Username" name="Username" class="form-control" type="text" required>
+                      <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required>
                     </div>
                     
                     
                     <div class="col-md-4">
                       <label>Contraseña</label>
-                      <input id="Pass" name="Pass" class="form-control" type="password" placeholder="Escriba la nueva contraseña" required>
+                      <input id="Pass" name="Pass" class="form-control" type="password" value="<?php echo $datosVista["password"]; ?>" placeholder="Escriba la nueva contraseña" required>
                     </div>
                   </div>
-                 <input id="id" name="id" type="hidden" >
+                 <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idpersonal"]; ?>" >
                  
                   <!-- Modal footer -->
       <div class="tile-footer">
@@ -183,6 +159,9 @@ alertify.defaults.theme.input = "form-control";
         <a href="usuarios.php"  class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i> Atras</a>
       </div>
+          <?php
+                     $editarUsuario->actualizarUsuarioController();
+                     ?>
            </form>     
        </div>
          

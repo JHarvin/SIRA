@@ -26,7 +26,7 @@ class Datos extends Conexion{
         }
         else{ return "error";}
         
-        
+        $stmt->close();
     }
 }
 

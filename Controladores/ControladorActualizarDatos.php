@@ -1,84 +1,68 @@
 <?php 
+#--Esta clase es la encargada de manejar la edicion y actualizacion
 
-#-------Controlador para actualizar datos usando jquery
+#--La funcion editarUsuarioModel es la encargada de recibir el id a traves del get
+#--para luego enviarlo al modelo el cual devuelve un array, y que a su vez esta-
+#--funcion se encarga de retornarlo a la vista para ser mostrados los datos del usuario seleccionado-
+#----------------------------------------------------------------
+#----- by Harvin Ramos
+require_once "../Modelos/ModeloActualizarDatos.php";
 
-//require_once"../Modelos/ModeloActualizarDatos.php";
-require_once "../Modelos/ConexionNormal.php";
-
-
-
-
+#--Clase encargada
 class ActualizarDatosController{
-    
-   
-     public $id;
-    public $nombre;
-    public $telefono;
-    
-    public $direccion;
-    public $username;
-    public $password;
-    
-    public function actualizarDatos(){
-        $conexion=conexion();
-        $idD=$this->id;
-        $nombreD=$this->nombre;
-        $telefonoD=$this->telefono;
-      //  $emailD=$this->email;
-        $direccionD=$this->direccion;
-        $usuario=$this->username;
-        $contraseña=$this->password;
-        //----------añadiendo las variables al array
+ #--Funcion que se encarga de obtener los datos para ser mostrados por medio del id
+    public function editarUsuarioController(){
         
-        $sql="UPDATE tpersonal set nombre= '.$nombreD' WHERE idpersonal= '$idD'";
-       echo $result=mysqli_query($conexion,$sql);
+        $datos=$_GET["id"];
+        $respuesta=EditarUsuario::editarUsuarioModel($datos,"tpersonal");
         
-      
+        return $respuesta;
         
     }
     
+    #-------------------Funcion que se encarga de actualizar los datos----
+    
+    public function actualizarUsuarioController(){
+        #---se valida que un campo venga lleno ya que si uno esta lleno lo estaran todos
+        #---------------
+        if(isset($_POST["Nombre"])){
+            #----arrray de dato, sin s, el anterior lleva s, xd
+            $dato=array(
+                    "id"=>$_POST["id"],
+                    "nombre"=>$_POST["Nombre"],
+                    "telefono"=>$_POST["Telefono"],
+                    "direccion"=>$_POST["Direccion"],
+                    "username"=>$_POST["Username"],
+                    "password"=>$_POST["Pass"]);
+            
+            $respuesta=EditarUsuario::actualizarUsuarioModel($dato,"tpersonal");
+            
+            if($respuesta=="success"){
+                 echo '
+                
+               <script>
+                alertify.set("notifier","position", "top-center");
+               alertify.success("Datos actualizados correctamente");
+               </script>
+                
+                
+                ';
+                
+               // header("location:..Vistas/usuarios.php?ok=1");
+                
+            }
+            else{
+                
+                
+            }
+            
+        }
+         
+        
+    }
+    
+    
+   
+   
 }
-
-
-$a=new ActualizarDatosController();
-$a->id=$_POST["id"];
-$a->nombre=$_POST["nombre"];
-$a->telefono=$_POST["telefono"];
-//$a->email="falta";
-$a->direccion=$_POST["direccion"];
-$a->username=$_POST["user"];
-$a->password=$_POST["pass"];
-
-$a->actualizarDatos();
-
-
-
-    
-  /*  
-    public function actualizarDatosFController($idD,$nombreD,$telefonoD,$emailD,$direccionD,$usuario,$contraseña){
-        
-        #--strtoupper transforma todas las letras a mayusculas
-        $datosControladorActualizar =array(
-        "nombre"=>strtoupper($nombreD), 
-        "telefono"=>$telefonoD, 
-       // "email"=>$emailD,
-        "direccion"=>$direccionD,
-        "username"=>$usuario,
-        "password"=>$contraseña,
-        "id"=>$idD);
-        
-        
-        $respuesta=ModeloActualizar::actualizarDatosM($datosControladorActualizar,"tpersonal");
-        //---la funcion en la clase modelo retorna y si trae la palabra success
-        //--entonces se actualizo correctamente, caso contrario traera la palabra 
-        //---error---------------------------------------------------------------
-     
-       echo  $respuesta; 
-    }*/
-    
-    
-    
-
-
-
 ?>

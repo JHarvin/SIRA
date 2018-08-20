@@ -9,7 +9,7 @@
   height: 50px;
   background: #B5B3B3;
   border: none;
-  font-size: 10pt;
+  font-size: 15pt;
   float: left;
   color: #B5B3B3;
   padding-left: 35px;
@@ -25,19 +25,19 @@
   transition: width .55s ease;
 }
         .container-2 input#search::-webkit-input-placeholder {
-   color: #65737e;
+   color: #0C5C5A;
 }
  
 .container-2 input#search:-moz-placeholder { /* Firefox 18- */
-   color: #65737e;  
+   color: #0C5C5A;  
 }
  
 .container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
-   color: #65737e;  
+   color: #0C5C5A;  
 }
  
 .container-2 input#search:-ms-input-placeholder {  
-   color: #65737e;  
+   color: #0C5C5A;  
 }
         .container-2 .icon{
   position: absolute;

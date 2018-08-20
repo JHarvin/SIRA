@@ -14,7 +14,7 @@ if(!$_SESSION["validar"]){
 ?>
  
 
-   <!DOCTYPE html>
+    
 <html lang="es">
  <head>
  <title>Inicio</title>

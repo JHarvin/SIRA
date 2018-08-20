@@ -1,13 +1,31 @@
 <?php 
 
+
+
 require_once "../Controladores/ControladorMostrarUsuarios.php";
 
+/*
+if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
+
+en pocas palabras es la encarga de mostrar el mensaje de actualizado
+
+*/
+
+if(isset($_GET["ok"]) && !empty($_GET["ok"])){
+    
+    echo'
+    <script>
+    alertify.success("Registro Actualizado ");
+    </script>
+    ';
+    
+}
+
 ?>
-!DOCTYPE html>
 <html lang="es">
 <head>
 
-    <title>Registrar usuarios</title>
+    <title>Mostrar Usuarios</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +37,24 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
     <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
+    <script src="../js/alertify.min.js"></script>
 <script src="../Vistas/js/validarRegistro.js"></script>
+
+<script>
+    
+    function borrar(){
+     
+      var opcion=false;
+        do{}while(opcion);
+         confirm= alertify.confirm('Probando confirm','Confirmar solicitud?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'}); 	
+ 
+confirm.set({transition:'fade'});   	
+        
+   // var a=    alertify.confirm("Borrar usuario","desea eliminar");
+        
+    }
+    </script>
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
@@ -36,7 +71,7 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
              <div class="box input-group" style="margin-left:25px;">
              
   <div class="container-2">
-      <i class="glyphicon glyphicon-search"></i>
+        <span class="icon"><i class="fa fa-search"></i></span>
         <input  type="search" id="search" />
            </div>
         </div>
@@ -62,7 +97,11 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
                   #--Llamamos al controlador antes instanciando la clase
                   $mostrar=new MostrarUsuariosController();
                   $mostrar->vistaUsuariosController();
-                  
+                  #------------------------------------------
+                  /*
+                  aqui se mandara a llamar la funcion para eliminar usuarios
+                  */
+                  $mostrar->borrarUsuarioController();
                   ?>
                
                  
@@ -281,6 +320,7 @@ toastr.options = {
     });
     
     </script>
+    
     
     
     </body>

@@ -14,7 +14,7 @@ class LoginModel extends Conexion{
         $stmt->execute();
             
         return $stmt->fetch();
-    
+    $stmt->close();
         
        
         
