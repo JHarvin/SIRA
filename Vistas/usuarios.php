@@ -135,7 +135,7 @@ confirm.set({transition:'fade'});
                 </div>
       </div>
       <div class="modal-footer">
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Actualizar</button>
+       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle" on></i>Actualizar</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
       </div>
     </div>
@@ -144,7 +144,7 @@ confirm.set({transition:'fade'});
 </div>
      
       
-      <!-- modal para modificar los datos de los usuarios -->
+      <!-- modal para modificar los datos de los usuarios  solo los hice de prueba por si los necesitaba-->
        
        <div class="modal" id="datosUsuario">
   <div class="modal-dialog modal-lg">

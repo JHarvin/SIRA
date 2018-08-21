@@ -3,7 +3,7 @@ require_once"Conexion.php";
 #--para mostrar datos
 
 class MostrarUsuarios extends Conexion{
-    
+    #MOSTRAR USUARIOS
     public function vistaUsuarioModel($tabla){
         
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 

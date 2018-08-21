@@ -1,4 +1,6 @@
-!DOCTYPE html>
+<?php
+require_once"../Controladores/ControladorClientes.php";
+?>
 <html lang="es">
 <head>
 
@@ -14,6 +16,12 @@
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
  <!--para canvas-->
     <link rel="stylesheet" type="text/css" href="../css/material-gauge.css">
+   
+   <link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
    
     <style>
     .funkyradio div {
@@ -137,27 +145,27 @@
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Registro de cliente</h3>
+            <h3 class="tile-title">Registro de Cliente</h3>
             <div class="tile-body">
-              <form>
+              <form method="post">
               <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Nombre</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre Completo">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Telefono</label>
-      <input type="tel" class="form-control" id="inputPassword4" placeholder="Telefono">
+      <label for="telefono">Telefono</label>
+      <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono 7663-4444">
     </div>
     
     <!--Dui y licencia de conducir-->
      <div class="form-group col-md-6">
       <label for="dui">Dui</label>
-      <input type="text" class="form-control" id="dui" placeholder="Dui">
+      <input type="text" class="form-control" id="dui" name="dui" placeholder="Dui">
     </div>
     <div class="form-group col-md-6">
       <label for="licencia">N° Licencia de conducir</label>
-      <input type="tel" class="form-control" id="licencia" placeholder="N° de licencia">
+      <input type="text" class="form-control" id="licencia" name="licencia" placeholder="N° de licencia">
     </div>
     
      
@@ -168,8 +176,8 @@
   
   
   <div class="form-group">
-    <label for="inputAddress">Direccion Actual</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 san salvador">
+    <label for="direccion">Direccion</label>
+    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="1234 san salvador">
   </div>
   
 
@@ -177,21 +185,31 @@
                   <label class="control-label">Genero</label>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Masculino
+                      <input class="form-check-input" type="radio" id="masculino" name="masculino">Masculino
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Femenino
+                      <input class="form-check-input" type="radio" id="femenino"
+                     name="femenino">Femenino
                     </label>
                   </div>
                 </div>
-               
+                <div class="tile-footer">
+              <button type="submit" id="btnGuardarCliente" class="btn btn-primary"  ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</button>
+            </div>
+             
+             <?php
+                  #AQUI SE INSTANCIA Y SE LLAMA A LA FUNCION EN EL CONTROLADOR
+                  #PARA GUARDAR CLIENTE
+                  $datos=new ClientesController();
+                  $datos->registrarCliente();
+                  
+                  ?>
+             
               </form>
             </div>
-            <div class="tile-footer">
-              <button class="btn btn-primary" type="button" onclick="return alerta();" data-toggle="modal" data-target="#mAlquilar"><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
-            </div>
+           
           </div>
         </div>
         

@@ -1,4 +1,6 @@
-!DOCTYPE html>
+<?php 
+require_once"../Controladores/ControladorClientes.php";
+?>
 <html lang="es">
 <head>
 
@@ -47,28 +49,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Harvin Jeffeth Ramos Alfaro</td>
-                  <td>7566844
-                  <button class="btn btn-info" data-toggle="modal" data-target="#myModal">Editar</button>
-                  </td>
-                  <td>Sexta decima San salvador</td>
-                  <td>05049807-4</td>
-                  <td>09004033</td>
-                  <td>M</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              
+              <?php 
+                  #AQUI SE LLAMA LA FUNCION PARA MOSTRAR LOS DATOS
+                  $clientes=new ClientesController();
+                  $clientes->mostrarCliente();
+                  
+                  ?>
+              
               </tbody>
             </table>
           </div>
