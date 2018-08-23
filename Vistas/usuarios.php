@@ -33,6 +33,7 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <!-- libreria para notificaciones toast-->
     <link rel="stylesheet" href="../css/toastr.css">
+    <script src="../js/toastr.js"></script>
     <!-- efectos del input buscar-->
     <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
@@ -40,20 +41,55 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
     <script src="../js/alertify.min.js"></script>
 <script src="../Vistas/js/validarRegistro.js"></script>
-
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
 <script>
-    
-    function borrar(){
-     
-      var opcion=false;
-        do{}while(opcion);
-         confirm= alertify.confirm('Probando confirm','Confirmar solicitud?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'}); 	
- 
-confirm.set({transition:'fade'});   	
+  //----------funcion ajax
+    function eliminar(idE){
+        var datos=new FormData();
+    datos.append("idb",idE);
         
-   // var a=    alertify.confirm("Borrar usuario","desea eliminar");
+        
+         $.ajax({
+        
+        type: "POST",
+        url: "../Controladores/ControladorAjaxEliminar.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        
+        success:function(r){
+         
+
+        if(r==1){
+        
+           // $(".table").load("../Vistas/usuarios.php");
+            toastr.success("Eliminado");
+    }
+          else if(r!=1){
+           
+              alert("diferente "+r);
+              
+          }
+            else{
+              //  $("#table").load();
+                
+                alert("Error -> "+r  );}
         
     }
+        
+        
+    });
+        
+    }
+     
+    
     </script>
 </head>      
 <body class="app sidebar-mini rtl">
@@ -68,17 +104,21 @@ confirm.set({transition:'fade'});
           <div class="tile">
             
             <h3 class="tile-title">Usuarios Registrados</h3>
-             <div class="box input-group" style="margin-left:25px;">
-             
-  <div class="container-2">
-        <span class="icon"><i class="fa fa-search"></i></span>
-        <input  type="search" id="search" />
-           </div>
-        </div>
+            <!-- Search form -->
+            <div class="col-md-5">
+                <form class="form-inline md-form form-sm" >
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input id="search" class="form-control form-control ml-3 w-75" type="text" placeholder="Buscar" >
+</form>
+                
+            </div>
+
+
+            
             
           
           
-        
+        <div class="table table-responsive">
             <table id="table"  class="table table-striped">
               <thead>
                 <tr>
@@ -99,15 +139,15 @@ confirm.set({transition:'fade'});
                   $mostrar->vistaUsuariosController();
                   #------------------------------------------
                   /*
-                  aqui se mandara a llamar la funcion para eliminar usuarios
-                  */
-                  $mostrar->borrarUsuarioController();
+                 
                   ?>
                
-                 
+                 */
+                  ?>
                 
               </tbody>
             </table>
+              </div>
           </div>
         </div>
         
@@ -146,54 +186,29 @@ confirm.set({transition:'fade'});
       
       <!-- modal para modificar los datos de los usuarios  solo los hice de prueba por si los necesitaba-->
        
-       <div class="modal" id="datosUsuario">
-  <div class="modal-dialog modal-lg">
+       <div class="modal" id="modalValidar">
+  <div class="modal-dialog modal-md">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Actualizar Datos de Usuario </h4>
+        <h4 class="modal-title">Eliminar </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-      
-       
-                  <div class="row mb-4">
-                    <div class="col-md-4">
-                      <label>Nombre Completo</label>
-                      <input id="updateNombre" name="updateNombre" class="form-control" type="text">
-                    </div>
-                    <div class="col-md-4">
-                      <label>Telefono</label>
-                      <input id="updateTelefono" name="updateTelefono" class="form-control" type="text">
-                    </div>
-                     <div class="col-md-4">
-                      <label>Email</label>
-                      <input id="updateEmail" name="updateEmail" class="form-control" type="email">
-                    </div>
-                  </div>
-                  <div class="row">
-                   
-                    <div class="clearfix"></div>
-                    <div class="col-md-12">
-                      <label>Dirección</label>
-                      <input id="updateDireccion" name="updateDireccion" class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-4">
-                      <label>Nombre de Usuario</label>
-                      <input id="updateUsername" name="updateUsername" class="form-control" type="text">
-                    </div>
-                    
-                    <div class="col-md-4">
-                      <label>Contraseña</label>
-                      <input id="updatePass" name="updatePass" class="form-control" type="password" placeholder="Escriba la nueva contraseña" required>
-                    </div>
-                  </div>
-                 <input id="id" name="id" type="hidden" >
-                
+      <div class="row">
+                 <div> 
+                 <img src="../images/pregunta.png" alt="">
+                 </div>
+                 
+              <label for="nombreU" style="font-size:16px;">¿Desea eliminar a :  </label>
+                <b><p id="nombreU" style="font-size:16px;"></p></b>
+          
+    
+                 <input id="idDelete" name="idDelete" type="hidden" >
+                </div>
        
          
             
@@ -205,10 +220,10 @@ confirm.set({transition:'fade'});
      
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
         |
-        <button type="button" class="btn btn-info" data-dismiss="modal">
-        <i class="fa fa-undo"></i> Atras</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Cancelar</button>
       </div>
 
     </div>
@@ -223,7 +238,7 @@ confirm.set({transition:'fade'});
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/toastr.js"></script>
+    
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     
@@ -282,46 +297,36 @@ toastr.options = {
     //---Funcion para detectar el clic y obtener los datos
       $("table tbody tr").click(function() {
           //---se obtiene el indice de la tabla
-  var nombre = $(this).find("td:eq(0)").text();
-  var telefono=$(this).find("td:eq(1)").text();
-  var direccion=$(this).find("td:eq(2)").text();
-  var usuario=$(this).find("td:eq(3)").text();  
+ var nombre=$(this).find("td:eq(0)").text();
   var id=$(this).find("td:eq(6)").text(); 
+           
           
           //---poniendo los datos en los inputs del modal
           
-          $('#updateNombre').val(nombre);
-          $('#updateTelefono').val(telefono);
-          $('#updateDireccion').val(direccion);
-          $('#updateUsername').val(usuario);
-          $('#id').val(id);
-          //--falta la accion para actualizar email
-          $("#updateEmail").val("falta este item");
+         
+        
+          $("#nombreU").text(nombre+"?");
+          $("#idDelete").text(id);
   
 });
     </script>
     
-    <script type="text/javascript">
-    $(document).ready(function(){
-        
-        $('#btnGuardarNuevo').click(function(){
-            //---se obtienen los datos del modal
-            ///---alert("entra al boton");
+    
+    
+    <script>
+    
+        $(document).ready(function(){
             
-            nombreUpdate=$('#updateNombre').val();
-            telefonoUpdate=$('#updateTelefono').val();
-            direccionUpdate=$('#updateDireccion').val();
-            userUpdate=$('#updateUsername').val();
-            passUpdate=$('#updatePass').val();
-            idUpdate=$('#id').val();
-            //---luego se llama la funcion que esta en Vistas/js/validarRegistro.js
-           actualizar(idUpdate,nombreUpdate,telefonoUpdate,direccionUpdate,userUpdate,passUpdate);
+            $("#btnEliminar").click(function(){
+                
+                var idEliminar=$("#idDelete").text();
+            eliminar(idEliminar);
+                
+            });
+            
         });
-    });
-    
+        
     </script>
-    
-    
     
     </body>
 </html>

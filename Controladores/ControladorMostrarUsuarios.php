@@ -20,9 +20,9 @@ class MostrarUsuariosController{
                   <td>Si</td>
                   
                   <td><a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
-                  <a href="usuarios.php?idb='.$item["idpersonal"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-trash-o"></i></a>
                   </td>
-                 
+                 <td hidden>'.$item["idpersonal"].'</td>
                 </tr>
         
         ';
@@ -34,6 +34,10 @@ class MostrarUsuariosController{
     #------------------------------
     public function borrarUsuarioController(){
         if(isset($_GET["idb"])){
+            
+            
+            
+            
             $idController=$_GET["idb"];
             
             $respuesta=MostrarUsuarios::borrarUsarioModel($idController,"tpersonal");
