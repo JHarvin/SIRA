@@ -123,7 +123,7 @@ alertify.defaults.theme.input = "form-control";
                         maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required >
                     </div>
                     <div class="col-md-4">
-                      <label for="Telefono">Telefono</label>
+                      <label for="Telefono">Teléfono</label>
                       <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required>
                     </div>
                      <div class="col-md-4">
