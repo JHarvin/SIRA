@@ -79,18 +79,25 @@ class RegistrarVehiculoController{
                   <td>'.$item["numeromotor"].'</td>
                   <td>'.$item["numerochasis"].'</td>
                   <td>'.$item["tipocombustible"].'</td>
-                  <td class="bg-info"><i class="icon fa fa-road fa fa-2x"></i>
+                  <td class="bg-info"><i class="icon fa fa-road fa fa-3x"></i>
 
-<b>Alquilado</b></td>
-                  <td><a href="#" id="btnEditar" name="btnEditar" class="btn btn-info"><i class="fa fa-edit"></i></a>
-                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-trash-o"></i></a>
+</td>
+                  <td>
+                  <div class="btn-group" role="group">
+                  
+                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-truck"></i></a>
+                  
+                   <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-edit"></i></a>
+                  
+                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-trash-o"></i></a>
+                  </div>
                   </td>
-                 <td></td>
+                 <td hidden>'.$item["imagen"].'</td>
                 </tr>
         
         ';
         }
-        
+        //-----------------FALTA AGREGAR IMAGEN<-------------<--------<-------
     }
     
     

@@ -28,16 +28,26 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
        
        <div class="row">
       <div class="col-md-12">
+         
           <div class="tile">
             
             <h3 class="tile-title">Vehiculos</h3>
+             <div class="col-md-5" style="float:right;">
+                 <i class="fa fa-road"></i>
+                    <label>Vehiculo alquilado</label>
+                    
+                <i class="fa fa-ban"></i>
+                <label>Vehiculo en mantenimiento</label>
+                 
+             </div>
              <div class="col-md-5">
                 <form class="form-inline md-form form-sm" >
     <i class="fa fa-search" aria-hidden="true"></i>
     <input id="search" class="form-control form-control ml-3 w-75" type="text" placeholder="Buscar" >
 </form>
-                
+        
             </div>
+       
             <div class="table table-responsive">
             <table id="table"  class="table table-striped">
               <thead>
@@ -73,32 +83,52 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
       </div>
       </main>
       
-      <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
+      
+       <!-- Modal para eliminar vehiculo -->
+      <div class="modal" id="modalEliminar">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn close" data-dismiss="modal"></button>
-        <h4 class="modal-title">Modificar Username</h4>
-      </div>
-      <div class="modal-body">
-        <p>Username anterior. </p>
-        
-         <div class="form-group">
-                  <label class="control-label">Usuario</label>
-                  <input class="form-control" type="text" placeholder="Nombre de usuario nuevo">
-                </div>
-      </div>
-      <div class="modal-footer">
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Actualizar</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
-      </div>
-    </div>
 
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+     
+              <div><img src="../images/pregunta.png" alt=""></div>
+         <label>¿Desea Eliminar este vehiculo?</label> <b><p id="nombrePl"></p> Placas: <p id="numeroPl"></p> </b>
+           
+          
+                 
+                
+                
+       
+         
+            
+              
+          </div>
+          
+          
+          
+     
+      <!-- Modal footer -->
+      <div class="modal-footer">
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+        |
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Cancelar</button>
+      </div>
+
+    </div>
   </div>
 </div>
+      
+      
+      <!-- Modal -->
+ 
      
        
       
@@ -146,5 +176,26 @@ toastr.options = {
   $('#search').quicksearch('table tbody tr');								
 });
     </script>
+    
+    <script>
+    //--------pone los datos en el modal
+        
+        //---Funcion para detectar el clic y obtener los datos
+      $("table tbody tr").click(function() {
+          //---se obtiene el indice de la tabla
+ var placa=$(this).find("td:eq(1)").text();
+  var nombre=$(this).find("td:eq(2)").text(); 
+           
+          
+          //---poniendo los datos en los inputs del modal
+          
+         
+        
+         $("#numeroPl").text(placa);
+        $("#nombrePl").text(nombre);
+      });
+        
+    </script>
+    
     </body>
 </html>
