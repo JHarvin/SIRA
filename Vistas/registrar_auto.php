@@ -149,7 +149,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
               <form method="post" onsubmit="return validarVehiculo();">
               <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="">Numero de placa</label>
+      <label for="nplaca">Numero de placa</label>
       <input type="text" class="form-control" id="nplaca" name="nplaca" placeholder="Numero de placa" required>
     </div>
     <div class="form-group col-md-6">
@@ -186,10 +186,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
       <label for="tcombustible">Tipo de combustible</label>
       <input id="tcombustible" name="tcombustible" type="text" class="form-control" placeholder="Tipo de combustible" required>
     </div>
-    <div class="form-group col-md-6">
-      <label for="costo">costo por dia de alquiler</label>
-      <input type="text" class="form-control" id="costo" name="costo" placeholder="costo por dia de alquiler" required>
-    </div>
+   
      
      
      <div class="form-group col-md-6">

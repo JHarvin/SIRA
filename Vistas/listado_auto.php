@@ -1,8 +1,11 @@
-!DOCTYPE html>
+<?php
+#--------se cambiara para usar ajax-----------------
+require_once"../Controladores/ControladorRegistrarVehiculo.php";
+?>
 <html lang="es">
 <head>
 
-    <title>Clientes registrados</title>
+    <title>Vehiculos</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +30,7 @@
       <div class="col-md-12">
           <div class="tile">
             
-            <h3 class="tile-title">Listado de autos registrados</h3>
+            <h3 class="tile-title">Vehiculos</h3>
              <div class="col-md-5">
                 <form class="form-inline md-form form-sm" >
     <i class="fa fa-search" aria-hidden="true"></i>
@@ -35,58 +38,33 @@
 </form>
                 
             </div>
+            <div class="table table-responsive">
             <table id="table"  class="table table-striped">
               <thead>
                 <tr>
-                  <th>Modelo</th>
-                  <th>Numero de placa</th>
-                   <th>Marca</th>
-                  <th>Tipo</th>
-                  <th>Color</th>
-                  <th>Numero de motor</th>
-                  <th>Tipo de combustible</th>
-                  <th>Costo de alquiler por dia</th>
+                 <th></th>
+                  <th>NUMERO DE PLACA</th>
+                  <th>MARCA,MODELO,AÑO</th>
+                   <th>TIPO</th>
+                  <th>COLOR</th>
+                  <th>NUMERO DE MOTOR</th>
+                  <th>NUMERO DE CHASIS</th>
+                  <th>COMBUSTIBLE</th>
+                  <th>ESTADO</th>
                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>H</td>
-                  <td>75644
-                  <button class="btn btn-primary" type="button" ><i class="fa fa-fw fa-lg fa fa-pencil-square-o"></i></button>
-                  </td>
-                  <td>Seador
-                  <button class="btn btn-primary" type="button" ><i class="fa fa-fw fa-lg fa fa-pencil-square-o"></i></button>
-                  </td>
-                  <td>05049807-4
-                  <button class="btn btn-primary" type="button" ><i class="fa fa-fw fa-lg fa fa-pencil-square-o"></i></button>
-                  </td>
-                  <td>09004033 
-                  <button class="btn btn-primary" type="button" ><i class="fa fa-fw fa-lg fa fa-pencil-square-o"></i></button>
-                  </td>
-                  <td>M
-                  <button class="btn btn-primary" type="button" ><i class="fa fa-fw fa-lg fa fa-pencil-square-o"></i></button>
-                  </td>
-                  <td>M
-                  <button class="btn btn-primary" type="button" ><i class="fa fa-fw fa-lg fa fa-pencil-square-o"></i></button>
-                  </td>
-                  <td>M
-                  <button class="btn btn-primary" type="button" ><i class="fa fa-fw fa-lg fa fa-pencil-square-o"></i></button>
-                  </td>
-                  <td>
-                    <div>
-                    <button class="btn btn-warning" type="button" ><i class="fa fa-fw fa-lg fa fa-wrench"></i></button>
-                     
-                      
-                      
-                       <button class="btn btn-info" type="button" ><i class="fa fa-fw fa-lg fa fa-trash-o"></i></button>
-                       </div>
-                  </td>
-                </tr>
+                <?php 
+                  $mostrar=new RegistrarVehiculoController();
+                  $mostrar->mostrarVehiculosController();
+                  
+                  ?>
                  
                  
               </tbody>
             </table>
+            </div>
           </div>
         </div>
         
