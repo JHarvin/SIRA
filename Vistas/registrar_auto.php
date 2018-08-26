@@ -1,4 +1,6 @@
-!DOCTYPE html>
+<?php
+require_once"../Controladores/ControladorRegistrarVehiculo.php";
+?>
 <html lang="es">
 <head>
 
@@ -8,13 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <!-- libreria para notificaciones toast-->
-    <link rel="stylesheet" href="../css/toastr.css">
+    <!-- libreria para notificaciones alertify-->
+    <link rel="stylesheet" href="../css/alertify.rtl.min.css">
+    <link rel="stylesheet" href="../css/themes/bootstrap.rtl.min.css">
+     
+    <script src="../js/alertify.min.js"></script>
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
- <!--para canvas-->
-    <link rel="stylesheet" type="text/css" href="../css/material-gauge.css">
-   
+ 
+   <script src="../Vistas/js/validarVehiculos.js"></script>
     <style>
     .funkyradio div {
   clear: both;
@@ -130,7 +134,9 @@
 <body class="app sidebar-mini rtl">
      <?php 
     include"menu.php";
+    //----para alertas bootstrap abajo
     ?>
+     
       <main class="app-content">
        
        
@@ -139,21 +145,22 @@
           <div class="tile">
             <h3 class="tile-title">Registro de Autos</h3>
             <div class="tile-body">
-              <form>
+             
+              <form method="post" onsubmit="return validarVehiculo();">
               <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Numero de placa</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Numero de placa">
+      <label for="">Numero de placa</label>
+      <input type="text" class="form-control" id="nplaca" name="nplaca" placeholder="Numero de placa" required>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Marca</label>
-      <input type="tel" class="form-control" id="inputPassword4" placeholder="Marca">
+      <label for="marca">Marca</label>
+      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca" required>
     </div>
     
     <!--tipo de carro y color-->
      <div class="form-group col-md-6">
       <label for="tipo">Tipo</label>
-      <select name="tipo" id="tipo" class="form-control">
+      <select name="tipo" id="tipo" class="form-control" required>
           <option value="sedan">sedan</option>
           <option value="pick up">pick up</option>
           <option value="camioneta">camioneta</option>
@@ -161,33 +168,33 @@
     </div>
     <div class="form-group col-md-6">
       <label for="color">Color</label>
-      <input type="text" class="form-control" id="color" placeholder="color">
+      <input type="text" class="form-control" id="color" name="color" placeholder="color" required>
     </div>
     
     
     <div class="form-group col-md-6">
       <label for="numero_motor">Numero de motor</label>
-      <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Numero de motor">
+      <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Numero de motor" required>
     </div>
     <div class="form-group col-md-6">
       <label for="color">Numero de chasis</label>
-      <input type="text" class="form-control" id="color" placeholder="numero de chasis">
+      <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" required>
     </div>
     
     
     <div class="form-group col-md-6">
-      <label for="numero_motor">Tipo de combustible</label>
-      <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Tipo de combustible">
+      <label for="tcombustible">Tipo de combustible</label>
+      <input id="tcombustible" name="tcombustible" type="text" class="form-control" placeholder="Tipo de combustible" required>
     </div>
     <div class="form-group col-md-6">
-      <label for="color">costo por dia de alquiler</label>
-      <input type="text" class="form-control" id="color" placeholder="costo por dia de alquiler">
+      <label for="costo">costo por dia de alquiler</label>
+      <input type="text" class="form-control" id="costo" name="costo" placeholder="costo por dia de alquiler" required>
     </div>
      
      
      <div class="form-group col-md-6">
          <label for="imagen">Seleccione imagen</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen" name="imagen">
+ <input type="file" class="form-control" placeholder="imagen" id="imagen" name="imagen" required>
          
      </div>
      
@@ -197,15 +204,18 @@
   
   
   
-  
+          <div class="tile-footer">
+              <button class="btn btn-primary" type="submit" ><i class="fa fa-fw fa-lg fa-check-circle"></i>Guardar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary" ><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</button>
+            </div>
 
-               
+               <?php 
+                  $registrar=new RegistrarVehiculoController();
+                  $registrar->registrarVController();
+                  ?>
                
               </form>
             </div>
-            <div class="tile-footer">
-              <button class="btn btn-primary" type="button" onclick="return alerta();" data-toggle="modal" data-target="#mAlquilar"><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
-            </div>
+          
           </div>
         </div>
         
@@ -217,6 +227,8 @@
       
       
       <!-- Modal -->
+ 
+
 
 <!-- para confirmar si al finalizar registro desea alquilar de una vez-->
      
@@ -230,63 +242,10 @@
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
     
-    <!--para canvas-->
-    
- <script src="/js/material-gauge.js"></script>
- <script src="/js/material-gauge.js"></script>
-		<script>
-
-			var gauge = new Gauge(document.getElementById("gauge"));
-
-            
-            
-			gauge.value(0.15);
-            
-
-		</script>
-    <script type="text/javascript">
-$(document).ready(function()
-	{
-	$('#gasbtn').click(function () {
-	//saco el valor accediendo a un input de tipo text y name = nombre2 y lo asigno a uno con name = nombre3 
-        
-	var gas=document.getElementById("gas").value;
-        var gauge = new Gauge(document.getElementById("gauge"));
-        gauge.value(gas);
-        
-        
-	});		
-});
-</script>
+   
+ 
     <!--fin canvas-->
-    <script>
-     function alerta(){
-        toastr.success("Usuario Guardado");
-
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-full-width",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
-          
-
-          
-      }
-        
-        
-    </script>
+   
     
     <script>
     // para lista seleccionable

@@ -28,12 +28,13 @@
           <div class="tile">
             
             <h3 class="tile-title">Listado de autos registrados</h3>
-             <div class="box input-group" style="margin-left:25px;">
-  <div class="container-2">
-      <span class="icon"><i class="fa fa-search"></i></span>
-        <input  type="search" id="search" />
-           </div>
-        </div>
+             <div class="col-md-5">
+                <form class="form-inline md-form form-sm" >
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input id="search" class="form-control form-control ml-3 w-75" type="text" placeholder="Buscar" >
+</form>
+                
+            </div>
             <table id="table"  class="table table-striped">
               <thead>
                 <tr>
@@ -82,18 +83,8 @@
                        </div>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+                 
+                 
               </tbody>
             </table>
           </div>
