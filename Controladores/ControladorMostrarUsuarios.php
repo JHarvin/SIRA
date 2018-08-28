@@ -7,7 +7,10 @@ class MostrarUsuariosController{
         $respuesta=MostrarUsuarios::vistaUsuarioModel("tpersonal");
         
         foreach($respuesta as $row =>$item){
-        
+        if($item["status"]==1){
+$habilitado="Activo";
+
+        }else{$habilitado="Inactivo";}
         echo'
         
         <tr>
@@ -17,7 +20,8 @@ class MostrarUsuariosController{
                   </td>
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["username"].'</td>
-                  <td>Si</td>
+                  <td>'.$habilitado.'</td>
+                 
                   
                   <td><a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-trash-o"></i></a>
