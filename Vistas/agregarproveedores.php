@@ -1,6 +1,6 @@
 
 <?php 
-require_once"../Controladores/ControladorRegistroUsuarios.php";
+require_once"../Controladores/ControladorRegistrarProveedor.php";
 ?>
 
 
@@ -93,12 +93,12 @@ alertify.defaults.theme.input = "form-control";
             <div class="tile-body">
               <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-6">
-                  <label class="control-label" for="nombre">Nombre</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+                  <label class="control-label" for="nombre">Nombre de proveedor</label>
+                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Nombre..." maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
                 </div>
                 <div class=" col-md-6">
                   <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
+                  <input id="telefono" name="telefono" class="form-control" type="telefono" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email" class="control-label">E-mail</label>
@@ -107,8 +107,9 @@ alertify.defaults.theme.input = "form-control";
                 
                 
                 <div class="form-group col-md-6">
-                  <label for="email" class="control-label">Direccion</label>
-                  <input type="text" class="form-control" placeholder="email" id="email" name="email" value="" required >
+                  <label for="direccion" class="control-label">Direccion</label>
+                  <input type="direccion" class="form-control" 
+                  placeholder="Direccion" id="direccion" name="direccion"  required >
                 </div>
                 
                 
@@ -123,8 +124,8 @@ alertify.defaults.theme.input = "form-control";
               
               <?php 
                 #--para guardar registros se llama a la clase y funcion
-                $registro= new RegistrarUsuarioController();
-                $registro->registrarController();
+                $registro= new proveedorcontrolador();
+                $registro->registrarProveedor();
                 
                 ?>
               
