@@ -101,19 +101,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
               <div><img src="../images/pregunta.png" alt=""></div>
          <label>¿Desea Eliminar este vehiculo?</label> <b><p id="nombrePl"></p> Placas: <p id="numeroPl"></p> </b>
            
-          
-                 
-                
-                
-       
-         
-            
               
           </div>
           
-          
-          
-     
       <!-- Modal footer -->
       <div class="modal-footer">
       <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
@@ -127,8 +117,38 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
 </div>
       
       
-      <!-- Modal -->
- 
+      <!-- Modal  PARA PONER IMAGEN DEL CARRO-->
+ <div class="modal" id="modalDetalle">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Detalle </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+     
+              <div id="img" name="img">
+         <img id="imagen" src="" alt="">
+        
+           
+              
+          </div>
+          
+      <!-- Modal footer -->
+      <div class="modal-footer">
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+        |
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
      
        
       
@@ -185,14 +205,26 @@ toastr.options = {
           //---se obtiene el indice de la tabla
  var placa=$(this).find("td:eq(1)").text();
   var nombre=$(this).find("td:eq(2)").text(); 
-           
-          
-          //---poniendo los datos en los inputs del modal
+    //----obteniendo la imagen de la tabla (td hidden) 
+        var  imagen=$(this).find("td:eq(10)").text();
+          //---poniendo los datos en los inputs del modal de eliminar
           
          
         
          $("#numeroPl").text(placa);
         $("#nombrePl").text(nombre);
+          
+          //---poniendo imagen en el modal detalles (es el boton con el icono de admiracion)
+          var imagenA = new Image();
+imagenA.onload = imagenCargada;
+imagenA.src = imagen;
+          
+          
+          
+          
+          $("#img").appendChild(imagenA);
+          
+            
       });
         
     </script>

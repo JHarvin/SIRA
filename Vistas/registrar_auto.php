@@ -146,7 +146,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
             <h3 class="tile-title">Registro de Autos</h3>
             <div class="tile-body">
              
-              <form method="post" onsubmit="return validarVehiculo();">
+              <form method="post" enctype="multipart/form-data"     onsubmit="return validarVehiculo();">
               <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nplaca">Numero de placa</label>

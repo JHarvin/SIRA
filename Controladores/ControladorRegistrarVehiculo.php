@@ -16,8 +16,8 @@ class RegistrarVehiculoController{
         "numero_motor"=>$_POST["numero_motor"],
         "chasis"=>$_POST["chasis"],
         "tcombustible"=>$_POST["tcombustible"],
-        
-        "imagen"=>$_POST["imagen"] );
+        "nombreimagen"=>$_FILES["imagen"]["name"],
+        "imagen"=>$_FILES["imagen"]["tmp_name"]);
            
              
            $respuesta=VehiculosModel::registroVehiculoModel($datosController,"tvehiculos");
@@ -69,7 +69,7 @@ class RegistrarVehiculoController{
         echo'
         
         <tr>
-        <td><a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalVer" ><i class="fa fa-info-circle"></i></a></td>
+        <td><a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalDetalle" ><i class="fa fa-info-circle"></i></a></td>
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].'
                   

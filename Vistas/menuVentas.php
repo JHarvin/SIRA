@@ -45,13 +45,24 @@
             <li><a class="treeview-item" href="agregarProducto.php"><i class="icon fa fa-circle-o"></i> Agregar Baterias</a></li>
            
             
-           
+        
           </ul>
         </li>
         
         
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Reportes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Proveedores</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+           
+           
+            
+            <li><a class="treeview-item" href="agregarproveedores.php"><i class="icon fa fa-circle-o"></i> Agregar Proveedores</a></li>
+            <li><a class="treeview-item" href="mostrarProveedores.php"><i class="icon fa fa-circle-o"></i> Mostrar Proveedores</a></li>
+            
+          </ul>
+        </li>
+        
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Reportes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
            
            
