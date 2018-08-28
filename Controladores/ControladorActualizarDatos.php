@@ -33,7 +33,9 @@ class ActualizarDatosController{
                     "telefono"=>$_POST["Telefono"],
                     "direccion"=>$_POST["Direccion"],
                     "username"=>$_POST["Username"],
-                    "password"=>$_POST["Pass"]);
+                    "password"=>$_POST["Pass"],
+                    "status"=>$_POST["status"]
+                );
             
             $respuesta=EditarUsuario::actualizarUsuarioModel($dato,"tpersonal");
             

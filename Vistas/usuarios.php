@@ -126,7 +126,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>Teléfono</th>
                    <th>Dirección</th>
                   <th>Nombre de usuario</th>
-                  <th>Contraseña</th>
+                  <th> Estado</th>
                   <th>Acción</th>
                  
                 </tr>

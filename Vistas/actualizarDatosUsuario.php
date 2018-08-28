@@ -151,6 +151,24 @@ alertify.defaults.theme.input = "form-control";
                     </div>
                   </div>
                  <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idpersonal"]; ?>" >
+                   <div class="form-group">
+
+              <label for="status">Estado</label>
+                <select class="form-control" name="status">
+                  <?php if ($datosVista["status"] === 1) {
+                    # code...
+                    echo '<option  value="1"> Inactivo</option>';
+                    echo '<option value="0">activo</option>';
+
+                  }
+                  else{
+                  echo '<option  value="0">activo</option>';
+                  echo '<option  value="1">Inactivo</option>';
+}
+                   ?>
+                  
+                </select>
+            </div>
                  
                   <!-- Modal footer -->
       <div class="tile-footer">
