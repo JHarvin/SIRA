@@ -18,6 +18,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 
+ 
+
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
@@ -32,6 +34,10 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
           <div class="tile">
             
             <h3 class="tile-title">Vehiculos</h3>
+            
+            	 
+            
+            
              <div class="col-md-5" style="float:right;">
                  <i class="fa fa-road"></i>
                     <label>Vehiculo alquilado</label>
@@ -40,6 +46,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
                 <label>Vehiculo en mantenimiento</label>
                  
              </div>
+             
+             		
+             
              <div class="col-md-5">
                 <form class="form-inline md-form form-sm" >
     <i class="fa fa-search" aria-hidden="true"></i>
