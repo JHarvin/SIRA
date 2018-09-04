@@ -33,32 +33,44 @@
          <form>
   <div class="form-row">
          <div class="form-group col-md-6">
-      <label for="tipo">Proveedor</label>
-      <select name="tipo" id="tipo" class="form-control" required>
-          <option value="sedan">American</option>
+      <label for="idproveedor"></label>
+      <select name="idproveedor" id="idproveedor" class="form-control" required>
+          <option  value="american">American</option>
          
       </select>
     </div>
+ 
+                           
     <div class="col">
-      <input type="text" class="form-control" placeholder="Código">
+      <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
+      type="codigo" maxlength="5" value=""  required>
     </div>
     <div class="col-7">
-      <input type="text" class="form-control" placeholder="Tipo de bateria">
+      <input id="tipo" name="tipo" type="tipo" class="form-control" placeholder="Tipo de bateria"
+       type="tipo"  value="" required>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Precio de compra">
+      <input id="precio_unitario" name="precio_unitario" type="precio_unitario" 
+      type="text" class="form-control" placeholder="Precio de compra"  value="" required>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Cantidad">
+      <input id="en_existencias" name="en_existencias" type="en_existencias" type="en_existencias" 
+      class="form-control" placeholder="Cantidad" value="" required>
     </div>
-    
+    <div class="col">
+      <input id="precio_venta" name="precio_venta" type="precio_venta" type="precio_venta" 
+      class="form-control" placeholder="Precio venta" value="" required>
+    </div>
+    <br>
+     
     
   </div>
   <br>
   <div class="form-row">
     
     <div class="col-2">
-      <input type="text" class="form-control" placeholder="Precio de venta">
+      <input  id="fehcha_venta" name="fecha_venta" type="fecha_venta" 
+      type="text" class="form-control" placeholder="Precio de venta">
     </div>
    
    
@@ -73,6 +85,13 @@
        <button class="btn btn-primary">Agregar producto</button>
        
    </div> 
+    <?php 
+                #--para guardar registros se llama a la clase y funcion
+                $registro= new RegistrarBateriasController();
+                $registro->registrarBaterias();
+                
+                ?>
+              
   
 </form>
                
