@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html lang="es">
  <head>
- <title>Inicio</title>
+ <title>Registro Baterias</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +18,8 @@
  <main class="app-content">
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-inbox"></i> Cajero : Administrador</h1>
-          <p>Rent a car chacon</p>
+          <h1><i class="fa fa-inbox"></i> Administrador : Registrar baterias</h1>
+          <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           
@@ -29,17 +29,21 @@
 <div class="row">
        <div  class="col-md-12">
            <div class="card">
-          <div class="card-title">
-              <h4>Agregar baterias</h4>
-          </div>
+          
          <form>
   <div class="form-row">
-    
+         <div class="form-group col-md-6">
+      <label for="tipo">Proveedor</label>
+      <select name="tipo" id="tipo" class="form-control" required>
+          <option value="sedan">American</option>
+         
+      </select>
+    </div>
     <div class="col">
       <input type="text" class="form-control" placeholder="Código">
     </div>
     <div class="col-7">
-      <input type="text" class="form-control" placeholder="Descripcion del producto o nombre del producto">
+      <input type="text" class="form-control" placeholder="Tipo de bateria">
     </div>
     <div class="col">
       <input type="text" class="form-control" placeholder="Precio de compra">
@@ -66,7 +70,7 @@
   </div>
   
    <div class="card-footer">
-       <button class="btn btn-primary">Agregar Producto</button>
+       <button class="btn btn-primary">Agregar producto</button>
        
    </div> 
   
@@ -81,7 +85,7 @@
                 <tr>
                   <th>Código</th>
                   <th>Descripción</th>
-                   <th>Precio Unitario</th>
+                   <th>Precio unitario</th>
                   <th>Cantidad</th>
                   <th>Importe</th>
                   <th></th>
@@ -106,7 +110,7 @@
               <h3> <label>Total:</label></h3>
                <div class="card-footer">
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
-                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar Compra</button>
+                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar compra</button>
                </div>
            </div>
            
