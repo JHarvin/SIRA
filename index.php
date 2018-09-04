@@ -3,6 +3,7 @@
 require_once "Modelos/ModeloLogin.php";
 require_once "Modelos/ModeloRegistrarUsuario.php";
 require_once "Controladores/ControladorLogin.php";
+require_once"Modelos/ModeloProveedores.php";
 
 
 //salida de las vistas al usuario

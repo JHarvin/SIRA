@@ -2,7 +2,7 @@
 
 
 
-require_once "../Controladores/ControladorMostrarUsuarios.php";
+require_once "../Controladores/ControladorRegistrarProveedor.php";
 
 /*
 if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
@@ -25,7 +25,7 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
 <html lang="es">
 <head>
 
-    <title>Mostrar Usuarios</title>
+    <title>Mostrar Proveedores</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -125,7 +125,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>Nombre</th>
                   <th>Teléfono</th>
                    <th>Email</th>
-                  <th>Direccion</th>
+                  <th>Dirección</th>
                  
                  
                 </tr>
@@ -133,15 +133,12 @@ alertify.defaults.theme.input = "form-control";
               <tbody>
                
                <?php 
-                  #--Llamamos al controlador antes instanciando la clase
-                 
-                  #------------------------------------------
-                  /*
-                 
+                   
+                  $proveedor=new RegistrarProveedorController();
+                  $proveedor->mostrarProveedores();
+                  
                   ?>
-               
-                 */
-                  ?>
+                  
                 
               </tbody>
             </table>
