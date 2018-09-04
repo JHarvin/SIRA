@@ -27,6 +27,7 @@ require_once"../Controladores/ControladorClientes.php";
        
        <div class="row">
       <div class="col-md-12">
+
           <div class="tile">
             
             <h3 class="tile-title">Clientes</h3>

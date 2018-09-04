@@ -2,6 +2,7 @@
 require_once"../Controladores/ControladorClientes.php";
 ?>
 <html lang="es">
+<script src="js/validarRegistro.js"></script>
 <head>
 
     <title>Registro de cliente</title>
@@ -133,8 +134,9 @@ require_once"../Controladores/ControladorClientes.php";
   background-color: #5bc0de;
 }
     </style> 
-   
-</head>      
+     <script src="js/validarRegistro.js"></script>
+</head> 
+<script src="js/validarRegistro.js"></script>     
 <body class="app sidebar-mini rtl">
      <?php 
     include"menu.php";
@@ -153,9 +155,9 @@ require_once"../Controladores/ControladorClientes.php";
       <label for="nombre">Nombre</label>
       <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo">
     </div>
-    <div class="form-group col-md-6">
+    <div class=" col-md-6">
       <label for="telefono">Telefono</label>
-      <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono 7663-4444">
+      <input id="telefono" name="telefono" class="form-control" type="telefono" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
     </div>
     
     <!--Dui y licencia de conducir-->
@@ -167,9 +169,7 @@ require_once"../Controladores/ControladorClientes.php";
       <label for="licencia">N° Licencia de conducir</label>
       <input type="text" class="form-control" id="licencia" name="licencia" placeholder="N° de licencia">
     </div>
-    
-     
-     
+       
   </div>
   
  
@@ -576,6 +576,17 @@ toastr.options = {
         
        
     </script>
+     <script type="text/javascript">
+      
+      jQuery(function($){
+                 // Definimos las mascaras para cada input
+                 
+                 $("#telefono").mask("9999-9999");
+                 
+             });
+               
+             
+         </script>
     
     </body>
 </html>
