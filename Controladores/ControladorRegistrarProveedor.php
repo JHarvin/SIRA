@@ -2,51 +2,96 @@
 #Clase para registrar un nuevo proveedor
 require_once"../Modelos/ModeloProveedores.php";
 
- class proveedorcontrolador 
-{
+ class RegistrarProveedorController
+ {
 	public function registrarProveedor(){
    
-   if(isset($_POST["nombre"])){
-           
-            $datosController =array(
-                "nombre"=>strtoupper($_POST["nombre"]),
-                 "telefono"=>$_POST["telefono"], 
-                 "email"=>$_POST["email"],
-                 "direccion"=>$_POST["direccion"]);
+    if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && 
+          isset($_POST["telefono"]) && !empty($_POST["telefono"]) && 
+          isset($_POST["email"]) && !empty($_POST["email"]) &&
+           isset($_POST["direccion"]) && !empty($_POST["direccion"])
+          ){
 
 
-                 $respuesta=DatosProveedor::registroProveedorModel($datosController,"tproveedores");
-        if( $respuesta=="success"){
+       
+            
+   $datosProveedorController =array("nombre"=>strtoupper($_POST["nombre"]), 
+          "telefono"=>$_POST["telefono"], 
+        "email"=>$_POST["email"],
+        "direccion"=>$_POST["direccion"]);
+
+     
+  $respuesta=DatosProveedor::registroProveedorModel($datosProveedorController,"tproveedores");
+   
+   if( $respuesta=="success"){
             echo' 
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-center");
 
-          alertify.success("  ¡Proveedor Registado! ✔ ");
+          alertify.success("Registro Guardado    ✔");
 
+        
+
+
+        
             </script>
             ';
         }
-        else {
+          else {
                echo' 
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-center");
 
-          alertify.error("Algo salió mal "'.$_POST["nombre"].');
+          alertify.error("Algo salio mal :(");
 
+
+
+
+        
             </script>
             ';  
                 
             }
-     
+        
+        
+        
+        
+        }
 
 
-	}       
+	       
+        }
+        
+        public function mostrarProveedores(){
+        
+         $respuesta=DatosProveedor::mostrarProveedoresModel("tproveedores");
+        
+        foreach($respuesta as $row =>$item){
+        
+        echo'
+        
+        <tr>
+                  <td>'.$item["nombre"].'</td>
+                  <td>'.$item["telefono"].' </td>
+                  <td>'.$item["email"].'</td>
+                  <td>'.$item["direccion"].'</td>
+                 
+                  
+                  <td><a href="actualizarDatosUsuario.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="usuarios.php?idb='.$item["idproveedor"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                  </td>
+                 
+                </tr>
+        
+        ';
         }
         
         
+    }
+        
     
 }
-
+?>
 

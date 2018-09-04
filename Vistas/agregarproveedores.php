@@ -89,27 +89,31 @@ alertify.defaults.theme.input = "form-control";
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Registrar Proveedores</h3>
+            <h3 class="tile-title">Registrar Proveedor</h3>
             <div class="tile-body">
               <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-6">
-                  <label class="control-label" for="nombre">Nombre de proveedor</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Nombre..." maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+                  <label class="control-label" for="nombre">Nombre</label>
+                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Nombre" 
+                  maxlength="100"   value="" required>
                 </div>
                 <div class=" col-md-6">
-                  <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="telefono" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
+                  <label class="control-label">Teléfono</label>
+                  <input id="telefono" name="telefono" class="form-control" 
+                  type="telefono" placeholder="Ingrese número de teléfono" 
+                  maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email" class="control-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="email" id="email" name="email" value="" required >
+                  <input type="text" class="form-control" placeholder="E-mail" 
+                  id="email" name="email" value="" required >
                 </div>
                 
                 
                 <div class="form-group col-md-6">
-                  <label for="direccion" class="control-label">Direccion</label>
-                  <input type="direccion" class="form-control" 
-                  placeholder="Direccion" id="direccion" name="direccion"  required >
+                  <label for="direccion" class="control-label">Dirección</label>
+                  <input type="text" class="form-control" 
+                  placeholder="Dirección" id="direccion" name="direccion"  required >
                 </div>
                 
                 
@@ -117,18 +121,20 @@ alertify.defaults.theme.input = "form-control";
               
                
                 <div class="tile-footer">
-              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</button>
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
+              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
-               
-              </form>
-              
-              <?php 
+
+               <?php 
                 #--para guardar registros se llama a la clase y funcion
-                $registro= new proveedorcontrolador();
+                $registro= new RegistrarProveedorController();
                 $registro->registrarProveedor();
                 
                 ?>
               
+              </form>
+              
+               
             </div>
            
           </div>
@@ -160,7 +166,17 @@ alertify.defaults.theme.input = "form-control";
         
     </script>
     
-    
+  <script>
+   
+          function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+} 
+        
+    </script>
+      
     
     
    
