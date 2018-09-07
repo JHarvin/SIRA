@@ -145,7 +145,7 @@ alertify.defaults.theme.input = "form-control";
     <?php 
                 #--para guardar registros se llama a la clase y funcion
               $registro= new RegistrarBateriasController();
-             // $registro->registrarBaterias();
+              $registro->registrarBaterias();
               
                 
                 ?>

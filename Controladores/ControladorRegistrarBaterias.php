@@ -7,24 +7,24 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
     public function registrarBaterias(){  
 
    
-    if(isset($_POST["codigo"]) && !empty($_POST["codigo"]) && 
-          isset($_POST["en_existencias"]) && !empty($_POST["en_existencias"]) && 
-          isset($_POST["fecha_venta"]) && !empty($_POST["fecha_venta"]) &&
-           isset($_POST["idproveedor"]) && !empty($_POST["idproveedor"]) &&
-            isset($_POST["precio_unitario"]) && !empty($_POST["precio_unitario"]) &&
+    if(isset($_POST["tipo"]) && !empty($_POST["tipo"]) && 
+          isset($_POST["codigo"]) && !empty($_POST["codigo"]) && 
+          isset($_POST["en_existencias"]) && !empty($_POST["en_existencias"]) &&
+           isset($_POST["precio_unitario"]) && !empty($_POST["precio_unitario"]) &&
+            isset($_POST["idproveedor"]) && !empty($_POST["idproveedor"]) &&
              isset($_POST["precio_venta"]) && !empty($_POST["precio_venta"]) &&
-             isset($_POST["tipo"]) && !empty($_POST["tipo"])  
+             isset($_POST["fecha_venta"]) && !empty($_POST["fecha_venta"])  
            
           ){
 
 
-   $datosBateriasController =array("codigo"=>strtoupper($_POST["codigo"]), 
-          "en_existencias"=>$_POST["en_existencias"], 
-          "fecha_venta"=>$_POST["fecha_venta"],
-          "idproveedor"=>$_POST["idproveedor"],
+   $datosBateriasController =array("tipo"=>strtoupper($_POST["tipo"]), 
+          "codigo"=>$_POST["codigo"], 
+          "en_existencias"=>$_POST["en_existencias"],
           "precio_unitario"=>$_POST["precio_unitario"],
+          "idproveedor"=>$_POST["idproveedor"],
           "precio_venta"=>$_POST["precio_venta"],
-          "tipo"=>$_POST["tipo"]);
+          "fecha_venta"=>$_POST["fecha_venta"]);
 
 
     
