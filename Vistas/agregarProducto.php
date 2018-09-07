@@ -141,17 +141,25 @@ alertify.defaults.theme.input = "form-control";
        <br>
        
    </div> 
-   <br>
+
     <?php 
                 #--para guardar registros se llama a la clase y funcion
-               $registro= new RegistrarBateriasController();
-               $registro->registrarBaterias();
+              $registro= new RegistrarBateriasController();
+             // $registro->registrarBaterias();
+              
                 
                 ?>
 </form>
                
            </div>
+            </div>
            
+          </div>
+        </div>
+        
+        
+        
+    
            <div class="card table table-responsive">
                
                <table class="table table-striped">
