@@ -18,6 +18,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
  
+ 
    <script src="../Vistas/js/validarVehiculos.js"></script>
     <style>
     .funkyradio div {
@@ -153,9 +154,11 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
       <input type="text" class="form-control" id="nplaca" name="nplaca" placeholder="Numero de placa" required>
     </div>
     <div class="form-group col-md-6">
-      <label for="marca">Marca</label>
-      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca" required>
+      <label for="marca">Marca,Modelo y Año</label>
+      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo y Año" required>
     </div>
+    
+ 
     
     <!--tipo de carro y color-->
      <div class="form-group col-md-6">
@@ -327,6 +330,14 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         
        
     </script>
+    
+    <script >
+$("#datepicker").datepicker( {
+    format: " yyyy", // Notice the Extra space at the beginning
+    viewMode: "years", 
+    minViewMode: "years"
+});
+  </script>
     
     </body>
 </html>
