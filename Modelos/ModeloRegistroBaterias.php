@@ -1,21 +1,24 @@
 <?php 
 
 require_once"Conexion.php";
+
 class DatosBaterias extends Conexion
 {
 	
 	public function registroBateriasModel($datosRegistroBateriasModel,$tabla){
 
- $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, en_existencias,  fecha_venta, precio_unitario,precio_venta,tipo,idproveedor) 
-            VALUES (:codigo,:en_existencias,:fecha_venta,:precio_unitario,
-                    :precio_venta,:tipo,:idproveedor)");
+ $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, en_existencias, fecha_venta, idproveedor,
+    precio_unitario, precio_venta, tipo) VALUES (:codigo,:en_existencias,:fecha_venta,:idproveedor,
+                    :precio_unitario,:precio_venta,:tipo)");
+
         
         $stmt->bindParam(":codigo",$datosRegistroBateriasModel["codigo"],PDO::PARAM_STR);
 
-		   $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, en_existencias, 
-            fecha_venta,precio_unitario,precio_venta,tipo,idproveedor) VALUES (:codigo,:en_existencias,:fecha_venta,:precio_unitario,
-                    :precio_venta,:tipo,:idproveedor)");
+ $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, en_existencias, fecha_venta, idproveedor,
+    precio_unitario, precio_venta, tipo) VALUES (:codigo,:en_existencias,:fecha_venta,:idproveedor,
+                    :precio_unitario,:precio_venta,:tipo)");
 
+    
 $stmt->bindParam(":codigo",$datosRegistroBateriasModel["codigo"],PDO::PARAM_STR);
 $stmt->bindParam(":en_existencias",$datosRegistroBateriasModel["en_existencias"],PDO::PARAM_STR);
 $stmt->bindParam(":fecha_venta",$datosRegistroBateriasModel["fecha_venta"],PDO::PARAM_STR);
@@ -30,7 +33,7 @@ $stmt->bindParam(":tipo",$datosRegistroBateriasModel["tipo"],PDO::PARAM_STR);
         else{ return "error";}
         
         $stmt->close();
-        
+    
 }
 
 public function mostrarBateriasModel($tabla){

@@ -1,6 +1,7 @@
 <?php 
 
 require_once"Conexion.php";
+
 class DatosProveedor extends Conexion
 {
 	
@@ -12,7 +13,8 @@ class DatosProveedor extends Conexion
         
         $stmt->bindParam(":nombre",$datosProveedorModel["nombre"],PDO::PARAM_STR);
 
-		   $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, email,direccion) VALUES (:nombre,:telefono,:email,:direccion)");
+		   $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, email,direccion) 
+            VALUES (:nombre,:telefono,:email,:direccion)");
 
 		$stmt->bindParam(":nombre",$datosProveedorModel["nombre"],PDO::PARAM_STR);
 

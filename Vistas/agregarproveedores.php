@@ -39,29 +39,20 @@ alertify.defaults.glossary.cancel = 'إلغاء';
     
 
 </script>
-
-    
     <!-- include alertify.css -->
 <link rel="stylesheet" href="../css/alertify.css">
-
 <!-- include semantic ui theme  -->
 <link rel="stylesheet" href="../css/themes/semantic.css">
-
 <!-- include alertify script -->
 <script src="../js/alertify.js"></script>
-
 <script type="text/javascript">        
 //override defaults
 alertify.defaults.transition = "zoom";
 alertify.defaults.theme.ok = "ui positive button";
 alertify.defaults.theme.cancel = "ui black button";
     
-    
 </script>
     
-    
-    
-
 <!-- include boostrap theme  -->
 <link rel="stylesheet" href="../css/themes/bootstrap.css">
 
@@ -101,14 +92,15 @@ alertify.defaults.theme.input = "form-control";
                   <label class="control-label">Teléfono</label>
                   <input id="telefono" name="telefono" class="form-control" 
                   type="telefono" placeholder="Ingrese número de teléfono" 
-                  maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
+                  maxlength="9" value="telefono" onkeypress="return validaNumericos(event);"  required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email" class="control-label">E-mail</label>
                   <input type="text" class="form-control" placeholder="E-mail" 
-                  id="email" name="email" value="" required >
+                  id="email" name="email"  required >
                 </div>
-                
+
+        
                 
                 <div class="form-group col-md-6">
                   <label for="direccion" class="control-label">Dirección</label>
@@ -174,10 +166,9 @@ alertify.defaults.theme.input = "form-control";
      }
      return false;        
 } 
-        
+      
     </script>
       
-    
     
    
     

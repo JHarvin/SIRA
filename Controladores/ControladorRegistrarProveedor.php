@@ -30,11 +30,7 @@ require_once"../Modelos/ModeloProveedores.php";
              alertify.set("notifier","position", "top-center");
 
           alertify.success("Registro Guardado    ✔");
-
-        
-
-
-        
+   
             </script>
             ';
         }
@@ -45,11 +41,7 @@ require_once"../Modelos/ModeloProveedores.php";
              alertify.set("notifier","position", "top-center");
 
           alertify.error("Algo salio mal :(");
-
-
-
-
-        
+    
             </script>
             ';  
                 
