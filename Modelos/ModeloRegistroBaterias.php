@@ -7,7 +7,7 @@ class DatosBaterias extends Conexion
 	public function registroBateriasModel($datosBateriasModel,$tabla){
 
 
-          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(tipo, codigo, en_existencias, precio_unitario,
+          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(tipo,codigo,en_existencias, precio_unitario,
             idproveedor, precio_venta, fecha_venta) 
             VALUES (:tipo,:codigo,:en_existencias,:precio_unitario,:idproveedor,:precio_venta,:fecha_venta)");
         
@@ -26,7 +26,7 @@ class DatosBaterias extends Conexion
          $stmt->bindParam(":precio_venta",$datosBateriasModel["precio_venta"],PDO::PARAM_STR);
            $stmt->bindParam(":fecha_venta",$datosBateriasModel["fecha_venta"],PDO::PARAM_STR);
 
-           
+
         if($stmt->execute()){
             return "success";
         }

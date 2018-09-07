@@ -95,7 +95,7 @@ alertify.defaults.theme.input = "form-control";
 
      <div class="form-group col-md-6">
                   <input id="idproveedor" name="idproveedor" class="form-control" type="text" placeholder="Proveedor" 
-                    value="" required>
+                    value="17" required>
                 </div>
 
       
