@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html lang="es">
  <head>
- <title>Inicio</title>
+ <title>Registro Baterias</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +18,8 @@
  <main class="app-content">
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-inbox"></i> Cajero : Administrador</h1>
-          <p>Rent a car chacon</p>
+          <h1><i class="fa fa-inbox"></i> Administrador : Registrar baterias</h1>
+          <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           
@@ -29,32 +29,48 @@
 <div class="row">
        <div  class="col-md-12">
            <div class="card">
-          <div class="card-title">
-              <h4>Agregar baterias</h4>
-          </div>
+          
          <form>
   <div class="form-row">
-    
+         <div class="form-group col-md-6">
+      <label for="idproveedor"></label>
+      <select name="idproveedor" id="idproveedor" class="form-control" required>
+          <option  value="american">American</option>
+         
+      </select>
+    </div>
+ 
+                           
     <div class="col">
-      <input type="text" class="form-control" placeholder="Código">
+      <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
+      type="codigo" maxlength="5" value=""  required>
     </div>
     <div class="col-7">
-      <input type="text" class="form-control" placeholder="Descripcion del producto o nombre del producto">
+      <input id="tipo" name="tipo" type="tipo" class="form-control" placeholder="Tipo de bateria"
+       type="tipo"  value="" required>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Precio de compra">
+      <input id="precio_unitario" name="precio_unitario" type="precio_unitario" 
+      type="text" class="form-control" placeholder="Precio de compra"  value="" required>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Cantidad">
+      <input id="en_existencias" name="en_existencias" type="en_existencias" type="en_existencias" 
+      class="form-control" placeholder="Cantidad" value="" required>
     </div>
-    
+    <div class="col">
+      <input id="precio_venta" name="precio_venta" type="precio_venta" type="precio_venta" 
+      class="form-control" placeholder="Precio venta" value="" required>
+    </div>
+    <br>
+     
     
   </div>
   <br>
   <div class="form-row">
     
     <div class="col-2">
-      <input type="text" class="form-control" placeholder="Precio de venta">
+      <input  id="fehcha_venta" name="fecha_venta" type="fecha_venta" 
+      type="text" class="form-control" placeholder="Precio de venta">
     </div>
    
    
@@ -66,9 +82,16 @@
   </div>
   
    <div class="card-footer">
-       <button class="btn btn-primary">Agregar Producto</button>
+       <button class="btn btn-primary">Agregar producto</button>
        
    </div> 
+    <?php 
+                #--para guardar registros se llama a la clase y funcion
+                $registro= new RegistrarBateriasController();
+                $registro->registrarBaterias();
+                
+                ?>
+              
   
 </form>
                
@@ -81,7 +104,7 @@
                 <tr>
                   <th>Código</th>
                   <th>Descripción</th>
-                   <th>Precio Unitario</th>
+                   <th>Precio unitario</th>
                   <th>Cantidad</th>
                   <th>Importe</th>
                   <th></th>
@@ -106,7 +129,7 @@
               <h3> <label>Total:</label></h3>
                <div class="card-footer">
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
-                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar Compra</button>
+                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar compra</button>
                </div>
            </div>
            
