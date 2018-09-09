@@ -96,8 +96,8 @@ alertify.defaults.theme.input = "form-control";
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email" class="control-label">E-mail</label>
-                  <input type="text" class="form-control" placeholder="E-mail" 
-                  id="email" name="email"  required >
+                  <input type="email" class="form-control" placeholder="E-mail" 
+                  id="email" name="email" value="enviar" required >
                 </div>
 
         
@@ -157,7 +157,7 @@ alertify.defaults.theme.input = "form-control";
           
         
     </script>
-    
+
   <script>
    
           function validaNumericos(event) {
