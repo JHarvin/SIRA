@@ -7,7 +7,7 @@ class DatosBaterias extends Conexion
 	public function registroBateriasModel($datosBateriasModel,$tabla){
 
 
-          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, en_existencias, fecha_venta, idproveedor,
+          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(idproveedor, en_existencias, fecha_venta, idproveedor,
             precio_unitario, precio_venta, tipo) 
             VALUES (:codigo,:en_existencias,:fecha_venta,:idproveedor,:precio_unitario,:precio_venta,:tipo)");
         
