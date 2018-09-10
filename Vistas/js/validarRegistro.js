@@ -10,6 +10,9 @@ function validarRegistro(){
     var password = document.querySelector("#password").value;
     var password2 = document.querySelector("#rPassword").value;
     var direccion = document.querySelector("#direccion").value;
+    var direccion = document.querySelector("#dui").value;
+
+
     var email= document.querySelector("#email").value;
    // var rMasculino =document.querySelector("#masculino").checked;
     
@@ -48,6 +51,18 @@ function validarRegistro(){
         var expresion=/^[a-zA-Z]*$/;
         if(caracteres<7){
             document.querySelector("label[for='nombre']").innerHTML += "<br> Escriba un nombre real por favor mayor a 6 caracteres";
+            
+            
+            return false;
+        }
+        
+       
+    }
+    if(dui!=" " || dui!=""){
+        var caracteres=dui.length;
+        var expresion=/^[0-9]*$/;
+        if(caracteres<7){
+            document.querySelector("label[for='dui']").innerHTML += "<br> Escriba dui correctamente";
             
             
             return false;
@@ -94,7 +109,7 @@ function validarRegistro(){
 //---------Funcion para actualizar el registro con jquery
 //--------el jquery se agrega en usuarios.php--------------------
 
-function actualizar(id,nombre,telefono,direccion,user,pass){
+function actualizar(id,nombre,telefono,direccion,user,pass,dui){
     //---cadena que recibe los parametros para luego ser mandados al controlador
     var datos=new FormData();
     datos.append("id",id);
@@ -103,6 +118,7 @@ function actualizar(id,nombre,telefono,direccion,user,pass){
     datos.append("direccion",direccion);
     datos.append("user",user);
     datos.append("pass",pass);
+    datos.append("dui", dui);
      
     
     
@@ -148,6 +164,7 @@ function validarActualizarDatos(){
    
     var direccion = document.querySelector("#Direccion").value;
     var email= document.querySelector("#Email").value;
+    var dui= document.querySelector("#dui").value;
     
     
     

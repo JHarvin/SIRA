@@ -25,10 +25,10 @@ class ClientesController{
             if(preg_match('/^[a-zA-Z]+$/',$_POST["nombre"]) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST["email"]) &&
               preg_match('/^[0-9]+$/',$_POST["telefono"])
               ){}
-            if(isset($_POST["masculino"]) ){
+            if(($_POST["sexo"]) == "masculino"){
                 $genero="M";
             }
-            else if(isset($_POST["femenino"])){
+            else if(($_POST["sexo"]) == "femenino"){
                 $genero="F";
             }
             #--strtoupper transforma todas las letras a mayusculas

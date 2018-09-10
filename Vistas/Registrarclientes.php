@@ -56,10 +56,7 @@ alertify.defaults.theme.ok = "ui positive button";
 alertify.defaults.theme.cancel = "ui black button";
     
     
-</script>
-    
-    
-    
+
 
 <!-- include boostrap theme  -->
 <link rel="stylesheet" href="../css/themes/bootstrap.css">
@@ -80,7 +77,7 @@ alertify.defaults.theme.input = "form-control";
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
-    include"menuVentas.php";
+    include"menu.php";
     ?>
       <main class="app-content">
        
@@ -94,26 +91,34 @@ alertify.defaults.theme.input = "form-control";
 			  <div class="form-row">
                 <div class="form-group col-md-6">
                   <label class="control-label" for="nombre">Nombre de cliente</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Nombre..." maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+                  <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" placeholder="Nombre..." maxlength="30" style="text" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
                 </div>
                 <div class=" col-md-6">
-                  <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="telefono" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
+                <td>
+                <span class="label label-success">telefono:</span>
+                <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required><br>
+                
+                </tr><td>
                 </div>
               <!--Dui y licencia de conducir-->
      <div class="form-group col-md-6">
-      <label for="dui">Dui</label>
-      <input type="text" class="form-control" id="dui" name="dui" placeholder="Dui">
-    </div>
+      <td>
+       <span class="label label-success">Dui:</span>
+                <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required><br>
+    </tr><td>
+      </div>
     <div class="form-group col-md-6">
-      <label for="licencia">N° Licencia de conducir</label>
-      <input type="text" class="form-control" id="licencia" name="licencia" placeholder="N° de licencia">
+    <td>
+    <span class="label label-success">N° Licenia de conducir</span>
+                <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required><br>
+     
     </div>
                 
-	<div class="form-group col-md-6">
+  <div class="form-group col-md-6">
+  
                   <label for="direccion" class="control-label">Direccion</label>
-                  <input type="direccion" class="form-control" 
-                  placeholder="Direccion" id="direccion" name="direccion"  required >
+                  <input type="text" class="form-control" 
+                  placeholder="Direccion..." id="direccion" name="direccion" autocomplete="off" maxlength="100" style="text;" pattern=".{15,}" title="15 o mas caracteres para dirección real" value=""  required >
                 </div>
   
               
@@ -122,17 +127,18 @@ alertify.defaults.theme.input = "form-control";
                 
               
                <div>
+               
+              
 				<div class="form-group">
                   <label class="control-label">Genero</label>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" id="masculino" name="masculino">Masculino
+                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="masculino">Masculino
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" id="femenino"
-                     name="femenino">Femenino
+                      <input class="form-check-input" type="radio" id="femenino" name="sexo" value="femenino">Femenino
                     </label>
                   </div>
                 </div>
@@ -175,17 +181,31 @@ alertify.defaults.theme.input = "form-control";
             // Definimos las mascaras para cada input
             
             $("#telefono").mask("9999-9999");
+            $('#dui').mask('99999999-9');
+            $('#licencia').mask('9999-999999-999-9');
+          
+            
+
             
         });
           
         
     </script>
+    </script>
+    
+   
     
     
+    <script type="text/javascript">
+  $('.mask-telefono').mask('999-9999');
+   $('.mask-dui').mask('99999999-9');
+   $('.mask-licencia').mask('9999-999999-999-9');
+    </script>
     
     
    
     
     
     </body>
+    
 </html>
