@@ -1,79 +1,165 @@
  <!DOCTYPE html>
+ <?php 
+require_once"../Controladores/ControladorRegistrarBaterias.php";
+?>
+
 <html lang="es">
  <head>
- <title>Inicio</title>
+ <title>Registro Baterias</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+     <!-- libreria para notificaciones toast-->
+    <link rel="stylesheet" href="../css/toastr.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/buscarInput.css">
+
+     <!-- include the RTL css files-->
+
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+  
+</script>
+
+ <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
+
+   
+<!--Archivo de validacion-->
+    <script src="js/validarRegistro.js"></script>
+
+
   </head>
   <body class="app sidebar-mini rtl">
   <?php
       include"menuVentas.php";
       ?>
  <main class="app-content">
+
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-inbox"></i> Cajero : Administrador</h1>
-          <p>Rent a car chacon</p>
+          <h1><i class="fa fa-inbox"></i> Administrador : Registrar baterias</h1>
+          <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           
           
         </ul>
-      </div>
+ </div>
+
+
 <div class="row">
        <div  class="col-md-12">
-           <div class="card">
-          <div class="card-title">
-              <h4>Agregar baterias</h4>
-          </div>
-         <form>
-  <div class="form-row">
-    
+            <div class="tile">
+            <h3 class="tile-title"></h3>
+            <div class="tile-body">
+          
+         <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
+ 
+
+     <div class="form-group col-md-6">
+                  <input id="idproveedor" name="idproveedor" class="form-control" type="text" placeholder="Proveedor" 
+                    value="17" required>
+                </div>
+
+      
+                           
     <div class="col">
-      <input type="text" class="form-control" placeholder="Código">
+      <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
+      type="text" maxlength="5" value=""  required>
     </div>
+
     <div class="col-7">
-      <input type="text" class="form-control" placeholder="Descripcion del producto o nombre del producto">
+      <input id="tipo" name="tipo" type="tipo" class="form-control" placeholder="Tipo de bateria"
+       type="text"  value="" required>
+    </div>
+
+    <div class="col">
+      <input id="precio_unitario" name="precio_unitario" type="precio_unitario" 
+      type="text" class="form-control" placeholder="Precio de compra"  value="" required>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Precio de compra">
+      <input id="en_existencias" name="en_existencias" type="en_existencias" type="text" 
+      class="form-control" placeholder="Cantidad" value="" required>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Cantidad">
+      <input id="precio_venta" name="precio_venta" type="text" type="precio_venta" 
+      class="form-control" placeholder="Precio venta" value="" required>
     </div>
-    
+    <br>
     
   </div>
   <br>
   <div class="form-row">
     
-    <div class="col-2">
-      <input type="text" class="form-control" placeholder="Precio de venta">
-    </div>
-   
    
     <div class="col-4">
-      <input type="date" class="form-control">
+      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control">
     </div>
     
     
   </div>
   
    <div class="card-footer">
-       <button class="btn btn-primary">Agregar Producto</button>
+       <button class="btn btn-primary">Agregar producto</button>
+       <br>
        
    </div> 
-  
+
+    <?php 
+                #--para guardar registros se llama a la clase y funcion
+              $registro= new RegistrarBateriasController();
+              $registro->registrarBaterias();
+              
+                
+                ?>
 </form>
                
            </div>
+            </div>
            
+          </div>
+        </div>
+        
+        
+        
+    
            <div class="card table table-responsive">
                
                <table class="table table-striped">
@@ -81,7 +167,7 @@
                 <tr>
                   <th>Código</th>
                   <th>Descripción</th>
-                   <th>Precio Unitario</th>
+                   <th>Precio unitario</th>
                   <th>Cantidad</th>
                   <th>Importe</th>
                   <th></th>
@@ -106,7 +192,7 @@
               <h3> <label>Total:</label></h3>
                <div class="card-footer">
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
-                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar Compra</button>
+                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar compra</button>
                </div>
            </div>
            

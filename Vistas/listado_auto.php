@@ -17,7 +17,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="../css/shadowbox.css">
  
 
 </head>      
@@ -128,12 +128,12 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
       
       <!-- Modal  PARA PONER IMAGEN DEL CARRO-->
  <div class="modal" id="modalDetalle">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Detalle </h4>
+        <h4 class="modal-title">Imagenes del vehiculo </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -141,7 +141,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
       <div class="modal-body">
      
               <div id="img" name="img">
-         <img id="imagen" src="" alt="">
+         <img id="imagenDC"  src="" width="250" height="150">
         
            
               
@@ -149,10 +149,10 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
-        |
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
-        <i class="fa fa-undo"></i> Cancelar</button>
+     
+        
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+        <i class="fa fa-undo"></i>Atras</button>
       </div>
 
     </div>
@@ -168,35 +168,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
-    <script>
-     function alerta(){
-        toastr.success("Usuario Guardado");
-
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  
-  "hideMethod": "fadeOut"
-}
-          
-
-          
-      }
-        
-        
-    </script>
+   <script src="../js/shadowbox.js"></script>
     
     <!--escript para buscar en la tabla-->
     <script>
@@ -224,14 +196,11 @@ toastr.options = {
         $("#nombrePl").text(nombre);
           
           //---poniendo imagen en el modal detalles (es el boton con el icono de admiracion)
-          var imagenA = new Image();
-imagenA.onload = imagenCargada;
-imagenA.src = imagen;
+         
           
           
           
-          
-          $("#img").appendChild(imagenA);
+          $("#imagenDC").attr("src",""+imagen);
           
             
       });

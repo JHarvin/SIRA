@@ -185,13 +185,13 @@ require_once"../Controladores/ControladorClientes.php";
                   <label class="control-label">Genero</label>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" id="masculino" name="masculino">Masculino
+                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">Masculino
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="radio" id="femenino"
-                     name="femenino">Femenino
+                     name="sexo" value="Femenino">Femenino
                     </label>
                   </div>
                 </div>
@@ -435,20 +435,22 @@ require_once"../Controladores/ControladorClientes.php";
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
-    
-    <!--para canvas-->
-    
- <script src="js/material-gauge.js"></script>
-		<script>
-
-			var gauge = new Gauge(document.getElementById("gauge"));
-
+    <script src="../js/jquery.maskedinput.min.js"></script>
+    <!--para mascaras-->
+  <script type="text/javascript">
+      
+ jQuery(function($){
+            // Definimos las mascaras para cada input
             
+            $("#telefono").mask("9999-9999");
+     $("#dui").mask("99999999-9");
             
-			gauge.value(0.15);
-            
-
-		</script>
+        });
+          
+        
+    </script>
+       
+ 
     <script type="text/javascript">
 $(document).ready(function()
 	{
