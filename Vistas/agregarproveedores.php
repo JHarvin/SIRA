@@ -70,7 +70,7 @@ alertify.defaults.theme.input = "form-control";
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
 </head>      
-<body class="app sidebar-mini rtl">
+<body onload='document.form1.text1.focus()' class="app sidebar-mini rtl">
      <?php 
     include"menuVentas.php";
     ?>
@@ -82,7 +82,7 @@ alertify.defaults.theme.input = "form-control";
           <div class="tile">
             <h3 class="tile-title">Registrar Proveedor</h3>
             <div class="tile-body">
-              <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
+              <form id="formulario_registro" name="form1" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-6">
                   <label class="control-label" for="nombre">Nombre</label>
                   <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Nombre" 
@@ -94,10 +94,11 @@ alertify.defaults.theme.input = "form-control";
                   type="telefono" placeholder="Ingrese número de teléfono" 
                   maxlength="9" value="telefono" onkeypress="return validaNumericos(event);"  required>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="email" class="control-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="E-mail" 
-                  id="email" name="email" onkeypress="return comprobar_email(email);"  required >
+
+                <div  class=" col-md-6">
+                  <label  class="control-label">E-mail</label>
+                  <input id="email" type="email" class="form-control"  placeholder="E-mail" 
+                   name="email" onkeypress=" return ValidateEmail(email)"  required >
                 </div>
 
         
@@ -168,16 +169,33 @@ alertify.defaults.theme.input = "form-control";
 } 
       
     </script>
-    <script type="text/javascript">
-    function comprobar_email($email)
-{
-return (filter_var($email, FILTER_VALIDATE_EMAIL)) ? 1 : 0;
+    <script >
+
+  function ValidateEmail(email) 
+{ 
+var mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+if(email.value.match(mailformat)) 
+{ 
+alert("Gracias, Direccion de Email valida"); <--------------
+document.form1.email.focus();
+
+return true; 
+} 
+else 
+{ 
+alert("You have entered an invalid email address!"); 
+document.form1.email.focus(); 
+return false; 
+} 
 }
 
     </script>
       
     
-   
+   <script src="email-validation.js">
+
+
+   </script>
     
     
     </body>
