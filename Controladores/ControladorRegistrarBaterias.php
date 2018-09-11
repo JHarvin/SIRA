@@ -59,6 +59,36 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
         
         }
 
+         public function mostrarBaterias(){
+        
+         $respuesta=DatosBaterias::mostrarBateriasModel("tproductos");
+        
+        foreach($respuesta as $row =>$item){
+        
+        echo'
+        
+        <tr>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$item["codigo"].' </td>
+                  <td>'.$item["en_existencias"].'</td>
+                  <td>'.$item["precio_unitario"].'</td>
+                  <td>'.$item["idproveedor"].'</td>
+                       <td>'.$item["precio_venta"].'</td>
+                         <td>'.$item["fecha_venta"].'</td>
+                 
+                  
+                  <td><a href="actualizarDatosUsuario.php?id='.$item["idproducto"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="usuarios.php?idb='.$item["idproducto"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                  </td>
+                 
+                </tr>
+        
+        ';
+        }
+        
+        
+    }
+
 }
 ?>
 

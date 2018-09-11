@@ -97,7 +97,7 @@ alertify.defaults.theme.input = "form-control";
                 <div class="form-group col-md-6">
                   <label for="email" class="control-label">E-mail</label>
                   <input type="email" class="form-control" placeholder="E-mail" 
-                  id="email" name="email" value="enviar" required >
+                  id="email" name="email" onkeypress="return comprobar_email(email);"  required >
                 </div>
 
         
@@ -167,6 +167,13 @@ alertify.defaults.theme.input = "form-control";
      return false;        
 } 
       
+    </script>
+    <script type="text/javascript">
+    function comprobar_email($email)
+{
+return (filter_var($email, FILTER_VALIDATE_EMAIL)) ? 1 : 0;
+}
+
     </script>
       
     
