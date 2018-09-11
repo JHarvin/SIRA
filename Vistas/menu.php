@@ -33,7 +33,7 @@
         <li><a class="app-menu__item active" href="inicio.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Inicio</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-address-card-o"></i><span class="app-menu__label">Clientes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="alquiler.php"><i class="icon fa fa-circle-o"></i> Registrar Clinte</a></li>
+            <li><a class="treeview-item" href="Registrarclientes.php"><i class="icon fa fa-circle-o"></i> Registrar Clientes</a></li>
            
             
             <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Clientes registrados</a></li>

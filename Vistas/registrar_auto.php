@@ -4,7 +4,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
 <html lang="es">
 <head>
 
-    <title>Alquiler</title>
+    <title>Registrar Vehiculos</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
  
  
    <script src="../Vistas/js/validarVehiculos.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+   
     <style>
     .funkyradio div {
   clear: both;
@@ -149,19 +151,22 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
              
               <form method="post" enctype="multipart/form-data"     onsubmit="return validarVehiculo();">
               <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="nplaca">Numero de placa</label>
       <input type="text" class="form-control" id="nplaca" name="nplaca" placeholder="Numero de placa" required>
     </div>
-    <div class="form-group col-md-6">
-      <label for="marca">Marca,Modelo y Año</label>
+    <div class="form-group col-md-3">
+      <label for="marca">Marca y Modelo</label>
       <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo y Año" required>
     </div>
-    
+     <div class="form-group col-md-3">
+      <label for="ano">Año</label>
+      <input type="text" class="form-control" id="ano" name="ano" placeholder="Digite año del vehiculo" required>
+    </div>
  
     
     <!--tipo de carro y color-->
-     <div class="form-group col-md-6">
+     <div class="form-group col-md-3">
       <label for="tipo">Tipo</label>
       <select name="tipo" id="tipo" class="form-control" required>
           <option value="sedan">sedan</option>
@@ -169,32 +174,47 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
           <option value="camioneta">camioneta</option>
       </select>
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="color">Color</label>
       <input type="text" class="form-control" id="color" name="color" placeholder="color" required>
     </div>
     
     
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="numero_motor">Numero de motor</label>
       <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Numero de motor" required>
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="color">Numero de chasis</label>
       <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" required>
     </div>
     
     
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="tcombustible">Tipo de combustible</label>
       <input id="tcombustible" name="tcombustible" type="text" class="form-control" placeholder="Tipo de combustible" required>
     </div>
    
      
-     
-     <div class="form-group col-md-6">
-         <label for="imagen">Seleccione imagen</label>
+     <!--Para imagenes-->
+     <div class="form-group col-md-3">
+         <label for="imagen">Seleccione imagen 1</label>
  <input type="file" class="form-control" placeholder="imagen" id="imagen" name="imagen" required>
+         
+     </div>
+     <div class="form-group col-md-3">
+         <label for="imagen">Seleccione imagen 2</label>
+ <input type="file" class="form-control" placeholder="imagen" id="imagen2" name="imagen2" required>
+         
+     </div>
+     <div class="form-group col-md-3">
+         <label for="imagen">Seleccione imagen 3</label>
+ <input type="file" class="form-control" placeholder="imagen" id="imagen3" name="imagen3" required>
+         
+     </div>
+      <div class="form-group col-md-3">
+         <label for="imagen">Seleccione imagen 4</label>
+ <input type="file" class="form-control" placeholder="imagen" id="imagen4" name="imagen4" required>
          
      </div>
      
@@ -209,6 +229,10 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
             </div>
 
                <?php 
+                  #------------------------------------------------
+                  #Funcion para guardar esta esta en el controlador
+                  #Se guarda en el modelo en el controlador se valida
+                  #------------------------------------------------------
                   $registrar=new RegistrarVehiculoController();
                   $registrar->registrarVController();
                   ?>
@@ -241,10 +265,21 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
-    
+   <script src="../js/jquery.maskedinput.js"></script>
    
- 
-    <!--fin canvas-->
+ <script type="text/javascript">
+      
+ jQuery(function($){
+            // Definimos las mascaras para cada input
+            
+            $("#ano").mask("9999");
+        $("#nplaca").mask("P999-999");
+            
+        });
+          
+        
+    </script>
+    
    
     
     <script>
@@ -331,13 +366,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
        
     </script>
     
-    <script >
-$("#datepicker").datepicker( {
-    format: " yyyy", // Notice the Extra space at the beginning
-    viewMode: "years", 
-    minViewMode: "years"
-});
-  </script>
+     
     
     </body>
 </html>

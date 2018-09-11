@@ -7,7 +7,6 @@ class DatosProveedor extends Conexion
 	
 	public function registroProveedorModel($datosProveedorModel,$tabla){
 
-
 		  $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, email, direccion) 
             VALUES (:nombre,:telefono,:email,:direccion)");
         
