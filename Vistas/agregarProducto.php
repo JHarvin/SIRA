@@ -1,6 +1,7 @@
  <!DOCTYPE html>
  <?php 
 require_once"../Controladores/ControladorRegistrarBaterias.php";
+
 ?>
 
 <html lang="es">
@@ -165,35 +166,34 @@ alertify.defaults.theme.input = "form-control";
                <table class="table table-striped">
                    <thead>
                 <tr>
+                <th>Tipo</th>
                   <th>Código</th>
-                  <th>Descripción</th>
+                  <th>Existencias</th>
                    <th>Precio unitario</th>
-                  <th>Cantidad</th>
-                  <th>Importe</th>
-                  <th></th>
+                  <th>Proveedor</th>
+                  <th>Precio venta</th>
+                  <th>Fecha venta</th>
+
                  
                 </tr>
               </thead>
                    <tbody>
-                <tr>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td>
-                     <button class="btn btn-warning"><i class="fa fa-trash-o"></i></button>
-                     
-                 </td>
-                </tr>
+                 <?php 
+                   
+                  $proveedor=new RegistrarBateriasController();
+                  $proveedor->mostrarBaterias();
+                  
+                  ?>
+                   
                    </tbody> 
                </table>
                
               <h3> <label>Total:</label></h3>
-               <div class="card-footer">
-                    <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
-                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar compra</button>
-               </div>
+          
+               <div class="tile-footer">
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
+              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar compra </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
+            </div>
            </div>
            
            
