@@ -16,8 +16,15 @@ class RegistrarVehiculoController{
         "numero_motor"=>$_POST["numero_motor"],
         "chasis"=>$_POST["chasis"],
         "tcombustible"=>$_POST["tcombustible"],
+                "ano"=>$_POST["ano"],
         "nombreimagen"=>$_FILES["imagen"]["name"],
-        "imagen"=>$_FILES["imagen"]["tmp_name"]);
+        "imagen"=>$_FILES["imagen"]["tmp_name"],
+        "nombreimagen2"=>$_FILES["imagen2"]["name"],
+        "imagen2"=>$_FILES["imagen2"]["tmp_name"],
+        "nombreimagen3"=>$_FILES["imagen3"]["name"],
+        "imagen3"=>$_FILES["imagen3"]["tmp_name"],
+        "nombreimagen4"=>$_FILES["imagen4"]["name"],
+        "imagen4"=>$_FILES["imagen4"]["tmp_name"]);
            
              
            $respuesta=VehiculosModel::registroVehiculoModel($datosController,"tvehiculos");
@@ -93,6 +100,10 @@ class RegistrarVehiculoController{
                   </div>
                   </td>
                  <td hidden>'.$item["imagen"].'</td>
+                 <td hidden>'.$item["imagen2"].'</td>
+                 <td hidden>'.$item["imagen3"].'</td>
+                 <td hidden>'.$item["imagen4"].'</td>
+                 
                 </tr>
         
         ';
