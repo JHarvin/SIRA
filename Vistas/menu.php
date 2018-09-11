@@ -1,5 +1,5 @@
 <!-- Navbar-->
-    <header class="app-header" style="background-color:#8D8D8D;"><a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">rentalSys</a>
+    <header class="app-header" style="background-color:#7f8be8;"><a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">rentalSys</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">

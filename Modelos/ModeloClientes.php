@@ -8,13 +8,39 @@
 #---------------------------------------------------------------------------------
 require_once"Conexion.php";
 class DatosCliente extends Conexion{
+    public function validarDuiLicencia($dui,$licencia){
+        
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM tclientes WHERE dui = :dui and licencia_de_conducir =:lecencia");
+        
+        $stmt->bindParam(":dui",$dui,PDO::PARAM_STR);
+        $stmt->bindParam(":licencia",$licencia,PDO::PARAM_STR);
+        
+        $stmt->execute();
+            
+        return $stmt->fetch();
+        
+       
+        
+        
+    $stmt->close(); 
+        
+        
+        
+    }
+    
     #---------------------------------------------
     #---------------------------------------------
     #FUNCION PARA GUARDAR DATOS DE LOS CLIENTES
     #---------------------------------------------
     public function registroClienteModel($datosClienteModel,$tabla){
         
-         $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, dui, licencia_de_conducir, direccion, genero) VALUES (
+         
+        
+        
+         
+    
+        
+            $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, dui, licencia_de_conducir, direccion, genero) VALUES (
         :nombre,:telefono,:dui,:licencia,:direccion,:genero
         )");
         
@@ -32,6 +58,9 @@ class DatosCliente extends Conexion{
         
         $stmt->close();
         
+          
+        
+         
         
         
     }

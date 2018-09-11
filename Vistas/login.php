@@ -19,11 +19,11 @@ session_destroy();
   </head>
   <body>
     <section class="material-half-bg">
-      <div class="cover" style="background-color:#513F47;"></div>
+      <div class="cover" style="background-color:#7f8be8;"></div>
     </section>
     <section class="login-content">
       <div class="logo" style="font:400 16px/1.8 sans-serif;
-        color:#FF8E31;
+        color: white;
        ">
         <h1
         >Rent a Car Chacon</h1>
