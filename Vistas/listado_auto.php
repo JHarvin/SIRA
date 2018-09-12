@@ -79,7 +79,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
                  <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody id="developers">
+              <tbody>
                 <?php 
                   $mostrar=new RegistrarVehiculoController();
                   $mostrar->mostrarVehiculosController();
@@ -89,8 +89,11 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
                  
               </tbody>
             </table>
-            <div class="col-md-12 text-center">
-<ul class="pagination pagination-lg pager" id="developer_page"></ul>
+            <br>
+            <div id="idpg" class="col-md-12 text-center">
+<ul class="pagination pagination-lg pager" id="developer_page">
+    
+</ul>
 </div>
             </div>
           </div>
@@ -184,7 +187,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/toastr.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
-   <script src="../js/pagination.js"></script>
+   <script src="../js/paginacion.js"></script>
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
@@ -240,11 +243,11 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </script>
      
      <script type="text/javascript">
- 
+ var m=4;
          
-  $(document).ready(function(){
-        $("#tableUserList").paginationTdA({
-            elemPerPage: 1
+   $(document).ready(function(){
+        $("#table").paginationTdA({
+            elemPerPage: m
         });
     });
     </script>

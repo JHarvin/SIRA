@@ -35,7 +35,7 @@
     $.fn.paginationTdA = function( options ) {
          
         var settings = $.extend({
-            elemPerPage: 2
+            elemPerPage: 4
         }, options );
   
          
@@ -58,7 +58,7 @@
             }
              
              
-            var numberOfTds = idTable.find("tbody").eq(0).find("tr").eq(0).find("th").length;
+             var numberOfTds = idTable.find("tbody").eq(0).find("tr").eq(0).find("td").length;
             createTableFooterPagination(idTable, numberOfTds, last);
              
             idTable.find("tbody").eq(0).find(".elementToPaginate").each(function(i){
