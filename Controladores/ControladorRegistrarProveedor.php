@@ -27,7 +27,7 @@ require_once"../Modelos/ModeloProveedores.php";
             echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+              
 
           alertify.success("Registro Guardado    ✔");
    
@@ -38,7 +38,7 @@ require_once"../Modelos/ModeloProveedores.php";
                echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+              
 
           alertify.error("Algo salio mal :(");
     

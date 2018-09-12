@@ -33,7 +33,7 @@ class RegistrarVehiculoController{
             echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+              
 
           alertify.success("Vehiculo Registrado    ✔");
 
@@ -49,7 +49,7 @@ class RegistrarVehiculoController{
                echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+             
 
           alertify.error("Algo salio mal "'.$_POST["nplaca"].');
 

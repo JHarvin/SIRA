@@ -19,8 +19,12 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css" />
+ <!--para datatables-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
 
-
+ 
 
 </head>      
 <body class="app sidebar-mini rtl">
@@ -54,13 +58,13 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
              <div class="col-md-5">
                 <form class="form-inline md-form form-sm" >
     <i class="fa fa-search" aria-hidden="true"></i>
-    <input id="search" class="form-control form-control ml-3 w-75" type="text" placeholder="Buscar" >
+    <input id="search" class="form-control form-control ml-3 w-75" type="search" placeholder="Buscar" >
 </form>
         
             </div>
        
             <div class="table table-responsive">
-            <table id="table"  class="table table-striped">
+            <table id="table"  class="table table-striped ">
               <thead>
                 <tr>
                  <th></th>
@@ -75,7 +79,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
                  <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="developers">
                 <?php 
                   $mostrar=new RegistrarVehiculoController();
                   $mostrar->mostrarVehiculosController();
@@ -85,6 +89,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
                  
               </tbody>
             </table>
+            <div class="col-md-12 text-center">
+<ul class="pagination pagination-lg pager" id="developer_page"></ul>
+</div>
             </div>
           </div>
         </div>
@@ -177,7 +184,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/toastr.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
-    
+   <script src="../js/pagination.js"></script>
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
@@ -232,6 +239,15 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         
     </script>
      
+     <script type="text/javascript">
+ 
+         
+  $(document).ready(function(){
+        $("#tableUserList").paginationTdA({
+            elemPerPage: 1
+        });
+    });
+    </script>
       
      
     

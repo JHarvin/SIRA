@@ -49,7 +49,7 @@ class ClientesController{
             echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+              
 
           alertify.success("Registro Guardado    ✔");
 
@@ -65,7 +65,7 @@ class ClientesController{
                echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+              
 
           alertify.error("DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA");
 
