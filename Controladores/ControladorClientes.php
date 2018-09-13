@@ -14,6 +14,7 @@ class ClientesController{
     #FUNCIÓN REGISTRAR
     public function registrarCliente(){
         $genero="";
+       
         
         #VALIDACION DE LOS DATOS--------
         if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["telefono"]) && !empty($_POST["telefono"]) && isset($_POST["dui"]) && !empty($_POST["dui"]) &&
@@ -27,6 +28,7 @@ class ClientesController{
             if(preg_match('/^[a-zA-Z]+$/',$_POST["nombre"]) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST["email"]) &&
               preg_match('/^[0-9]+$/',$_POST["telefono"])
               ){}
+                
 
             if($_POST["sexo"]=="Masculino" ){
                 $genero="M";
