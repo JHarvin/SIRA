@@ -20,9 +20,12 @@ class ClientesController{
            isset($_POST["direccion"]) && !empty($_POST["direccion"] &&
         isset($_POST["sexo"]) && !empty($_POST["sexo"])                                      )
           ){
+              
+
             
             # validacion que todo este correcto es decir caracteres y cantidad de estos lado servidor
             # preg_match realiza una comparacion de expresiones regulares
+
             if(preg_match('/^[a-zA-Z]+$/',$_POST["nombre"]) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST["email"]) &&
               preg_match('/^[0-9]+$/',$_POST["telefono"])
               ){}
@@ -37,7 +40,6 @@ class ClientesController{
         $datosClienteController =array("nombre"=>strtoupper($_POST["nombre"]), "telefono"=>$_POST["telefono"], 
         "dui"=>$_POST["dui"],
         "licencia"=>$_POST["licencia"],
-        "direccion"=>$_POST["direccion"],
         "genero"=>$genero);
         
         

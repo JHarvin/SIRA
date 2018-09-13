@@ -13,10 +13,16 @@ class DatosCliente extends Conexion{
     #FUNCION PARA GUARDAR DATOS DE LOS CLIENTES
     #---------------------------------------------
     public function registroClienteModel($datosClienteModel,$tabla){
-        
+
+            
          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, dui, licencia_de_conducir, direccion, genero) VALUES (
         :nombre,:telefono,:dui,:licencia,:direccion,:genero
         )");
+    
+
+
+
+
         
         $stmt->bindParam(":nombre",$datosClienteModel["nombre"],PDO::PARAM_STR);
         $stmt->bindParam(":telefono",$datosClienteModel["telefono"],PDO::PARAM_STR);
@@ -31,6 +37,8 @@ class DatosCliente extends Conexion{
         else{ return "error";}
         
         $stmt->close();
+
+      
         
         
         
