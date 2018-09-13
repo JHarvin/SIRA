@@ -152,20 +152,20 @@ function soloLetras(e) {
                   
                   <div class="form-check">
                     <label class="form-check-label">
-<<<<<<< HEAD
+ 
                       <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">Masculino
-=======
-                      <input class="form-check-input" type="radio" id="Masculino" name="sexo" value="masculino">Masculino
->>>>>>> 52166e176606e1d80f6afd86aa01aa588596a694
+ 
+                      
+
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-<<<<<<< HEAD
+ 
                       <input class="form-check-input" type="radio" id="femenino" name="sexo" value="Femenino">Femenino
-=======
-                      <input class="form-check-input" type="radio" id="Femenino" name="sexo" value="femenino">Femenino
->>>>>>> 52166e176606e1d80f6afd86aa01aa588596a694
+ 
+                      
+ 
                     </label>
                   </div>
                 </div>
