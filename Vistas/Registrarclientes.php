@@ -87,13 +87,13 @@ alertify.defaults.theme.input = "form-control";
           <div class="tile">
             <h3 class="tile-title">Registrar Clientes</h3>
             <div class="tile-body">
-              <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
+              <form id="formulario_registro" method="post" onsubmit="return validarRegistro();">
 			  <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3">
                   <label class="control-label" for="nombre">Nombre de cliente</label>
                   <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" placeholder="Nombre..." maxlength="30" style="text" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
                 </div>
-                <div class=" col-md-6">
+                <div class="form-group col-md-3">
                 <td>
                 <span class="label label-success">telefono:</span>
                 <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required><br>
@@ -101,13 +101,13 @@ alertify.defaults.theme.input = "form-control";
                 </tr><td>
                 </div>
               <!--Dui y licencia de conducir-->
-     <div class="form-group col-md-6">
+     <div class="form-group col-md-3">
       <td>
        <span class="label label-success">Dui:</span>
                 <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required><br>
     </tr><td>
       </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
     <td>
     <span class="label label-success">N° Licenia de conducir</span>
                 <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required><br>
@@ -128,9 +128,10 @@ alertify.defaults.theme.input = "form-control";
               
                <div>
                
-              
-				<div class="form-group">
+               
+				<div class="form-group col-md-6 form-check-inline">
                   <label class="control-label">Genero</label>
+                  
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="radio" id="masculino" name="sexo" value="masculino">Masculino
@@ -145,7 +146,7 @@ alertify.defaults.theme.input = "form-control";
 				</div>
 				</div>
                 <div class="tile-footer">
-              <button type="submit" id="btnGuardarCliente" class="btn btn-primary"  ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</button>
+              <button type="submit" id="btnGuardarCliente" class="btn btn-primary"  ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</button>
             </div>
              
              <?php

@@ -92,7 +92,7 @@ alertify.defaults.theme.input = "form-control";
                   <label class="control-label">Teléfono</label>
                   <input id="telefono" name="telefono" class="form-control" 
                   type="telefono" placeholder="Ingrese número de teléfono" 
-                  maxlength="9" value="telefono" onkeypress="return validaNumericos(event);"  required>
+                  maxlength="9" value=""   required>
                 </div>
 
                 <div  class=" col-md-6">

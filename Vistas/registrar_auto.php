@@ -21,117 +21,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
  
    <script src="../Vistas/js/validarVehiculos.js"></script>
    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-   
-    <style>
-    .funkyradio div {
-  clear: both;
-  overflow: hidden;
-}
-
-.funkyradio label {
-  width: 100%;
-  border-radius: 3px;
-  border: 1px solid #D1D3D4;
-  font-weight: normal;
-}
-
-.funkyradio input[type="radio"]:empty,
-.funkyradio input[type="checkbox"]:empty {
-  display: none;
-}
-
-.funkyradio input[type="radio"]:empty ~ label,
-.funkyradio input[type="checkbox"]:empty ~ label {
-  position: relative;
-  line-height: 2.5em;
-  text-indent: 3.25em;
-  margin-top: 2em;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.funkyradio input[type="radio"]:empty ~ label:before,
-.funkyradio input[type="checkbox"]:empty ~ label:before {
-  position: absolute;
-  display: block;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  content: '';
-  width: 2.5em;
-  background: #D1D3D4;
-  border-radius: 3px 0 0 3px;
-}
-
-.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
-.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
-  color: #888;
-}
-
-.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
-.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
-  content: '\2714';
-  text-indent: .9em;
-  color: #C2C2C2;
-}
-
-.funkyradio input[type="radio"]:checked ~ label,
-.funkyradio input[type="checkbox"]:checked ~ label {
-  color: #777;
-}
-
-.funkyradio input[type="radio"]:checked ~ label:before,
-.funkyradio input[type="checkbox"]:checked ~ label:before {
-  content: '\2714';
-  text-indent: .9em;
-  color: #333;
-  background-color: #ccc;
-}
-
-.funkyradio input[type="radio"]:focus ~ label:before,
-.funkyradio input[type="checkbox"]:focus ~ label:before {
-  box-shadow: 0 0 0 3px #999;
-}
-
-.funkyradio-default input[type="radio"]:checked ~ label:before,
-.funkyradio-default input[type="checkbox"]:checked ~ label:before {
-  color: #333;
-  background-color: #ccc;
-}
-
-.funkyradio-primary input[type="radio"]:checked ~ label:before,
-.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #337ab7;
-}
-
-.funkyradio-success input[type="radio"]:checked ~ label:before,
-.funkyradio-success input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #5cb85c;
-}
-
-.funkyradio-danger input[type="radio"]:checked ~ label:before,
-.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #d9534f;
-}
-
-.funkyradio-warning input[type="radio"]:checked ~ label:before,
-.funkyradio-warning input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #f0ad4e;
-}
-
-.funkyradio-info input[type="radio"]:checked ~ label:before,
-.funkyradio-info input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #5bc0de;
-}
-    </style> 
+   <script src="js/validarVehiculos.js"></script>
+     
    
 </head>      
 <body class="app sidebar-mini rtl">
@@ -153,15 +44,18 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
               <div class="form-row">
     <div class="form-group col-md-3">
       <label for="nplaca">Numero de placa</label>
-      <input type="text" class="form-control" id="nplaca" name="nplaca" placeholder="Numero de placa" required>
+      <input type="text" class="form-control" id="nplaca" name="nplaca" placeholder="Numero de placa" autocomplete="off" autofocus
+      pattern=".{5,}" title="Digite correctamente el numero de placa"
+        required>
     </div>
     <div class="form-group col-md-3">
       <label for="marca">Marca y Modelo</label>
-      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo y Año" required>
+      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo y Año" autocomplete="off" pattern=".{8,}" title="8 o mas caracteres para marca real y modelo" required>
     </div>
      <div class="form-group col-md-3">
       <label for="ano">Año</label>
-      <input type="text" class="form-control" id="ano" name="ano" placeholder="Digite año del vehiculo" required>
+      <input type="text" class="form-control" id="ano" name="ano" placeholder="Digite año del vehiculo" autocomplete="off"
+      pattern=".{4,}" title="4 numeros para año" required>
     </div>
  
     
@@ -176,7 +70,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
     <div class="form-group col-md-3">
       <label for="color">Color</label>
-      <input type="text" class="form-control" id="color" name="color" placeholder="color" required>
+      <input type="text" class="form-control" id="color" name="color" placeholder="color" autocomplete="off" pattern=".{4}" title="4 caracters para color correcto" required>
     </div>
     
     

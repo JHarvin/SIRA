@@ -45,7 +45,7 @@ class RegistrarUsuarioController{
             echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+             
 
           alertify.success("Registro Guardado    ✔");
 
@@ -61,7 +61,7 @@ class RegistrarUsuarioController{
                echo' 
              
             <script type="text/javascript">
-             alertify.set("notifier","position", "top-center");
+             
 
           alertify.error("Algo salio mal :(");
 
