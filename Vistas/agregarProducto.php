@@ -6,7 +6,7 @@ require_once"../Controladores/ControladorRegistrarProveedor.php";
 
 <html lang="es">
  <head>
- <title>Registro Baterias</title>
+ <title>Registro  Baterias</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@ alertify.defaults.theme.input = "form-control";
 
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-inbox"></i> Administrador : Registrar baterias</h1>
+          <h1><i class="fa fa-inbox"></i> Administrador : Registro de baterias</h1>
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -109,26 +109,36 @@ alertify.defaults.theme.input = "form-control";
       
                            
     <div class="col">
+     <label class="control-label">Código</label>
       <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
       type="text" maxlength="5" value=""  required>
     </div>
 
-    <div class="col-7">
-      <input id="tipo" name="tipo" type="tipo" class="form-control" placeholder="Tipo de bateria"
-       type="text"  value="" required>
+   
+     <div class="col-7">
+      <label for="tipo">Tipo</label>
+      <select name="tipo" id="tipo" class="form-control" required>
+          <option value="moto">Moto</option>
+          <option value="auto">Auto</option>
+      </select>
     </div>
 
     <div class="col">
+     <label class="control-label">Precio Unitario ($) </label>
       <input id="precio_unitario" name="precio_unitario" type="precio_unitario" 
       type="text" class="form-control" placeholder="Precio de compra"  value="" required>
     </div>
+    
     <div class="col">
-      <input id="en_existencias" name="en_existencias" type="en_existencias" type="text" 
-      class="form-control" placeholder="Cantidad" value="" required>
-    </div>
-    <div class="col">
+     <label class="control-label">Precio Venta ($) </label>
       <input id="precio_venta" name="precio_venta" type="text" type="precio_venta" 
       class="form-control" placeholder="Precio venta" value="" required>
+    </div>
+
+    <div class="col">
+     <label class="control-label">Cantidad</label>
+      <input id="en_existencias" name="en_existencias" type="en_existencias" type="text" 
+      class="form-control" placeholder="Cantidad" value="" required>
     </div>
     <br>
     
@@ -136,7 +146,7 @@ alertify.defaults.theme.input = "form-control";
   <br>
   <div class="form-row">
     
-   
+    <label class="control-label">Fecha</label>
     <div class="col-4">
       <input id="fecha_venta" name="fecha_venta" type="date" class="form-control">
     </div>
