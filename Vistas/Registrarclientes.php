@@ -17,7 +17,7 @@ require_once"../Controladores/ControladorClientes.php";
     <script src="../js/toastr.js"></script>
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-    
+     <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
     <!-- include the RTL css files-->
 
 <link rel="stylesheet" href="../css/alertify.rtl.css">
@@ -134,12 +134,12 @@ alertify.defaults.theme.input = "form-control";
                   
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="masculino">Masculino
+                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">Masculino
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" id="femenino" name="sexo" value="femenino">Femenino
+                      <input class="form-check-input" type="radio" id="femenino" name="sexo" value="Femenino">Femenino
                     </label>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
-    
+    <script src="../js/dataTables.bootstrap4.min.js"></script>
       <script type="text/javascript">
       
  jQuery(function($){

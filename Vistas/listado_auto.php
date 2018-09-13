@@ -19,10 +19,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css" />
- <!--para datatables-->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
- 
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+ <link rel="stylesheet" href="../css/datatables.min.css">
+  
 
  
 
@@ -44,27 +42,12 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
             	 
             
             
-             <div class="col-md-5" style="float:right;">
-                 <i class="fa fa-road"></i>
-                    <label>Vehiculo alquilado</label>
-                    
-                <i class="fa fa-ban"></i>
-                <label>Vehiculo en mantenimiento</label>
-                 
-             </div>
+            
              
-             		
-             
-             <div class="col-md-5">
-                <form class="form-inline md-form form-sm" >
-    <i class="fa fa-search" aria-hidden="true"></i>
-    <input id="search" class="form-control form-control ml-3 w-75" type="search" placeholder="Buscar" >
-</form>
-        
-            </div>
+             	    
        
             <div class="table table-responsive">
-            <table id="table"  class="table table-striped ">
+            <table id="tabla"  class="table table-striped " style="font-size:14px;">
               <thead>
                 <tr>
                  <th></th>
@@ -77,6 +60,10 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
                   <th>COMBUSTIBLE</th>
                   <th>ESTADO</th>
                  <th>Acciones</th>
+                 <th hidden></th>
+                 <th hidden></th>
+                 <th hidden></th>
+                 <th hidden></th>
                 </tr>
               </thead>
               <tbody>
@@ -89,13 +76,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
                  
               </tbody>
             </table>
-            <br>
-            <div id="idpg" class="col-md-12 text-center">
-<ul class="pagination pagination-lg pager" id="developer_page">
-    
-</ul>
-</div>
             </div>
+          
+            
           </div>
         </div>
         
@@ -183,12 +166,41 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
-   <script src="../js/paginacion.js"></script>
-    <!--escript para buscar en la tabla-->
+    
+     
+    
+  <script>
+  
+      $(document).ready(function() {
+          //---para data tables codigo
+    $('#tabla').DataTable( {
+        
+        
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",   
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+        
+    } );
+} );
+    
+    </script>
+ 
+    <!--escript para buscar en la tabla ya no se usa-->
     <script>
       $(function () {
 
@@ -242,16 +254,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         
     </script>
      
-     <script type="text/javascript">
- var m=4;
-         
-   $(document).ready(function(){
-        $("#table").paginationTdA({
-            elemPerPage: m
-        });
-    });
-    </script>
-      
+    
      
     
     </body>

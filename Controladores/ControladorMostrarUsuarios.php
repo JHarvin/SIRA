@@ -8,7 +8,7 @@ class MostrarUsuariosController{
         
         foreach($respuesta as $row =>$item){
         if($item["status"]==1){
-$habilitado="Activo";
+          $habilitado="Activo";
 
         }else{$habilitado="Inactivo";}
         echo'

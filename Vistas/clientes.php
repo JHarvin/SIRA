@@ -16,7 +16,7 @@ require_once"../Controladores/ControladorClientes.php";
     <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="../css/datatables.min.css">
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
@@ -31,14 +31,9 @@ require_once"../Controladores/ControladorClientes.php";
           <div class="tile">
             
             <h3 class="tile-title">Clientes</h3>
-             <div class="col-md-5">
-                <form class="form-inline md-form form-sm" >
-    <i class="fa fa-search" aria-hidden="true"></i>
-    <input id="search" class="form-control form-control ml-3 w-75" type="text" placeholder="Buscar" >
-</form>
-        
-            </div>
-            <table id="table"  class="table table-striped">
+             
+            <div class="table table-responsive">
+            <table id="tabla"  class="table table-striped">
               <thead>
                 <tr>
                   <th>Nombre</th>
@@ -47,6 +42,8 @@ require_once"../Controladores/ControladorClientes.php";
                   <th>DUI</th>
                   <th>Licencia de conducir</th>
                   <th>Genero</th>
+                <th>Acciones</th> 
+                 
                  
                 </tr>
               </thead>
@@ -61,6 +58,7 @@ require_once"../Controladores/ControladorClientes.php";
               
               </tbody>
             </table>
+            </div>
           </div>
         </div>
         
@@ -103,8 +101,36 @@ require_once"../Controladores/ControladorClientes.php";
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/toastr.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+     <script src="../js/datatables.min.js"></script>
+    
+    
+     <script>
+  
+      $(document).ready(function() {
+          //---para data tables codigo
+    $('#tabla').DataTable( {
+        
+        
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",   
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+        
+    } );
+} );
+    
+    </script>
+    
     <script>
      function alerta(){
         toastr.success("Usuario Guardado");
