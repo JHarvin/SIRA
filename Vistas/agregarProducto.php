@@ -1,7 +1,7 @@
  <!DOCTYPE html>
  <?php 
 require_once"../Controladores/ControladorRegistrarBaterias.php";
-
+require_once"../Controladores/ControladorRegistrarProveedor.php";
 ?>
 
 <html lang="es">
@@ -95,8 +95,15 @@ alertify.defaults.theme.input = "form-control";
  
 
      <div class="form-group col-md-6">
-                  <input id="idproveedor" name="idproveedor" class="form-control" type="text" placeholder="Proveedor" 
-                    value="17" required>
+                  <select class="form-control" name="idproveedor" id="idproveedor">
+                     
+                      <?php 
+                      $combo=new RegistrarProveedorController();
+                      $combo->mostrarCombo();
+                      
+                      ?>
+                      
+                  </select>
                 </div>
 
       
