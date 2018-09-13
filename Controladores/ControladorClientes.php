@@ -67,7 +67,7 @@ class ClientesController{
             <script type="text/javascript">
               
 
-          alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA");
+          alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA ");
 
 
 
@@ -111,8 +111,11 @@ class ClientesController{
                   <td>'.$item["genero"].'</td>
                  
                   
-                  <td><a href="actualizarDatosUsuario.php?id='.$item["dui"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <td>
+                  <div class="btn-group" role="group">
+                  <a href="actualizarDatosUsuario.php?id='.$item["dui"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
                   <a href="usuarios.php?idb='.$item["dui"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                  </div>
                   </td>
                  
                 </tr>
