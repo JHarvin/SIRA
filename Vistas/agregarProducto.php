@@ -2,7 +2,9 @@
  <?php 
 require_once"../Controladores/ControladorRegistrarBaterias.php";
 require_once"../Controladores/ControladorRegistrarProveedor.php";
+
 ?>
+
 
 <html lang="es">
  <head>
@@ -60,7 +62,49 @@ alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
+<script>
+  //----------funcion ajax
+    function eliminar(idE){
+        var datos=new FormData();
+    datos.append("idb",idE);
+        
+        
+         $.ajax({
+        
+        type: "POST",
+        url: "../Controladores/ControladorAjaxEliminar.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        
+        success:function(r){
+         
 
+        if(r==1){
+        
+           // $(".table").load("../Vistas/usuarios.php");
+            toastr.success("Eliminado");
+    }
+          else if(r!=1){
+           
+              alert("diferente "+r);
+              
+          }
+            else{
+              //  $("#table").load();
+                
+                alert("Error -> "+r  );}
+        
+    }
+        
+        
+    });
+        
+    }
+     
+    
+    </script>
    
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
@@ -177,9 +221,9 @@ alertify.defaults.theme.input = "form-control";
         
         
     
-           <div class="card table table-responsive">
+           <div class="table table-responsive">
                
-               <table class="table table-striped">
+               <table id="tabla" class="table table-striped">
                    <thead>
                 <tr>
                 <th>Tipo</th>
@@ -189,6 +233,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>Proveedor</th>
                   <th>Precio venta</th>
                   <th>Fecha venta</th>
+                   <th hidden></th>
 
                  
                 </tr>
@@ -204,7 +249,7 @@ alertify.defaults.theme.input = "form-control";
                    </tbody> 
                </table>
                
-              <h3> <label>Total:</label></h3>
+              <h3> <label>Total($):</label></h3>
           
                <div class="tile-footer">
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
@@ -256,5 +301,92 @@ alertify.defaults.theme.input = "form-control";
   $('#search').quicksearch('table tbody tr');								
 });
     </script>
+
+     <script>
+  
+      $(document).ready(function() {
+          //---para data tables codigo
+    $('#tabla').DataTable( {
+        
+        
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",   
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+        
+    } );
+} );
+    
+    </script>
+
+    <script>
+     function alerta(){
+        toastr.success("Usuario Guardado");
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  
+  "hideMethod": "fadeOut"
+}
+          
+
+          
+      }
+        
+        
+    </script>
+    
+    <!--escript para buscar en la tabla-->
+    <script>
+      $(function () {
+
+  $('#search').quicksearch('table tbody tr');               
+});
+    </script>
+
+     <script>
+    //---Funcion para detectar el clic y obtener los datos
+      $("table tbody tr").click(function() {
+          //---se obtiene el indice de la tabla
+ //var nombre=$(this).find("td:eq(0)").text();
+ // var id=$(this).find("td:eq(6)").text(); 
+           
+          
+          //---poniendo los datos en los inputs del modal
+          
+         
+        
+         // $("#nombreU").text(nombre+"?");
+          //$("#idDelete").text(id);
+  
+});
+    </script>
+    
+    
+    
+   
+    
 </body>
 </html>
