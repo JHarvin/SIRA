@@ -71,6 +71,24 @@ alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
+<script >
+function soloLetras(e) {
+        key = e.keyCode || e.which;
+        teclado = String.fromCharCode(key).toLowerCase();
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+        especiales = "8-37-38-46-164";
+        teclado_especial = false;
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+            }
+        }
+        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+    }
+</script>
     
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
@@ -89,9 +107,9 @@ alertify.defaults.theme.input = "form-control";
             <div class="tile-body">
               <form id="formulario_registro" method="post" onsubmit="return validarRegistro();">
 			  <div class="form-row">
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-3">  
                   <label class="control-label" for="nombre">Nombre de cliente</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" placeholder="Nombre..." maxlength="30" style="text" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+                  <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
                 </div>
                 <div class="form-group col-md-3">
                 <td>
@@ -134,12 +152,12 @@ alertify.defaults.theme.input = "form-control";
                   
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="masculino">Masculino
+                      <input class="form-check-input" type="radio" id="Masculino" name="sexo" value="masculino">Masculino
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" id="femenino" name="sexo" value="femenino">Femenino
+                      <input class="form-check-input" type="radio" id="Femenino" name="sexo" value="femenino">Femenino
                     </label>
                   </div>
                 </div>

@@ -13,6 +13,7 @@ class ClientesController{
     
     #FUNCIÓN REGISTRAR
     public function registrarCliente(){
+        $genero="";
         
         #VALIDACION DE LOS DATOS--------
         if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["telefono"]) && !empty($_POST["telefono"]) && isset($_POST["dui"]) && !empty($_POST["dui"]) &&
@@ -20,13 +21,6 @@ class ClientesController{
         isset($_POST["direccion"]) && !empty($_POST["direccion"]) &&
         isset($_POST["sexo"]) && !empty($_POST["sexo"])                                      
           ){
-<<<<<<< HEAD
-              
-
-            
-=======
-            $genero="";
->>>>>>> 93488a126af7d76c8531e3049e56e9a15dad6447
             # validacion que todo este correcto es decir caracteres y cantidad de estos lado servidor
             # preg_match realiza una comparacion de expresiones regulares
 
@@ -73,7 +67,7 @@ class ClientesController{
             <script type="text/javascript">
               
 
-          alertify.error("DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA");
+          alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA");
 
 
 
