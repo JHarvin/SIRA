@@ -106,7 +106,6 @@ alertify.defaults.theme.input = "form-control";
                   </select>
                 </div>
 
-      
                            
     <div class="col">
      <label class="control-label">Código</label>
@@ -209,7 +208,7 @@ alertify.defaults.theme.input = "form-control";
           
                <div class="tile-footer">
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
-              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar compra </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
+              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar compra </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
            </div>
            

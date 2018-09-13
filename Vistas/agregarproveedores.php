@@ -156,7 +156,6 @@ alertify.defaults.theme.input = "form-control";
             
         });
           
-        
     </script>
 
   <script>
