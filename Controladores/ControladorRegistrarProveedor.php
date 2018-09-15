@@ -55,6 +55,17 @@ require_once"../Modelos/ModeloProveedores.php";
 
 	       
         }
+     public function mostrarCombo(){
+       $respuesta=DatosProveedor::mostrarProveedoresModel("tproveedores");   
+         foreach($respuesta as $row =>$item){
+             
+             echo'
+             
+             <option value="'.$item["idproveedor"].'">'.$item["nombre"].'</option>
+             ';
+             
+         }
+     }
         
         public function mostrarProveedores(){
         

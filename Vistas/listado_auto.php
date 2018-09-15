@@ -18,9 +18,55 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css" />
+ <link rel="stylesheet" href="../css/fancybox.min.css" />
  <link rel="stylesheet" href="../css/datatables.min.css">
-  
+  <!-- include the RTL css files-->
+
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+    
+    
+   
+
+    
+
+</script>
+    <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
 
  
 
@@ -38,15 +84,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
           <div class="tile">
             
             <h3 class="tile-title">Vehiculos</h3>
-            
-            	 
-            
-            
-            
-             
              	    
        
-            <div class="table table-responsive">
+            <div class="table table-responsive" >
             <table id="tabla"  class="table table-striped " style="font-size:14px;">
               <thead>
                 <tr>
@@ -110,7 +150,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -170,8 +210,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/main.js"></script>
     <script src="../js/toastr.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
-    
+    <script src="../js/fancybox.min.js"></script>
+    <script src="../Vistas/js/eliminarVehiculo.js"></script>
      
     
   <script>
@@ -254,7 +294,22 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         
     </script>
      
-    
+    <script>
+    //----Se ejecuta cuando se da click en el boton eliminar del modal eliminar
+        //----La funcion llama a otra funcion que se encarga de ejecutar el ajax
+        //---que sirve para eliminar
+        $(document).ready(function(){
+            
+            $("#btnEliminarVehiculo").click(function(){
+                
+                var idEliminar=$("#numeroPl").text();
+            eliminar(idEliminar);
+                
+            });
+            
+        });
+        
+    </script>
      
     
     </body>

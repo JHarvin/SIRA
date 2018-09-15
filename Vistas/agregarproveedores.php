@@ -85,20 +85,20 @@ alertify.defaults.theme.input = "form-control";
               <form id="formulario_registro" name="form1" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-6">
                   <label class="control-label" for="nombre">Nombre</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Nombre" 
+                  <input id="nombre" autocomplete="off" name="nombre" class="form-control" type="text" placeholder="Nombre" 
                   maxlength="100"   value="" required>
                 </div>
                 <div class=" col-md-6">
                   <label class="control-label">Teléfono</label>
                   <input id="telefono" name="telefono" class="form-control" 
                   type="telefono" placeholder="Ingrese número de teléfono" 
-                  maxlength="9" value=""   required>
+                  maxlength="9"  autocomplete="off" value=""   required>
                 </div>
 
                 <div  class=" col-md-6">
                   <label  class="control-label">E-mail</label>
                   <input id="email" type="email" class="form-control"  placeholder="E-mail" 
-                   name="email" onkeypress=" return ValidateEmail(email)"  required >
+                   name="email"  autocomplete="off" onkeypress=" return ValidateEmail(email)"  required >
                 </div>
 
         
@@ -106,7 +106,7 @@ alertify.defaults.theme.input = "form-control";
                 <div class="form-group col-md-6">
                   <label for="direccion" class="control-label">Dirección</label>
                   <input type="text" class="form-control" 
-                  placeholder="Dirección" id="direccion" name="direccion"  required >
+                  placeholder="Dirección"  autocomplete="off"  id="direccion" name="direccion"  required >
                 </div>
                 
                 
@@ -156,7 +156,6 @@ alertify.defaults.theme.input = "form-control";
             
         });
           
-        
     </script>
 
   <script>

@@ -78,11 +78,13 @@ alertify.defaults.theme.input = "form-control";
     
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
-</head>      
+</head> 
+
 <body class="app sidebar-mini rtl">
      <?php 
     include"menu.php";
     ?>
+
       <main class="app-content">
        
        
@@ -94,20 +96,20 @@ alertify.defaults.theme.input = "form-control";
               <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-4">
                   <label class="control-label" for="nombre">Nombre</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100" style="text-transform:uppercase;" pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100"  pattern=".{7,}" title="7 o mas caracteres para nombre real" onkeypress="return soloLetras(event)" value="" required autocomplete="off">
                 </div>
                 <div class=" col-md-4">
                   <label class="control-label">Telefono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required>
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required autocomplete="off">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="email" class="control-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="email" id="email" name="email" value="" required >
+                  <input type="email" class="form-control" placeholder="email" id="email" name="email" value="" required autocomplete="off">
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label class="control-label">Digite un nombre de usuario</label>
-                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username" value="" required>
+                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username" value="" required autocomplete="off">
                 </div>
                 
                 <div class="form-group col-md-4">
@@ -118,9 +120,9 @@ alertify.defaults.theme.input = "form-control";
                   <label for="rPassword" class="control-label">Vuelva a escribir la contraseña</label>
                   <input type="password" class="form-control" placeholder="Otra vez" id="rPassword" name="rPassword" value="" required>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
                   <label class="control-label">Dirección</label>
-                  <textarea id="direccion" name="direccion" class="form-control" rows="1" placeholder="Ingrese su dirección" value="" required></textarea>
+                  <textarea id="direccion" name="direccion" class="form-control" rows="" placeholder="Ingrese su dirección" value="" required></textarea>
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Genero</label>
@@ -176,7 +178,21 @@ alertify.defaults.theme.input = "form-control";
             $("#telefono").mask("9999-9999");
             
         });
-          
+           function soloLetras(e){
+        key=e.keyCode || e.which;
+        teclado=String.fromCharCode(key).toLowerCase();
+        letras=" áéíóúabcdefghijklmnñopqrstuvwxyz";
+        especiales="8-37-38-46-164";
+        teclado_especial=false;
+        for(var i in especiales){
+            if(key==especiales[i]){
+                teclado_especial=true;break;
+            }
+        }
+        if(letras.indexOf(teclado)==-1 && !teclado_especial){
+        return false;
+    }
+        }
         
     </script>
     
@@ -187,4 +203,5 @@ alertify.defaults.theme.input = "form-control";
     
     
     </body>
+
 </html>

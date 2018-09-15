@@ -89,7 +89,7 @@ class RegistrarVehiculoController{
                   <td class="bg-info"><i class="icon fa fa-road fa fa-3x"></i>
 
 </td>
-                  <td colspan="2">
+                  <td>
                   <div class="btn-group" role="group">
                   
                   <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-truck"></i></a>

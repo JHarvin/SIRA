@@ -13,8 +13,6 @@ class ClientesController{
     
     #FUNCIÓN REGISTRAR
     public function registrarCliente(){
-        $genero="";
-       
         
         #VALIDACION DE LOS DATOS--------
         if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["telefono"]) && !empty($_POST["telefono"]) && isset($_POST["dui"]) && !empty($_POST["dui"]) &&
@@ -28,7 +26,6 @@ class ClientesController{
             if(preg_match('/^[a-zA-Z]+$/',$_POST["nombre"]) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST["email"]) &&
               preg_match('/^[0-9]+$/',$_POST["telefono"])
               ){}
-                
             if($_POST["sexo"]=="Masculino" ){
                 $genero="M";
             }
@@ -42,14 +39,48 @@ class ClientesController{
         "direccion"=>$_POST["direccion"],
         "genero"=>$genero);
         
+        #-----VAlidamos dui y lencia llamando a las dos funciones en el modelo
+            #------------------------------------
+            #--Validamos el dui que no se repita
+            #-----------------------------------
+            $validarDui=DatosCliente::validarDui($_POST["dui"],"tclientes");
+            
+            #-----------------------------------
+            #--Validamos la licencia que no haya sido ingresada antes
+            #---------------------------------------------------------
+        $validarLicencia=DatosCliente::validarLicencia($_POST["licencia"],"tclientes");
+            
+            #Validamos el dui
+            if($validarDui=="error" || $validarLicencia=="error"){
+                
+                 echo' 
+             
+            <script type="text/javascript">
+             alertify.set("notifier","position", "top-center");
+
+          alertify.error("Dui o Licencia ya han sido registrados");
+
+
+
+
         
-        $respuesta=DatosCliente::registroClienteModel($datosClienteController,"tclientes");
+            </script>
+            ';  
+                
+            }
+            
+#----------------------------------------------------------------------------            
+#Si no da error es decir si el fecht es igual a 0 entonces llamamos a la function y save
+#_______________________________________________________________________________________    
+        else if($validarDui=="success" && $validarLicencia=="success"){    
+            
+    $respuesta=DatosCliente::registroClienteModel($datosClienteController,"tclientes");
         
         if( $respuesta=="success"){
             echo' 
              
             <script type="text/javascript">
-           
+             alertify.set("notifier","position", "top-right");
 
           alertify.success("Registro Guardado    ✔");
 
@@ -61,11 +92,13 @@ class ClientesController{
             ';
         }
             
-        else {
-            echo' 
-          
-         <script type="text/javascript">
-           
+            else {
+               echo' 
+             
+            <script type="text/javascript">
+             alertify.set("notifier","position", "top-right");
+
+          alertify.error("Algo salio mal :(");
 
        alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA ");
 
@@ -76,8 +109,7 @@ class ClientesController{
             ';  
                 
             }
-        
-        
+        }
         
         
         }
@@ -111,9 +143,9 @@ class ClientesController{
                  
                   
                   <td>
-                  <div class="btn-group" role="group">
-                  <a href="#" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
-                  <a href="#" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                   <div class="btn-group" role="group">
+                  <a href="actualizarDatosUsuario.php?id='.$item["dui"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="usuarios.php?idb='.$item["dui"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
                   </div>
                   </td>
                  
