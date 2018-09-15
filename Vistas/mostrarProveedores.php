@@ -39,8 +39,10 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
+    <link rel="stylesheet" href="../css/datatables.min.css">
     <script src="../js/alertify.min.js"></script>
 <script src="../Vistas/js/validarRegistro.js"></script>
+
 <script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "slide";
@@ -105,13 +107,7 @@ alertify.defaults.theme.input = "form-control";
             
             <h3 class="tile-title">Proveedores Registrados</h3>
             <!-- Search form -->
-            <div class="col-md-5">
-                <form class="form-inline md-form form-sm" >
-    <i class="fa fa-search" aria-hidden="true"></i>
-    <input id="search" class="form-control form-control ml-3 w-75" type="text" placeholder="Buscar" >
-</form>
-                
-            </div>
+             
 
 
             
@@ -119,14 +115,14 @@ alertify.defaults.theme.input = "form-control";
           
           
         <div class="table table-responsive">
-            <table id="table"  class="table table-striped">
+            <table id="tabla"  class="table table-striped">
               <thead>
                 <tr>
                   <th>Nombre</th>
                   <th>Teléfono</th>
                    <th>Email</th>
                   <th>Dirección</th>
-                 
+                 <th hidden></th>
                  
                 </tr>
               </thead>
@@ -236,7 +232,35 @@ alertify.defaults.theme.input = "form-control";
     
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
+     
+     <script>
+  
+      $(document).ready(function() {
+          //---para data tables codigo
+    $('#tabla').DataTable( {
+        
+        
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",   
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+        
+    } );
+} );
     
+    </script>
+     
+     
       <script type="text/javascript">
       
  jQuery(function($){

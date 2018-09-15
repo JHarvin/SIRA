@@ -33,20 +33,9 @@ class DatosCliente extends Conexion{
     #FUNCION PARA GUARDAR DATOS DE LOS CLIENTES
     #---------------------------------------------
     public function registroClienteModel($datosClienteModel,$tabla){
-<<<<<<< HEAD
 
             
          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, dui, licencia_de_conducir, direccion, genero) VALUES (
-=======
-        
-         
-        
-        
-         
-    
-        
-            $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, dui, licencia_de_conducir, direccion, genero) VALUES (
->>>>>>> 93488a126af7d76c8531e3049e56e9a15dad6447
         :nombre,:telefono,:dui,:licencia,:direccion,:genero
         )");
     

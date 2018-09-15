@@ -8,7 +8,7 @@ class MostrarUsuariosController{
         
         foreach($respuesta as $row =>$item){
         if($item["status"]==1){
-$habilitado="Activo";
+          $habilitado="Activo";
 
         }else{$habilitado="Inactivo";}
         echo'
@@ -23,8 +23,11 @@ $habilitado="Activo";
                   <td>'.$habilitado.'</td>
                  
                   
-                  <td><a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <td>
+                  <div class="btn-group" role="group">
+                  <a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-trash-o"></i></a>
+                  </div>
                   </td>
                  <td hidden>'.$item["idpersonal"].'</td>
                 </tr>
