@@ -8,24 +8,32 @@
 #---------------------------------------------------------------------------------
 require_once"Conexion.php";
 class DatosCliente extends Conexion{
-    public function validarDuiLicencia($dui,$licencia){
-        
-        $stmt =Conexion::conectar()->prepare("SELECT * FROM tclientes WHERE dui = :dui and licencia_de_conducir =:lecencia");
-        
-        $stmt->bindParam(":dui",$dui,PDO::PARAM_STR);
-        $stmt->bindParam(":licencia",$licencia,PDO::PARAM_STR);
-        
+    #_____________________________________________
+    #Funciones para validar repetidos
+    #______________________________________________
+    #Funcion para validar dui que no se repita
+    public function validarDui($dui,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where dui=:dui");
+         $stmt->bindParam(":dui",$dui,PDO::PARAM_STR);
         $stmt->execute();
-            
-        return $stmt->fetch();
         
-       
+        if($stmt->fetchColumn()>0){
+            return "error";
+        }else{
+            return "success";
+        }
+    }
+    #Funcion para validar licencia
+    public function validarLicencia($licencia,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where licencia_de_conducir=:licencia");
+         $stmt->bindParam(":licencia",$licencia,PDO::PARAM_STR);
+        $stmt->execute();
         
-        
-    $stmt->close(); 
-        
-        
-        
+        if($stmt->fetchColumn()>0){
+            return "error";
+        }else{
+            return "success";
+        }
     }
     
     #---------------------------------------------

@@ -148,7 +148,9 @@ alertify.defaults.theme.input = "form-control";
     
     <label class="control-label">Fecha</label>
     <div class="col-4">
-      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control">
+      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control" value="<?php  date("d/m/Y"); ?>"
+      
+      >
     </div>
     
     
@@ -250,6 +252,8 @@ alertify.defaults.theme.input = "form-control";
     <!-- The javascript plugin to display page loading on top-->
     <script src="../js/plugins/pace.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+     
+     
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
