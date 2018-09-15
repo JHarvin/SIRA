@@ -128,7 +128,7 @@ alertify.defaults.theme.input = "form-control";
                     </div>
                      <div class="col-md-4">
                       <label>Email</label>
-                      <input id="Email" name="Email" class="form-control" type="email" required>
+                      <input id="Email" name="Email" class="form-control" type="email" required value="<?php echo $datosVista["email"]; ?>" autocomplete="off">
                     </div>
                   </div>
                   <div class="row">
@@ -155,15 +155,19 @@ alertify.defaults.theme.input = "form-control";
 
               <label for="status">Estado</label>
                 <select class="form-control" name="status">
-                  <?php if ($datosVista["status"] === 1) {
+                  <?php 
+                  if ($datosVista["status"]== 1) {
                     # code...
-                    echo '<option  value="1"> Inactivo</option>';
-                    echo '<option value="0">activo</option>';
+                   
+                    echo '<option value="1">activo</option>';
+                    echo '<option  value="0"> Inactivo</option>';
 
                   }
                   else{
-                  echo '<option  value="0">activo</option>';
-                  echo '<option  value="1">Inactivo</option>';
+                 
+
+                   echo '<option  value="0"> Inactivo</option>';
+                    echo '<option value="1">activo</option>';
 }
                    ?>
                   

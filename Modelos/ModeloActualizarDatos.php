@@ -13,7 +13,7 @@ class EditarUsuario extends Conexion{
     
     public function editarUsuarioModel($idModelDatos,$tabla){
         
-         $stmt =Conexion::conectar()->prepare("SELECT idpersonal,nombre,telefono,direccion,username,password,status FROM $tabla WHERE idpersonal= :id");
+         $stmt =Conexion::conectar()->prepare("SELECT idpersonal,nombre,telefono,direccion,username,password,status, email FROM $tabla WHERE idpersonal= :id");
         
          
        

@@ -10,16 +10,17 @@ class Datos extends Conexion{
     public function registroUsuarioModel($datosModel, $tabla){
         
         
-        $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, direccion, username, password, genero) VALUES (
-        :nombre,:telefono,:direccion,:username,:password,:genero
-        )");
+        $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, telefono, direccion, username, password, genero,status,email) VALUES (
+        :nombre,:telefono,:direccion,:username,:password,:genero,1,:email)");
         
         $stmt->bindParam(":nombre",$datosModel["nombre"],PDO::PARAM_STR);
         $stmt->bindParam(":telefono",$datosModel["telefono"],PDO::PARAM_STR);
+        $stmt->bindParam(":email",$datosModel["email"],PDO::PARAM_STR);
         $stmt->bindParam(":direccion",$datosModel["direccion"],PDO::PARAM_STR);
         $stmt->bindParam(":username",$datosModel["username"],PDO::PARAM_STR);
         $stmt->bindParam(":password",$datosModel["password"],PDO::PARAM_STR);
         $stmt->bindParam(":genero",$datosModel["genero"],PDO::PARAM_STR);
+
         
         if($stmt->execute()){
             return "success";
