@@ -33,11 +33,11 @@ session_destroy();
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Incio de sesion</h3>
           <div class="form-group">
             <label class="control-label">Nombre de usuario</label>
-            <input id="usuarioLog" name="usuarioLog" class="form-control" type="text" placeholder="Nombre de usuario" autofocus required>
+            <input id="usuarioLog" name="usuarioLog" class="form-control" type="text" placeholder="Nombre de usuario" autofocus required autocomplete="off">
           </div>
           <div class="form-group">
             <label class="control-label">Contraseña</label>
-            <input id="usuarioPass" name="usuarioPass" class="form-control" type="password" placeholder="Contraseña" required>
+            <input id="usuarioPass" name="usuarioPass" class="form-control" type="password" placeholder="Contraseña" required >
           </div>
           <div class="form-group">
             <div class="utility">

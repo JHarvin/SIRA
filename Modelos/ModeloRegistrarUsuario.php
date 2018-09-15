@@ -5,6 +5,34 @@
 require_once "Conexion.php";
 
 class Datos extends Conexion{
+
+    #_____________________________________________
+    #Funciones para validar repetidos
+    #______________________________________________
+    #Funcion para validar dui que no se repita
+    public function validarusuario($username,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where username=:username");
+         $stmt->bindParam(":username",$username,PDO::PARAM_STR);
+        $stmt->execute();
+        
+        if($stmt->fetchColumn()>0){
+            return "error";
+        }else{
+            return "success";
+        }
+    }
+    #Funcion para validar licencia
+    public function validarcorreo($correo,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where correo=:email");
+         $stmt->bindParam(":email",$correo,PDO::PARAM_STR);
+        $stmt->execute();
+        
+        if($stmt->fetchColumn()>0){
+            return "error";
+        }else{
+            return "success";
+        }
+    }
     #---Esta funcion recibira del controlodor para guardarlo a la bd
     #---------------------------------------------------------------
     public function registroUsuarioModel($datosModel, $tabla){

@@ -48,14 +48,48 @@ class RegistrarUsuarioController{
         "password"=>$_POST["password"],
         "genero"=>$genero);
         
+         #-----VAlidamos dui y lencia llamando a las dos funciones en el modelo
+            #------------------------------------
+            #--Validamos el dui que no se repita
+            #-----------------------------------
+            $validarusuario=Datos::validarusuario($_POST["username"],"tpersonal");
+            
+            #-----------------------------------
+            #--Validamos la licencia que no haya sido ingresada antes
+            #---------------------------------------------------------
+        $validarcorreo=Datos::validarcorreo($_POST["email"],"tpersonal");
+            
+            #Validamos el dui
+            if($validarusuario=="error" || $validarcorreo=="error"){
+                
+                 echo' 
+             
+            <script type="text/javascript">
+             alertify.set("notifier","position", "top-center");
+
+          alertify.error("Usuario o Correo ya han sido registrados");
+
+
+
+
         
-        $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
+            </script>
+            ';  
+                
+            }
+            
+#----------------------------------------------------------------------------            
+#Si no da error es decir si el fecht es igual a 0 entonces llamamos a la function y save
+#_______________________________________________________________________________________    
+        else if($validarusuario=="success" && $validarcorreo=="success"){    
+            
+    $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
         
         if( $respuesta=="success"){
             echo' 
              
             <script type="text/javascript">
-             
+             alertify.set("notifier","position", "top-right");
 
           alertify.success("Registro Guardado    ✔");
 
@@ -71,10 +105,11 @@ class RegistrarUsuarioController{
                echo' 
              
             <script type="text/javascript">
-             
+             alertify.set("notifier","position", "top-right");
 
           alertify.error("Algo salio mal :(");
 
+       alertify.error("EL USUARIO O CORREO YA HAN SIDO REGISTRADOS PRUEBA OTRA ");
 
 
 
@@ -83,17 +118,12 @@ class RegistrarUsuarioController{
             ';  
                 
             }
-        
-        
-        
-        
         }
-        
     }
     
 }
 
 
-
+}
 
 ?>
