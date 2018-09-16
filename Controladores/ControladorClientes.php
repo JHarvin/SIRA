@@ -39,7 +39,7 @@ class ClientesController{
         "direccion"=>$_POST["direccion"],
         "genero"=>$genero);
         
-        #-----VAlidamos dui y lencia llamando a las dos funciones en el modelo
+            #-----VAlidamos dui y lencia llamando a las dos funciones en el modelo
             #------------------------------------
             #--Validamos el dui que no se repita
             #-----------------------------------

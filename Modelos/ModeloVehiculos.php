@@ -1,10 +1,30 @@
 <?php 
 #AQUI SE HARAN TODAS LAS CONSULTAS A LA BD: insertar, eliminar, editar y mostrar
+#----------------------|-----------------|---------------------------------------
+#----------------------|Por: Harvin Ramos|---------------------------------------
+#---------------------|__________________|---------------------------------------
+#-------------------|___________________|----------------------------------------
 require_once"Conexion.php";
 class VehiculosModel extends Conexion{
-    
-    public function registroVehiculoModel($datosModel,$tabla){
+  #--------------------------------------------------------------------------------
+  #Funcion para validar que no se inserten placas iguales de los vehiculos---------
+  #--------------------------------------------------------------------------------    
+     public function validarPlaca($placa,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where numero_de_placa=:placa");
+         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+        $stmt->execute();
         
+        if($stmt->fetchColumn()>0){
+            return "error";
+        }else{
+            return "success";
+        }
+    }
+    
+    #-----------------------------------------------------
+    #Funcion para guardar los datos del vehiculo en la bd-
+    #-----------------------------------------------------
+    public function registroVehiculoModel($datosModel,$tabla){ 
         //----configuramos para guardar la imagen en una carpeta
         //--lo guardamos en variables el nombre de la imagen el archivo de tipo png, jpg
         // o como sea el tipo de imagen
@@ -84,6 +104,43 @@ class VehiculosModel extends Conexion{
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
+    }
+    #---------------------------------------------------------------------
+    #FUNCION PARA OBTENER LA DIRECCION DE LAS IMAGENES Y LUEGO ELIMINARLAS
+    #----------------------------------------------------------------------
+     public function obtenerDireccionImagenes($placa,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT imagen,imagen2,imagen3,imagen4 
+        from $tabla where numero_de_placa=:placa");
+         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+         $stmt->close();
+       
+    }
+    
+    #---------------------------------------------------------------
+    #FUNCION PARA ELIMINAR REGISTRO DEL AUTO Y ELIMINAR LAS IMAGENES
+    #---------------------------------------------------------------
+    public function borrarVehiculoModel($placa,$ruta1,$ruta2,$ruta3,$ruta4,$tabla){
+        #Eliminamos primero las imagenes del servidor
+        unlink($ruta1);
+        unlink($ruta2);
+        unlink($ruta3);
+        unlink($ruta4);
+        #Luego elimino el registro de la bd
+        $stmt =Conexion::conectar()->prepare("DELETE FROM $tabla WHERE numero_de_placa = :placa");
+        
+          $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+        
+        
+        if($stmt->execute()){
+            return "success";
+        }
+        else{
+            return "error";
+        }
+        $stmt->close();
+        
     }
     
 }

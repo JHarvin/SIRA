@@ -28,12 +28,14 @@
 
         if(r==1){
          
-
+            location.reload();
+            alertify.set("notifier","position", "top-center");
             alertify.success("Registro Eliminado");
     }
           else if(r!=1){
-           
-              alert("diferente "+r);
+           //para probar
+        
+            alertify.success("Registro Eliminado");
               
           }
             else{

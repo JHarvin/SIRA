@@ -11,10 +11,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <!-- libreria para notificaciones toast-->
-    <link rel="stylesheet" href="../css/toastr.css">
-    <!-- efectos del input buscar-->
-    <link rel="stylesheet" href="../css/buscarInput.css">
+     
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
@@ -126,9 +123,11 @@ alertify.defaults.theme.input = "form-control";
         
       </div>
       </main>
-      
+      <!------------------------------------------------------------------------->
       <!-- Modales -->
+      <!------------------------------------------------------------------------->
        <!-- Modal para eliminar vehiculo -->
+       <!------------------------------------------------------------------------->
       <div class="modal" id="modalEliminar">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -160,8 +159,9 @@ alertify.defaults.theme.input = "form-control";
   </div>
 </div>
       
-      
+      <!------------------------------------------------------------------------->
       <!-- Modal  PARA PONER IMAGEN DEL CARRO-->
+      <!------------------------------------------------------------------------->
  <div class="modal" id="modalDetalle">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -200,7 +200,40 @@ alertify.defaults.theme.input = "form-control";
     </div>
   </div>
 </div>
-    </div>    
+    </div> 
+        
+      <!------------------------------------------------------------------------->
+      <!-- |MODAL PARA PREGUNTAR SI ALQUILAR EL CARRO O MANDARLO A MANTENIMIENTO|-->
+      <!------------------------------------------------------------------------->
+      <div class="modal" id="modalOpcion">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Elegir Acción </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+     
+             
+           
+              
+          </div>
+          
+      <!-- Modal footer -->
+      <div class="modal-footer">
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-success"> <i class="fa fa-key"></i> Alquilar Vehiculo</button>
+        |
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+        <i class="fa fa-exclamation-triangle"></i> Mandar a Mantenimiento</button>
+      </div>
+
+    </div>
+  </div>
+</div>
       
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
@@ -208,8 +241,6 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/datatables.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/toastr.js"></script>
-    <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      
@@ -221,7 +252,7 @@ alertify.defaults.theme.input = "form-control";
     $('#tabla').DataTable( {
         
         
-        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todo"]],
            "language": {
             "lengthMenu": "Mostrar _MENU_",
             "zeroRecords": "No se encontraron registros",
@@ -240,13 +271,8 @@ alertify.defaults.theme.input = "form-control";
     
     </script>
  
-    <!--escript para buscar en la tabla ya no se usa-->
-    <script>
-      $(function () {
-
-  $('#search').quicksearch('table tbody tr');								
-});
-    </script>
+     
+   
     
     <script>
     //--------pone los datos en el modal
