@@ -32,10 +32,11 @@
       <ul class="app-menu">
         <li><a class="app-menu__item active" href="inicio.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Inicio</span></a></li>
 
-<li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-address-card-o">
+<li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users">
           
         </i><span class="app-menu__label">Usarios</span>
         <i class="treeview-indicator fa fa-angle-right"></i></a>
+         
           <ul class="treeview-menu">
 
             <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar usuarios</a></li>
