@@ -157,6 +157,7 @@ alertify.defaults.theme.input = "form-control";
    
     <div class="form-group col-md-4">
     <label class="control-label">Fecha</label>
+<<<<<<< HEAD
       <input id="fecha_venta" name="fecha_venta" type="date" class="form-control">
      <?php   $fecha_venta=date('Y-m-d')?>
     </div> 
@@ -166,6 +167,22 @@ alertify.defaults.theme.input = "form-control";
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
               type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
+=======
+    <div class="col-4">
+      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control" value="<?php  date("d/m/Y"); ?>"
+      
+      >
+    </div>
+    
+    
+  </div>
+  
+   <div class="card-footer">
+       <button class="btn btn-primary">Agregar producto</button>
+       <br>
+       
+   </div> 
+>>>>>>> d863ef3a2da7fe77ff90c2b2d42ac89e74d54a17
 
     <?php 
      #--para guardar registros se llama a la clase y funcion
@@ -193,9 +210,45 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/main.js"></script>
     
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+<<<<<<< HEAD
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script src="../js/datatables.min.js"></script>
      
+=======
+     
+     
+    <!--escript para buscar en la tabla-->
+    <script>
+      $(function () {
+
+  $('#search').quicksearch('table tbody tr');								
+});
+    </script>
+
+     <script>
+  
+      $(document).ready(function() {
+          //---para data tables codigo
+    $('#tabla').DataTable( {
+        
+        
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",   
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+        
+    } );
+} );
+>>>>>>> d863ef3a2da7fe77ff90c2b2d42ac89e74d54a17
     
      
      

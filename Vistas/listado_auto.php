@@ -11,16 +11,59 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <!-- libreria para notificaciones toast-->
-    <link rel="stylesheet" href="../css/toastr.css">
-    <!-- efectos del input buscar-->
-    <link rel="stylesheet" href="../css/buscarInput.css">
+     
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css" />
+ <link rel="stylesheet" href="../css/fancybox.min.css" />
  <link rel="stylesheet" href="../css/datatables.min.css">
-  
+  <!-- include the RTL css files-->
+
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+    
+    
+   
+
+    
+
+</script>
+    <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
 
  
 
@@ -38,15 +81,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
           <div class="tile">
             
             <h3 class="tile-title">Vehiculos</h3>
-            
-            	 
-            
-            
-            
-             
              	    
        
-            <div class="table table-responsive">
+            <div class="table table-responsive" >
             <table id="tabla"  class="table table-striped " style="font-size:14px;">
               <thead>
                 <tr>
@@ -86,9 +123,11 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         
       </div>
       </main>
-      
+      <!------------------------------------------------------------------------->
       <!-- Modales -->
+      <!------------------------------------------------------------------------->
        <!-- Modal para eliminar vehiculo -->
+       <!------------------------------------------------------------------------->
       <div class="modal" id="modalEliminar">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -110,7 +149,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -120,8 +159,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
   </div>
 </div>
       
-      
+      <!------------------------------------------------------------------------->
       <!-- Modal  PARA PONER IMAGEN DEL CARRO-->
+      <!------------------------------------------------------------------------->
  <div class="modal" id="modalDetalle">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -160,7 +200,40 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
   </div>
 </div>
-    </div>    
+    </div> 
+        
+      <!------------------------------------------------------------------------->
+      <!-- |MODAL PARA PREGUNTAR SI ALQUILAR EL CARRO O MANDARLO A MANTENIMIENTO|-->
+      <!------------------------------------------------------------------------->
+      <div class="modal" id="modalOpcion">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Elegir Acción </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+     
+             
+           
+              
+          </div>
+          
+      <!-- Modal footer -->
+      <div class="modal-footer">
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-success"> <i class="fa fa-key"></i> Alquilar Vehiculo</button>
+        |
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+        <i class="fa fa-exclamation-triangle"></i> Mandar a Mantenimiento</button>
+      </div>
+
+    </div>
+  </div>
+</div>
       
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
@@ -168,10 +241,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/datatables.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/toastr.js"></script>
-    <script src="../js/jquery.quicksearch2.2.1.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
-    
+    <script src="../js/fancybox.min.js"></script>
+    <script src="../Vistas/js/eliminarVehiculo.js"></script>
      
     
   <script>
@@ -181,7 +252,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     $('#tabla').DataTable( {
         
         
-        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todo"]],
            "language": {
             "lengthMenu": "Mostrar _MENU_",
             "zeroRecords": "No se encontraron registros",
@@ -200,13 +271,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     
     </script>
  
-    <!--escript para buscar en la tabla ya no se usa-->
-    <script>
-      $(function () {
-
-  $('#search').quicksearch('table tbody tr');								
-});
-    </script>
+     
+   
     
     <script>
     //--------pone los datos en el modal
@@ -254,7 +320,22 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         
     </script>
      
-    
+    <script>
+    //----Se ejecuta cuando se da click en el boton eliminar del modal eliminar
+        //----La funcion llama a otra funcion que se encarga de ejecutar el ajax
+        //---que sirve para eliminar
+        $(document).ready(function(){
+            
+            $("#btnEliminarVehiculo").click(function(){
+                
+                var idEliminar=$("#numeroPl").text();
+            eliminar(idEliminar);
+                
+            });
+            
+        });
+        
+    </script>
      
     
     </body>

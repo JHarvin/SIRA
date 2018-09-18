@@ -26,8 +26,32 @@ class RegistrarVehiculoController{
         "nombreimagen4"=>$_FILES["imagen4"]["name"],
         "imagen4"=>$_FILES["imagen4"]["tmp_name"]);
            
+            #---------------------------------------------------------------
+            #Validamos que la placa ingresada no haya sido registrada antes 
+            #---------------------------------------------------------------
+            #Llamamos a la funcion en el modelo............................
+$validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tvehiculos");
+           
+            if($validarLicencia=="error"){
+                        echo' 
              
-           $respuesta=VehiculosModel::registroVehiculoModel($datosController,"tvehiculos");
+            <script type="text/javascript">
+             
+
+          alertify.error("La placa digitada ya ha sido registrada");
+
+
+
+
+        
+            </script>
+            '; 
+            }
+            #Sino se cumple el if llamamos al else if para guardar
+            else if($validarLicencia=="success"){
+                
+                
+        $respuesta=VehiculosModel::registroVehiculoModel($datosController,"tvehiculos");
         
         if( $respuesta=="success"){
             echo' 
@@ -51,7 +75,7 @@ class RegistrarVehiculoController{
             <script type="text/javascript">
              
 
-          alertify.error("Algo salio mal "'.$_POST["nplaca"].');
+          alertify.error("Algo salio mal en el servidor");
 
 
 
@@ -61,6 +85,10 @@ class RegistrarVehiculoController{
             ';  
                 
             }
+                
+            }
+            
+           
             
         }
         
@@ -89,10 +117,10 @@ class RegistrarVehiculoController{
                   <td class="bg-info"><i class="icon fa fa-road fa fa-3x"></i>
 
 </td>
-                  <td colspan="2">
+                  <td>
                   <div class="btn-group" role="group">
                   
-                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-truck"></i></a>
+                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalOpcion" ><i class="fa fa-location-arrow"></i></a>
                   
                    <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-edit"></i></a>
                   

@@ -6,6 +6,18 @@ require_once "../Modelos/ModeloRegistrarUsuario.php";
 #--Este controlador servira para mandar los datos al modelo y luego el modelo los guardara en la bd
 #-------------------------------------------------------------
 
+function buscaRepetido($username,$password,$conexion){
+  $sql="SELECT * from usuarios where usuario='user' and password=$pass";
+  $result=mysql_query($conexion,$sql);
+  if (mysqli_num_rows($result)>0)
+   {
+    return 1;
+  }else{
+    return 0;
+  }
+
+
+}
 class RegistrarUsuarioController{
     //--se utilizara para guardar el genero
     
@@ -14,10 +26,7 @@ class RegistrarUsuarioController{
         if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["telefono"]) && !empty($_POST["telefono"]) && isset($_POST["email"]) && !empty($_POST["email"]) &&
           isset($_POST["direccion"]) && !empty($_POST["direccion"]) &&
            isset($_POST["username"]) && !empty($_POST["username"]) &&
-           isset($_POST["password"]) && !empty($_POST["password"])
-           
-           
-          ){
+           isset($_POST["password"]) && !empty($_POST["password"])){
             
             # validacion que todo este correcto es decir caracteres y cantidad de estos lado servidor
             # preg_match realiza una comparacion de expresiones regulares
@@ -30,6 +39,7 @@ class RegistrarUsuarioController{
             else if(isset($_POST["femenino"])){
                 $genero="F";
             }
+            $estado=1;
             #--strtoupper transforma todas las letras a mayusculas
         $datosControladorRegistro =array("nombre"=>strtoupper($_POST["nombre"]), "telefono"=>$_POST["telefono"], 
         "email"=>$_POST["email"],
@@ -38,14 +48,48 @@ class RegistrarUsuarioController{
         "password"=>$_POST["password"],
         "genero"=>$genero);
         
+         #-----VAlidamos dui y lencia llamando a las dos funciones en el modelo
+            #------------------------------------
+            #--Validamos el dui que no se repita
+            #-----------------------------------
+            $validarusuario=Datos::validarusuario($_POST["username"],"tpersonal");
+            
+            #-----------------------------------
+            #--Validamos la licencia que no haya sido ingresada antes
+            #---------------------------------------------------------
+        $validarcorreo=Datos::validarcorreo($_POST["email"],"tpersonal");
+            
+            #Validamos el dui
+            if($validarusuario=="error" || $validarcorreo=="error"){
+                
+                 echo' 
+             
+            <script type="text/javascript">
+             alertify.set("notifier","position", "top-center");
+
+          alertify.error("Usuario o Correo ya han sido registrados");
+
+
+
+
         
-        $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
+            </script>
+            ';  
+                
+            }
+            
+#----------------------------------------------------------------------------            
+#Si no da error es decir si el fecht es igual a 0 entonces llamamos a la function y save
+#_______________________________________________________________________________________    
+        else if($validarusuario=="success" && $validarcorreo=="success"){    
+            
+    $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
         
         if( $respuesta=="success"){
             echo' 
              
             <script type="text/javascript">
-             
+             alertify.set("notifier","position", "top-right");
 
           alertify.success("Registro Guardado    ✔");
 
@@ -61,10 +105,11 @@ class RegistrarUsuarioController{
                echo' 
              
             <script type="text/javascript">
-             
+             alertify.set("notifier","position", "top-right");
 
           alertify.error("Algo salio mal :(");
 
+       alertify.error("EL USUARIO O CORREO YA HAN SIDO REGISTRADOS PRUEBA OTRA ");
 
 
 
@@ -73,17 +118,12 @@ class RegistrarUsuarioController{
             ';  
                 
             }
-        
-        
-        
-        
         }
-        
     }
     
 }
 
 
-
+}
 
 ?>

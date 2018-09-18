@@ -45,11 +45,13 @@ class ActualizarDatosController{
                <script>
                 alertify.set("notifier","position", "top-center");
                alertify.success("Datos actualizados correctamente");
+               
+            
                </script>
                 
                 
                 ';
-                
+               // header("location:usuarios.php");
                // header("location:..Vistas/usuarios.php?ok=1");
                 
             }
