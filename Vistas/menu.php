@@ -18,9 +18,9 @@
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg">Seguridad</i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="registrarUsuario.php"><i class="fa fa-user-plus fa-lg"></i> Registrar Usuario</a></li>
-            <li><a class="dropdown-item" href="usuarios.php"><i class="fa fa-user fa-lg"></i>Usuarios</a></li>
-             <li><a class="dropdown-item" href="bitacora.php"><i class="fa fa-edit fa-lg"></i>Bitacora</a></li>
-            <li><a class="dropdown-item" href="../index.php"><i class="fa fa-sign-out fa-lg"></i> Salir</a></li>
+            <li><a class="dropdown-item" href="usuarios.php"><i class="fa fa-user fa-lg"></i>    Usuarios</a></li>
+             <li><a class="dropdown-item" href="bitacora.php"><i class="fa fa-edit fa-lg"></i>   Bitacora</a></li>
+            <li><a class="dropdown-item" href="../index.php"><i class="fa fa-sign-out fa-lg"></i>Salir</a></li>
           </ul>
         </li>
       </ul>

@@ -1,15 +1,91 @@
- <!DOCTYPE html>
+<?php 
+
+
+require_once"../Controladores/ControladorRegistrarBaterias.php";
+require_once"../Controladores/ControladorRegistrarProveedor.php";
+
+
+if(isset($_GET["ok"]) && !empty($_GET["ok"])){
+    
+    echo'
+    <script>
+    alertify.success("Registro Actualizado ");
+    </script>
+    ';
+    
+}
+
+?>
 <html lang="es">
  <head>
- <title>Inicio</title>
-    <meta charset="utf-8">
+ <title>Catalogo baterias</title>
+   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <!-- libreria para notificaciones toast-->
+    <link rel="stylesheet" href="../css/toastr.css">
+    <script src="../js/toastr.js"></script>
+    <!-- efectos del input buscar-->
+    <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/buscarInput.css">
+    <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
+    <link rel="stylesheet" href="../css/datatables.min.css">
+    <script src="../js/alertify.min.js"></script>
+<script src="../Vistas/js/validarRegistro.js"></script>
+
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
+<script>
+  //----------funcion ajax
+    function eliminar(idE){
+        var datos=new FormData();
+    datos.append("idb",idE);
+        
+        
+         $.ajax({
+        
+        type: "POST",
+        url: "../Controladores/ControladorAjaxEliminar.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        
+        success:function(r){
+         
+
+        if(r==1){
+        
+           // $(".table").load("../Vistas/usuarios.php");
+            toastr.success("Eliminado");
+    }
+          else if(r!=1){
+           
+              alert("diferente "+r);
+              
+          }
+            else{
+              //  $("#table").load();
+                
+                alert("Error -> "+r  );}
+        
+    }
+        
+        
+    });
+        
+    }
+     
+    
+    </script>
   </head>
   <body class="app sidebar-mini rtl">
   <?php
@@ -23,335 +99,179 @@
         </div>
         
       </div>
-<div class="row">
+
        
         <div class="col-md-6 col-lg-3">
-          <div class="widget-small info coloured-icon"><i class="icon fa fa-road fa-3x"></i>
+          <div class="widget-small danger coloured-icon"><i class="icon fa fa-cart-plus fa-3x"></i>
             <div class="info">
               <h4>
-                  <a href="#" data-toggle="modal" data-target="#listaDisponible">En stock</a>
+                  <a  data-toggle="modal" data-target="#listaDisponible">
+                  Existentes</a>
                   
               </h4>
-              <p><b>25</b></p>
+              <p><b></b></p>
             </div>
           </div>
         </div>
+
+    <div class="row">   
        
-       
-        
-        <div class="card col-md-12" id="baterias">
-        <div class="card-tittle"><h3>Catalogo</h3></div>
-        
-          <table id="table"  class="table table-striped">
+        <div class="col-md-12">
+          <div class="tile">
+            
+            <h3 class="tile-title">Catalogo</h3>
+            <div class="table table-responsive">
+            <table id="tabla"  class="table table-striped">
               <thead>
                 <tr>
-                  <th>Modelo</th>
-                  <th>tipo</th>
-                   <th>Precio por unidad</th>
-                  <th>Descripcion</th>
-                  <th>Fecha </th>
-                  
-                 <th>Acciones</th>
-                </tr>
+               <th>Tipo</th>
+                  <th>Código</th>
+                   <th>Precio unitario</th>
+                  <th>Proveedor</th>
+                  <th>Precio venta</th>
+                  <th>Fecha venta</th>
+                   <th hidden></th>
+              </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>H</td>
-                  <td>75644
+                  <?php 
+                   
+                  $proveedor=new RegistrarBateriasController();
+                  $proveedor->mostrarBaterias();
                   
-                  </td>
-                  <td>Seador
-                  
-                  </td>
-                  <td>05049807-4
-                  
-                  </td>
-                  <td>09004033 
-                  
-                  </td>
-                  
-                 
-                  
-                  <td>
-                    
-                    <button class="btn btn-warning" type="button" ><i class="fa fa-fw fa-lg fa fa-wrench"></i></button>
-                     
-                      
-                      
-                       
-                       
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+                  ?>
               </tbody>
             </table>
           
-          
-      </div>
+       </div>
+          </div>
+        </div>
+        
+        
         
       </div>
-      
-      
-      
-      
 </main>
-
-<!--para modal de repaciones-->
- <div class="modal" id="listaReparacion">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Autos en mantenimiento</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-      
-     
-        <div class="row">
-      <div class="col-md-12">
-          <div class="tile">
-            
-            
-             <div class="box input-group" style="margin-left:25px;">
-  <div class="container-2">
-      <span class="icon"><i class="fa fa-search"></i></span>
-        <input  type="search" id="search" />
-           </div>
-        </div>
-            <table id="table"  class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Modelo</th>
-                  <th>Numero de placa</th>
-                   <th>Fecha de entrada</th>
-                  <th>Descripcion</th>
-                  <th>Fecha de salida</th>
-                  
-                 <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>H</td>
-                  <td>75644
-                  
-                  </td>
-                  <td>Seador
-                  
-                  </td>
-                  <td>05049807-4
-                  
-                  </td>
-                  <td>09004033 
-                  
-                  </td>
-                  
-                 
-                  
-                  <td>
-                    
-                    <button class="btn btn-warning" type="button" ><i class="fa fa-fw fa-lg fa fa-wrench"></i></button>
-                     
-                      
-                      
-                       
-                       
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        
-        
-        
-      </div>
-         
-            
-              
-          </div>
-          
-          
-          
-    
-     
-      
-
-     
-     
-     
-     
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-<!--para modal de autos disponibles lista-->
- <div class="modal" id="listaDisponible">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Autos Disponibles</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-      
-     
-       <div class="row">
-      <div class="col-md-12">
-          <div class="tile">
-            
-            
-             <div class="box input-group" style="margin-left:25px;">
-  <div class="container-2">
-      <span class="icon"><i class="fa fa-search"></i></span>
-        <input  type="search" id="search" />
-           </div>
-        </div>
-            <table id="table"  class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Modelo</th>
-                  <th>Numero de placa</th>
-                   <th>Marca</th>
-                  <th>Tipo</th>
-                  <th>Color</th>
-                  <th>Numero de motor</th>
-                  <th>Tipo de combustible</th>
-                  <th>Costo de alquiler por dia</th>
-                 <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>H</td>
-                  <td>75644
-                   
-                  </td>
-                  <td>Seador
-                   
-                  </td>
-                  <td>05049807-4
-                   
-                  </td>
-                  <td>09004033 
-                   
-                  </td>
-                  <td>M
-                   
-                  </td>
-                  <td>M
-                   
-                  </td>
-                  <td>M
-                   
-                  </td>
-                  <td>
-                    <div>
-                    
-                    <button class="btn btn-success" type="button" ><i class="fa fa-fw fa-lg fa fa-wrench"></i></button>
-                     
-                      
-                      
-                      
-                       </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        
-        
-        
-      </div>
-         
-            
-              
-          </div>
-          
-          
-          
-    
-     
-      
-
-     
-     
-     
-     
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-<!-- Essential javascripts for application to work-->
-    <script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="../js/plugins/pace.min.js"></script>
+    
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+    <script src="../js/jquery.maskedinput.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
+     
+     <script>
+  
+      $(document).ready(function() {
+          //---para data tables codigo
+    $('#tabla').DataTable( {
+        
+        
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",   
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+        
+    } );
+} );
+    
+    </script>
+     
+     
+      <script type="text/javascript">
+      
+ jQuery(function($){
+            // Definimos las mascaras para cada input, se valida automaticamente
+            
+            $("#updateTelefono").mask("9999-9999");
+            
+        });
+          
+        
+    </script>
+    
+    
+    <script>
+     function alerta(){
+        toastr.success("Usuario Guardado");
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  
+  "hideMethod": "fadeOut"
+}
+          
+
+          
+      }
+        
+        
+    </script>
+    
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
 
-  $('#search').quicksearch('table tbody tr');								
+  $('#search').quicksearch('table tbody tr');               
 });
     </script>
+    
+    <script>
+    //---Funcion para detectar el clic y obtener los datos
+      $("table tbody tr").click(function() {
+          //---se obtiene el indice de la tabla
+ var nombre=$(this).find("td:eq(0)").text();
+  var id=$(this).find("td:eq(6)").text(); 
+           
+          
+          //---poniendo los datos en los inputs del modal
+          
+         
+        
+          $("#nombreU").text(nombre+"?");
+          $("#idDelete").text(id);
+  
+});
+    </script>
+    
+    
+    
+    <script>
+    
+        $(document).ready(function(){
+            
+            $("#btnEliminar").click(function(){
+                
+                var idEliminar=$("#idDelete").text();
+            eliminar(idEliminar);
+                
+            });
+            
+        });
+        
+    </script>
+     
 </body>
 </html>
