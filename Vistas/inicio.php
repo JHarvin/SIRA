@@ -40,7 +40,7 @@ if(!$_SESSION["validar"]){
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           
-          <li class="breadcrumb-item"><a href="#">Incio</a></li>
+          <li class="breadcrumb-item"><a href="#"> Incio</a></li>
           
         </ul>
       </div>
@@ -49,7 +49,7 @@ if(!$_SESSION["validar"]){
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-wrench fa-3x"></i>
             <div class="info">
               <h4>
-                  <a href="#" data-toggle="modal" data-target="#listaReparacion">En reparacion</a>
+                  <a href="#" data-toggle="modal" data-target="#listaReparacion"> En reparacion</a>
               </h4>
               <p><b>5</b></p>
             </div>
@@ -59,7 +59,7 @@ if(!$_SESSION["validar"]){
           <div class="widget-small info coloured-icon"><i class="icon fa fa-road fa-3x"></i>
             <div class="info">
               <h4>
-                  <a href="#" data-toggle="modal" data-target="#listaDisponible">Disponibles</a>
+                  <a href="#" data-toggle="modal" data-target="#listaDisponible"> Disponibles</a>
                   
               </h4>
               <p><b>25</b></p>
@@ -77,7 +77,7 @@ if(!$_SESSION["validar"]){
         <div class="col-md-6 col-lg-3">
           <div class="widget-small danger coloured-icon"><i class="icon fa fa-cart-plus fa-3x"></i>
             <div class="info">
-           <a href="bateriaInicio.php"><h4>Ir a Ventas</h4></a>  
+           <a href="bateriaInicio.php"><h4> Ir a Ventas</h4></a>  
               
             </div>
           </div>
@@ -102,7 +102,7 @@ if(!$_SESSION["validar"]){
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Autos en mantenimiento</h4>
+        <h4 class="modal-title"> Autos en mantenimiento</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -213,7 +213,7 @@ if(!$_SESSION["validar"]){
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Autos Disponibles</h4>
+        <h4 class="modal-title"> Autos Disponibles</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 

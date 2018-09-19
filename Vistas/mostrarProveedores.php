@@ -1,7 +1,5 @@
 <?php 
 
-
-
 require_once "../Controladores/ControladorRegistrarProveedor.php";
 
 /*
@@ -50,6 +48,8 @@ alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
+
+
 <script>
   //----------funcion ajax
     function eliminar(idE){
@@ -107,21 +107,17 @@ alertify.defaults.theme.input = "form-control";
             
             <h3 class="tile-title">Proveedores Registrados</h3>
             <!-- Search form -->
-             
-
-
-            
-            
-          
-          
+ 
         <div class="table table-responsive">
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr>
+
                   <th>Nombre</th>
                   <th>Teléfono</th>
                    <th>Email</th>
                   <th>Dirección</th>
+
                  <th hidden></th>
                  
                 </tr>
