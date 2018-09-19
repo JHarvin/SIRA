@@ -40,49 +40,36 @@ if(!$_SESSION["validar"]){
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           
-          <li class="breadcrumb-item"><a href="#"> Incio</a></li>
+          <li class="breadcrumb-item"><a href="#">Rent a Car Chacon</a></li>
           
         </ul>
          <div class="col-md-6 col-lg-3">
-          <div class="widget-small primary coloured-icon"><i class="icon fa fa-wrench fa-3x"></i>
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-wrench fa-2x"></i>
             <div class="info">
               <h4>
-                  <a href="#" data-toggle="modal" data-target="#listaReparacion"> En reparacion</a>
+                  Venta de Baterias para autos y motos
               </h4>
-              <p><b>5</b></p>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small info coloured-icon"><i class="icon fa fa-road fa-2x"></i>
+            <div class="info">
+              <h4>
+                  Alquiler de vehiculos
+                  
+              </h4>
+               
             </div>
           </div>
         </div>
       </div>
 <div class="row">
        
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small info coloured-icon"><i class="icon fa fa-road fa-3x"></i>
-            <div class="info">
-              <h4>
-                  <a href="#" data-toggle="modal" data-target="#listaDisponible"> Disponibles</a>
-                  
-              </h4>
-              <p><b>25</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-            <div class="info">
-              <h4>G. Contrato</h4>
-              <p><b>10</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-cart-plus fa-3x"></i>
-            <div class="info">
-           <a href="bateriaInicio.php"><h4> Ir a Ventas</h4></a>  
-              
-            </div>
-          </div>
-        </div>
+        
+        
+         
         
         <div id="imagen">
          

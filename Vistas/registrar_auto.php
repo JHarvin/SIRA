@@ -144,7 +144,10 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         </div>
         
         
-        
+        <div id="imagen">
+         
+          <img class="rounded-circle user-image" src="../images/logo.png" width="1080" height="250">
+      </div>
       </div>
       </main>
       
@@ -174,7 +177,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
             
             $("#ano").mask("9999");
         $("#nplaca").mask("P999-999");
-            
+            $("#chasis").mask("99999999");
+     /$("#motor").mask("999999");
         });
           
         
