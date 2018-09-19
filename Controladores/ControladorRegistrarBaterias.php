@@ -62,7 +62,7 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
 
            public function mostrarBaterias(){
         
-         $respuesta=DatosBaterias::mostrarBateriasModel("tproductos");
+         $respuesta=DatosBaterias::mostrarBateriasModel("tproductos","tproveedores");
         
         foreach($respuesta as $row =>$item){
         
@@ -72,7 +72,7 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
                   <td>'.$item["tipo"].'</td>
                   <td>'.$item["codigo"].' </td>
                   <td>'.$item["precio_unitario"].'</td>
-                  <td>'.$item["idproveedor"].'</td>
+                  <td>'.$item["nombre"].'</td>
                   <td>'.$item["precio_venta"].'</td>
                   <td>'.$item["fecha_venta"].'</td>
                               
