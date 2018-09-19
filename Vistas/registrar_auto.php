@@ -43,7 +43,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
               <form method="post" enctype="multipart/form-data"     onsubmit="return validarVehiculo();">
               <div class="form-row">
     <div class="form-group col-md-3">
-      <label for="nplaca">Numero de placa</label>
+      <label for="nplaca">Número de placa</label>
       <input type="text" class="form-control" id="nplaca" name="nplaca" placeholder="Numero de placa" autocomplete="off" autofocus
       pattern=".{5,}" title="Digite correctamente el numero de placa"
         required>
@@ -70,23 +70,23 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
     <div class="form-group col-md-3">
       <label for="color">Color</label>
-      <input type="text" class="form-control" id="color" name="color" placeholder="color" autocomplete="off" pattern=".{4}" title="4 caracters para color correcto" required>
+      <input type="text" class="form-control" id="color" name="color" placeholder="color" autocomplete="off" pattern=".{4.}" title="4 caracters para color correcto" required>
     </div>
     
     
     <div class="form-group col-md-3">
-      <label for="numero_motor">Numero de motor</label>
-      <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Numero de motor" required>
+      <label for="numero_motor">Número de motor</label>
+      <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Numero de motor" autocomplete="off" required>
     </div>
     <div class="form-group col-md-3">
-      <label for="color">Numero de chasis</label>
-      <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" required>
+      <label for="color">Número de chasis</label>
+      <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" autocomplete="off" required>
     </div>
     
     
     <div class="form-group col-md-3">
       <label for="tcombustible">Tipo de combustible</label>
-      <input id="tcombustible" name="tcombustible" type="text" class="form-control" placeholder="Tipo de combustible" required>
+      <input id="tcombustible" name="tcombustible" type="text" class="form-control" placeholder="Tipo de combustible" autocomplete="off"     required>
     </div>
    
      

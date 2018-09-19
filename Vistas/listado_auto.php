@@ -251,8 +251,10 @@ alertify.defaults.theme.input = "form-control";
           //---para data tables codigo
     $('#tabla').DataTable( {
         
+         
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todos"]],
         
-        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todo"]],
+        
            "language": {
             "lengthMenu": "Mostrar _MENU_",
             "zeroRecords": "No se encontraron registros",

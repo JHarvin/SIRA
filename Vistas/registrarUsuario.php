@@ -77,7 +77,35 @@ alertify.defaults.theme.input = "form-control";
 </script>
     
 <!--Archivo de validacion-->
-    <script src="js/validarRegistro.js"></script>
+    <script>
+    function validarRegistro(){
+  var password = document.querySelector("#password").value;
+    var password2 = document.querySelector("#rPassword").value;
+         if(password!=" "){
+        var caracteresPassword=password.length;
+        var expresion=/^[a-zA-Z0-9]*$/;
+        if(caracteresPassword<4){
+            document.querySelector("label[for='password']").innerHTML += "<br> La contraseña debe contener minimo 4 caracters y maximo 16";
+            
+            
+            return false;
+        }
+        
+        if(password2!=password){
+           
+           document.querySelector("label[for='rPassword']").innerHTML += "<br> La contraseña no coincide";
+            return false;
+            
+            
+        }
+             
+        
+        
+    }
+        
+        return true;
+    }
+    </script>
 </head> 
 
 <body class="app sidebar-mini rtl">
@@ -98,7 +126,7 @@ alertify.defaults.theme.input = "form-control";
                   <label class="control-label" for="nombre">Nombre</label>
                   <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100"  pattern=".{7,}" title="7 o mas caracteres para nombre real" onkeypress="return soloLetras(event)" value="" required autocomplete="off">
                 </div>
-                <div class=" col-md-4">
+                <div class="form-group col-md-4">
                   <label class="control-label">Telefono</label>
                   <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required autocomplete="off">
                 </div>
@@ -124,7 +152,7 @@ alertify.defaults.theme.input = "form-control";
                   <label class="control-label">Dirección</label>
                   <textarea id="direccion" name="direccion" class="form-control" rows="" placeholder="Ingrese su dirección" value="" required></textarea>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-5 form-check-inline">
                   <label class="control-label">Genero</label>
                   <div class="form-check">
                     <label class="form-check-label">

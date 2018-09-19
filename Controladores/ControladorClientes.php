@@ -33,7 +33,7 @@ class ClientesController{
                 $genero="F";
             }
             #--strtoupper transforma todas las letras a mayusculas
-        $datosClienteController =array("nombre"=>strtoupper($_POST["nombre"]), "telefono"=>$_POST["telefono"], 
+        $datosClienteController =array("nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], 
         "dui"=>$_POST["dui"],
         "licencia"=>$_POST["licencia"],
         "direccion"=>$_POST["direccion"],

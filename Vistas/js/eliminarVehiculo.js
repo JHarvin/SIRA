@@ -28,9 +28,9 @@
 
         if(r==1){
          
-            location.reload();
-            alertify.set("notifier","position", "top-center");
+            $("#tabla").reload();
             alertify.success("Registro Eliminado");
+            
     }
           else if(r!=1){
            //para probar

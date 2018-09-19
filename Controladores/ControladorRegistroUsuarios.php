@@ -41,7 +41,7 @@ class RegistrarUsuarioController{
             }
             $estado=1;
             #--strtoupper transforma todas las letras a mayusculas
-        $datosControladorRegistro =array("nombre"=>strtoupper($_POST["nombre"]), "telefono"=>$_POST["telefono"], 
+        $datosControladorRegistro =array("nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], 
         "email"=>$_POST["email"],
         "direccion"=>$_POST["direccion"],
         "username"=>$_POST["username"],

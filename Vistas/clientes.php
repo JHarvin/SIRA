@@ -37,11 +37,11 @@ require_once"../Controladores/ControladorClientes.php";
               <thead>
                 <tr>
                   <th>Nombre</th>
-                  <th>Telefono</th>
+                  <th>Teléfono</th>
                    <th>Dirección</th>
                   <th>DUI</th>
                   <th>Licencia de conducir</th>
-                  <th>Genero</th>
+                  <th>Género</th>
                 <th>Acciones</th> 
                  
                  
@@ -112,7 +112,7 @@ require_once"../Controladores/ControladorClientes.php";
     $('#tabla').DataTable( {
         
         
-        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todos"]],
            "language": {
             "lengthMenu": "Mostrar _MENU_",
             "zeroRecords": "No se encontraron registros",

@@ -109,11 +109,11 @@ function soloLetras(e) {
 			  <div class="form-row">
                 <div class="form-group col-md-3">  
                   <label class="control-label" for="nombre">Nombre de cliente</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+                  <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" autofocus placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
                 </div>
                 <div class="form-group col-md-3">
                 <td>
-                <span class="label label-success">telefono:</span>
+                <span class="label label-success">Teléfono:</span>
                 <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required><br>
                 
                 </tr><td>
@@ -121,7 +121,7 @@ function soloLetras(e) {
               <!--Dui y licencia de conducir-->
      <div class="form-group col-md-3">
       <td>
-       <span class="label label-success">Dui:</span>
+       <span class="label label-success">DUI:</span>
                 <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required><br>
     </tr><td>
       </div>
@@ -134,7 +134,7 @@ function soloLetras(e) {
                 
   <div class="form-group col-md-6">
   
-                  <label for="direccion" class="control-label">Direccion</label>
+                  <label for="direccion" class="control-label">Dirección</label>
                   <input type="text" class="form-control" 
                   placeholder="Direccion..." id="direccion" name="direccion" autocomplete="off" maxlength="100" style="text;" pattern=".{15,}" title="15 o mas caracteres para dirección real" value=""  required >
                 </div>
@@ -148,7 +148,7 @@ function soloLetras(e) {
                
                
 				<div class="form-group col-md-6 form-check-inline">
-                  <label class="control-label">Genero</label>
+                  <label class="control-label">Género</label>
                   
                   <div class="form-check">
                     <label class="form-check-label">

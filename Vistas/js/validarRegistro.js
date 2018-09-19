@@ -58,18 +58,7 @@ function validarRegistro(){
         
        
     }
-    if(dui!=" " || dui!=""){
-        var caracteres=dui.length;
-        var expresion=/^[0-9]*$/;
-        if(caracteres<7){
-            document.querySelector("label[for='dui']").innerHTML += "<br> Escriba dui correctamente";
-            
-            
-            return false;
-        }
-        
-       
-    }
+   
     
     //---para validar contraseña tiene que ser mayor a 4
     //---Caracteres
