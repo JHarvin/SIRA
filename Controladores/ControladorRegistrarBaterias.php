@@ -20,10 +20,21 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
         "precio_venta"=>$_POST["precio_venta"],
         "fecha_venta"=>$_POST["fecha_venta"],
         "precio_unitario"=>$_POST["precio_unitario"]);
+#Para validar codigo de la bateria
+ $validarCodigo=DatosBaterias::validarCodigo($_POST["codigo"],"tproductos");
+   if($validarCodigo=="error"){
+        echo' 
+             
+            <script type="text/javascript">
+              
 
-
-     
-  $respuesta=DatosBaterias::registroBateriasModel($datosBateriasController,"tproductos");
+          alertify.error("El codigo de la bateria ya ha sido registrado");
+    
+            </script>
+            ';  
+       
+   }else{
+       $respuesta=DatosBaterias::registroBateriasModel($datosBateriasController,"tproductos");
    
    if( $respuesta=="success"){
             echo' 
@@ -48,6 +59,9 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
             ';  
                 
             }
+  
+   }  
+        
         
         
         

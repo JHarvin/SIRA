@@ -25,6 +25,11 @@ class VehiculosModel extends Conexion{
     #Funcion para guardar los datos del vehiculo en la bd-
     #-----------------------------------------------------
     public function registroVehiculoModel($datosModel,$tabla){ 
+        
+
+ 
+    
+        
         //----configuramos para guardar la imagen en una carpeta
         //--lo guardamos en variables el nombre de la imagen el archivo de tipo png, jpg
         // o como sea el tipo de imagen
@@ -67,6 +72,8 @@ class VehiculosModel extends Conexion{
         $archivo4=$datosModel["imagen4"];
         $ruta4="../vehicles";
         $ruta4=$ruta4."/".$nombreImagen4;
+    
+        
         //--------se mueve el archivo a la ruta en especifico donde se guardara la imagen
         move_uploaded_file($archivo4,$ruta4);
         #------------fin imagen 4-------------------------

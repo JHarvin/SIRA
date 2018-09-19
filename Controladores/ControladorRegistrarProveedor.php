@@ -19,9 +19,23 @@ require_once"../Modelos/ModeloProveedores.php";
           "telefono"=>$_POST["telefono"], 
         "email"=>$_POST["email"],
         "direccion"=>$_POST["direccion"]);
+        #Para validar email y nombre de proveedor-----------------<--------<---<----
+        $validarEmail=DatosProveedor::validarEmail($_POST["email"],"tproveedores");
+        $validarNombre=DatosProveedor::validarNombre($_POST["nombre"],"tproveedores");
+        if($validarNombre=="error" || $validarEmail=="success"){
+             echo' 
+             
+            <script type="text/javascript">
+              
 
-     
-  $respuesta=DatosProveedor::registroProveedorModel($datosProveedorController,"tproveedores");
+          alertify.error("El nombre ingresado ya ha sido registrado");
+    
+            </script>
+            ';  
+        }
+        else if($validarNombre=="success" && $validarEmail=="success"){
+            
+            $respuesta=DatosProveedor::registroProveedorModel($datosProveedorController,"tproveedores");
    
    if( $respuesta=="success"){
             echo' 
@@ -46,6 +60,9 @@ require_once"../Modelos/ModeloProveedores.php";
             ';  
                 
             }
+        }
+        
+  
         
         
         

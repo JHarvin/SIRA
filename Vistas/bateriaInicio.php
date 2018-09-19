@@ -101,18 +101,7 @@ alertify.defaults.theme.input = "form-control";
       </div>
 
        
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-cart-plus fa-3x"></i>
-            <div class="info">
-              <h4>
-                  <a  data-toggle="modal" data-target="#listaDisponible">
-                  Existentes</a>
-                  
-              </h4>
-              <p><b></b></p>
-            </div>
-          </div>
-        </div>
+       
 
     <div class="row">   
        

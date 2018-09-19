@@ -139,7 +139,7 @@ alertify.defaults.theme.input = "form-control";
 
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-inbox"></i> Administrador : Registro de baterias</h1>
+          <h1><i class="fa fa-inbox"></i>  Registro de baterias</h1>
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -191,13 +191,13 @@ alertify.defaults.theme.input = "form-control";
    <div class="form-group col-md-4">
      <label class="control-label">Precio Unitario ($) </label>
       <input id="precio_unitario"   name="precio_unitario" onchange="javascript:validarPrecios();" 
-      type="text" onkeypress="return validaNumericos(event);" autocomplete="off" class="form-control" placeholder="Precio de compra">
+      type="text" autocomplete="off" class="form-control" placeholder="Precio de compra">
     </div>
     
     <div class="form-group col-md-4">
      <label class="control-label">Precio Venta ($) </label>
-      <input id="precio_venta"  onkeypress="return validaNumericos(event);"  name="precio_venta"  onchange="javascript:validarPrecios();"  type="text" 
-      class="form-control" autocomplete="off" placeholder="Precio venta" >
+      <input id="precio_venta"    name="precio_venta"  onchange="javascript:validarPrecios();"  type="text" 
+      class="form-control" autocomplete="off" placeholder="Precio venta">
     </div>
 
    
@@ -286,6 +286,7 @@ alertify.defaults.theme.input = "form-control";
     <!-- The javascript plugin to display page loading on top-->
     <script src="../js/plugins/pace.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+    <script src="../js/jquery.maskedinput.min.js"></script>
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
@@ -382,8 +383,13 @@ toastr.options = {
 });
     </script>
     
-    
-    
+    <script> 
+$('#precio_venta').mask('99.99');
+     //   $('#precio_unitario').mask('999.99');
+</script>
+    <script>
+$('#precio_unitario').mask('99.99');
+</script>
    
     
 </body>

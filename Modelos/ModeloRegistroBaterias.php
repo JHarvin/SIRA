@@ -4,7 +4,21 @@ require_once"Conexion.php";
 
 class DatosBaterias extends Conexion
 {
-  
+   #-----------------------------------------------------
+    #Para validar que no se repita el codigo de bateria
+    #-----------------------------------------------------
+     public function validarCodigo($codigo,$tabla){
+        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where codigo=:codigo");
+         $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
+        $stmt->execute();
+        
+        if($stmt->fetchColumn()>0){
+            return "error";
+        }else{
+            return "success";
+        }
+    }
+    #----------------------------------------------------------------
   public function registroBateriasModel($datosBateriasModel,$tabla){
 
       $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(tipo, codigo, idproveedor, precio_venta ,fecha_venta, precio_unitario) 

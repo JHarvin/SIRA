@@ -26,6 +26,10 @@ class RegistrarVehiculoController{
         "nombreimagen4"=>$_FILES["imagen4"]["name"],
         "imagen4"=>$_FILES["imagen4"]["tmp_name"]);
            
+            #Para validar tipo de imagen
+   
+            
+            
             #---------------------------------------------------------------
             #Validamos que la placa ingresada no haya sido registrada antes 
             #---------------------------------------------------------------

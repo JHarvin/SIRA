@@ -127,7 +127,7 @@ alertify.defaults.theme.input = "form-control";
                   <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100"  pattern=".{7,}" title="7 o mas caracteres para nombre real" onkeypress="return soloLetras(event)" value="" required autocomplete="off">
                 </div>
                 <div class="form-group col-md-4">
-                  <label class="control-label">Telefono</label>
+                  <label class="control-label">Teléfono</label>
                   <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required autocomplete="off">
                 </div>
                 <div class="form-group col-md-4">
@@ -153,7 +153,7 @@ alertify.defaults.theme.input = "form-control";
                   <textarea id="direccion" name="direccion" class="form-control" rows="" placeholder="Ingrese su dirección" value="" required></textarea>
                 </div>
                 <div class="form-group col-md-5 form-check-inline">
-                  <label class="control-label">Genero</label>
+                  <label class="control-label">Género</label>
                   <div class="form-check">
                     <label class="form-check-label">
                       <input id="masculino" class="form-check-input" type="radio" name="masculino">Masculino
