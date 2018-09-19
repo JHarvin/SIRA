@@ -1,19 +1,8 @@
-
+ <!DOCTYPE html>
  <?php 
 require_once"../Controladores/ControladorRegistrarBaterias.php";
 require_once"../Controladores/ControladorRegistrarProveedor.php";
-
-if(isset($_GET["ok"]) && !empty($_GET["ok"])){
-    
-    echo'
-    <script>
-    alertify.success("Registro Actualizado ");
-    </script>
-    ';
-    
-}
 ?>
-
 
 <html lang="es">
  <head>
@@ -23,68 +12,60 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <!-- libreria para notificaciones toast-->
+     <!-- libreria para notificaciones toast-->
     <link rel="stylesheet" href="../css/toastr.css">
-    <script src="../js/toastr.js"></script>
-    <!-- efectos del input buscar-->
-    <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
-    <link rel="stylesheet" href="../css/datatables.min.css">
-    <script src="../js/alertify.min.js"></script>
-<script src="../Vistas/js/validarRegistro.js"></script>
+    <link rel="stylesheet" href="../css/buscarInput.css">
+
+     <!-- include the RTL css files-->
+
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+  
+</script>
+
+ <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
 
 <script type="text/javascript">
+//override defaults
 alertify.defaults.transition = "slide";
 alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
 
-<script>
-  //----------funcion ajax
-    function eliminar(idE){
-        var datos=new FormData();
-    datos.append("idb",idE);
-        
-        
-         $.ajax({
-        
-        type: "POST",
-        url: "../Controladores/ControladorAjaxEliminar.php",
-        data: datos,
-        cache:false,
-        contentType:false,
-        processData:false,
-        
-        success:function(r){
-         
+   
+<!--Archivo de validacion-->
+    <script src="js/validarRegistro.js"></script>
 
-        if(r==1){
-        
-           // $(".table").load("../Vistas/usuarios.php");
-            toastr.success("Eliminado");
-    }
-          else if(r!=1){
-           
-              alert("diferente "+r);
-              
-          }
-            else{
-              //  $("#table").load();
-                
-                alert("Error -> "+r  );}
-        
-    }
-        
-        
-    });
-        
-    }
-     
-    
-    </script>
+
   </head>
   <body class="app sidebar-mini rtl">
   <?php
@@ -107,15 +88,14 @@ alertify.defaults.theme.input = "form-control";
 <div class="row">
        <div  class="col-md-12">
             <div class="tile">
-           <h3 class="tile-title"></h3>
-            <!-- Search form -->
+            <h3 class="tile-title"></h3>
             <div class="tile-body">
           
-<form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
+         <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
  
 
      <div class="form-group col-md-4">
-      <label class="control-label">Proveedor</label>
+         <label class="control-label">Proveedor </label>
                   <select class="form-control" name="idproveedor" id="idproveedor">
                      
                       <?php 
@@ -123,8 +103,9 @@ alertify.defaults.theme.input = "form-control";
                       $combo->mostrarCombo();
                       
                       ?>
+                      
                   </select>
-       </div>
+                </div>
 
                            
     <div class="form-group col-md-4">
@@ -135,60 +116,57 @@ alertify.defaults.theme.input = "form-control";
 
    
      <div class="form-group col-md-4">
-      <label for="tipo">Tipo de bateria</label>
+      <label for="tipo">Tipo</label>
       <select name="tipo" id="tipo" class="form-control" required>
-          <option value="Moto">Moto</option>
-          <option value="Auto">Auto</option>
+          <option value="moto">Moto</option>
+          <option value="auto">Auto</option>
       </select>
     </div>
 
-   <div class="form-group col-md-4">
+    <div class="form-group col-md-4">
      <label class="control-label">Precio Unitario ($) </label>
       <input id="precio_unitario" name="precio_unitario" type="precio_unitario" 
-      type="text" onkeypress="return validaNumericos(event)"class="form-control" autocomplete="off" placeholder=" $ Precio unitario de compra"  value="" required>
+      type="text" autocomplete="off" class="form-control" placeholder="Precio de compra"  value="" required>
     </div>
-     <br>
-   <div class="form-group col-md-4">
+    
+    <div class="form-group col-md-4">
      <label class="control-label">Precio Venta ($) </label>
-      <input id="precio_venta" name="precio_venta"  type="precio_venta" 
-      type="text" onkeypress="return validaNumericos(event)" class="form-control" autocomplete="off" placeholder=" $ Precio  de venta" value="" required>
+      <input id="precio_venta" name="precio_venta" type="text" type="precio_venta" 
+      class="form-control" autocomplete="off" placeholder="Precio venta" value="" required>
     </div>
+
 
    
     <div class="form-group col-md-4">
     <label class="control-label">Fecha</label>
-<<<<<<< HEAD
-      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control">
-     <?php   $fecha_venta=date('Y-m-d')?>
+ <?php   $fecha_venta=date('Y-m-d')?>
+      <input id="fecha_venta" name="fecha_venta" value="<?php echo $fecha_venta; ?>"
+      type="date" min="<?php echo $fecha_venta; ?>" class="form-control" disabled>
+    
     </div> 
-     </div>
-     <br>
-    <div class="tile-footer">
+
+  
+    
+    <br>
+    
+  </div>
+  <br>
+ 
+      
+ <div class="tile-footer">
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
               type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
-=======
-    <div class="col-4">
-      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control" value="<?php  date("d/m/Y"); ?>"
-      
-      >
-    </div>
-    
-    
-  </div>
-  
-   <div class="card-footer">
-       <button class="btn btn-primary">Agregar producto</button>
-       <br>
-       
-   </div> 
->>>>>>> d863ef3a2da7fe77ff90c2b2d42ac89e74d54a17
+   
+
 
     <?php 
-     #--para guardar registros se llama a la clase y funcion
+                #--para guardar registros se llama a la clase y funcion
               $registro= new RegistrarBateriasController();
-              $registro->registrarBaterias();          
-     ?>
+              $registro->registrarBaterias();
+              
+                
+                ?>
 </form>
                
            </div>
@@ -197,94 +175,26 @@ alertify.defaults.theme.input = "form-control";
           </div>
         </div>
         
-        
-    
            
-   </div>
-
+           
+           
+           
+       </div>
+       
+       
+       
+        
+        
+        
+      </div>
+      
+      
+      
+      
 </main>
 
- <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
-    
-    <script src="../js/jquery.quicksearch2.2.1.js" ></script>
-<<<<<<< HEAD
-    <script src="../js/jquery.maskedinput.min.js"></script>
-    <script src="../js/datatables.min.js"></script>
-     
-=======
-     
-     
-    <!--escript para buscar en la tabla-->
-    <script>
-      $(function () {
-
-  $('#search').quicksearch('table tbody tr');								
-});
-    </script>
-
+<!--para modal de repaciones-->
      <script>
-  
-      $(document).ready(function() {
-          //---para data tables codigo
-    $('#tabla').DataTable( {
-        
-        
-        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
-           "language": {
-            "lengthMenu": "Mostrar _MENU_",
-            "zeroRecords": "No se encontraron registros",
-            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
-            "infoEmpty": "Busqueda no encontrada",
-            "infoFiltered": "(Total de registrados _MAX_ )",
-            "sSearch":"Buscar",   
-            "paginate": {
-            "previous": "Anterior",
-                "next": "Siguente"
-    }
-        }
-        
-    } );
-} );
->>>>>>> d863ef3a2da7fe77ff90c2b2d42ac89e74d54a17
-    
-     
-     
-   
-
-    <script>
-     function alerta(){
-        toastr.success("Usuario Guardado");
-
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  
-  "hideMethod": "fadeOut"
-}
-          
-
-          
-      }
-        
-        
-    </script>
-
-    <script>
    
           function validaNumericos(event) {
     if(event.charCode >= 48 && event.charCode <= 57){
@@ -294,51 +204,26 @@ toastr.options = {
 } 
       
     </script>
-    
+
+
+
+<!--para modal de autos disponibles lista-->
+ 
+
+
+<!-- Essential javascripts for application to work-->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="../js/plugins/pace.min.js"></script>
+    <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <!--escript para buscar en la tabla-->
-   <!--escript para buscar en la tabla-->
     <script>
       $(function () {
-
   $('#search').quicksearch('table tbody tr');               
 });
     </script>
-    
-    <script>
-    //---Funcion para detectar el clic y obtener los datos
-      $("table tbody tr").click(function() {
-          //---se obtiene el indice de la tabla
- var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(6)").text(); 
-           
-          
-          //---poniendo los datos en los inputs del modal
-          
-         
-        
-          $("#nombreU").text(nombre+"?");
-          $("#idDelete").text(id);
-  
-});
-    </script>
-    
-    
-    
-    <script>
-    
-        $(document).ready(function(){
-            
-            $("#btnEliminar").click(function(){
-                
-                var idEliminar=$("#idDelete").text();
-            eliminar(idEliminar);
-                
-            });
-            
-        });
-        
-    </script>
-   
-    
 </body>
 </html>
