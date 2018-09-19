@@ -32,6 +32,28 @@ alertify.defaults.glossary.title = 'أليرتفاي جي اس';
 alertify.defaults.glossary.ok = 'موافق';
 alertify.defaults.glossary.cancel = 'إلغاء';
   
+
+
+function validarPrecios(){
+
+   var com=document.getElementById("precio_unitario").value;
+   var ven=document.getElementById("precio_venta").value;
+   var calculo=com-ven;
+   //document.formulario_registro.comprobacion.value=com;
+   if (com>0 && ven>0) {
+    document.formulario_registro.btnRegistrar.disabled=false;
+    //verifica que la venta sea mayor que la compra
+    if (calculo<0) {
+      document.formulario_registro.btnRegistrar.disabled=false;
+    }else{
+      document.formulario_registro.btnRegistrar.disabled=true;
+    }
+   }else{
+      document.formulario_registro.btnRegistrar.disabled=true;
+    }
+ }
+
+
 </script>
 
  <!-- include alertify.css -->
@@ -129,14 +151,16 @@ alertify.defaults.theme.input = "form-control";
 
 <div class="row">
        <div  class="col-md-12">
+        
             <div class="tile">
+            
             <h3 class="tile-title"></h3>
             <div class="tile-body">
-          
-         <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
+  <form id="formulario_registro" name="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
  
 
-     <div class="form-group col-md-6">
+     <div class="form-group col-md-4">
+        <label class="control-label">Proveedor</label>
                   <select class="form-control" name="idproveedor" id="idproveedor">
                      
                       <?php 
@@ -149,14 +173,14 @@ alertify.defaults.theme.input = "form-control";
                 </div>
 
                            
-    <div class="col">
+    <div class="form-group col-md-4">
      <label class="control-label">Código</label>
       <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
-      type="text" maxlength="5" value=""  required>
+      type="text" autocomplete="off" maxlength="5" value=""  required>
     </div>
 
    
-     <div class="col-7">
+     <div class="form-group col-md-4">
       <label for="tipo">Tipo</label>
       <select name="tipo" id="tipo" class="form-control" required>
           <option value="moto">Moto</option>
@@ -164,54 +188,66 @@ alertify.defaults.theme.input = "form-control";
       </select>
     </div>
 
-    <div class="col">
+   <div class="form-group col-md-4">
      <label class="control-label">Precio Unitario ($) </label>
-      <input id="precio_unitario" name="precio_unitario" type="precio_unitario" 
-      type="text" class="form-control" placeholder="Precio de compra"  value="" required>
+      <input id="precio_unitario"   name="precio_unitario" onchange="javascript:validarPrecios();" 
+      type="text" onkeypress="return validaNumericos(event);" autocomplete="off" class="form-control" placeholder="Precio de compra">
     </div>
     
-    <div class="col">
+    <div class="form-group col-md-4">
      <label class="control-label">Precio Venta ($) </label>
-      <input id="precio_venta" name="precio_venta" type="text" type="precio_venta" 
-      class="form-control" placeholder="Precio venta" value="" required>
+      <input id="precio_venta"  onkeypress="return validaNumericos(event);"  name="precio_venta"  onchange="javascript:validarPrecios();"  type="text" 
+      class="form-control" autocomplete="off" placeholder="Precio venta" >
     </div>
 
-    <div class="col">
-     <label class="control-label">Cantidad</label>
-      <input id="en_existencias" name="en_existencias" type="en_existencias" type="text" 
-      class="form-control" placeholder="Cantidad" value="" required>
-    </div>
+   
     <br>
-    
-  </div>
-  <br>
-  <div class="form-row">
-    
+<div class="form-group col-md-4">
     <label class="control-label">Fecha</label>
-    <div class="col-4">
-      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control">
+    <?php   $fecha_venta=date('Y-m-d')?>
+  
+      <input id="fecha_venta"  min="<?php echo $fecha_venta; ?>" 
+      name="fecha_venta" type="date" value="<?php echo $fecha_venta; ?>"
+      class="form-control"  max="<?php echo $fecha_venta; ?>" >
+   
     </div>
     
     
-  </div>
-  
-   <div class="card-footer">
-       <button class="btn btn-primary">Agregar producto</button>
-       <br>
-       
-   </div> 
 
-    <?php 
+
+
+   
+
+  
+     
+ <div class="tile-footer">
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
+              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
+            </div>
+
+
+             <?php 
                 #--para guardar registros se llama a la clase y funcion
               $registro= new RegistrarBateriasController();
               $registro->registrarBaterias();
               
                 
                 ?>
-</form>
-               
-           </div>
-            </div>
+
+               </form>
+
+  
+  </div>
+  <br>
+
+   
+   
+
+
+   
+           </div><!--titlee-->
+          
+            </div><!--class="col-md-12"-->
            
           </div>
         </div>
@@ -219,49 +255,7 @@ alertify.defaults.theme.input = "form-control";
         
         
     
-           <div class="table table-responsive">
-               
-               <table id="tabla" class="table table-striped">
-                   <thead>
-                <tr>
-                <th>Tipo</th>
-                  <th>Código</th>
-                  <th>Existencias</th>
-                   <th>Precio unitario</th>
-                  <th>Proveedor</th>
-                  <th>Precio venta</th>
-                  <th>Fecha venta</th>
-                   <th hidden></th>
-
-                 
-                </tr>
-              </thead>
-                   <tbody>
-                 <?php 
-                   
-                  $proveedor=new RegistrarBateriasController();
-                  $proveedor->mostrarBaterias();
-                  
-                  ?>
-                   
-                   </tbody> 
-               </table>
-               
-              <h3> <label>Total($):</label></h3>
-          
-               <div class="tile-footer">
-              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
-              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar compra </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
-            </div>
-           </div>
-           
-           
-           
-           
-           
-           
-           
-           
+        
        </div>
        
        
@@ -323,6 +317,16 @@ alertify.defaults.theme.input = "form-control";
     } );
 } );
     
+    </script>
+    <script>
+   
+          function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+} 
+      
     </script>
 
     <script>

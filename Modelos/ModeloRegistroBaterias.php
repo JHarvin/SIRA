@@ -32,8 +32,8 @@ class DatosBaterias extends Conexion
         
 }
 
-public function mostrarBateriasModel($tabla){
-        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 
+public function mostrarBateriasModel($tabla,$tablaUnir){
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.idproveedor=$tablaUnir.idproveedor"); 
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
