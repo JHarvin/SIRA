@@ -51,7 +51,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
     <div class="form-group col-md-3">
       <label for="marca">Marca y Modelo</label>
-      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo y Año" autocomplete="off" pattern=".{8,}" title="8 o mas caracteres para marca real y modelo" required>
+      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo" autocomplete="off" pattern=".{8,}" title="8 o mas caracteres para marca real y modelo" required>
     </div>
      <div class="form-group col-md-3">
       <label for="ano">Año</label>
@@ -144,10 +144,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
         </div>
         
         
-        <div id="imagen">
-         
-          <img class="rounded-circle user-image" src="../images/logo.png" width="1080" height="250">
-      </div>
+       
       </div>
       </main>
       
@@ -170,15 +167,15 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
    <script src="../js/jquery.maskedinput.js"></script>
    <script src="../js/bootstrap-datepicker.js"></script>
    
- <script type="text/javascript">
+ <script>
       
  jQuery(function($){
             // Definimos las mascaras para cada input
             
-            $("#ano").mask("9999");
+           // $("#ano").mask("9999");
         $("#nplaca").mask("P999-999");
             $("#chasis").mask("99999999");
-     /$("#motor").mask("999999");
+     //$("#motor").mask("999999");
         });
           
         
