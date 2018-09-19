@@ -106,7 +106,7 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
         <tr>
         <td><a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalDetalle" ><i class="fa fa-info-circle"></i></a></td>
                   <td>'.$item["numero_de_placa"].'</td>
-                  <td>'.$item["marca"].'
+                  <td>'.$item["marca"].' '.$item["year"].'
                   
                   </td>
                   <td>'.$item["tipo"].'</td>

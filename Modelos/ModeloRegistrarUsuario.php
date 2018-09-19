@@ -23,7 +23,7 @@ class Datos extends Conexion{
     }
     #Funcion para validar licencia
     public function validarcorreo($correo,$tabla){
-        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where correo=:email");
+        $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where email=:email");
          $stmt->bindParam(":email",$correo,PDO::PARAM_STR);
         $stmt->execute();
         

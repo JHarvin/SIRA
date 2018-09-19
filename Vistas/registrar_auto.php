@@ -20,8 +20,9 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
  
  
    <script src="../Vistas/js/validarVehiculos.js"></script>
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+   
    <script src="js/validarVehiculos.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
      
    
 </head>      
@@ -86,7 +87,12 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     
     <div class="form-group col-md-3">
       <label for="tcombustible">Tipo de combustible</label>
-      <input id="tcombustible" name="tcombustible" type="text" class="form-control" placeholder="Tipo de combustible" autocomplete="off"     required>
+      <select name="tcombustible" id="tcombustible" class="form-control">
+          <option value="Especial">Especial</option>
+          <option value="Regular">Regular</option>
+          <option value="Diesel">Diesel</option>
+      </select>
+      
     </div>
    
      
@@ -158,8 +164,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/toastr.js"></script>
    <script src="../js/jquery.maskedinput.js"></script>
+   <script src="../js/bootstrap-datepicker.js"></script>
    
  <script type="text/javascript">
       
@@ -260,7 +266,18 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
        
     </script>
     
-     
+     <script>
+          
+         
+    $(document).ready(function () {
+$("#ano").datepicker({
+format: " yyyy",
+viewMode: "years", 
+minViewMode: "years",
+   
+});  
+});
+    </script>
     
     </body>
 </html>

@@ -19,6 +19,7 @@ class MostrarUsuariosController{
                   
                   </td>
                   <td>'.$item["direccion"].'</td>
+                  <td>'.$item["email"].'</td>
                   <td>'.$item["username"].'</td>
                   <td>'.$habilitado.'</td>
                  
