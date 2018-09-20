@@ -226,7 +226,9 @@ alertify.defaults.theme.input = "form-control";
     
     
     
-    
+    <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
    
     
     

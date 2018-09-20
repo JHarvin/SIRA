@@ -51,7 +51,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
     <div class="form-group col-md-3">
       <label for="marca">Marca y Modelo</label>
-      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo" autocomplete="off" pattern=".{8,}" title="8 o mas caracteres para marca real y modelo" required>
+      <input type="tel" class="form-control" id="marca" name="marca" placeholder="Marca, Modelo" autocomplete="off" pattern=".{8,}" title="8 o mas caracteres para marca real y modelo" onkeypress="return check(event)" required>
     </div>
      <div class="form-group col-md-3">
       <label for="ano">Año</label>
@@ -71,7 +71,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
     <div class="form-group col-md-3">
       <label for="color">Color</label>
-      <input type="text" class="form-control" id="color" name="color" placeholder="color" autocomplete="off" pattern=".{4.}" title="4 caracters para color correcto" required>
+      <input type="text" class="form-control" id="color" name="color" placeholder="color" autocomplete="off" pattern=".{4.}" title="4 caracters para color correcto" onkeypress="return check2(event)" required>
     </div>
     
     
@@ -81,7 +81,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
     <div class="form-group col-md-3">
       <label for="color">Número de chasis</label>
-      <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" autocomplete="off" required>
+      <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" autocomplete="off" pattern=".{17}" title="17 numeros para chasis" required>
     </div>
     
     
@@ -99,22 +99,25 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
      <!--Para imagenes-->
      <div class="form-group col-md-3">
          <label for="imagen">Seleccione imagen 1</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen" name="imagen" required>
+ <input type="file" class="form-control" placeholder="imagen" id="imagen" name="imagen" accept=".jpg, .jpeg, .png" required>
          
      </div>
      <div class="form-group col-md-3">
          <label for="imagen">Seleccione imagen 2</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen2" name="imagen2" required>
+ <input type="file" class="form-control" placeholder="imagen" id="imagen2" name="imagen2"
+        accept=".jpg, .jpeg, .png" required>
          
      </div>
      <div class="form-group col-md-3">
          <label for="imagen">Seleccione imagen 3</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen3" name="imagen3" required>
+ <input type="file" class="form-control" placeholder="imagen" id="imagen3" name="imagen3" 
+        accept=".jpg, .jpeg, .png" required>
          
      </div>
       <div class="form-group col-md-3">
          <label for="imagen">Seleccione imagen 4</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen4" name="imagen4" required>
+ <input type="file" class="form-control" placeholder="imagen" id="imagen4" name="imagen4"
+        accept=".jpg, .jpeg, .png" required>
          
      </div>
      
@@ -174,8 +177,8 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
             
            // $("#ano").mask("9999");
         $("#nplaca").mask("P999-999");
-            $("#chasis").mask("99999999");
-     //$("#motor").mask("999999");
+            $("#chasis").mask("99999999999999999");
+          $("#numero_motor").mask("99999999999999999");
         });
           
         
@@ -279,6 +282,39 @@ minViewMode: "years",
 });  
 });
     </script>
-    
+    <script>
+    //solo letras validacion color
+        function check2(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla == 8 || tecla==32) {
+        return true;
+    }
+
+    // Patron de entrada, en este caso solo acepta numeros y letras
+    patron = /[A-Za-z]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+    </script>
+    <script>
+     function check(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla == 8 || tecla==32) {
+        return true;
+    }
+
+    // Patron de entrada, en este caso solo acepta numeros y letras
+    patron = /[A-Za-z0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+    </script>
+    <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
     </body>
 </html>

@@ -390,7 +390,9 @@ $('#precio_venta').mask('99.99');
     <script>
 $('#precio_unitario').mask('99.99');
 </script>
-   
+  <script>
+    alertify.set('notifier','position', 'top-right');
+    </script> 
     
 </body>
 </html>

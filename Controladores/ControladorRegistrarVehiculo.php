@@ -26,11 +26,8 @@ class RegistrarVehiculoController{
         "nombreimagen4"=>$_FILES["imagen4"]["name"],
         "imagen4"=>$_FILES["imagen4"]["tmp_name"]);
            
-            #Para validar tipo de imagen
    
-            
-            
-            #---------------------------------------------------------------
+      #---------------------------------------------------------------
             #Validamos que la placa ingresada no haya sido registrada antes 
             #---------------------------------------------------------------
             #Llamamos a la funcion en el modelo............................
@@ -91,7 +88,14 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
             }
                 
             }
+         
+  
+
+
+  
             
+            
+             
            
             
         }
@@ -118,9 +122,7 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                   <td>'.$item["numeromotor"].'</td>
                   <td>'.$item["numerochasis"].'</td>
                   <td>'.$item["tipocombustible"].'</td>
-                  <td class="bg-info"><i class="icon fa fa-road fa fa-3x"></i>
-
-</td>
+                  <td>Disponible</td>
                   <td>
                   <div class="btn-group" role="group">
                   

@@ -196,6 +196,8 @@ return false;
 
    </script>
     
-    
+    <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
     </body>
 </html>

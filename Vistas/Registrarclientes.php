@@ -231,7 +231,9 @@ function soloLetras(e) {
     
     
    
-    
+    <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
     
     </body>
     

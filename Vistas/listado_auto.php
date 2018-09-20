@@ -84,7 +84,7 @@ alertify.defaults.theme.input = "form-control";
              	    
        
             <div class="table table-responsive" >
-            <table id="tabla"  class="table table-striped " style="font-size:14px;">
+            <table id="tabla"  class="table table-striped " style="font-size:13.4px;">
               <thead>
                 <tr>
                  <th></th>
