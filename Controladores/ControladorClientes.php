@@ -164,6 +164,42 @@ class ClientesController{
     #-------------------------------------------------------------------------
     #BORRAR CLIENTE
     public function borrarCliente(){}
+    #-------------------------------------------------------------------------
+    #Función para mostrar los clientes al momento de alquilar un auto
+    #-------------------------------------------------------------------------
+    public function mostrarClienteAlquiler(){
+        $respuesta=DatosCliente::mostrarClienteModel("tclientes");
+        
+        foreach($respuesta as $row =>$item){
+        
+        echo'
+        
+        <tr>
+                  <td>'.$item["nombre"].'</td>
+                  <td>'.$item["telefono"].'
+                  
+                  </td>
+                  <td>'.$item["direccion"].'</td>
+                  <td>'.$item["dui"].'</td>
+                  <td>'.$item["licencia_de_conducir"].'</td>
+                  
+                  
+                  
+                  <td>'.$item["genero"].'</td>
+                 <td>C.Vigente</td>
+                  
+                  <td>
+                   <div class="btn-group" role="group">
+                  <a href="#" id="btnAlquilar" name="btnEditar" class="btn btn-success"   ><i class="fa fa-plane"></i></a>
+                  
+                  </div>
+                  </td>
+                 
+                </tr>
+        
+        ';
+        }
+    }
     
     
 }

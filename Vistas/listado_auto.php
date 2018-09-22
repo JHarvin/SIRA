@@ -1,6 +1,7 @@
 <?php
 #--------se cambiara para usar ajax-----------------
 require_once"../Controladores/ControladorRegistrarVehiculo.php";
+require_once"../Controladores/ControladorClientes.php";
 ?>
 <html lang="es">
 <head>
@@ -80,7 +81,7 @@ alertify.defaults.theme.input = "form-control";
          
           <div class="tile">
             
-            <h3 class="tile-title">Vehiculos</h3>
+            <h3 class="tile-title">Autos</h3>
              	    
        
             <div class="table table-responsive" >
@@ -225,7 +226,7 @@ alertify.defaults.theme.input = "form-control";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-success"> <i class="fa fa-key"></i> Alquilar Vehiculo</button>
+      <a href="#" id="btnIrAlquiler" name="btnIrAlquiler" class="btn btn-success" data-toggle="modal" data-target="#modalAlquilar"> <i class="fa fa-key"></i> Alquilar Vehiculo</a>
         |
         <button type="button" class="btn btn-primary" data-dismiss="modal">
         <i class="fa fa-exclamation-triangle"></i> Mandar a Mantenimiento</button>
@@ -234,6 +235,60 @@ alertify.defaults.theme.input = "form-control";
     </div>
   </div>
 </div>
+     <!-------------------------------------------------------------------------->
+      <!-- |MODAL PARA MOSTRAR LOS CLIENTES Y ALQUILAR EL VEHICUO|--------------->
+      <!------------------------------------------------------------------------->
+      
+      <div class="modal" id="modalAlquilar">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Alquilar auto </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+     <div class="table table-responsive">
+         <table id="clientesAquiler" style="font-size:13.5px;">
+             <thead>
+                 <th>Cliente</th>
+                 <th>Teléfono</th>
+                 <th>Dirección</th>
+                 <th>DUI</th>
+                 <th>Licencia de conducir</th>
+                 <th>Genero</th>
+                 <th>Estado</th>
+                 <th>Rentar</th>
+             </thead>
+             <tbody>
+                 <?php
+                  $clientes=new ClientesController();
+                  $clientes->mostrarClienteAlquiler();
+                 ?>
+             </tbody>
+         </table>
+         
+         
+     </div>
+             
+           
+              
+          </div>
+          
+      <!-- Modal footer -->
+      <div class="modal-footer">
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-danger"> <i class="fa fa-key"></i> Retroceder</button>
+      
+      </div>
+
+    </div>
+  </div>
+</div>
+    
+      <!------------------------------------------------------------------------->
       
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
@@ -273,7 +328,32 @@ alertify.defaults.theme.input = "form-control";
     
     </script>
  
-     
+     <script>
+    
+    $(document).ready(function() {
+          //---para data tables codigo
+    $('#clientesAquiler').DataTable( {
+        
+         
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todos"]],
+        
+        
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",   
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+        
+    } );
+} );
+    </script>
    
     
     <script>
