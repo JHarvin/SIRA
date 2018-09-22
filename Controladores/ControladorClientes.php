@@ -23,6 +23,7 @@ class ClientesController{
             
             # validacion que todo este correcto es decir caracteres y cantidad de estos lado servidor
             # preg_match realiza una comparacion de expresiones regulares
+            #solo es una prueba
             if(preg_match('/^[a-zA-Z]+$/',$_POST["nombre"]) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST["email"]) &&
               preg_match('/^[0-9]+$/',$_POST["telefono"])
               ){}

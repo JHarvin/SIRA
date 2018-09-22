@@ -25,7 +25,7 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
 <html lang="es">
 <head>
 
-    <title>Mostrar Usuarios</title>
+    <title>Mostrar Usuariossss</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
