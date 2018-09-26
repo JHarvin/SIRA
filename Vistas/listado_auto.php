@@ -6,7 +6,7 @@ require_once"../Controladores/ControladorClientes.php";
 <html lang="es">
 <head>
 
-    <title>Vehiculos</title>
+    <title>Autos</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +18,8 @@ require_once"../Controladores/ControladorClientes.php";
    <!--Libreria fancybox para mostrar imagens-->
  <link rel="stylesheet" href="../css/fancybox.min.css" />
  <link rel="stylesheet" href="../css/datatables.min.css">
+ <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+ <script src="../Vistas/js/reservarAlquilar.js"></script>
   <!-- include the RTL css files-->
 
 <link rel="stylesheet" href="../css/alertify.rtl.css">
@@ -211,7 +213,7 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header panel-info">
         <h4 class="modal-title">Elegir Acción </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -226,9 +228,9 @@ alertify.defaults.theme.input = "form-control";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <a href="#" id="btnIrAlquiler" name="btnIrAlquiler" class="btn btn-success" data-toggle="modal" data-target="#modalAlquilar"> <i class="fa fa-key"></i> Alquilar Vehiculo</a>
+      <a href="#" id="btnIrAlquiler" name="btnIrAlquiler" class="btn btn-success" data-toggle="modal" data-target="#modalAlquilar" data-dismiss="modal"> <i class="fa fa-key"></i> Alquilar Vehiculo</a>
         |
-        <button type="button" class="btn btn-primary" data-dismiss="modal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" data-dismiss="modal">
         <i class="fa fa-exclamation-triangle"></i> Mandar a Mantenimiento</button>
       </div>
 
@@ -245,7 +247,7 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Alquilar auto </h4>
+        <h4 class="modal-title">Rentar auto </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -280,7 +282,7 @@ alertify.defaults.theme.input = "form-control";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-danger"> <i class="fa fa-key"></i> Retroceder</button>
+      <button id="btnRetrocederAlquiler" name="btnRetrocederAlquiler" class="btn btn-info" data-dismiss="modal"> <i class="fa fa-undo"></i> Retroceder</button>
       
       </div>
 
@@ -290,6 +292,202 @@ alertify.defaults.theme.input = "form-control";
     
       <!------------------------------------------------------------------------->
       
+      <!-- Modal para mostrar contrato -->
+<div class="modal fade" id="modalContrato" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongTitle">Contrato</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="contratoP">
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+        </p>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-primary">Aceptar</button>
+        <button type="button" class="btn btn-primary" onclick="printContrato()">Aceptar e Imprimir contrato</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--------------------------------------------------------->
+   <!--Modal para seleccionar la fecha de alquiler--> 
+   <!-------------------------------------------------------------> 
+    <div class="modal fade" id="modalTiempo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color:#7f8be8;">
+                <h4 class="modal-title w-100 font-weight-bold">Tiempo de alquiler del auto</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        
+            
+            
+            <div class="modal-body">
+            
+               
+<form>
+  <div id="rowM" class="form-row">
+    <div class="form-group col-md-6">
+      <label for="nombreClienteAl">Nombre del cliente</label>
+      <input type="text" class="form-control"  disabled id="nombreClienteAl">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="duiClienteAl">DUI del cliente</label>
+      <input type="text" class="form-control" id="duiClienteAl" disabled>
+    </div>
+    
+     <div class="form-group col-md-6">
+    <label for="autoname">Auto a rentar</label>
+    <input type="text" class="form-control" id="autoname" disabled>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="placarente">Placas del auto</label>
+    <input type="text" class="form-control" id="placarent" disabled>
+  </div>
+  
+               <div class="form-group col-md-6">
+                  <label for="fechaFin">Fecha de renta(inicio)</label>
+                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fechaFin">Fecha de devolucion(fin)</label>
+                   <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                </div>
+  </div>
+ 
+  
+  
+  
+</form>
+              
+
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+                  <button type="button" class="btn btn-primary" onclick="reservar()">
+               <i class="fa fa-get-pocket"></i>
+               Reservar</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalContrato" data-dismiss="modal">
+               <i class="fa fa-clipboard"></i>
+               Rentar y ver contrato</button>
+                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+              </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!------------------------------------------------------->
+     <!--Modal para mantenimiento insertar-->
+     <!------------------------------------------------------->
+      <div class="modal fade" id="modalMantenimiento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color:#7f8be8;">
+                <h4 class="modal-title w-100 font-weight-bold">Mantenimiento</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        
+            
+            
+            <div class="modal-body">
+            
+               
+<form>
+  <div id="rowM" class="form-row">
+    
+    
+     <div class="form-group col-md-6">
+    <label for="autoname">Auto</label>
+    <input type="text" class="form-control" id="autoname" disabled>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="placarente">Placas del auto</label>
+    <input type="text" class="form-control" id="placarent" disabled>
+  </div>
+  
+               <div class="form-group col-md-6">
+                  <label for="fechaInicio">Fecha:</label>
+                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="fechaInicio">Descripción:</label>
+                  <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                </div>
+                
+  </div>
+ 
+  
+  
+  
+</form>
+              
+
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+                 
+        <button type="button" class="btn btn-success"  data-dismiss="modal">
+               <i class="fa fa-clipboard"></i>
+               Mandar a mantenimiento</button>
+                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+              </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+     
+     <!------------------------------------------------------->
+      
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -298,7 +496,7 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/main.js"></script>
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
-     
+     <script src="../js/bootstrap-datepicker.js"></script>
     
   <script>
   
@@ -360,8 +558,8 @@ alertify.defaults.theme.input = "form-control";
     //--------pone los datos en el modal
         
         //---Funcion para detectar el clic y obtener los datos
-      $("table tbody tr").click(function() {
-          //---se obtiene el indice de la tabla
+      $("#tabla tbody tr").click(function() {
+          //---se obtiene de la tabla la placa y nombre del vehiculo
  var placa=$(this).find("td:eq(1)").text();
   var nombre=$(this).find("td:eq(2)").text(); 
     //----obteniendo las imagenes de la tabla (td hidden) en caso seleccione ver-
@@ -395,7 +593,10 @@ alertify.defaults.theme.input = "form-control";
           $("#imagen4").attr("href",""+imagen4);
           $("#imagenDC4").attr("src",""+imagen4);
           
+          //--Poniendo el nombre y placa del vehiculo en el modal de alquilar
           
+           $("#placarent").val(placa);
+        $("#autoname").val(nombre);
           
             
       });
@@ -419,6 +620,63 @@ alertify.defaults.theme.input = "form-control";
         
     </script>
      
+     <script>
+    //Para imprimir contrato
+         function printContrato() {
+            
+     var contenido= document.getElementById("contratoP").innerHTML;
+     var contenidoOriginal= document.body.innerHTML;
+
+     document.body.innerHTML = contenido;
+
+     window.print();
+
+     document.body.innerHTML = contenidoOriginal;
+}
+    
+    </script>
+    
+    <script>
+    //-Codigo para obtener el nombre y dui del cliente y ponerlo en el modal de alquiler
+        
+        $("#clientesAquiler tbody tr").click(function() {
+          //---se obtiene de la tabla la placa y nombre del vehiculo
+ var nombreClienteA=$(this).find("td:eq(0)").text();
+  var duiAlquilerCliente=$(this).find("td:eq(3)").text(); 
+          
+        $("#nombreClienteAl").val(nombreClienteA);
+        $("#duiClienteAl").val(duiAlquilerCliente);
+          
+            
+      });
+        
+    </script>
+    
+    <script>
+    //Codigo para no permitir seleccionar dias pasados de la fecha de inicio del alquiler
+   var getDate = function (input) {
+        return new Date(input.date.valueOf());
+    }
+
+    $('#fechaInicio, #fechaFin').datepicker({
+        format: "dd/mm/yyyy",
+        language: 'es'
+    });
+
+    $('#fechaFin').datepicker({
+        startDate: '+6d',
+        endDate: '+36d',
+    });
+
+    $('#fechaInicio').datepicker({
+        startDate: '+5d',
+        endDate: '+35d',
+    }).on('changeDate',
+        function (selected) {
+            $('#fechaFin').datepicker('clearDates');
+            $('#fechaFin').datepicker('setStartDate', getDate(selected));
+        });
+    </script>
     
     </body>
 </html>
