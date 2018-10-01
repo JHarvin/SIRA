@@ -6,7 +6,7 @@ require_once"../Controladores/ControladorClientes.php";
 <html lang="es">
 <head>
 
-    <title>Autos</title>
+    <title>Autos registrados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,7 +76,13 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       
+       <div class="app-title">
+        <div>
+          <h1><i class="fa fa-car"></i> Autos registrados</h1>
+          
+        </div>
+        
+      </div>
        
        <div class="row">
       <div class="col-md-12">
@@ -87,7 +93,7 @@ alertify.defaults.theme.input = "form-control";
              	    
        
             <div class="table table-responsive" >
-            <table id="tabla"  class="table table-striped " style="font-size:13.4px;">
+            <table id="tabla"  class="table table-striped  " style="font-size:13.4px;">
               <thead>
                 <tr>
                  <th></th>
@@ -462,10 +468,23 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                   <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
                 
+                
+                
   </div>
  
   
-  
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    Alarma
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+  <label class="form-check-label" for="defaultCheck2">
+    Airbag
+  </label>
+</div>
   
 </form>
               

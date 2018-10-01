@@ -25,7 +25,7 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
 <html lang="es">
 <head>
 
-    <title>Mostrar Usuariossss</title>
+    <title>Usuarios registrados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -98,13 +98,19 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       
+       <div class="app-title">
+        <div>
+          <h1><i class="fa fa-id-card"></i> Usuarios registrados</h1>
+          
+        </div>
+        
+      </div>
        
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
             
-            <h3 class="tile-title">Usuarios Registrados</h3>
+            <h3 class="tile-title">Usuarios</h3>
              
            
 

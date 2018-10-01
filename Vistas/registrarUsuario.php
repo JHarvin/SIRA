@@ -7,7 +7,7 @@ require_once"../Controladores/ControladorRegistroUsuarios.php";
 <html lang="es">
 <head>
 
-    <title>Registrar usuarios</title>
+    <title>Registrar usuario</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,12 +114,18 @@ alertify.defaults.theme.input = "form-control";
     ?>
 
       <main class="app-content">
-       
+       <div class="app-title">
+        <div>
+          <h1><i class="fa fa-user-plus"></i> Registrar usuario</h1>
+          
+        </div>
+        
+      </div>
        
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Registrar Usuario</h3>
+            <h3 class="tile-title">Registrar</h3>
             <div class="tile-body">
               <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-4">

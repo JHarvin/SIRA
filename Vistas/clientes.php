@@ -23,7 +23,13 @@ require_once"../Controladores/ControladorClientes.php";
     include"menu.php";
     ?>
       <main class="app-content">
-       
+       <div class="app-title">
+        <div>
+          <h1><i class="fa fa-credit-card"></i> Clientes registrados</h1>
+          
+        </div>
+        
+      </div>
        
        <div class="row">
       <div class="col-md-12">
