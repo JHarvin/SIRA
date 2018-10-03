@@ -117,24 +117,46 @@ function soloLetras(e) {
                   <label class="control-label" for="nombre">Nombre de cliente</label>
                   <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" autofocus placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
                 </div>
-                <div class="form-group col-md-3">
-                <td>
-                <span class="label label-success">Teléfono:</span>
-                <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required><br>
                 
-                </tr><td>
+                <div class="form-group col-md-3 ">
+                  <label class="control-label">Género</label>
+                  
+                  <div class="form-check">
+                    <label class="form-check-label">
+ 
+                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">Masculino
+ 
+                      
+
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+ 
+                      <input class="form-check-input" type="radio" id="femenino" name="sexo" value="Femenino">Femenino
+ 
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="form-group col-md-3">
+                
+                <span class="label label-success">Teléfono:</span>
+                <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required>
+                
+                
                 </div>
               <!--Dui y licencia de conducir-->
      <div class="form-group col-md-3">
-      <td>
+      
        <span class="label label-success">DUI:</span>
-                <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required><br>
-    </tr><td>
+                <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required>
+    
       </div>
     <div class="form-group col-md-3">
-    <td>
+    
     <span class="label label-success">N° Licenia de conducir</span>
-                <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required><br>
+                <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required>
      
     </div>
                 
@@ -153,28 +175,7 @@ function soloLetras(e) {
                <div>
                
                
-				<div class="form-group col-md-6 form-check-inline">
-                  <label class="control-label">Género</label>
-                  
-                  <div class="form-check">
-                    <label class="form-check-label">
- 
-                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">Masculino
- 
-                      
-
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
- 
-                      <input class="form-check-input" type="radio" id="femenino" name="sexo" value="Femenino">Femenino
- 
-                      
- 
-                    </label>
-                  </div>
-                </div>
+				
 				</div>
 				</div>
                 <div class="tile-footer">

@@ -1,5 +1,5 @@
 <?php
-#--------se cambiara para usar ajax-----------------
+
 require_once"../Controladores/ControladorRegistrarVehiculo.php";
 require_once"../Controladores/ControladorClientes.php";
 ?>
@@ -10,6 +10,9 @@ require_once"../Controladores/ControladorClientes.php";
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
      
@@ -17,7 +20,8 @@ require_once"../Controladores/ControladorClientes.php";
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
  <link rel="stylesheet" href="../css/fancybox.min.css" />
- <link rel="stylesheet" href="../css/datatables.min.css">
+ 
+ 
  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
  <script src="../Vistas/js/reservarAlquilar.js"></script>
   <!-- include the RTL css files-->
@@ -86,14 +90,14 @@ alertify.defaults.theme.input = "form-control";
        
        <div class="row">
       <div class="col-md-12">
-         
-          <div class="tile">
+         <!--contenedor de la tabla de vehiculos (principal vista)-->
+          <div id="contenedorTabla" class="tile">
             
             <h3 class="tile-title">Autos</h3>
              	    
        
             <div class="table table-responsive" >
-            <table id="tabla"  class="table table-striped  " style="font-size:13.4px;">
+            <table id="tabla"  class="table display table-striped  " style="font-size:13.4px;">
               <thead>
                 <tr>
                  <th></th>
@@ -158,7 +162,7 @@ alertify.defaults.theme.input = "form-control";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -511,8 +515,12 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/datatables.min.js"></script>
-    <script src="../js/main.js"></script>
+     <script src="../js/main.js"></script>
+    <script src="../js/plugins/pace.min.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.bootstrap.min.js"></script>
+    
+   
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      <script src="../js/bootstrap-datepicker.js"></script>
@@ -696,6 +704,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             $('#fechaFin').datepicker('setStartDate', getDate(selected));
         });
     </script>
-    
+    <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
     </body>
 </html>

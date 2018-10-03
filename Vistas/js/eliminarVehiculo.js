@@ -28,13 +28,18 @@
 
         if(r==1){
          
-            $("#tabla").reload();
+             //--se recargan los div donde se muestran las imagenes de los carros
+            //para que no queden en cache
+           
+            // se recarga la tabla
+           $("#tabla").load("listado_auto.php #tabla >*");
             alertify.success("Registro Eliminado");
             
     }
           else if(r!=1){
            //para probar
-        
+              
+          $("#tabla").load("listado_auto.php #tabla >*");
             alertify.success("Registro Eliminado");
               
           }
