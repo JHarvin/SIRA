@@ -177,7 +177,7 @@ alertify.defaults.theme.input = "form-control";
                 </div>
       </div>
       <div class="modal-footer">
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle" on></i>Actualizar</button>
+       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="far fa-arrow-alt-circle-down"></i>Actualizar</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
       </div>
     </div>
@@ -222,7 +222,7 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
