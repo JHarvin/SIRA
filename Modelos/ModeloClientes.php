@@ -93,11 +93,11 @@ class DatosCliente extends Conexion{
  
     public function editarClientesModel($idModelDatos,$tabla){
         
-        $stmt =Conexion::conectar()->prepare("SELECT nombre,telefono,dui,licencia_de_conducir,direccion, FROM $tabla WHERE idpersonal= :id");
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE dui= :dui");
        
         
       
-       $stmt->bindParam(":id",$idModelDatos,PDO::PARAM_INT);
+       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_STR);
        
        $stmt->execute();
       
