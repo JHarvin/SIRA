@@ -6,7 +6,7 @@ class LoginModel extends Conexion{
     public function verificar($datosModelLogin, $tabla){
         
         
-        $stmt =Conexion::conectar()->prepare("SELECT username,password FROM $tabla WHERE username= :usuarioLog and password =:usuarioPass");
+        $stmt =Conexion::conectar()->prepare("SELECT username,password FROM $tabla WHERE username= :usuarioLog and password =:usuarioPass and status=1");
         
         $stmt->bindParam(":usuarioLog",$datosModelLogin["usuarioLog"],PDO::PARAM_STR);
         $stmt->bindParam(":usuarioPass",$datosModelLogin["usuarioPass"],PDO::PARAM_STR);
