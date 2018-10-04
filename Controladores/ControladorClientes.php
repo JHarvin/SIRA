@@ -206,7 +206,7 @@ class ClientesController{
         
         $datos=$_GET["id"];
         $respuesta=DatosCliente::editarClientesModel($datos,"tclientes");
-        
+      //  echo'<script> alert("entra '.$datos.'");</script>';
         return $respuesta;
         
     }
