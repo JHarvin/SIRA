@@ -11,6 +11,7 @@ function validarRegistro(){
     var password2 = document.querySelector("#rPassword").value;
     var direccion = document.querySelector("#direccion").value;
     var direccion = document.querySelector("#dui").value;
+    var licencia = document.querySelector("#licencia").value;
 
 
     var email= document.querySelector("#email").value;
@@ -108,6 +109,7 @@ function actualizar(id,nombre,telefono,direccion,user,pass,dui){
     datos.append("user",user);
     datos.append("pass",pass);
     datos.append("dui", dui);
+    datos.append("licencia", dui);
      
     
     

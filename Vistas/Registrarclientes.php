@@ -109,7 +109,7 @@ function soloLetras(e) {
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Registrar</h3>
+            <h3 class="tile-title">Ingrese datos del cliente</h3>
             <div class="tile-body">
               <form id="formulario_registro" method="post" onsubmit="return validarRegistro();">
 			  <div class="form-row">
@@ -140,7 +140,6 @@ function soloLetras(e) {
                 </div>
                 
                 <div class="form-group col-md-3">
-                
                 <span class="label label-success">Teléfono:</span>
                 <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required>
                 
