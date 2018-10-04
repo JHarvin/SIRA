@@ -177,7 +177,7 @@ alertify.defaults.theme.input = "form-control";
         <i class="fa fa-undo"></i> Atras</a>
       </div>
           <?php
-                    // $editarCliente->actualizarUsuarioController();
+                     $editarClientes->actualizarClientesController();
                      ?>
            </form>     
        </div>
