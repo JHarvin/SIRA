@@ -34,7 +34,8 @@
             
          
             // se recarga la tabla
-           $("#tabla").load("listado_auto.php #tabla >*");
+            
+           $("#tabla").load("listado_auto.php #tabla");
           //  $("#modalDetalle").load(" #modalDetalle");
             alertify.success("Registro Eliminado");
             
@@ -42,7 +43,7 @@
           else if(r!=1){
            //para probar
               
-          $("#tabla").load("listado_auto.php #tabla >*");
+          $("#tabla").load("listado_auto.php #tabla");
              // $("#modalDetalle").load("listado_auto.php #modalDetalle");
             alertify.success("Registro Eliminado");
               
