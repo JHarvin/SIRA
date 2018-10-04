@@ -131,7 +131,7 @@ alertify.defaults.theme.input = "form-control";
      </div>
     <div class="form-group col-md-3">
     <span class="label label-success">N° Licenia de conducir</span>
-    <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." value="<?php echo $datosVista["licencia"]; ?>" required>
+    <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." value="<?php echo $datosVista["licencia_de_conducir"]; ?>" required>
      </div>
                   </div>
                   <div class="row">
@@ -143,7 +143,7 @@ alertify.defaults.theme.input = "form-control";
                     </div>
                     <div class="clearfix"></div>
                 
-                 <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idpersonal"]; ?>" >
+                 <input id="id" name="id" type="hidden" value="<?php echo $datosVista["dui"]; ?>" >
 		
                    <div class="form-group col-md-3">
 
