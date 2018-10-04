@@ -8,7 +8,7 @@ if(!$_SESSION["validar"]){
 }
 
 #--------------------Made by Harvin Ramos---------------
-require_once"../Controladores/ControladorActualizarDatos.php";
+require_once"../Controladores/ControladorClientes.php";
 #-------------------------------------------------------------
 #-se instancia y se llama a la funcion en el controlador que se encarga de llamar al modelo que ejecuta la consulta devolviendo un array para luego poner los datos del usuario seleccionado
 #---------------------------------------------------------------
