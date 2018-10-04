@@ -119,8 +119,7 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                   </td>
                   <td>'.$item["tipo"].'</td>
                   <td>'.$item["color"].'</td>
-                  <td>'.$item["numeromotor"].'</td>
-                  <td>'.$item["numerochasis"].'</td>
+                  
                   <td>'.$item["tipocombustible"].'</td>
                   <td>Disponible</td>
                   <td>
@@ -137,6 +136,44 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                  <td hidden>'.$item["imagen2"].'</td>
                  <td hidden>'.$item["imagen3"].'</td>
                  <td hidden>'.$item["imagen4"].'</td>
+                 
+                </tr>
+        
+        ';
+        }
+        //-----------------FALTA AGREGAR IMAGEN<-------------<--------<-------
+    }
+    
+    #--------------------------Saul Reyes------------------------------------
+    #------------------------------------------------------------------------
+    #Funcion para mostrar los carros en la vista precios.php
+    #------------------------------------------------------------------------
+    #------------------------------------------------------------------------
+    public function mostrarVehiculosPreciosController(){
+        $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
+        
+         foreach($respuesta as $row =>$item){
+        
+        echo'
+        
+        <tr>
+        
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$item["color"].'</td>
+                  
+                  <td>'.$item["tipocombustible"].'</td>
+                  <td>$400</td>
+                  <td>
+                  <div class="btn-group" role="group">
+                  
+                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalPrecio" ><i class="fa fa-money" title="editar precio"></i></a>
+                  
+                  
+                  </div>
+                  </td>
+                 
                  
                 </tr>
         

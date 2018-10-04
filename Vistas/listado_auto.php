@@ -1,5 +1,4 @@
 <?php
-
 require_once"../Controladores/ControladorRegistrarVehiculo.php";
 require_once"../Controladores/ControladorClientes.php";
 ?>
@@ -40,9 +39,7 @@ alertify.defaults.glossary.cancel = 'إلغاء';
     
     
    
-
     
-
 </script>
     <!-- include alertify.css -->
 <link rel="stylesheet" href="../css/alertify.css">
@@ -105,8 +102,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>MARCA,MODELO,AÑO</th>
                    <th>TIPO</th>
                   <th>COLOR</th>
-                  <th>NUMERO DE MOTOR</th>
-                  <th>NUMERO DE CHASIS</th>
+                
                   <th>COMBUSTIBLE</th>
                   <th>ESTADO</th>
                  <th>Acciones</th>
@@ -191,13 +187,13 @@ alertify.defaults.theme.input = "form-control";
               <div id="img" name="img">
                 <!--Imagenes-->
                  <!--Para imagen 1-->
-                  <a id="imagen1" data-fancybox="gallery" href=""> <img id="imagenDC"  src="" width="250" height="150"></a>
+                  <a id="imagen1" data-fancybox="gallery" href=""> <img id="imagenDC"  src="" width="240" height="150"></a>
                   <!--Para imagen 2-->
-                  <a id="imagen2" data-fancybox="gallery" href=""> <img id="imagenDC2"  src="" width="250" height="150"></a>
+                  <a id="imagen2" data-fancybox="gallery" href=""> <img id="imagenDC2"  src="" width="240" height="150"></a>
                   <!--Para imagen 3-->
-                  <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="250" height="150"></a>
+                  <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="240" height="150"></a>
                   <!--Para imagen 4-->
-        <a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="250" height="150"></a>
+        <a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="240" height="150"></a>
            
               <!--Fin imagenes-->
           </div>
@@ -592,10 +588,10 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     //----obteniendo las imagenes de la tabla (td hidden) en caso seleccione ver-
           // -imagenes
           //--imagenes
-        var  imagen=$(this).find("td:eq(10)").text();
-          var imagen2=$(this).find("td:eq(11)").text();
-          var imagen3=$(this).find("td:eq(12)").text();
-          var imagen4=$(this).find("td:eq(13)").text();
+        var  imagen=$(this).find("td:eq(8)").text();
+          var imagen2=$(this).find("td:eq(9)").text();
+          var imagen3=$(this).find("td:eq(10)").text();
+          var imagen4=$(this).find("td:eq(11)").text();
           //---------------------------------------
           //---poniendo los datos en los inputs del modal de eliminar en caso seleccione eliminar
           
@@ -653,11 +649,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             
      var contenido= document.getElementById("contratoP").innerHTML;
      var contenidoOriginal= document.body.innerHTML;
-
      document.body.innerHTML = contenido;
-
      window.print();
-
      document.body.innerHTML = contenidoOriginal;
 }
     
@@ -684,17 +677,14 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
    var getDate = function (input) {
         return new Date(input.date.valueOf());
     }
-
     $('#fechaInicio, #fechaFin').datepicker({
         format: "dd/mm/yyyy",
         language: 'es'
     });
-
     $('#fechaFin').datepicker({
         startDate: '+6d',
         endDate: '+36d',
     });
-
     $('#fechaInicio').datepicker({
         startDate: '+5d',
         endDate: '+35d',
