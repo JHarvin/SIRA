@@ -90,7 +90,7 @@ class DatosCliente extends Conexion{
         $stmt->close();
         
     }
-   
+ 
     public function editarClientesModel($idModelDatos,$tabla){
         
         $stmt =Conexion::conectar()->prepare("SELECT nombre,telefono,dui,licencia_de_conducir,direccion, FROM $tabla WHERE idpersonal= :id");
@@ -135,6 +135,7 @@ class DatosCliente extends Conexion{
        
        
    } 
+
 }
 
 ?>
