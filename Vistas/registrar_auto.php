@@ -77,7 +77,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     </div>
     <div class="form-group col-md-3">
       <label for="color">Color</label>
-      <input type="text" class="form-control" id="color" name="color" placeholder="color" autocomplete="off" pattern=".{4.}" title="4 caracters para color correcto" onkeypress="return check2(event)" required>
+      <input type="text" class="form-control" id="color" name="color" placeholder="color" autocomplete="off" pattern=".{4,}" title="4 caracters para color correcto" onkeypress="return check2(event)" required>
     </div>
     
     

@@ -23,11 +23,15 @@ class MostrarUsuariosController{
                   <td>'.$item["username"].'</td>
                   <td>'.$habilitado.'</td>
                  
-                  
+                
                   <td>
                   <div class="btn-group" role="group">
                   <a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+<<<<<<< HEAD
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
+=======
+                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-alt-circle-down"></i></a>
+>>>>>>> ac62dec2b29617f60c6acf306fabc6496caaa808
                   </div>
                   </td>
                  <td hidden>'.$item["idpersonal"].'</td>

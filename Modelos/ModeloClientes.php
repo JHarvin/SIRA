@@ -90,7 +90,56 @@ class DatosCliente extends Conexion{
         $stmt->close();
         
     }
+ 
+    public function editarClientesModel($idModelDatos,$tabla){
+        
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE dui= :dui");
+       
+        
+      
+<<<<<<< HEAD
+       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_INT);
+=======
+       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_STR);
+>>>>>>> 087f3041fb7bed0295c7d7014b549605be571d08
+       
+       $stmt->execute();
+      
+       return $stmt->fetch();
+       
+       $stmt->close();
+        
+     
+       
+       
+       
+   }
+  
+   #--Funcion encargada de actualizar
+   public function actualizarClientesModel($datosModel,$tabla){
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre,telefono=:telefono,dui=:dui,licencia_de_conducir=:licencia,direccion=:direccion, WHERE dui= :dui");
+       
+        $stmt->bindParam(":nombre",$datosModel["nombre"],PDO::PARAM_STR);
+       $stmt->bindParam(":telefono",$datosModel["telefono"],PDO::PARAM_STR);
+       $stmt->bindParam(":direccion",$datosModel["direccion"],PDO::PARAM_STR);
+       $stmt->bindParam(":dui",$datosModel["dui"],PDO::PARAM_STR);
+       $stmt->bindParam(":licencia",$datosModel["licencia"],PDO::PARAM_STR);
+     
+       
     
+       
+       
+       if($stmt->execute()){
+           return "success";
+           
+       }else{
+           return "error";
+       }
+       $stmt->close();
+       
+       
+   } 
+
 }
 
 ?>

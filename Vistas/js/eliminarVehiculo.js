@@ -28,13 +28,23 @@
 
         if(r==1){
          
-            $("#tabla").reload();
+             //--se recargan los div donde se muestran las imagenes de los carros
+            //para que no queden en cache
+        //  $(".").remove(".modal-content");
+            
+         
+            // se recarga la tabla
+            
+           $("#tabla").load("listado_auto.php #tabla");
+          //  $("#modalDetalle").load(" #modalDetalle");
             alertify.success("Registro Eliminado");
             
     }
           else if(r!=1){
            //para probar
-        
+              
+          $("#tabla").load("listado_auto.php #tabla");
+             // $("#modalDetalle").load("listado_auto.php #modalDetalle");
             alertify.success("Registro Eliminado");
               
           }

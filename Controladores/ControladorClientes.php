@@ -145,7 +145,7 @@ class ClientesController{
                   
                   <td>
                    <div class="btn-group" role="group">
-                  <a href="actualizarDatosUsuario.php?id='.$item["dui"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="ModificarClientes.php?id='.$item["dui"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
                   <a href="usuarios.php?idb='.$item["dui"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
                   </div>
                   </td>
@@ -202,7 +202,60 @@ class ClientesController{
         ';
         }
     }
+    public function editarClientesController(){
+        
+        $datos=$_GET["id"];
+        $respuesta=DatosCliente::editarClientesModel($datos,"tclientes");
+      //  echo'<script> alert("entra '.$datos.'");</script>';
+        return $respuesta;
+        
+    }
     
+    #-------------------Funcion que se encarga de actualizar los datos----
+    
+    public function actualizarClientesController(){
+        #---se valida que un campo venga lleno ya que si uno esta lleno lo estaran todos
+        #---------------
+        if(isset($_POST["Nombre"])){
+            #----arrray de dato, sin s, el anterior lleva s, xd
+            $dato=array(
+                    "dui"=>$_POST["dui"],
+                    "nombre"=>$_POST["Nombre"],
+                    "telefono"=>$_POST["Telefono"],
+                    "direccion"=>$_POST["Direccion"],
+                    "username"=>$_POST["Username"],
+                    "password"=>$_POST["Pass"],
+                    "licencia"=>$_POST["liciencia"],
+                    "status"=>$_POST["status"]
+                );
+            
+            $respuesta=Datoscliente::actualizarClientesModel($dato,"tclientes");
+            
+            if($respuesta=="success"){
+                 echo '
+                
+               <script>
+                alertify.set("notifier","position", "top-center");
+               alertify.success("Datos actualizados correctamente");
+               
+            
+               </script>
+                
+                
+                ';
+               // header("location:usuarios.php");
+               // header("location:..Vistas/usuarios.php?ok=1");
+                
+            }
+            else{
+                
+                
+            }
+            
+        }
+         
+        
+    }   
     
 }
 

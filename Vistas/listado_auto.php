@@ -1,5 +1,4 @@
 <?php
-#--------se cambiara para usar ajax-----------------
 require_once"../Controladores/ControladorRegistrarVehiculo.php";
 require_once"../Controladores/ControladorClientes.php";
 ?>
@@ -10,6 +9,9 @@ require_once"../Controladores/ControladorClientes.php";
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
      
@@ -17,7 +19,8 @@ require_once"../Controladores/ControladorClientes.php";
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
  <link rel="stylesheet" href="../css/fancybox.min.css" />
- <link rel="stylesheet" href="../css/datatables.min.css">
+ 
+ 
  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
  <script src="../Vistas/js/reservarAlquilar.js"></script>
   <!-- include the RTL css files-->
@@ -36,9 +39,7 @@ alertify.defaults.glossary.cancel = 'إلغاء';
     
     
    
-
     
-
 </script>
     <!-- include alertify.css -->
 <link rel="stylesheet" href="../css/alertify.css">
@@ -86,14 +87,14 @@ alertify.defaults.theme.input = "form-control";
        
        <div class="row">
       <div class="col-md-12">
-         
-          <div class="tile">
+         <!--contenedor de la tabla de vehiculos (principal vista)-->
+          <div id="contenedorTabla" class="tile">
             
             <h3 class="tile-title">Autos</h3>
              	    
        
             <div class="table table-responsive" >
-            <table id="tabla"  class="table table-striped  " style="font-size:13.4px;">
+            <table id="tabla"  class="table display table-striped  " style="font-size:13.4px;">
               <thead>
                 <tr>
                  <th></th>
@@ -101,8 +102,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>MARCA,MODELO,AÑO</th>
                    <th>TIPO</th>
                   <th>COLOR</th>
-                  <th>NUMERO DE MOTOR</th>
-                  <th>NUMERO DE CHASIS</th>
+                
                   <th>COMBUSTIBLE</th>
                   <th>ESTADO</th>
                  <th>Acciones</th>
@@ -158,7 +158,7 @@ alertify.defaults.theme.input = "form-control";
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -187,13 +187,13 @@ alertify.defaults.theme.input = "form-control";
               <div id="img" name="img">
                 <!--Imagenes-->
                  <!--Para imagen 1-->
-                  <a id="imagen1" data-fancybox="gallery" href=""> <img id="imagenDC"  src="" width="250" height="150"></a>
+                  <a id="imagen1" data-fancybox="gallery" href=""> <img id="imagenDC"  src="" width="240" height="150"></a>
                   <!--Para imagen 2-->
-                  <a id="imagen2" data-fancybox="gallery" href=""> <img id="imagenDC2"  src="" width="250" height="150"></a>
+                  <a id="imagen2" data-fancybox="gallery" href=""> <img id="imagenDC2"  src="" width="240" height="150"></a>
                   <!--Para imagen 3-->
-                  <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="250" height="150"></a>
+                  <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="240" height="150"></a>
                   <!--Para imagen 4-->
-        <a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="250" height="150"></a>
+        <a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="240" height="150"></a>
            
               <!--Fin imagenes-->
           </div>
@@ -511,8 +511,12 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/datatables.min.js"></script>
-    <script src="../js/main.js"></script>
+     <script src="../js/main.js"></script>
+    <script src="../js/plugins/pace.min.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.bootstrap.min.js"></script>
+    
+   
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      <script src="../js/bootstrap-datepicker.js"></script>
@@ -584,10 +588,10 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     //----obteniendo las imagenes de la tabla (td hidden) en caso seleccione ver-
           // -imagenes
           //--imagenes
-        var  imagen=$(this).find("td:eq(10)").text();
-          var imagen2=$(this).find("td:eq(11)").text();
-          var imagen3=$(this).find("td:eq(12)").text();
-          var imagen4=$(this).find("td:eq(13)").text();
+        var  imagen=$(this).find("td:eq(8)").text();
+          var imagen2=$(this).find("td:eq(9)").text();
+          var imagen3=$(this).find("td:eq(10)").text();
+          var imagen4=$(this).find("td:eq(11)").text();
           //---------------------------------------
           //---poniendo los datos en los inputs del modal de eliminar en caso seleccione eliminar
           
@@ -645,11 +649,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             
      var contenido= document.getElementById("contratoP").innerHTML;
      var contenidoOriginal= document.body.innerHTML;
-
      document.body.innerHTML = contenido;
-
      window.print();
-
      document.body.innerHTML = contenidoOriginal;
 }
     
@@ -676,17 +677,14 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
    var getDate = function (input) {
         return new Date(input.date.valueOf());
     }
-
     $('#fechaInicio, #fechaFin').datepicker({
         format: "dd/mm/yyyy",
         language: 'es'
     });
-
     $('#fechaFin').datepicker({
         startDate: '+6d',
         endDate: '+36d',
     });
-
     $('#fechaInicio').datepicker({
         startDate: '+5d',
         endDate: '+35d',
@@ -696,6 +694,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             $('#fechaFin').datepicker('setStartDate', getDate(selected));
         });
     </script>
-    
+    <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
     </body>
 </html>
