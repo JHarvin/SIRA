@@ -93,6 +93,8 @@ alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
+ 
+    
     
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
@@ -176,7 +178,7 @@ alertify.defaults.theme.input = "form-control";
                  
                   <!-- Modal footer -->
       <div class="tile-footer">
-        <button type="submit" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
+        <button type="submit" onClick="llamarPagina()" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
         |
         <a href="usuarios.php"  class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i> Atras</a>

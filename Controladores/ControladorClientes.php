@@ -219,7 +219,7 @@ class ClientesController{
         if(isset($_POST["Nombre"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
-                    "id"=>$_POST["id"],
+                    "dui"=>$_POST["dui"],
                     "nombre"=>$_POST["Nombre"],
                     "telefono"=>$_POST["Telefono"],
                     "direccion"=>$_POST["Direccion"],

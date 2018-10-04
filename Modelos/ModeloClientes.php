@@ -97,7 +97,11 @@ class DatosCliente extends Conexion{
        
         
       
+<<<<<<< HEAD
+       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_INT);
+=======
        $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_STR);
+>>>>>>> 087f3041fb7bed0295c7d7014b549605be571d08
        
        $stmt->execute();
       
@@ -112,7 +116,7 @@ class DatosCliente extends Conexion{
    }
   
    #--Funcion encargada de actualizar
-   public function actualizarClientesoModel($datosModel,$tabla){
+   public function actualizarClientesModel($datosModel,$tabla){
         $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre,telefono=:telefono,dui=:dui,licencia_de_conducir=:licencia,direccion=:direccion, WHERE dui= :dui");
        
         $stmt->bindParam(":nombre",$datosModel["nombre"],PDO::PARAM_STR);

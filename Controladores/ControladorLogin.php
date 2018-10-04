@@ -16,7 +16,9 @@ class MvcController{
         if(isset($_POST["usuarioLog"])){
             
             $datosControladorLogin =array(
-                "usuarioLog"=>$_POST["usuarioLog"], "usuarioPass"=>$_POST["usuarioPass"] 
+                "usuarioLog"=>$_POST["usuarioLog"], 
+                "usuarioPass"=>$_POST["usuarioPass"] 
+                
         );
             
           $respuesta=LoginModel::verificar($datosControladorLogin,"tpersonal");

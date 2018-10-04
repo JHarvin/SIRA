@@ -25,7 +25,7 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
 <html lang="es">
 <head>
 
-    <title>Usuarios Habiliados</title>
+    <title>Usuarios Inahabilitado</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,7 +100,7 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
        <div class="app-title">
         <div>
-          <h1><i class="fa fa-id-card"></i> Usuarios Habilitados</h1>
+          <h1><i class="fa fa-id-card"></i> Usuarios inhabilitado</h1>
           
         </div>
         
@@ -110,7 +110,7 @@ alertify.defaults.theme.input = "form-control";
       <div class="col-md-12">
           <div class="tile">
             
-            <h3 class="tile-title">Usuarios</h3>
+            <h3 class="tile-title">Usuarios inhabilitado</h3>
              
            
 
@@ -177,11 +177,7 @@ alertify.defaults.theme.input = "form-control";
                 </div>
       </div>
       <div class="modal-footer">
-<<<<<<< HEAD
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-arrow-alt-circle-down"></i>Actualizar</button>
-=======
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="far fa-arrow-alt-circle-down"></i>Actualizar</button>
->>>>>>> ac62dec2b29617f60c6acf306fabc6496caaa808
+       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle" on></i>Actualizar</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
       </div>
     </div>
@@ -209,7 +205,7 @@ alertify.defaults.theme.input = "form-control";
                  <img src="../images/pregunta.png" alt="">
                  </div>
                  
-              <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+              <label for="nombreU" style="font-size:16px;">¿Desea Habilitar a :  </label>
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
           
     
@@ -226,11 +222,7 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
-<<<<<<< HEAD
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
-=======
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
->>>>>>> ac62dec2b29617f60c6acf306fabc6496caaa808
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>

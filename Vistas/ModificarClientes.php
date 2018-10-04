@@ -143,7 +143,7 @@ alertify.defaults.theme.input = "form-control";
                     </div>
                     <div class="clearfix"></div>
                 
-                 <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idpersonal"]; ?>" >
+                 <input id="id" name="id" type="hidden" value="<?php echo $datosVista["dui"]; ?>" >
 		
                    <div class="form-group col-md-3">
 
