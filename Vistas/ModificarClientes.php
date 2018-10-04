@@ -12,8 +12,8 @@ require_once"../Controladores/ControladorClientes.php";
 #-------------------------------------------------------------
 #-se instancia y se llama a la funcion en el controlador que se encarga de llamar al modelo que ejecuta la consulta devolviendo un array para luego poner los datos del usuario seleccionado
 #---------------------------------------------------------------
-$editarUsuario=new ActualizarDatosController();
-$datosVista=$editarUsuario->editarUsuarioController();
+$editarClientes=new ClientesController();
+$datosVista=$editarClientes->editarClientesController();
 
     
 
@@ -127,11 +127,11 @@ alertify.defaults.theme.input = "form-control";
                     </div>
         <div class="form-group col-md-3">   
        <span class="label label-success">DUI:</span>
-     <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required>
+     <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..."value="<?php echo $datosVista["dui"]; ?>" required>
      </div>
     <div class="form-group col-md-3">
     <span class="label label-success">N° Licenia de conducir</span>
-    <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required>
+    <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." value="<?php echo $datosVista["licencia"]; ?>" required>
      </div>
                   </div>
                   <div class="row">
@@ -177,7 +177,7 @@ alertify.defaults.theme.input = "form-control";
         <i class="fa fa-undo"></i> Atras</a>
       </div>
           <?php
-                     $editarUsuario->actualizarUsuarioController();
+                    // $editarCliente->actualizarUsuarioController();
                      ?>
            </form>     
        </div>

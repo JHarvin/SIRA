@@ -93,7 +93,7 @@ class DatosCliente extends Conexion{
    
     public function editarClientesModel($idModelDatos,$tabla){
         
-        $stmt =Conexion::conectar()->prepare("SELECT idpersonal,nombre,telefono,direccion,username,password,status,email FROM $tabla WHERE idpersonal= :id");
+        $stmt =Conexion::conectar()->prepare("SELECT nombre,telefono,dui,licencia_de_conducir,direccion, FROM $tabla WHERE idpersonal= :id");
        
         
       
@@ -113,15 +113,16 @@ class DatosCliente extends Conexion{
   
    #--Funcion encargada de actualizar
    public function actualizarClientesoModel($datosModel,$tabla){
-        $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre,telefono=:telefono,direccion=:direccion, username=:username ,password=:password,status=:status WHERE idpersonal= :id");
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre,telefono=:telefono,dui=:dui,licencia_de_conducir=:licencia,direccion=:direccion, WHERE dui= :dui");
        
         $stmt->bindParam(":nombre",$datosModel["nombre"],PDO::PARAM_STR);
        $stmt->bindParam(":telefono",$datosModel["telefono"],PDO::PARAM_STR);
        $stmt->bindParam(":direccion",$datosModel["direccion"],PDO::PARAM_STR);
-       $stmt->bindParam(":username",$datosModel["username"],PDO::PARAM_STR);
-       $stmt->bindParam(":password",$datosModel["password"],PDO::PARAM_STR);
-       $stmt->bindParam(":id",$datosModel["id"],PDO::PARAM_INT);
-       $stmt->bindParam(":status",$datosModel["status"],PDO::PARAM_INT);
+       $stmt->bindParam(":dui",$datosModel["dui"],PDO::PARAM_STR);
+       $stmt->bindParam(":licencia",$datosModel["licencia"],PDO::PARAM_STR);
+     
+       
+    
        
        
        if($stmt->execute()){
