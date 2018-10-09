@@ -1,10 +1,10 @@
 <?php 
-require_once "../Modelos/MostrarModel.php";
-class MostrarUsuariosController{
+require_once "../Modelos/mostrarmodelina.php";
+class controladorusuarioinahabilitados{
     
-    public function vistaUsuariosController(){
+    public function vistaUsuariosControllerina(){
         
-        $respuesta=MostrarUsuarios::vistaUsuarioModel("tpersonal where status=1");
+        $respuesta= mostrarmodelina::vistaUsuarioModel1("tpersonal where status=0");
         
         foreach($respuesta as $row =>$item){
         if($item["status"]==1){
@@ -28,7 +28,7 @@ class MostrarUsuariosController{
                   <div class="btn-group" role="group">
                   <a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
 
-                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
+                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
 
                 
 

@@ -2,7 +2,7 @@
 
 
 
-require_once "../Controladores/ControladorMostrarUsuarios.php";
+require_once "../Controladores/controladorusuarioinahabilitados.php";
 
 /*
 if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
@@ -100,7 +100,7 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
        <div class="app-title">
         <div>
-          <h1><i class="fa fa-id-card"></i> Usuarios inhabilitado</h1>
+          <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
           
         </div>
         
@@ -110,7 +110,7 @@ alertify.defaults.theme.input = "form-control";
       <div class="col-md-12">
           <div class="tile">
             
-            <h3 class="tile-title">Usuarios inhabilitado</h3>
+            <h3 class="tile-title">Usuarios inhabilitados</h3>
              
            
 
@@ -137,8 +137,8 @@ alertify.defaults.theme.input = "form-control";
                
                <?php 
                   #--Llamamos al controlador antes instanciando la clase
-                  $mostrar=new MostrarUsuariosController();
-                  $mostrar->vistaUsuariosController();
+                  $mostrar=new  controladorusuarioinahabilitados();
+                  $mostrar->vistaUsuariosControllerina();
                   #------------------------------------------
                   /*
                  
@@ -194,7 +194,7 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Eliminar </h4>
+        <h4 class="modal-title">Habilitar </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -222,7 +222,7 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Habilitar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>

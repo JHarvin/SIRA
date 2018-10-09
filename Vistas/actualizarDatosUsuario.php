@@ -174,7 +174,101 @@ alertify.defaults.theme.input = "form-control";
                    ?>
                   
                 </select>
-            </div>
+            </div> <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn close" data-dismiss="modal"></button>
+        <h4 class="modal-title">Modificar Username</h4>
+      </div>
+      <div class="modal-body">
+        <p>Username anterior. </p>
+        
+         <div class="form-group">
+                  <label class="control-label">Usuario</label>
+                  <input class="form-control" type="text" placeholder="Nombre de usuario nuevo">
+                </div>
+      </div>
+      <div class="modal-footer">
+
+       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-arrow-alt-circle-down"></i>Actualizar</button>
+
+       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="far fa-arrow-alt-circle-down"></i>Actualizar</button>
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+     
+      
+      <!-- modal para modificar los datos de los usuarios  solo los hice de prueba por si los necesitaba-->
+       
+       <div class="modal" id="modalValidar">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Inahabilitar</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <div class="row">
+                 <div> 
+                 <img src="../images/pregunta.png" alt="">
+                 </div>
+                 
+              <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+                <b><p id="nombreU" style="font-size:16px;"></p></b>
+          
+    
+                 <input id="idDelete" name="idDelete" type="hidden" >
+                </div>
+       
+         
+            
+              
+          </div>
+          
+          
+          
+     
+      <!-- Modal footer -->
+      <div class="modal-footer">
+
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+
+     
+
+        |
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+       
+        <!-- fin modal datos de los usuarios -->
+          
+      
+      <!-- Essential javascripts for application to work-->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    
+    <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+    <script src="../js/jquery.maskedinput.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
+     
                  
                   <!-- Modal footer -->
       <div class="tile-footer">

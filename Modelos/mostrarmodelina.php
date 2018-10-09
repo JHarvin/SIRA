@@ -2,9 +2,9 @@
 require_once"Conexion.php";
 #--para mostrar datos
 
-class MostrarUsuarios extends Conexion{
+class mostrarmodelina extends Conexion{
     #MOSTRAR USUARIOS
-    public function vistaUsuarioModel($tabla){
+    public function vistaUsuarioModel1($tabla){
         
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 
         $stmt->execute();
