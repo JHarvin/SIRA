@@ -101,7 +101,7 @@ class ClientesController{
 
           alertify.error("Algo salio mal :(");
 
-       alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA ");
+       alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS ANTERIORMENTE, PRUEBA OTRA ");
 
 
 
