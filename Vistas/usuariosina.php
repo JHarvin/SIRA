@@ -2,7 +2,7 @@
 
 
 
-require_once "../Controladores/controladorusuarioinahabilitados.php";
+require_once "../Controladores/ControladorMostrarUsuarios.php";
 
 
 
@@ -10,7 +10,7 @@ require_once "../Controladores/controladorusuarioinahabilitados.php";
 <html lang="es">
 <head>
 
-    <title>Usuarios Habiliados</title>
+    <title>Usuarios Inhabiliados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,8 +54,8 @@ alertify.defaults.theme.input = "form-control";
 
         if(r==1){
         
-           $("#tabla").load("usuarios.php #tabla > *");
-            alertify.success("Usuario inhabilitado");
+           $("#tabla").load("usuariosina.php #tabla > *");
+            alertify.success("Usuario Habilitado");
             
     }
           else if(r!=1){
@@ -85,7 +85,15 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
        <div class="app-title">
         <div>
+<<<<<<< HEAD
           <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
+=======
+
+         
+
+          <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
+
+>>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
           
         </div>
         
@@ -95,7 +103,15 @@ alertify.defaults.theme.input = "form-control";
       <div class="col-md-12">
           <div class="tile">
             
+<<<<<<< HEAD
             <h3 class="tile-title">Usuarios inhabilitados</h3>
+=======
+
+            
+
+            <h3 class="tile-title">Usuarios inhabilitados</h3>
+
+>>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
              
            
 
@@ -122,8 +138,16 @@ alertify.defaults.theme.input = "form-control";
                
                <?php 
                   #--Llamamos al controlador antes instanciando la clase
+<<<<<<< HEAD
                   $mostrar=new  controladorusuarioinahabilitados();
                   $mostrar->vistaUsuariosControllerina();
+=======
+
+                  $mostrar=new MostrarUsuariosController();
+                  $mostrar->vistaUsuariosDesController();
+
+
+>>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
                   #------------------------------------------
                   /*
                  
@@ -183,7 +207,15 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
+<<<<<<< HEAD
         <h4 class="modal-title">Habilitar </h4>
+=======
+
+        <h4 class="modal-title">Seleccione </h4>
+
+        <h4 class="modal-title">Habilitar </h4>
+
+>>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -211,7 +243,19 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
+<<<<<<< HEAD
       <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Habilitar</button>
+=======
+
+
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Habilitar</button>
+
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
+
+
+   
+
+>>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>

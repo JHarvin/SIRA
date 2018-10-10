@@ -224,8 +224,17 @@ class ClientesController{
                     "nombre"=>$_POST["Nombre"],
                     "telefono"=>$_POST["Telefono"],
                     "direccion"=>$_POST["Direccion"],
+<<<<<<< HEAD
                     
                     "licencia"=>$_POST["licencia"],
+=======
+
+                    
+                    "licencia"=>$_POST["licencia"],
+
+                     "licencia"=>$_POST["licencia"],
+
+>>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
                     "status"=>$_POST["status"]
                 );
             

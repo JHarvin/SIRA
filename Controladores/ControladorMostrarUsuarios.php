@@ -65,12 +65,12 @@ class MostrarUsuariosController{
 
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
 
-<<<<<<< HEAD
+
                  
-=======
+
                 
 
->>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
+
                   </div>
                   </td>
                  <td hidden>'.$item["idpersonal"].'</td>
