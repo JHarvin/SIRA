@@ -97,8 +97,15 @@ class DatosCliente extends Conexion{
        
         
       
+<<<<<<< HEAD
+       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_INT);
+
+       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_STR);
+
+=======
 
        
+>>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
        $stmt->execute();
       
        return $stmt->fetch();
