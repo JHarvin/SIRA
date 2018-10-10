@@ -2,42 +2,80 @@
 require_once "../Modelos/MostrarModel.php";
 class MostrarUsuariosController{
     
-    public function vistaUsuariosController(){
-        
+    #Para mostrar usuarios desabilitados
+    #------------------------------------
+    public function vistaUsuariosDesController(){
         $respuesta=MostrarUsuarios::vistaUsuarioModel("tpersonal");
-        
-        foreach($respuesta as $row =>$item){
-        if($item["status"]==1){
-          $habilitado="Activo";
-
-        }else{$habilitado="Inactivo";}
-        echo'
+          foreach($respuesta as $row =>$item){
+        if($item["status"]==0){
+          echo'
         
         <tr>
                   <td>'.$item["nombre"].'</td>
-                  <td>'.$item["telefono"].'
-                  
-                  </td>
+                  <td>'.$item["telefono"].'</td>
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["email"].'</td>
                   <td>'.$item["username"].'</td>
-                  <td>'.$habilitado.'</td>
+                  <td>Deshabilitado</td>
                  
                 
                   <td>
                   <div class="btn-group" role="group">
                   <a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
-<<<<<<< HEAD
-                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
-=======
-                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-alt-circle-down"></i></a>
->>>>>>> ac62dec2b29617f60c6acf306fabc6496caaa808
+
+                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
+
+                 
                   </div>
                   </td>
                  <td hidden>'.$item["idpersonal"].'</td>
                 </tr>
         
         ';
+
+        }
+            
+        
+        }
+    }
+    
+    
+    #Para mostrar usuarios habilitados
+    #---------------------------------
+    public function vistaUsuariosController(){
+        
+        $respuesta=MostrarUsuarios::vistaUsuarioModel("tpersonal");
+        
+        foreach($respuesta as $row =>$item){
+        if($item["status"]==1){
+          echo'
+        
+        <tr>
+                  <td>'.$item["nombre"].'</td>
+                  <td>'.$item["telefono"].'</td>
+                  <td>'.$item["direccion"].'</td>
+                  <td>'.$item["email"].'</td>
+                  <td>'.$item["username"].'</td>
+                  <td>Habilitado</td>
+                 
+                
+                  <td>
+                  <div class="btn-group" role="group">
+                  <a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+
+                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
+
+                 
+                  </div>
+                  </td>
+                 <td hidden>'.$item["idpersonal"].'</td>
+                </tr>
+        
+        ';
+
+        }
+            
+        
         }
     }
     
@@ -78,6 +116,27 @@ class MostrarUsuariosController{
                 ';
             }
         }
+    }
+    
+    #para inabilitar
+    public function inhabilitarController($id){
+         
+        $respuesta=MostrarUsuarios::inhabilitarModel($id,"tpersonal");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
+        
+    }
+    #para habilitar
+    public function habilitarController($id){
+         $respuesta=MostrarUsuarios::habilitarModel($id,"tpersonal");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
     }
     
     

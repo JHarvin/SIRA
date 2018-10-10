@@ -374,7 +374,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             <div class="modal-body">
             
                
-<form>
+<form id="formulario_alquilar">
   <div id="rowM" class="form-row">
     <div class="form-group col-md-6">
       <label for="nombreClienteAl">Nombre del cliente</label>

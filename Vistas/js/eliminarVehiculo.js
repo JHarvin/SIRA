@@ -9,6 +9,7 @@
   //----------funcion ajax
 
     function eliminar(idE){
+    
         var datos=new FormData();
 //---se usa append para agregarle nombre a la variable idE que recibe esta funcion
     datos.append("placa",idE);
@@ -28,22 +29,20 @@
 
         if(r==1){
          
-             //--se recargan los div donde se muestran las imagenes de los carros
-            //para que no queden en cache
-        //  $(".").remove(".modal-content");
+           
             
-         
+          
             // se recarga la tabla
-            
-           $("#tabla").load("listado_auto.php #tabla");
-          //  $("#modalDetalle").load(" #modalDetalle");
-            alertify.success("Registro Eliminado");
+            location.reload();
+           //$("#tabla").load("listado_auto.php");
+            //$("#modalDetalle").load("listado_auto.php");
+           alertify.success("Registro Eliminado");
             
     }
           else if(r!=1){
            //para probar
               
-          $("#tabla").load("listado_auto.php #tabla");
+          $("#tabla").load("listado_auto.php");
              // $("#modalDetalle").load("listado_auto.php #modalDetalle");
             alertify.success("Registro Eliminado");
               

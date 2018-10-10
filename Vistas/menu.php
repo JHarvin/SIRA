@@ -38,6 +38,8 @@
       <ul class="app-menu">
         <li><a class="app-menu__item active" href="inicio.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Inicio</span></a></li>
         <li><a class="app-menu__item" href="precios.php"><i class="fa fa-money"></i><span class="app-menu__label">Precios alquiler</span></a></li>
+        
+         <li><a class="app-menu__item" href="alquilados.php"><i class="fa fa-road"></i><span class="app-menu__label">Autos en alquiler</span></a></li>
 
 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users">
           

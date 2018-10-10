@@ -1,7 +1,11 @@
 <?php 
 
 #CLASE CONTROLADOR PARA REGISTRAR EL VEHICULO
+#--------------------------------------------------
+#-----------------------------------------------------------------------------
 require_once"../Modelos/ModeloVehiculos.php";
+#-----------------------------------------------------------------------------
+require_once"../Modelos/ModeloAlquiler.php";
 class RegistrarVehiculoController{
     
     public function registrarVController(){
@@ -105,10 +109,58 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
     #FUNCION QUE SE USA PARA MOSTRAR LOS CARROS
     #MAS ADELANTE SE CAMBIARA PARA USAR AJAX<-<-<---<----<---<----<...........----------
     public function mostrarVehiculosController(){
+        #Botones de la tabla
+         #---------------------------------------------------------------------------------------
+        #Variable para mostrar si el auto esta disponible -> se consulta el placa si es igual a la que esta en la tabla primaria y si esta en la secundaria se pondra alquilado
+        #----------------------------------------------------------------------------------------
+        
         $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
         
          foreach($respuesta as $row =>$item){
+             #Se consulta la placa del auto como se dijo en el comentario arriba de la variable status
+             $estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"talquiler");
+             #-------------------------------------------------------------------------------------------
+             #Se verifica si la columna status tenga 0 ya que si tiene 0 el auto esta en alquiler, si es 1 esta disponible y si es 2 es que ya fue alquilado y devuelto
+             #-------------------------------------------------------------------------------------------
+        if($estado=="success"){
+            $status="En alquiler";
+            #Se mustran los botones desabilitados de la tabla
+            #----------------------------------------------------------
+            echo'
         
+        <tr>
+        <td><a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalDetalle" ><i class="fa fa-info-circle"></i></a></td>
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'
+                  
+                  </td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$item["color"].'</td>
+                  
+                  <td>'.$item["tipocombustible"].'</td>
+                  <td>'.$status.'</td>
+                  <td>
+                  
+                  <div class="btn-group" role="group" disabled>
+                  
+                  <a href="#" class="btn btn-secondary" disabled><i class="fa fa-location-arrow"></i></a>
+                  
+                   <a href="#" class="btn btn-info" disabled><i class="fa fa-edit"></i></a>
+                  
+                  <a href="#" class="btn btn-danger" disabled><i class="fa fa-trash-o"></i></a>
+                  </div>
+                  </td>
+                 <td hidden>'.$item["imagen"].'</td>
+                 <td hidden>'.$item["imagen2"].'</td>
+                 <td hidden>'.$item["imagen3"].'</td>
+                 <td hidden>'.$item["imagen4"].'</td>
+                 
+                </tr>
+        
+        ';
+        }
+        else if($estado=="error"){
+            $status="Disponible";
         echo'
         
         <tr>
@@ -121,8 +173,9 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                   <td>'.$item["color"].'</td>
                   
                   <td>'.$item["tipocombustible"].'</td>
-                  <td>Disponible</td>
+                  <td>'.$status.'</td>
                   <td>
+                  
                   <div class="btn-group" role="group">
                   
                   <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalOpcion" ><i class="fa fa-location-arrow"></i></a>
@@ -141,19 +194,21 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
         
         ';
         }
+        }
         //-----------------FALTA AGREGAR IMAGEN<-------------<--------<-------
     }
     
-    #--------------------------Saul Reyes------------------------------------
+    #--------------------------------------------------------------
     #------------------------------------------------------------------------
     #Funcion para mostrar los carros en la vista precios.php
     #------------------------------------------------------------------------
     #------------------------------------------------------------------------
     public function mostrarVehiculosPreciosController(){
+       
         $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
         
          foreach($respuesta as $row =>$item){
-        
+             
         echo'
         
         <tr>
@@ -182,6 +237,19 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
         //-----------------FALTA AGREGAR IMAGEN<-------------<--------<-------
     }
     
+    #---------------------------------------------
+    #Editar vehiculo---funcion que obtiene el id por el get para consultar los datos en la bd para mostrarlos en la vista de actualizar
+    #-------------------------------------------
+    public function editarVehiculoController(){
+        #El id sera la placa del carro
+        if(isset($_GET["id"]) && !empty($_GET["id"])){
+            
+            
+            
+            
+        }
+        
+    }
     
 }
 
