@@ -180,7 +180,7 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                   
                   <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalOpcion" ><i class="fa fa-location-arrow"></i></a>
                   
-                   <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-edit"></i></a>
+                   <a href="actualizarAuto.php?id='.$item["numero_de_placa"].'" class="btn btn-info" ><i class="fa fa-edit"></i></a>
                   
                   <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar" ><i class="fa fa-trash-o"></i></a>
                   </div>
@@ -244,8 +244,8 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
         #El id sera la placa del carro
         if(isset($_GET["id"]) && !empty($_GET["id"])){
             
-            
-            
+           $respuesta=VehiculosModel::editarVehiculoModel($_GET["id"],"tvehiculos"); 
+            return $respuesta;
             
         }
         

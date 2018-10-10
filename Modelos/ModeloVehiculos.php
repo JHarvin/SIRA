@@ -151,7 +151,17 @@ class VehiculosModel extends Conexion{
     }
     #Para obtener los datos del carro por medio del get 
   public function editarVehiculoModel($placa,$tabla){
-      
+      $stmt =Conexion::conectar()->prepare("SELECT numero_de_placa,marca,tipo,color,numeromotor,numerochasis,tipocombustible,year FROM $tabla WHERE numero_de_placa= :id");
+        
+         
+       
+        $stmt->bindParam(":id",$placa,PDO::PARAM_INT);
+        
+        $stmt->execute();
+       
+        return $stmt->fetch();
+        
+        $stmt->close();
       
       
   }

@@ -53,9 +53,11 @@ alertify.defaults.theme.input = "form-control";
          
 
         if(r==1){
-        
+    
+           // setTimeout(alertify.success("Usuario inhabilitado"),5000);
+    
            $("#tabla").load("usuarios.php #tabla > *");
-            alertify.success("Usuario inhabilitado");
+            alertify.success("Usuario inhabilitado")
             
     }
           else if(r!=1){
@@ -204,21 +206,12 @@ alertify.defaults.theme.input = "form-control";
     
                  <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
-<<<<<<< HEAD
+
        </div>
-=======
+
        
     
-            
-              
-          </div>
->>>>>>> 663cc0a004381d14a6d7abfce8b06cbb8c643b81
-          
-          
-          
-     
-      <!-- Modal footer -->
-      <div class="modal-footer">
+            <div class="modal-footer">
 
 
       <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
@@ -233,10 +226,19 @@ alertify.defaults.theme.input = "form-control";
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>
+              
+          </div>
+
+          
+          
+          
+     
+      <!-- Modal footer -->
+      
 
     </div>
   </div>
-</div>
+
        
         <!-- fin modal datos de los usuarios -->
           
@@ -268,7 +270,8 @@ alertify.defaults.theme.input = "form-control";
             "sSearch":"Buscar",   
             "paginate": {
             "previous": "Anterior",
-                "next": "Siguente"
+                "next": "Siguente",
+                "ajax": "data.json"
     }
         }
         
@@ -341,6 +344,8 @@ alertify.defaults.theme.input = "form-control";
         });
         
     </script>
-    
+     <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
     </body>
 </html>
