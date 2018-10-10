@@ -103,8 +103,6 @@ alertify.defaults.theme.input = "form-control";
                    <th>DUI</th>
                   <th>CLIENTE</th>
                 
-                 
-                  
                  <th>Acciones</th>
                 
                 </tr>

@@ -58,8 +58,8 @@ class ModeloAlquilar{
     #----------------------------------------------------------------------
     public function mostrarAlquilerModel(){
         
-     $stmt =Conexion::conectar()->prepare("SELECT talquiler.numero_de_placa as placa,talquiler.dui as dui,tvehiculos.marca as marca,tclientes.nombre as cliente from talquiler,tvehiculos,tclientes WHERE
-tclientes.dui=talquiler.dui and talquiler.`status`=0"); 
+     $stmt =Conexion::conectar()->prepare("SELECT  talquiler.numero_de_placa as placa,talquiler.dui as dui,tvehiculos.marca as marca,tclientes.nombre as cliente from talquiler,tvehiculos,tclientes WHERE
+tclientes.dui=talquiler.dui and tvehiculos.numero_de_placa=talquiler.numero_de_placa and talquiler.`status`=0"); 
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();

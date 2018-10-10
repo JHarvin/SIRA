@@ -22,7 +22,7 @@ $datosVista=$editarClientes->editarClientesController();
 <html lang="es">
 <head>
 
-    <title>Registrar Clientes</title>
+    <title>Modificar Clientes</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,7 +112,7 @@ alertify.defaults.theme.input = "form-control";
 <div class="col-md-12">
       
       <div class="tile">
-       <h3 class="tile-title">Editar Datos de Clientes</h3>
+       <h3 class="tile-title">Modificar Datos de Clientes</h3>
                  <form method="post" onsubmit="return validarActualizarDatos();">
                   <div class="row mb-4">
                     <div class="col-md-3">
