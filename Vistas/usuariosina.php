@@ -130,13 +130,8 @@ alertify.defaults.theme.input = "form-control";
                
                <?php 
                   #--Llamamos al controlador antes instanciando la clase
-<<<<<<< HEAD
-                  $mostrar=new MostrarUsuariosController();
-                  $mostrar->vistaUsuariosDesController();
-=======
                   $mostrar=new  controladorusuarioinahabilitados();
                   $mostrar->vistaUsuariosControllerina();
->>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
                   #------------------------------------------
                   /*
                  
