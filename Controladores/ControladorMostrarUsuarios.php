@@ -44,7 +44,7 @@ class MostrarUsuariosController{
     #---------------------------------
     public function vistaUsuariosController(){
         
-        $respuesta=MostrarUsuarios::vistaUsuarioModel("tpersonal");
+        $respuesta=MostrarUsuarios::vistaUsuarioModel("tpersonal where status=1");
         
         foreach($respuesta as $row =>$item){
         if($item["status"]==1){
@@ -65,7 +65,12 @@ class MostrarUsuariosController{
 
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
 
+<<<<<<< HEAD
                  
+=======
+                
+
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
                   </div>
                   </td>
                  <td hidden>'.$item["idpersonal"].'</td>

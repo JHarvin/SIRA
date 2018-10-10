@@ -173,8 +173,8 @@ alertify.defaults.theme.input = "form-control";
       <div class="tile-footer">
         <button type="submit" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
         |
-        <a href="usuarios.php"  class="btn btn-info" data-dismiss="modal">
-        <i class="fa fa-undo"></i> Atras</a>
+        <a href="clientes.php"  class="btn btn-info" data-dismiss="modal">
+        <i class="fa fa-undo"></i>Atras</a>
       </div>
           <?php
                      $editarClientes->actualizarClientesController();

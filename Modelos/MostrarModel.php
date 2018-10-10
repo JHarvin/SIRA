@@ -16,7 +16,7 @@ class MostrarUsuarios extends Conexion{
     
     #BORRAR USUARIO MODEL
     public function borrarUsarioModel($id,$tabla){
-        $stmt =Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idpersonal= :id");
+        $stmt =Conexion::conectar()->prepare("udpate FROM $tabla WHERE idpersonal= :id");
         
           $stmt->bindParam(":id",$id,PDO::PARAM_INT);
         

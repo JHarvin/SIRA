@@ -122,8 +122,8 @@ alertify.defaults.theme.input = "form-control";
                
                <?php 
                   #--Llamamos al controlador antes instanciando la clase
-                  $mostrar=new MostrarUsuariosController();
-                  $mostrar->vistaUsuariosController();
+                  $mostrar1=new MostrarUsuariosController();
+                  $mostrar1->vistaUsuariosController();
                   #------------------------------------------
                   /*
                  
@@ -183,7 +183,11 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
+<<<<<<< HEAD
         <h4 class="modal-title">Seleccione </h4>
+=======
+        <h4 class="modal-title">Inahabilitar</h4>
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -212,9 +216,15 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal footer -->
       <div class="modal-footer">
 
+<<<<<<< HEAD
       <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
 
       <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
+=======
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+
+     
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
 
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
