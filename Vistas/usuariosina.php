@@ -54,8 +54,8 @@ alertify.defaults.theme.input = "form-control";
 
         if(r==1){
         
-           $("#tabla").load("usuarios.php #tabla > *");
-            alertify.success("Usuario inhabilitado");
+           $("#tabla").load("usuariosina.php #tabla > *");
+            alertify.success("Usuario Habilitado");
             
     }
           else if(r!=1){
