@@ -40,7 +40,7 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
     <script src="../js/alertify.min.js"></script>
-<script src="../Vistas/js/validarRegistro.js"></script>
+    <script src="../Vistas/js/validarRegistro.js"></script>
 <link rel="stylesheet" href="../css/datatables.min.css">
 <script type="text/javascript">
 //override defaults
@@ -215,11 +215,7 @@ alertify.defaults.theme.input = "form-control";
     
                  <input id="idDelete" name="idDelete" type="hidden" >
                 </div>
-       
-         
-            
-              
-          </div>
+       </div>
           
           
           
@@ -231,7 +227,7 @@ alertify.defaults.theme.input = "form-control";
 
      
 
-        |
+        
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>

@@ -101,7 +101,7 @@ class ClientesController{
 
           alertify.error("Algo salio mal :(");
 
-       alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS PRUEBA OTRA ");
+       alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS ANTERIORMENTE, PRUEBA OTRA ");
 
 
 
@@ -126,27 +126,29 @@ class ClientesController{
          $respuesta=DatosCliente::mostrarClienteModel("tclientes");
         
         foreach($respuesta as $row =>$item){
-        
+            if($item["status"]==1){
+                $habilitado="Inactivo";
+      
+              }else{$habilitado="Activo";}
         echo'
         
         <tr>
                   <td>'.$item["nombre"].'</td>
                   <td>'.$item["telefono"].'
-                  
                   </td>
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["dui"].'</td>
                   <td>'.$item["licencia_de_conducir"].'</td>
-                  
-                  
-                  
-                  <td>'.$item["genero"].'</td>
+                   
+                
+                  <td>'.$habilitado.'</td>
+                
                  
                   
                   <td>
                    <div class="btn-group" role="group">
                   <a href="ModificarClientes.php?id='.$item["dui"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
-                  <a href="usuarios.php?idb='.$item["dui"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                  <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
                   </div>
                   </td>
                  
@@ -241,8 +243,8 @@ class ClientesController{
                 
                 
                 ';
-               // header("location:usuarios.php");
-               // header("location:..Vistas/usuarios.php?ok=1");
+               // header("location:clientes.php");
+               // header("location:..Vistas/clientes.php?ok=1");
                 
             }
             else{

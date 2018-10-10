@@ -1,10 +1,10 @@
 <?php 
-require_once"../Controladores/ControladorClientes.php";
+require_once"../Controladores/ControladorClientesInactivos.php";
 ?>
 <html lang="es">
 <head>
 
-    <title>Clientes registrados</title>
+    <title>Clientes Inactivos</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@ require_once"../Controladores/ControladorClientes.php";
       <main class="app-content">
        <div class="app-title">
         <div>
-          <h1><i class="fa fa-credit-card"></i> Clientes registrados</h1>
+          <h1><i class="fa fa-credit-card"></i> Clientes Inactivos</h1>
           
         </div>
         
@@ -47,7 +47,7 @@ require_once"../Controladores/ControladorClientes.php";
                    <th>Dirección</th>
                   <th>DUI</th>
                   <th>Licencia de conducir</th>
-                  <th>estado</th>
+                  <th>Estado</th>
                 <th>Acciones</th> 
                  
                  
@@ -57,8 +57,8 @@ require_once"../Controladores/ControladorClientes.php";
               
               <?php 
                   #AQUI SE LLAMA LA FUNCION PARA MOSTRAR LOS DATOS
-                  $clientes=new ClientesController();
-                  $clientes->mostrarCliente();
+                 // $clientes=new controladorClientesInactivos();
+                 // $clientes->vistaClientesControllerina();
                   
                   ?>
               
@@ -72,14 +72,14 @@ require_once"../Controladores/ControladorClientes.php";
         
       </div>
       </main>
-
-            <div class="modal" id="modalValidar">
+      
+      <div class="modal" id="modalValidar">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
-      
-   <!-- Modal Header -->
-   <div class="modal-header">
-        <h4 class="modal-title">Inahabilitar</h4>
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Habilitar </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -90,39 +90,32 @@ require_once"../Controladores/ControladorClientes.php";
                  <img src="../images/pregunta.png" alt="">
                  </div>
                  
-              <label for="nombre" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+              <label for="nombre" style="font-size:16px;">¿Desea Habilitar a :  </label>
                 <b><p id="nombre" style="font-size:16px;"></p></b>
           
     
                  <input id="idDelete" name="idDelete" type="hidden" >
                 </div>
-       </div>
+       
+         
+            
+              
+          </div>
           
           
           
      
       <!-- Modal footer -->
       <div class="modal-footer">
-
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
-
-     
-
-        
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Habilitar</button>
+        |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
-        <i class="fa fa-undo"></i>Cancelar</button>
+        <i class="fa fa-undo"></i> Cancelar</button>
       </div>
 
     </div>
   </div>
-  </div>
-     
-          
-          
-     
-
-
-    
+</div>
      
        
       
@@ -163,7 +156,7 @@ require_once"../Controladores/ControladorClientes.php";
     
     <script>
      function alerta(){
-        toastr.success("Cliente Guardado");
+        toastr.success("Usuario Guardado");
 
 toastr.options = {
   "closeButton": false,
@@ -191,9 +184,10 @@ toastr.options = {
         
     </script>
     
-    
-<!--escript para buscar en la tabla-->
-    <script>
+ 
+    </script>
+     <!--escript para buscar en la tabla-->
+     <script>
       $(function () {
 
   $('#search').quicksearch('table tbody tr');								
@@ -233,7 +227,6 @@ toastr.options = {
             
         });
         
-    </script>
     </script>
     </body>
 </html>
