@@ -4,22 +4,7 @@
 
 require_once "../Controladores/ControladorMostrarUsuarios.php";
 
-/*
-if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
 
-en pocas palabras es la encarga de mostrar el mensaje de actualizado
-
-*/
-
-if(isset($_GET["ok"]) && !empty($_GET["ok"])){
-    
-    echo'
-    <script>
-    alertify.success("Registro Actualizado ");
-    </script>
-    ';
-    
-}
 
 ?>
 <html lang="es">
@@ -51,15 +36,14 @@ alertify.defaults.theme.input = "form-control";
 </script>
 <script>
   //----------funcion ajax
-    function eliminar(idE){
+    function inhabilitar(idE){
         var datos=new FormData();
-    datos.append("idb",idE);
-        
+    datos.append("id",idE);
         
          $.ajax({
         
         type: "POST",
-        url: "../Controladores/ControladorAjaxEliminar.php",
+        url: "ajaxInhabilitar.php",
         data: datos,
         cache:false,
         contentType:false,
@@ -70,12 +54,13 @@ alertify.defaults.theme.input = "form-control";
 
         if(r==1){
         
-           // $(".table").load("../Vistas/usuarios.php");
-            toastr.success("Eliminado");
+           $("#tabla").load("usuarios.php #tabla > *");
+            alertify.success("Usuario inhabilitado");
+            
     }
           else if(r!=1){
            
-              alert("diferente "+r);
+              alertify.error("Algo salio mal"+r);
               
           }
             else{
@@ -198,7 +183,11 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
+<<<<<<< HEAD
+        <h4 class="modal-title">Seleccione </h4>
+=======
         <h4 class="modal-title">Inahabilitar</h4>
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -213,9 +202,17 @@ alertify.defaults.theme.input = "form-control";
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
           
     
-                 <input id="idDelete" name="idDelete" type="hidden" >
+                 <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
+<<<<<<< HEAD
        </div>
+=======
+       
+    
+            
+              
+          </div>
+>>>>>>> 663cc0a004381d14a6d7abfce8b06cbb8c643b81
           
           
           
@@ -223,9 +220,15 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal footer -->
       <div class="modal-footer">
 
+<<<<<<< HEAD
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
+=======
       <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
 
      
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
 
         
         <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -288,50 +291,15 @@ alertify.defaults.theme.input = "form-control";
     </script>
     
     
-    <script>
-     function alerta(){
-        toastr.success("Usuario Guardado");
-
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
   
-  "hideMethod": "fadeOut"
-}
-          
-
-          
-      }
-        
-        
-    </script>
     
-    <!--escript para buscar en la tabla-->
-    <script>
-      $(function () {
-
-  $('#search').quicksearch('table tbody tr');								
-});
-    </script>
-    
+     
     <script>
     //---Funcion para detectar el clic y obtener los datos
       $("table tbody tr").click(function() {
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(6)").text(); 
+  var id=$(this).find("td:eq(7)").text(); 
            
           
           //---poniendo los datos en los inputs del modal
@@ -339,7 +307,7 @@ toastr.options = {
          
         
           $("#nombreU").text(nombre+"?");
-          $("#idDelete").text(id);
+          $("#ide").val(id);
   
 });
     </script>
@@ -352,8 +320,22 @@ toastr.options = {
             
             $("#btnEliminar").click(function(){
                 
-                var idEliminar=$("#idDelete").text();
-            eliminar(idEliminar);
+            
+                
+            });
+            
+        });
+        
+    </script>
+    
+     <script>
+    //accion para inhabilitar usuario
+        $(document).ready(function(){
+            
+            $("#btnInhabilitar").click(function(){
+                
+                var idEliminar=$("#ide").val();
+            inhabilitar(idEliminar);
                 
             });
             

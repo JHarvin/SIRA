@@ -149,6 +149,12 @@ class VehiculosModel extends Conexion{
         $stmt->close();
         
     }
+    #Para obtener los datos del carro por medio del get 
+  public function editarVehiculoModel($placa,$tabla){
+      
+      
+      
+  }
     
 }
 

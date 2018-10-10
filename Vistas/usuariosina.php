@@ -4,28 +4,13 @@
 
 require_once "../Controladores/controladorusuarioinahabilitados.php";
 
-/*
-if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
 
-en pocas palabras es la encarga de mostrar el mensaje de actualizado
-
-*/
-
-if(isset($_GET["ok"]) && !empty($_GET["ok"])){
-    
-    echo'
-    <script>
-    alertify.success("Registro Actualizado ");
-    </script>
-    ';
-    
-}
 
 ?>
 <html lang="es">
 <head>
 
-    <title>Usuarios Inahabilitado</title>
+    <title>Usuarios Habiliados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,15 +36,14 @@ alertify.defaults.theme.input = "form-control";
 </script>
 <script>
   //----------funcion ajax
-    function eliminar(idE){
+    function habilitar(idE){
         var datos=new FormData();
-    datos.append("idb",idE);
-        
+    datos.append("id",idE);
         
          $.ajax({
         
         type: "POST",
-        url: "../Controladores/ControladorAjaxEliminar.php",
+        url: "ajaxHabilitar.php",
         data: datos,
         cache:false,
         contentType:false,
@@ -70,12 +54,13 @@ alertify.defaults.theme.input = "form-control";
 
         if(r==1){
         
-           // $(".table").load("../Vistas/usuarios.php");
-            toastr.success("Eliminado");
+           $("#tabla").load("usuarios.php #tabla > *");
+            alertify.success("Usuario inhabilitado");
+            
     }
           else if(r!=1){
            
-              alert("diferente "+r);
+              alertify.error("Algo salio mal"+r);
               
           }
             else{
@@ -100,7 +85,11 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
        <div class="app-title">
         <div>
+<<<<<<< HEAD
+          <h1><i class="fa fa-id-card"></i> Usuarios Deshabilitados</h1>
+=======
           <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
           
         </div>
         
@@ -110,7 +99,11 @@ alertify.defaults.theme.input = "form-control";
       <div class="col-md-12">
           <div class="tile">
             
+<<<<<<< HEAD
+            <h3 class="tile-title">Usuarios</h3>
+=======
             <h3 class="tile-title">Usuarios inhabilitados</h3>
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
              
            
 
@@ -137,8 +130,13 @@ alertify.defaults.theme.input = "form-control";
                
                <?php 
                   #--Llamamos al controlador antes instanciando la clase
+<<<<<<< HEAD
+                  $mostrar=new MostrarUsuariosController();
+                  $mostrar->vistaUsuariosDesController();
+=======
                   $mostrar=new  controladorusuarioinahabilitados();
                   $mostrar->vistaUsuariosControllerina();
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
                   #------------------------------------------
                   /*
                  
@@ -177,7 +175,11 @@ alertify.defaults.theme.input = "form-control";
                 </div>
       </div>
       <div class="modal-footer">
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle" on></i>Actualizar</button>
+
+       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-arrow-alt-circle-down"></i>Actualizar</button>
+
+       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="far fa-arrow-alt-circle-down"></i>Actualizar</button>
+
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
       </div>
     </div>
@@ -194,7 +196,11 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
+<<<<<<< HEAD
+        <h4 class="modal-title">Seleccione </h4>
+=======
         <h4 class="modal-title">Habilitar </h4>
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -205,14 +211,14 @@ alertify.defaults.theme.input = "form-control";
                  <img src="../images/pregunta.png" alt="">
                  </div>
                  
-              <label for="nombreU" style="font-size:16px;">¿Desea Habilitar a :  </label>
+              <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
           
     
-                 <input id="idDelete" name="idDelete" type="hidden" >
+                 <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
        
-         
+    
             
               
           </div>
@@ -222,7 +228,15 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
+<<<<<<< HEAD
+
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Habilitar</button>
+
+      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
+
+=======
       <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Habilitar</button>
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -284,50 +298,15 @@ alertify.defaults.theme.input = "form-control";
     </script>
     
     
-    <script>
-     function alerta(){
-        toastr.success("Usuario Guardado");
-
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
   
-  "hideMethod": "fadeOut"
-}
-          
-
-          
-      }
-        
-        
-    </script>
     
-    <!--escript para buscar en la tabla-->
-    <script>
-      $(function () {
-
-  $('#search').quicksearch('table tbody tr');								
-});
-    </script>
-    
+     
     <script>
     //---Funcion para detectar el clic y obtener los datos
       $("table tbody tr").click(function() {
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(6)").text(); 
+  var id=$(this).find("td:eq(7)").text(); 
            
           
           //---poniendo los datos en los inputs del modal
@@ -335,7 +314,7 @@ toastr.options = {
          
         
           $("#nombreU").text(nombre+"?");
-          $("#idDelete").text(id);
+          $("#ide").val(id);
   
 });
     </script>
@@ -348,8 +327,22 @@ toastr.options = {
             
             $("#btnEliminar").click(function(){
                 
-                var idEliminar=$("#idDelete").text();
-            eliminar(idEliminar);
+            
+                
+            });
+            
+        });
+        
+    </script>
+    
+     <script>
+    //accion para inhabilitar usuario
+        $(document).ready(function(){
+            
+            $("#btnInhabilitar").click(function(){
+                
+                var idEliminar=$("#ide").val();
+            habilitar(idEliminar);
                 
             });
             

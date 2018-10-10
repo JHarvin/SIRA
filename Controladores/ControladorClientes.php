@@ -101,7 +101,6 @@ class ClientesController{
 
           alertify.error("Algo salio mal :(");
 
-       alertify.error("EL DUI O LICENCIA YA HAN SIDO REGISTRADOS ANTERIORMENTE, PRUEBA OTRA ");
 
 
 
@@ -225,7 +224,12 @@ class ClientesController{
                     "nombre"=>$_POST["Nombre"],
                     "telefono"=>$_POST["Telefono"],
                     "direccion"=>$_POST["Direccion"],
+<<<<<<< HEAD
+                    
+                    "licencia"=>$_POST["licencia"],
+=======
                      "licencia"=>$_POST["licencia"],
+>>>>>>> 52a94383ba8b75a6760d5b7b7ddcc4ff2ecd75d3
                     "status"=>$_POST["status"]
                 );
             
@@ -248,7 +252,17 @@ class ClientesController{
                 
             }
             else{
+                echo '
                 
+               <script>
+                alertify.set("notifier","position", "top-center");
+               alertify.error("algo salio mal");
+               
+            
+               </script>
+                
+                
+                ';  
                 
             }
             
