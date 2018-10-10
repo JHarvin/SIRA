@@ -139,7 +139,7 @@ alertify.defaults.theme.input = "form-control";
                     <div class="clearfix"></div>
                     <div class="col-md-6">
                       <label>Dirección</label>
-                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
+                      <input id="Direccion" name="Direccion" class="form-control" autocomplete="off" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
                     </div>
                     <div class="clearfix"></div>
                 

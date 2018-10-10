@@ -68,6 +68,7 @@
            
             
             <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Clientes registrados</a></li>
+            <li><a class="treeview-item" href="ClientesDeBaja.php"><i class="icon fa fa-circle-o"></i> Clientes dados de baja</a></li>
           </ul>
         </li>
         

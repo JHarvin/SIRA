@@ -25,7 +25,7 @@ require_once "../Controladores/ControladorMostrarUsuarios.php";
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
     <script src="../js/alertify.min.js"></script>
-<script src="../Vistas/js/validarRegistro.js"></script>
+    <script src="../Vistas/js/validarRegistro.js"></script>
 <link rel="stylesheet" href="../css/datatables.min.css">
 <script type="text/javascript">
 //override defaults
@@ -204,11 +204,15 @@ alertify.defaults.theme.input = "form-control";
     
                  <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
+<<<<<<< HEAD
+       </div>
+=======
        
     
             
               
           </div>
+>>>>>>> 663cc0a004381d14a6d7abfce8b06cbb8c643b81
           
           
           
@@ -225,7 +229,7 @@ alertify.defaults.theme.input = "form-control";
      
 
 
-        |
+        
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>
