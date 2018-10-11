@@ -43,7 +43,7 @@
 
 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users">
           
-        </i><span class="app-menu__label">Usarios</span>
+        </i><span class="app-menu__label">Usuarios</span>
         <i class="treeview-indicator fa fa-angle-right"></i></a>
          
           <ul class="treeview-menu">

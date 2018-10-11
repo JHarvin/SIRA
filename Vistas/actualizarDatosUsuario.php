@@ -122,11 +122,11 @@ alertify.defaults.theme.input = "form-control";
                       <label for="Nombre">Nombre Completo</label>
                       <input id="Nombre" name="Nombre" class="form-control" type="text" value="<?php echo $datosVista["nombre"]; ?>"
                     
-                        maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required >
+                        maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required autocomplete="off">
                     </div>
                     <div class="col-md-4">
                       <label for="Telefono">Teléfono</label>
-                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required>
+                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required autocomplete="off">
                     </div>
                      <div class="col-md-4">
                       <label>Email</label>
@@ -138,12 +138,12 @@ alertify.defaults.theme.input = "form-control";
                     <div class="clearfix"></div>
                     <div class="col-md-12">
                       <label>Dirección</label>
-                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
+                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required autocomplete="off">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-4">
                       <label>Nombre de Usuario</label>
-                      <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required>
+                      <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required autocomplete="off">
                     </div>
                     
                     
@@ -155,57 +155,7 @@ alertify.defaults.theme.input = "form-control";
                  <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idpersonal"]; ?>" >
                    <div class="form-group">
 
-              <label for="status">Estado</label>
-                <select class="form-control" name="status">
-                  <?php 
-                  if ($datosVista["status"]== 1) {
-                    # code...
-                   
-                    echo '<option value="1">activo</option>';
-                    echo '<option  value="0"> Inactivo</option>';
-
-                  }
-                  else{
-                 
-
-                   echo '<option  value="0"> Inactivo</option>';
-                    echo '<option value="1">activo</option>';
-}
-                   ?>
-                  
-                </select>
-            </div> <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn close" data-dismiss="modal"></button>
-        <h4 class="modal-title">Modificar Username</h4>
-      </div>
-      <div class="modal-body">
-        <p>Username anterior. </p>
-        
-         <div class="form-group">
-                  <label class="control-label">Usuario</label>
-                  <input class="form-control" type="text" placeholder="Nombre de usuario nuevo">
-                </div>
-      </div>
-      <div class="modal-footer">
-
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-arrow-alt-circle-down"></i>Actualizar</button>
-
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="far fa-arrow-alt-circle-down"></i>Actualizar</button>
-
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-     
-      
+          
       <!-- modal para modificar los datos de los usuarios  solo los hice de prueba por si los necesitaba-->
        
        <div class="modal" id="modalValidar">
@@ -214,7 +164,11 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Inahabilitar</h4>
+
+        <h4 class="modal-title">Seleccione </h4>
+
+      
+
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -229,32 +183,40 @@ alertify.defaults.theme.input = "form-control";
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
           
     
-                 <input id="idDelete" name="idDelete" type="hidden" >
+                 <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
+
+       </div>
+
        
-         
-            
+    
+            <div class="modal-footer">
+
+
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+
+     
+      
+     
+
+
+        
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Cancelar</button>
+      </div>
               
           </div>
+
           
           
           
      
       <!-- Modal footer -->
-      <div class="modal-footer">
-
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
-
-     
-
-        |
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
-        <i class="fa fa-undo"></i> Cancelar</button>
-      </div>
+      
 
     </div>
   </div>
-</div>
+
        
         <!-- fin modal datos de los usuarios -->
           

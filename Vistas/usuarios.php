@@ -188,7 +188,7 @@ alertify.defaults.theme.input = "form-control";
 
         <h4 class="modal-title">Seleccione </h4>
 
-        <h4 class="modal-title">Inahabilitar</h4>
+      
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -216,8 +216,7 @@ alertify.defaults.theme.input = "form-control";
 
       <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
 
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
-
+     
       
      
 
