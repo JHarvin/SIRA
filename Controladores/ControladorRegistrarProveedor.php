@@ -115,8 +115,8 @@ require_once"../Modelos/ModeloProveedores.php";
                   
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarDatosUsuario.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
-                  <a href="usuarios.php?idb='.$item["idproveedor"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href=".php?idb='.$item["idproveedor"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
                   </div>
                   </td>
                  
