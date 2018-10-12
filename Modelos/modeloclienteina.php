@@ -83,7 +83,7 @@ class DatosCliente extends Conexion{
     #--------------------------------------
     #MOSTRAR CLIENTES
     #--------------------------------------
-    public function mostrarClienteModel($tabla){
+    public function mostrarClienteModel1($tabla){
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 
         $stmt->execute();
         return $stmt->fetchAll();
@@ -141,7 +141,7 @@ class DatosCliente extends Conexion{
      $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET status=:estado WHERE dui= :dui");
     
     $stmt->bindParam(":estado",$stado,PDO::PARAM_INT); 
-    $stmt->bindParam(":dui",$dui,PDO::PARAM_STR);
+    $stmt->bindParam(":dui",$dui,PDO::PARAM_INT);
     
     
     

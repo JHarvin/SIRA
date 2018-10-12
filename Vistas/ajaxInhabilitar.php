@@ -25,7 +25,7 @@ class InhabilitarAjax{
         }
         #Sino se cumple retornamos cero
         else{
-            echo 0;
+            echo $respuesta;
         }
         
         

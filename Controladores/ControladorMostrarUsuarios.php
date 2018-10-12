@@ -21,7 +21,7 @@ class MostrarUsuariosController{
                 
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarDatosUsuario.php?id='.$item["idpersonal"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <button id="btnEditar" name="btnEditar" class="btn btn-info" disabled><i class="fa fa-edit"></i></button>
 
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
 
