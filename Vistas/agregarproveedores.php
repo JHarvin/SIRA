@@ -75,12 +75,19 @@ alertify.defaults.theme.input = "form-control";
     include"menuVentas.php";
     ?>
       <main class="app-content">
+        <div class="app-title">
+        <div>
+          <h1><i class="app-menu__icon fa fa-file-text-o" style="font-size:24px;color:#F7861D" ></i> Agregar Proveedores</h1>
+          
+        </div>
+        
+      </div>
        
        
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Registrar Proveedor</h3>
+         
             <div class="tile-body">
               <form id="formulario_registro" name="form1" method="post" onsubmit="return validarRegistro();" class="row">
                 <div class="form-group col-md-6">
@@ -175,7 +182,7 @@ alertify.defaults.theme.input = "form-control";
 var mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 if(email.value.match(mailformat)) 
 { 
-alert("Gracias, Direccion de Email valida"); <--------------
+alert("Gracias, Direccion de Email valida"); 
 document.form1.email.focus();
 
 return true; 
