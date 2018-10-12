@@ -97,6 +97,7 @@ class DatosCliente extends Conexion{
        
         
       
+<<<<<<< HEAD
 
        $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_INT);
 
@@ -104,6 +105,11 @@ class DatosCliente extends Conexion{
 
 
        $stmt->execute();
+=======
+
+       
+      // $stmt->execute();
+>>>>>>> 24be010f341484a115c89e04f7f5e7871266840c
       
        return $stmt->fetch();
        
@@ -139,6 +145,43 @@ class DatosCliente extends Conexion{
        
        
    } 
+   #para inhabilitar
+   public function inhabilitarModel($id,$tabla){
+    $stado=0;
+     $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET status=:estado WHERE dui= :dui");
+    
+    $stmt->bindParam(":estado",$stado,PDO::PARAM_INT); 
+    $stmt->bindParam(":dui",$dui,PDO::PARAM_INT);
+    
+    
+    
+    if($stmt->execute()){
+        return "success";
+        
+    }else{
+        return "error";
+    }
+    $stmt->close();
+}
+
+#Para habilitar
+    public function habilitarModel($id,$tabla){
+    $stado=1;
+     $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET status=:estado WHERE dui= :dui");
+    
+    $stmt->bindParam(":estado",$stado,PDO::PARAM_INT); 
+    $stmt->bindParam(":dui",$dui,PDO::PARAM_INT);
+    
+    
+    
+    if($stmt->execute()){
+        return "success";
+        
+    }else{
+        return "error";
+    }
+    $stmt->close();
+}
 
 }
 

@@ -85,8 +85,11 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
        <div class="app-title">
         <div>
+<<<<<<< HEAD
+=======
 
           <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
 
 
          
@@ -100,13 +103,19 @@ alertify.defaults.theme.input = "form-control";
       <div class="col-md-12">
           <div class="tile">
             
+<<<<<<< HEAD
+=======
 
             <h3 class="tile-title">Usuarios inhabilitados</h3>
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
 
             
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
              
            
 
@@ -132,6 +141,10 @@ alertify.defaults.theme.input = "form-control";
               <tbody>
                
                <?php 
+<<<<<<< HEAD
+                  #--Llamamos al controlador antes instanciando la clase
+=======
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
 
                   $mostrar=new MostrarUsuariosController();
                   $mostrar->vistaUsuariosDesController();
@@ -196,8 +209,11 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
+<<<<<<< HEAD
+=======
 
         
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
 
         <h4 class="modal-title">Seleccione </h4>
 
@@ -231,9 +247,12 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
+<<<<<<< HEAD
+=======
 
   
 
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
 
 
       <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Habilitar</button>
@@ -243,6 +262,10 @@ alertify.defaults.theme.input = "form-control";
 
    
 
+<<<<<<< HEAD
+        |
+=======
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>

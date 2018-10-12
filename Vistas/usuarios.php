@@ -206,12 +206,26 @@ alertify.defaults.theme.input = "form-control";
     
                  <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
+<<<<<<< HEAD
+       
+    
+            
+              
+          </div>
+          
+          
+          
+     
+      <!-- Modal footer -->
+      <div class="modal-footer">
+=======
 
        </div>
 
        
     
             <div class="modal-footer">
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
 
 
       <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
