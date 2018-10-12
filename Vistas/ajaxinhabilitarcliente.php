@@ -39,7 +39,7 @@ class InhabilitarAjax{
 
 $a=new InhabilitarAjax();
 //---se obtiene la placa del auto y se llama a la funcion
-$a->id=$_POST["id"];
+$a->id=$_POST["dui"];
 
 
 $a->ajaxinhabilitar();

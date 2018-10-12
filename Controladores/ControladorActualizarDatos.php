@@ -50,8 +50,7 @@ class ActualizarDatosController{
                 
                 
                 ';
-              // header("location:usuarios.php");
-               //header("location:..Vistas/usuarios.php?ok=1");
+              echo'<script>location.href="../Vistas/usuarios.php";</script>';
                 
             }
             else{

@@ -10,8 +10,9 @@
 #---------Clase encarga de manejar e crud a nivel de controlador..............
 require_once"../Modelos/ModeloClientes.php";
 class ClientesController{
-    
+   
     #FUNCIÓN REGISTRAR
+
     public function registrarCliente(){
         
         #VALIDACION DE LOS DATOS--------
@@ -122,13 +123,13 @@ class ClientesController{
     #-------------------------------------------------------------------------
     public function mostrarCliente(){
         
-         $respuesta=DatosCliente::mostrarClienteModel("tclientes");
+         $respuesta=DatosCliente::mostrarClienteModel("tclientes where status=1");
         
         foreach($respuesta as $row =>$item){
             if($item["status"]==1){
-                $habilitado="Inactivo";
+                $habilitado="activo";
       
-              }else{$habilitado="Activo";}
+              }else{$habilitado="Inactivo";}
         echo'
         
         <tr>
@@ -282,9 +283,9 @@ class ClientesController{
         
     } 
       #para inabilitar
-      public function inhabilitarController($id){
+      public function inhabilitarController($dui){
          
-        $respuesta=mostrarClientModele::inhabilitarModel($id,"tclientes");
+        $respuesta=DatosCliente::inhabilitarModel($dui,"tclientes");
         
         if($respuesta=="success"){
             return "success";
@@ -293,8 +294,8 @@ class ClientesController{
         
     }
     #para habilitar
-    public function habilitarController($id){
-         $respuesta=mostrarClienteModel::habilitarModel($id,"tclientes");
+    public function habilitarController($dui){
+         $respuesta=DatosCliente::habilitarModel($dui,"tclientes");
         
         if($respuesta=="success"){
             return "success";

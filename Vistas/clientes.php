@@ -33,7 +33,7 @@ alertify.defaults.theme.input = "form-control";
 //----------funcion ajax
 function inhabilitar(idE){
         var datos=new FormData();
-    datos.append("id",idE);
+    datos.append("dui",idE);
         
          $.ajax({
         
@@ -50,7 +50,7 @@ function inhabilitar(idE){
         if(r==1){
         
            $("#tabla").load("clientes.php #tabla > *");
-            alertify.success("cliente inhabilitado");
+            alertify.success("cliente inhabilitado"+r);
             
     }
           else if(r!=1){
@@ -115,6 +115,7 @@ function inhabilitar(idE){
                   #AQUI SE LLAMA LA FUNCION PARA MOSTRAR LOS DATOS
                   $mostrar1=new ClientesController();
                   $mostrar1->mostrarCliente();
+                 
                   
                   ?>
               
@@ -138,7 +139,7 @@ function inhabilitar(idE){
    <div class="modal-header">
         <h4 class="modal-title">Inahabilitar</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modificar cliente</h4>
+     
       </div>
 
 
@@ -155,7 +156,7 @@ function inhabilitar(idE){
                 <b><p id="nombre" style="font-size:16px;"></p></b>
           
     
-                 <input id="idDelete" name="idDelete" type="hidden" >
+                 <input id="idDelete" name="idDelete" type="text" >
                 </div>
        </div>
           
@@ -257,16 +258,16 @@ toastr.options = {
     
     <script>
     //---Funcion para detectar el clic y obtener los datos
-      $("table tbody tr").click(function() {
+      $("#tabla tbody tr").click(function() {
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(6)").text(); 
+  var id=$(this).find("td:eq(3)").text(); 
            
           
           //---poniendo los datos en los inputs del modal
             
           $("#nombre").text(nombre+"?");
-          $("#idDelete").text(id);
+          $("#idDelete").val(id);
   
 });
     </script>
@@ -293,7 +294,8 @@ toastr.options = {
             
             $("#btnInhabilitar").click(function(){
                 
-                var idEliminar=$("#ide").val();
+                var idEliminar=$("#idDelete").val();
+                
             inhabilitar(idEliminar);
                 
             });
