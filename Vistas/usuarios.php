@@ -204,15 +204,11 @@ alertify.defaults.theme.input = "form-control";
     
                  <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
-<<<<<<< HEAD
-       </div>
-=======
        
     
             
               
           </div>
->>>>>>> 663cc0a004381d14a6d7abfce8b06cbb8c643b81
           
           
           

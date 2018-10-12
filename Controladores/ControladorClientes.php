@@ -224,17 +224,12 @@ class ClientesController{
                     "nombre"=>$_POST["Nombre"],
                     "telefono"=>$_POST["Telefono"],
                     "direccion"=>$_POST["Direccion"],
-<<<<<<< HEAD
-                    
-                    "licencia"=>$_POST["licencia"],
-=======
 
                     
                     "licencia"=>$_POST["licencia"],
 
                      "licencia"=>$_POST["licencia"],
 
->>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
                     "status"=>$_POST["status"]
                 );
             
@@ -274,7 +269,27 @@ class ClientesController{
         }
          
         
-    }   
+    } 
+      #para inabilitar
+      public function inhabilitarController($id){
+         
+        $respuesta=mostrarClientModele::inhabilitarModel($id,"tclientes");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
+        
+    }
+    #para habilitar
+    public function habilitarController($id){
+         $respuesta=mostrarClienteModel::habilitarModel($id,"tclientes");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
+    }  
     
 }
 
