@@ -53,9 +53,11 @@ alertify.defaults.theme.input = "form-control";
          
 
         if(r==1){
-        
+    
+           // setTimeout(alertify.success("Usuario inhabilitado"),5000);
+    
            $("#tabla").load("usuarios.php #tabla > *");
-            alertify.success("Usuario inhabilitado");
+            alertify.success("Usuario inhabilitado")
             
     }
           else if(r!=1){
@@ -186,7 +188,7 @@ alertify.defaults.theme.input = "form-control";
 
         <h4 class="modal-title">Seleccione </h4>
 
-        <h4 class="modal-title">Inahabilitar</h4>
+      
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -204,6 +206,7 @@ alertify.defaults.theme.input = "form-control";
     
                  <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
+<<<<<<< HEAD
        
     
             
@@ -215,12 +218,19 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
+=======
+
+       </div>
+
+       
+    
+            <div class="modal-footer">
+>>>>>>> c970bc58dbf73a1b785ef9a22f5f6d98cb128822
 
 
       <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
 
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"> <i class="far fa-arrow-alt-circle-down"></i>Eliminar</button>
-
+     
       
      
 
@@ -229,10 +239,19 @@ alertify.defaults.theme.input = "form-control";
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>
+              
+          </div>
+
+          
+          
+          
+     
+      <!-- Modal footer -->
+      
 
     </div>
   </div>
-</div>
+
        
         <!-- fin modal datos de los usuarios -->
           
@@ -264,7 +283,8 @@ alertify.defaults.theme.input = "form-control";
             "sSearch":"Buscar",   
             "paginate": {
             "previous": "Anterior",
-                "next": "Siguente"
+                "next": "Siguente",
+                "ajax": "data.json"
     }
         }
         
@@ -337,6 +357,8 @@ alertify.defaults.theme.input = "form-control";
         });
         
     </script>
-    
+     <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
     </body>
 </html>
