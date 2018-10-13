@@ -114,7 +114,7 @@ function soloLetras(e) {
            <div class="row">
            <div class="col-md-12">
            <div class="tile">
-           <h3 class="tile-title">Registrar</h3> 
+           <h3 class="tile-title">Digite datos del cliente:</h3> 
            <div class="tile-body">
            <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
            <div class="form-group col-md-3">  
@@ -124,10 +124,10 @@ function soloLetras(e) {
            <div class="form-group col-md-2">
            <label class="control-label">Género:</label>
            <div class="form-check">
-           <label class="form-check-label">
+           <label class="form-check-label" >
            <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">  Masculino </label>
           
-           <label class="form-check-label">
+           <label class="form-check-label" style="Margin-left: 20px;">
            <input class="form-check-input"    type="radio" id="femenino" name="sexo" value="Femenino">Femenino</label>
            
            </div>
@@ -145,7 +145,7 @@ function soloLetras(e) {
            <label class="label label-success">N° Licenia de conducir</label>
            <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required>
            </div>
-           <div class="form-group col-md-4">
+           <div class="form-group col-md-5">
            <label for="direccion" class="control-label">Dirección</label>
            <input type="text" class="form-control" placeholder="Direccion..." id="direccion" name="direccion" autocomplete="off" maxlength="100" style="text;" pattern=".{15,}" title="15 o mas caracteres para dirección real" value=""  required >
            </div>
