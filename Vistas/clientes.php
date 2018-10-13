@@ -137,7 +137,7 @@ function inhabilitar(idE){
       
    <!-- Modal Header -->
    <div class="modal-header">
-        <h4 class="modal-title">Inahabilitar</h4>
+        <h4 class="modal-title">Inhabilitar</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
      
       </div>
@@ -146,17 +146,16 @@ function inhabilitar(idE){
 
       <!-- Modal body -->
       <div class="modal-body">
-      <p>cliente anterior. </p>
       <div class="row">
                  <div> 
                  <img src="../images/pregunta.png" alt="">
                  </div>
                  
-              <label for="nombre" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+              <label for="nombre" style="font-size:16px;">¿Desea Inhabilitar a :  </label>
                 <b><p id="nombre" style="font-size:16px;"></p></b>
           
-    
-                 <input id="idDelete" name="idDelete" type="text" >
+             
+                <input id="idDelete" name="idDelete" type="text" >
                 </div>
        </div>
           

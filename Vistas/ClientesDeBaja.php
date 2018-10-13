@@ -4,7 +4,7 @@ require_once"../Controladores/ControladorClientesInactivos.php";
 <html lang="es">
 <head>
 
-    <title>Clientes registrados</title>
+    <title>Clientes Inhabilitados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,7 +81,7 @@ function inhabilitar(idE){
       <main class="app-content">
        <div class="app-title">
         <div>
-          <h1><i class="fa fa-credit-card"></i> Clientes registrados</h1>
+          <h1><i class="fa fa-credit-card"></i> Clientes Inhabilitados</h1>
           
         </div>
         
@@ -137,7 +137,7 @@ function inhabilitar(idE){
       
    <!-- Modal Header -->
    <div class="modal-header">
-        <h4 class="modal-title">Inahabilitar</h4>
+        <h4 class="modal-title">Inshabilitar</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
      
       </div>
@@ -146,17 +146,18 @@ function inhabilitar(idE){
 
       <!-- Modal body -->
       <div class="modal-body">
-      <p>cliente anterior. </p>
+      
       <div class="row">
                  <div> 
+                 <div>
                  <img src="../images/pregunta.png" alt="">
                  </div>
-                 
-              <label for="nombre" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+                 </div>
+              <label for="nombre" style="font-size:16px;">¿Desea habilitar a  :  </label>
                 <b><p id="nombre" style="font-size:16px;"></p></b>
-          
+                <input id="idDelete" name="idDelete" type="text" >
     
-                 <input id="idDelete" name="idDelete" type="text" >
+                 
                 </div>
        </div>
           
@@ -167,7 +168,7 @@ function inhabilitar(idE){
       <div class="modal-footer">
 
       
-      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i>Habilitar</button>
 
      
         

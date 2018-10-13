@@ -17,8 +17,13 @@ require_once"../Controladores/ControladorClientes.php";
     <script src="../js/toastr.js"></script>
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-     <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
+    
     <!-- include the RTL css files-->
+
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
 
 <link rel="stylesheet" href="../css/alertify.rtl.css">
 <link rel="stylesheet" href="../css/themes/default.rtl.css">
@@ -56,7 +61,7 @@ alertify.defaults.theme.ok = "ui positive button";
 alertify.defaults.theme.cancel = "ui black button";
     
     
-
+</script>
 
 <!-- include boostrap theme  -->
 <link rel="stylesheet" href="../css/themes/bootstrap.css">
@@ -71,7 +76,9 @@ alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
-<script >
+
+<!--Archivo de validacion-->
+<script>
 function soloLetras(e) {
         key = e.keyCode || e.which;
         teclado = String.fromCharCode(key).toLowerCase();
@@ -91,8 +98,9 @@ function soloLetras(e) {
 </script>
     
 <!--Archivo de validacion-->
-    <script src="js/validarRegistro.js"></script>
-</head>      
+<script src="js/validarRegistro.js"></script>
+</head>
+
 <body class="app sidebar-mini rtl">
      <?php 
     include"menu.php";
@@ -100,71 +108,47 @@ function soloLetras(e) {
       <main class="app-content">
        <div class="app-title">
         <div>
-          <h1><i class="fa fa-id-card"></i> Registrar cliente</h1>
+        <h1><i class="fa fa-user-plus"></i> Registrar cliente</h1>  
+           </div> 
+           </div>
+           <div class="row">
+           <div class="col-md-12">
+           <div class="tile">
+           <h3 class="tile-title">Registrar</h3> 
+           <div class="tile-body">
+           <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
+           <div class="form-group col-md-3">  
+           <label class="control-label" for="nombre">Nombre:</label>
+           <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" autofocus placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+           </div>
+           <div class="form-group col-md-2">
+           <label class="control-label">Género:</label>
+           <div class="form-check">
+           <label class="form-check-label">
+           <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">  Masculino </label>
           
-        </div>
-        
-      </div>
-       
-       <div class="row">
-        <div class="col-md-12">
-          <div class="tile">
-            <h3 class="tile-title">Ingrese datos del cliente</h3>
-            <div class="tile-body">
-              <form id="formulario_registro" method="post" onsubmit="return validarRegistro();">
-			  <div class="form-row">
-                <div class="form-group col-md-3">  
-                  <label class="control-label" for="nombre">Nombre de cliente</label>
-                  <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" autofocus placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
-                </div>
-                
-                <div class="form-group col-md-3 ">
-                  <label class="control-label">Género</label>
-                  
-                  <div class="form-check">
-                    <label class="form-check-label">
- 
-                      <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">Masculino
- 
-                      
-
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
- 
-                      <input class="form-check-input" type="radio" id="femenino" name="sexo" value="Femenino">Femenino
- 
-                    </label>
-                  </div>
-                </div>
-                
-                <div class="form-group col-md-3">
-                <span class="label label-success">Teléfono:</span>
-                <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required>
-                
-                
-                </div>
-              <!--Dui y licencia de conducir-->
-     <div class="form-group col-md-3">
-      
-       <span class="label label-success">DUI:</span>
-                <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required>
-    
-      </div>
-    <div class="form-group col-md-3">
-    
-    <span class="label label-success">N° Licenia de conducir</span>
-                <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required>
-     
-    </div>
-                
-  <div class="form-group col-md-6">
-  
-                  <label for="direccion" class="control-label">Dirección</label>
-                  <input type="text" class="form-control" 
-                  placeholder="Direccion..." id="direccion" name="direccion" autocomplete="off" maxlength="100" style="text;" pattern=".{15,}" title="15 o mas caracteres para dirección real" value=""  required >
-                </div>
+           <label class="form-check-label">
+           <input class="form-check-input"    type="radio" id="femenino" name="sexo" value="Femenino">Femenino</label>
+           
+           </div>
+           </div>  
+           <div class="form-group col-md-3">
+           <label class="label label">Teléfono:</label>
+           <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required>
+           </div>
+           <!--Dui y licencia de conducir-->
+           <div class="form-group col-md-3"> 
+           <label class="label label-success">DUI:</label>
+           <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required>
+           </div>
+           <div class="form-group col-md-3">
+           <label class="label label-success">N° Licenia de conducir</label>
+           <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required>
+           </div>
+           <div class="form-group col-md-4">
+           <label for="direccion" class="control-label">Dirección</label>
+           <input type="text" class="form-control" placeholder="Direccion..." id="direccion" name="direccion" autocomplete="off" maxlength="100" style="text;" pattern=".{15,}" title="15 o mas caracteres para dirección real" value=""  required >
+           </div>
   
               
                 
