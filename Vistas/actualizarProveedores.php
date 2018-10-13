@@ -162,17 +162,7 @@ alertify.defaults.theme.input = "form-control";
               
           
            </div> 
-          
-          
-     
-     
 
-    
-  
-
-        
-        
-        
       </div>
       </main>
       
@@ -209,9 +199,6 @@ alertify.defaults.theme.input = "form-control";
 } 
         
     </script>
-    
-   
-    
     
     </body>
 </html>

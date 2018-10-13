@@ -87,6 +87,10 @@ alertify.defaults.theme.input = "form-control";
         <div>
 
           <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
+<<<<<<< HEAD
+
+=======
+>>>>>>> ca913b0fb44245cdbb58aca4c998c7992eb33dd2
 
 
          
@@ -99,15 +103,23 @@ alertify.defaults.theme.input = "form-control";
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
+<<<<<<< HEAD
+=======
             
+>>>>>>> ca913b0fb44245cdbb58aca4c998c7992eb33dd2
 
             <h3 class="tile-title">Usuarios inhabilitados</h3>
 
+
             
 
+<<<<<<< HEAD
 
+  
+=======
              
            
+>>>>>>> ca913b0fb44245cdbb58aca4c998c7992eb33dd2
 
 
             
@@ -131,6 +143,12 @@ alertify.defaults.theme.input = "form-control";
               <tbody>
                
                <?php 
+<<<<<<< HEAD
+
+                  #--Llamamos al controlador antes instanciando la clase
+
+=======
+>>>>>>> ca913b0fb44245cdbb58aca4c998c7992eb33dd2
 
                   $mostrar=new MostrarUsuariosController();
                   $mostrar->vistaUsuariosDesController();
@@ -196,7 +214,10 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal Header -->
       <div class="modal-header">
 
+<<<<<<< HEAD
+=======
         
+>>>>>>> ca913b0fb44245cdbb58aca4c998c7992eb33dd2
 
         <h4 class="modal-title">Seleccione </h4>
 
@@ -230,6 +251,11 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
+<<<<<<< HEAD
+
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Habilitar</button>
+
+=======
 
   
 
@@ -242,6 +268,7 @@ alertify.defaults.theme.input = "form-control";
 
    
 
+>>>>>>> ca913b0fb44245cdbb58aca4c998c7992eb33dd2
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>

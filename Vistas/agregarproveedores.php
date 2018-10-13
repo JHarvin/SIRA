@@ -78,7 +78,7 @@ alertify.defaults.theme.input = "form-control";
         <div class="app-title">
         <div>
           <h1><i class="app-menu__icon fa fa-file-text-o" style="font-size:24px;color:#F7861D" ></i> Agregar Proveedores</h1>
-          
+           <p>Rent a Car Chacón </p>
         </div>
         
       </div>

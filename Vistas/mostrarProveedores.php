@@ -84,14 +84,14 @@ require_once "../Controladores/ControladorActualizarProveedor.php";
         </div>
       </div>
        
-       <div class="row">
        <div class="col-md-12">
-         <div class="tile">
-         <h3 class="tile-title"></h3>
+       <div class="row" >
+         <div class="tile"  >
+         <h3 class="tile-title" ></h3>
             <!-- Search form -->
  
-        <div class="table table-responsive">
-            <table id="tabla"  class="table table-striped" >
+        <div class="table table-responsive" style="font-size:20px;color:blue" >
+            <table id="tabla"  class="table table-striped"  >
               <thead>
                 <tr>
 
@@ -100,7 +100,7 @@ require_once "../Controladores/ControladorActualizarProveedor.php";
                   <th>Email</th>
                   <th>Dirección</th>
                   <th>Estado</th>
-                  <th>Acción</th>
+                
                   <th hidden></th>
                  
                 </tr>
