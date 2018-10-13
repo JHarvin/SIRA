@@ -229,6 +229,10 @@ class ClientesController{
                     
                     "licencia"=>$_POST["licencia"],
 
+
+                    
+                    "licencia"=>$_POST["licencia"],
+
                      "licencia"=>$_POST["licencia"],
 
                     "status"=>$_POST["status"]
