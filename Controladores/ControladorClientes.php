@@ -10,8 +10,9 @@
 #---------Clase encarga de manejar e crud a nivel de controlador..............
 require_once"../Modelos/ModeloClientes.php";
 class ClientesController{
-    
+   
     #FUNCIÓN REGISTRAR
+
     public function registrarCliente(){
         
         #VALIDACION DE LOS DATOS--------
@@ -122,13 +123,13 @@ class ClientesController{
     #-------------------------------------------------------------------------
     public function mostrarCliente(){
         
-         $respuesta=DatosCliente::mostrarClienteModel("tclientes");
+         $respuesta=DatosCliente::mostrarClienteModel("tclientes where status=1");
         
         foreach($respuesta as $row =>$item){
             if($item["status"]==1){
-                $habilitado="Inactivo";
+                $habilitado="activo";
       
-              }else{$habilitado="Activo";}
+              }else{$habilitado="Inactivo";}
         echo'
         
         <tr>
@@ -220,6 +221,7 @@ class ClientesController{
         if(isset($_POST["Nombreu"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
+<<<<<<< HEAD
                     "dui"=>$_POST["duiu"],
                     "nombre"=>$_POST["Nombreu"],
                     "telefono"=>$_POST["Telefonou"],
@@ -227,13 +229,26 @@ class ClientesController{
 
                     
                     "licencia"=>$_POST["licenciau"]
+=======
+                    "dui"=>$_POST["dui"],
+                    "nombre"=>$_POST["Nombre"],
+                    "telefono"=>$_POST["Telefono"],
+                    "direccion"=>$_POST["Direccion"],
+
+                    
+                    "licencia"=>$_POST["licencia"],
+>>>>>>> 1d769a92b9d2db5fed9aa0a84af361b776029483
 
 
                     
                    
 
 
+<<<<<<< HEAD
                    // "status"=>$_POST["statusu"]
+=======
+                    "status"=>$_POST["status"]
+>>>>>>> 1d769a92b9d2db5fed9aa0a84af361b776029483
                 );
                 echo'<script>
                 alert(""+'.$_POST["duiu"].');
@@ -275,7 +290,27 @@ class ClientesController{
         }
          
         
-    }   
+    } 
+      #para inabilitar
+      public function inhabilitarController($dui){
+         
+        $respuesta=DatosCliente::inhabilitarModel($dui,"tclientes");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
+        
+    }
+    #para habilitar
+    public function habilitarController($dui){
+         $respuesta=DatosCliente::habilitarModel($dui,"tclientes");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
+    }  
     
 }
 

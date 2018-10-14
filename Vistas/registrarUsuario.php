@@ -107,7 +107,6 @@ alertify.defaults.theme.input = "form-control";
     }
     </script>
 </head> 
-
 <body class="app sidebar-mini rtl">
      <?php 
     include"menu.php";
@@ -116,12 +115,9 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
        <div class="app-title">
         <div>
-          <h1><i class="fa fa-user-plus"></i> Registrar usuario</h1>
-          
+          <h1><i class="fa fa-user-plus"></i> Registrar usuario</h1>  
+        </div>  
         </div>
-        
-      </div>
-       
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
@@ -140,7 +136,6 @@ alertify.defaults.theme.input = "form-control";
                   <label for="email" class="control-label">E-mail</label>
                   <input type="email" class="form-control" placeholder="email" id="email" name="email" value="" required autocomplete="off">
                 </div>
-                
                 <div class="form-group col-md-4">
                   <label class="control-label">Digite un nombre de usuario</label>
                   <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username" value="" required autocomplete="off">

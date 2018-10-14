@@ -55,8 +55,8 @@ alertify.defaults.theme.input = "form-control";
         if(r==1){
     
            // setTimeout(alertify.success("Usuario inhabilitado"),5000);
-    
-           $("#tabla").load("usuarios.php #tabla > *");
+    location.reload();
+          // $("#tabla").load("usuarios.php #tabla > *");
             alertify.success("Usuario inhabilitado")
             
     }

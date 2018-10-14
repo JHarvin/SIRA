@@ -16,7 +16,63 @@ require_once"../Controladores/ControladorClientes.php";
     <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
+    <script src="../js/alertify.min.js"></script>
+    <script src="../Vistas/js/validarRegistro.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
+    <link rel="stylesheet" href="../css/datatables.min.css">
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
+<script>
+//----------funcion ajax
+function inhabilitar(idE){
+        var datos=new FormData();
+    datos.append("dui",idE);
+        
+         $.ajax({
+        
+        type: "POST",
+        url: "ajaxinhabilitarcliente.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        
+        success:function(r){
+         
+
+        if(r==1){
+        
+           $("#tabla").load("clientes.php #tabla > *");
+            alertify.success("cliente inhabilitado"+r);
+            
+    }
+          else if(r!=1){
+           
+              alertify.error("Algo salio mal"+r);
+              
+          }
+            else{
+              //  $("#table").load();
+                
+                alert("Error -> "+r  );}
+        
+    }
+        
+        
+    });
+        
+    }
+     
+    
+    </script>
+
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
@@ -57,8 +113,9 @@ require_once"../Controladores/ControladorClientes.php";
               
               <?php 
                   #AQUI SE LLAMA LA FUNCION PARA MOSTRAR LOS DATOS
-                  $clientes=new ClientesController();
-                  $clientes->mostrarCliente();
+                  $mostrar1=new ClientesController();
+                  $mostrar1->mostrarCliente();
+                 
                   
                   ?>
               
@@ -76,12 +133,16 @@ require_once"../Controladores/ControladorClientes.php";
             <div class="modal" id="modalValidar">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
+    
       
    <!-- Modal Header -->
    <div class="modal-header">
-        <h4 class="modal-title">Inahabilitar</h4>
+        <h4 class="modal-title">Inhabilitar</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
+     
       </div>
+
+
 
       <!-- Modal body -->
       <div class="modal-body">
@@ -90,11 +151,11 @@ require_once"../Controladores/ControladorClientes.php";
                  <img src="../images/pregunta.png" alt="">
                  </div>
                  
-              <label for="nombre" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+              <label for="nombre" style="font-size:16px;">¿Desea Inhabilitar a :  </label>
                 <b><p id="nombre" style="font-size:16px;"></p></b>
           
-    
-                 <input id="idDelete" name="idDelete" type="hidden" >
+             
+                <input id="idDelete" name="idDelete" type="text" >
                 </div>
        </div>
           
@@ -104,10 +165,10 @@ require_once"../Controladores/ControladorClientes.php";
       <!-- Modal footer -->
       <div class="modal-footer">
 
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+      
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
 
      
-
         
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i>Cancelar</button>
@@ -116,16 +177,10 @@ require_once"../Controladores/ControladorClientes.php";
     </div>
   </div>
   </div>
-     
-          
-          
-     
-
 
     
-     
-       
-      
+        <!-- fin modal datos de los cleintes --> 
+ 
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -202,18 +257,16 @@ toastr.options = {
     
     <script>
     //---Funcion para detectar el clic y obtener los datos
-      $("table tbody tr").click(function() {
+      $("#tabla tbody tr").click(function() {
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(6)").text(); 
+  var id=$(this).find("td:eq(3)").text(); 
            
           
           //---poniendo los datos en los inputs del modal
-          
-         
-        
+            
           $("#nombre").text(nombre+"?");
-          $("#idDelete").text(id);
+          $("#idDelete").val(id);
   
 });
     </script>
@@ -226,14 +279,28 @@ toastr.options = {
             
             $("#btnEliminar").click(function(){
                 
-                var idEliminar=$("#idDelete").text();
-            eliminar(idEliminar);
+                
                 
             });
             
         });
         
     </script>
+    
+    <script>
+    //accion para inhabilitar usuario
+        $(document).ready(function(){
+            
+            $("#btnInhabilitar").click(function(){
+                
+                var idEliminar=$("#idDelete").val();
+                
+            inhabilitar(idEliminar);
+                
+            });
+            
+        });
+        
     </script>
     </body>
 </html>

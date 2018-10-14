@@ -111,12 +111,13 @@ require_once"../Modelos/ModeloProveedores.php";
                   <td>'.$item["telefono"].' </td>
                   <td>'.$item["email"].'</td>
                   <td>'.$item["direccion"].'</td>
+                  <td>'.$item["status"].'</td>
                  
                   
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarDatosUsuario.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
-                  <a href="usuarios.php?idb='.$item["idproveedor"].'" class="btn btn-danger" onclick=""><i class="fa fa-trash-o"></i></a>
+                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" style="background-color:#3F3933" class="btn btn-info"  ><i class="fa fa-edit" ></i></a>
+                  <a href=".php?idb='.$item["idproveedor"].'" class="btn btn-danger" style="background-color:#FF3F00" onclick=""><i class="fa fa-trash-o"></i></a>
                   </div>
                   </td>
                  

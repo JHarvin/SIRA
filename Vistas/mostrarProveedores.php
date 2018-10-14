@@ -1,26 +1,12 @@
 <?php 
-
+//Llamado al controlador
 require_once "../Controladores/ControladorRegistrarProveedor.php";
-
-/*
-if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
-
-en pocas palabras es la encarga de mostrar el mensaje de actualizado
-
-*/
-
-if(isset($_GET["ok"]) && !empty($_GET["ok"])){
-    
-    echo'
-    <script>
-    alertify.success("Registro Actualizado ");
-    </script>
-    ';
-    
-}
-
+require_once "../Controladores/ControladorActualizarProveedor.php";
 ?>
+
 <html lang="es">
+
+
 <head>
 
     <title>Mostrar Proveedores</title>
@@ -39,148 +25,110 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
     <script src="../js/alertify.min.js"></script>
-<script src="../Vistas/js/validarRegistro.js"></script>
+    <script src="../Vistas/js/validarRegistro.js"></script>
 
-<script type="text/javascript">
-//override defaults
-alertify.defaults.transition = "slide";
-alertify.defaults.theme.ok = "btn btn-primary";
-alertify.defaults.theme.cancel = "btn btn-danger";
-alertify.defaults.theme.input = "form-control";
-</script>
+      <script type="text/javascript">
+      //override defaults
+      alertify.defaults.transition = "slide";
+      alertify.defaults.theme.ok = "btn btn-primary";
+      alertify.defaults.theme.cancel = "btn btn-danger";
+      alertify.defaults.theme.input = "form-control";
+      </script>
 
 
 <script>
   //----------funcion ajax
     function eliminar(idE){
-        var datos=new FormData();
+    var datos=new FormData();
     datos.append("idb",idE);
-        
-        
          $.ajax({
         
-        type: "POST",
-        url: "../Controladores/ControladorAjaxEliminar.php",
-        data: datos,
-        cache:false,
-        contentType:false,
-        processData:false,
+          type: "POST",
+          url: "../Controladores/ControladorAjaxEliminar.php",
+          data: datos,
+          cache:false,
+          contentType:false,
+          processData:false,
         
-        success:function(r){
-         
+        success:function(r){        
 
         if(r==1){
-        
-           // $(".table").load("../Vistas/usuarios.php");
-            toastr.success("Eliminado");
-    }
-          else if(r!=1){
-           
-              alert("diferente "+r);
-              
-          }
-            else{
+        // $(".table").load("../Vistas/usuarios.php");
+        toastr.success("Eliminado");
+       }else if(r!=1){
+           alert("diferente "+r);
+              }else{
               //  $("#table").load();
-                
-                alert("Error -> "+r  );}
+                alert("Error -> "+r  );
+              }
+        }
         
-    }
         
+    });//Aqui termina el Ajax
         
-    });
-        
-    }
-     
-    
-    </script>
-</head>      
+    }//final de la funcion Ajax
+     </script>
+</head>
+
+
 <body class="app sidebar-mini rtl">
      <?php 
     include"menuVentas.php";
     ?>
       <main class="app-content">
+      <!--Para el titulo-->
+       <div class="app-title">
+        <div >
+          <h1><i class="app-menu__icon fa fa-file-text-o"  style="font-size:25px;color:orange"></i>  Mostrar Proveedores</h1>
+          <p>Rent a Car Chacón </p>
+        </div>
+      </div>
        
-       
-       <div class="row">
-      <div class="col-md-12">
-          <div class="tile">
-            
-            <h3 class="tile-title">Proveedores Registrados</h3>
+       <div class="col-md-12">
+       <div class="row" >
+         <div class="tile"  >
+         <h3 class="tile-title" ></h3>
             <!-- Search form -->
  
-        <div class="table table-responsive">
-            <table id="tabla"  class="table table-striped">
+        <div class="table table-responsive" style="font-size:20px;color:blue" >
+            <table id="tabla"  class="table table-striped"  >
               <thead>
                 <tr>
 
-                  <th>Nombre</th>
+                  <th >Nombre</th>
                   <th>Teléfono</th>
-                   <th>Email</th>
+                  <th>Email</th>
                   <th>Dirección</th>
-
-                 <th hidden></th>
+                  <th>Estado</th>
+                
+                  <th hidden></th>
                  
                 </tr>
               </thead>
-              <tbody>
+          <tbody>
                
                <?php 
-                   
                   $proveedor=new RegistrarProveedorController();
-                  $proveedor->mostrarProveedores();
-                  
-                  ?>
-                  
-                
-              </tbody>
-            </table>
-              </div>
+                  $proveedor->mostrarProveedores();                  
+                ?>
+          </tbody>
+          </table>
           </div>
         </div>
-        
-        
-        
-      </div>
+        </div>
+        </div>
       </main>
       
-      <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+      <!-- Modal para habilitar o inhabilitar a proveedores-->
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn close" data-dismiss="modal"></button>
-        <h4 class="modal-title">Modificar Username</h4>
-      </div>
-      <div class="modal-body">
-        <p>Username anterior. </p>
-        
-         <div class="form-group">
-                  <label class="control-label">Usuario</label>
-                  <input class="form-control" type="text" placeholder="Nombre de usuario nuevo">
-                </div>
-      </div>
-      <div class="modal-footer">
-       <button class="btn btn-primary" type="button" onclick="return alerta();"><i class="fa fa-fw fa-lg fa-check-circle" on></i>Actualizar</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar y retroceder</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-     
-      
-      <!-- modal para modificar los datos de los usuarios  solo los hice de prueba por si los necesitaba-->
-       
        <div class="modal" id="modalValidar">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
+       <div class="modal-dialog modal-md">
+       <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Eliminar </h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Seleccione </h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
@@ -189,37 +137,24 @@ alertify.defaults.theme.input = "form-control";
                  <div> 
                  <img src="../images/pregunta.png" alt="">
                  </div>
-                 
-              <label for="nombreU" style="font-size:16px;">¿Desea eliminar a :  </label>
+                 <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
-          
-    
-                 <input id="idDelete" name="idDelete" type="hidden" >
+                 <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
+
+       </div>
+
        
-         
-            
-              
-          </div>
-          
-          
-          
-     
-      <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminar" name="btnEliminar" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
-        |
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>
-
+              
+          </div>
     </div>
   </div>
-</div>
-       
-        <!-- fin modal datos de los usuarios -->
-          
-      
+
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -255,19 +190,17 @@ alertify.defaults.theme.input = "form-control";
 } );
     
     </script>
-     
+     <script>
+    alertify.set('notifier','position', 'top-right');
+    </script>
      
       <script type="text/javascript">
       
- jQuery(function($){
+            jQuery(function($){
             // Definimos las mascaras para cada input, se valida automaticamente
-            
             $("#updateTelefono").mask("9999-9999");
-            
-        });
-          
-        
-    </script>
+            });
+      </script>
     
     
     <script>
@@ -304,7 +237,7 @@ toastr.options = {
     <script>
       $(function () {
 
-  $('#search').quicksearch('table tbody tr');								
+  $('#search').quicksearch('table tbody tr');               
 });
     </script>
     
@@ -325,7 +258,20 @@ toastr.options = {
   
 });
     </script>
-    
+    <script>
+    //accion para inhabilitar usuario
+        $(document).ready(function(){
+            
+            $("#btnInhabilitar").click(function(){
+                
+                var idEliminar=$("#ide").val();
+            inhabilitar(idEliminar);
+                
+            });
+            
+        });
+        
+    </script>
     
     
     <script>
@@ -342,6 +288,8 @@ toastr.options = {
         });
         
     </script>
+
+
     
     </body>
 </html>

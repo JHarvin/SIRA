@@ -83,7 +83,7 @@ class DatosCliente extends Conexion{
     #--------------------------------------
     #MOSTRAR CLIENTES
     #--------------------------------------
-    public function mostrarClienteModel($tabla){
+    public function mostrarClienteModel1($tabla){
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 
         $stmt->execute();
         return $stmt->fetchAll();
@@ -97,22 +97,9 @@ class DatosCliente extends Conexion{
        
         
       
-<<<<<<< HEAD
-
-       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_INT);
-
-       $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_STR);
-
-
-
-       
-
-       $stmt->execute();
-=======
 
        
       // $stmt->execute();
->>>>>>> 1d769a92b9d2db5fed9aa0a84af361b776029483
       
        return $stmt->fetch();
        
@@ -126,9 +113,7 @@ class DatosCliente extends Conexion{
   
    #--Funcion encargada de actualizar
    public function actualizarClientesModel($datosModel,$tabla){
-        $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
-        SET nombre=:nombre,telefono=:telefono,dui=:dui,
-        licencia_de_conducir=:licencia,direccion=:direccion, WHERE dui= :dui");
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre,telefono=:telefono,dui=:dui,licencia_de_conducir=:licencia,direccion=:direccion, WHERE dui= :dui");
        
         $stmt->bindParam(":nombre",$datosModel["nombre"],PDO::PARAM_STR);
        $stmt->bindParam(":telefono",$datosModel["telefono"],PDO::PARAM_STR);
@@ -150,6 +135,43 @@ class DatosCliente extends Conexion{
        
        
    } 
+   #para inhabilitar
+   public function inhabilitarModel($dui,$tabla){
+    $stado=0;
+     $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET status=:estado WHERE dui= :dui");
+    
+    $stmt->bindParam(":estado",$stado,PDO::PARAM_INT); 
+    $stmt->bindParam(":dui",$dui,PDO::PARAM_INT);
+    
+    
+    
+    if($stmt->execute()){
+        return "success";
+        
+    }else{
+        return "error";
+    }
+    $stmt->close();
+}
+
+#Para habilitar
+    public function habilitarModel($dui,$tabla){
+    $stado=1;
+     $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET status=:estado WHERE dui= :dui");
+    
+    $stmt->bindParam(":estado",$stado,PDO::PARAM_INT); 
+    $stmt->bindParam(":dui",$dui,PDO::PARAM_INT);
+    
+    
+    
+    if($stmt->execute()){
+        return "success";
+        
+    }else{
+        return "error";
+    }
+    $stmt->close();
+}
 
 }
 

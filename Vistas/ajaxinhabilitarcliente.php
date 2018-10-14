@@ -2,7 +2,7 @@
 #------Hecho por Harvin---------------------------------------
 
 
-require_once "../Controladores/ControladorMostrarUsuarios.php";
+require_once "../Controladores/ControladorClientes.php";
  
 
 class InhabilitarAjax{
@@ -10,14 +10,14 @@ class InhabilitarAjax{
     public $id;
    
     
-    public function ajaxInhabilitar(){
+    public function ajaxinhabilitar(){
         
         $ide=$this->id;
        
         #Se llama a la funcion en el controlador y luego en el controlador llama al
         #modelo que es el encargado de obtener las imagenes eliminarlas y luego eliminar
         #el registro de la bd-----------------------------------------------------------
-        $respuesta=MostrarUsuariosController::inhabilitarController($ide);
+        $respuesta=ClientesController::inhabilitarController($ide);
         #Si la variable $respuesta cumple con la condicion se retorna 1 con echo al ajax
         if($respuesta=="success"){
             echo 1;
@@ -25,7 +25,7 @@ class InhabilitarAjax{
         }
         #Sino se cumple retornamos cero
         else{
-            echo $respuesta;
+            echo 0;
         }
         
         
@@ -39,10 +39,10 @@ class InhabilitarAjax{
 
 $a=new InhabilitarAjax();
 //---se obtiene la placa del auto y se llama a la funcion
-$a->id=$_POST["id"];
+$a->id=$_POST["dui"];
 
 
-$a->ajaxInhabilitar();
+$a->ajaxinhabilitar();
 
 
 

@@ -44,7 +44,4 @@ $a->id=$_POST["id"];
 
 $a->ajaxHabilitar();
 
-
-
-
 ?>
