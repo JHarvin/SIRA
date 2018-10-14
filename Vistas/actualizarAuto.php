@@ -21,9 +21,9 @@ $datos=$auto->editarVehiculoController();
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
  
  
-   <script src="../Vistas/js/validarVehiculos.js"></script>
+  
    
-   <script src="js/validarVehiculos.js"></script>
+  
     <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
      
    
@@ -49,7 +49,7 @@ $datos=$auto->editarVehiculoController();
             <h3 class="tile-title">Actualizar</h3>
             <div class="tile-body">
              
-              <form method="post" enctype="multipart/form-data"     onsubmit="return validarVehiculo();">
+              <form method="post" enctype="multipart/form-data">
               <div class="form-row">
     <div class="form-group col-md-3">
       <label for="n_dplaca">Número de placa</label>
@@ -70,32 +70,32 @@ $datos=$auto->editarVehiculoController();
     
     <!--tipo de carro y color-->
      <div class="form-group col-md-3">
-      <label for="tipo">Tipo</label>
-      <select name="tipo" id="tipo" class="form-control" required>
+      <label for="tipoc">Tipo</label>
+      <select name="tipoc" id="tipoc" class="form-control" required>
           <option value="sedan">sedan</option>
           <option value="pick up">pick up</option>
           <option value="camioneta">camioneta</option>
       </select>
     </div>
     <div class="form-group col-md-3">
-      <label for="coloru">Color</label>
-      <input type="text" class="form-control" id="coloru" name="coloru" placeholder="color" autocomplete="off" pattern=".{4,}" title="4 caracters para color correcto" onkeypress="return check2(event)" required value="<?php echo $datos["color"]; ?>">
+      <label for="colorc">Color</label>
+      <input type="text" class="form-control" id="colorc" name="colorc" placeholder="color" autocomplete="off" pattern=".{4,}" title="4 caracters para color correcto" onkeypress="return check2(event)" required value="<?php echo $datos["color"]; ?>">
     </div>
     
     
     <div class="form-group col-md-3">
-      <label for="motorn">Número de motor</label>
-      <input id="motorn" name="motorn" type="text" class="form-control" placeholder="Numero de motor" autocomplete="off" required value="<?php echo $datos["numeromotor"]; ?>">
+      <label for="nmotor">Número de motor</label>
+      <input id="nmotor" name="nmotor" type="text" class="form-control" placeholder="Numero de motor" autocomplete="off" value="<?php echo $datos["numeromotor"]; ?>" required>
     </div>
     <div class="form-group col-md-3">
       <label for="chasisn">Número de chasis</label>
-      <input type="text" class="form-control" id="chasisn" name="chasisn" placeholder="numero de chasis" autocomplete="off" pattern=".{17}" title="17 numeros para chasis" required value="<?php echo $datos["numerochasis"]; ?>">
+      <input type="text" class="form-control" id="chasisn" name="chasisn" placeholder="numero de chasis" autocomplete="off"  title="17 numeros para chasis" value="<?php echo $datos["numerochasis"]; ?>" required>
     </div>
     
     
     <div class="form-group col-md-3">
-      <label for="tcombustible">Tipo de combustible</label>
-      <select name="tcombustible" id="tcombustible" class="form-control">
+      <label for="tcombustiblec">Tipo de combustible</label>
+      <select name="tcombustiblec" id="tcombustiblec" class="form-control">
           <option value="Especial">Especial</option>
           <option value="Regular">Regular</option>
           <option value="Diesel">Diesel</option>
@@ -105,29 +105,10 @@ $datos=$auto->editarVehiculoController();
    
      
      <!--Para imagenes-->
-     <div class="form-group col-md-3">
-         <label for="imagen">Seleccione imagen 1</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen" name="imagen" accept=".jpg, .jpeg, .png" required>
-         
-     </div>
-     <div class="form-group col-md-3">
-         <label for="imagen">Seleccione imagen 2</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen2" name="imagen2"
-        accept=".jpg, .jpeg, .png" required>
-         
-     </div>
-     <div class="form-group col-md-3">
-         <label for="imagen">Seleccione imagen 3</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen3" name="imagen3" 
-        accept=".jpg, .jpeg, .png" required>
-         
-     </div>
-      <div class="form-group col-md-3">
-         <label for="imagen">Seleccione imagen 4</label>
- <input type="file" class="form-control" placeholder="imagen" id="imagen4" name="imagen4"
-        accept=".jpg, .jpeg, .png" required>
-         
-     </div>
+    
+    
+     
+     
      
      
   </div>
@@ -145,7 +126,7 @@ $datos=$auto->editarVehiculoController();
                   #Se guarda en el modelo en el controlador se valida
                   #------------------------------------------------------
                   $registrar=new RegistrarVehiculoController();
-                  $registrar->registrarVController();
+                  $registrar->actualizarVehiculoController();
                   ?>
                
               </form>
@@ -184,9 +165,9 @@ $datos=$auto->editarVehiculoController();
             // Definimos las mascaras para cada input
             
            // $("#ano").mask("9999");
-        $("#nplaca").mask("P999-999");
-            $("#chasis").mask("99999999999999999");
-          $("#numero_motor").mask("99999999999999999");
+        $("#n_dplaca").mask("P999-999");
+            $("#chasisn").mask("9999999999999999");
+          $("#nmotor").mask("9999999999999999");
         });
           
         
@@ -194,95 +175,13 @@ $datos=$auto->editarVehiculoController();
     
    
     
-    <script>
-    // para lista seleccionable
-        $(function () {
-    $('.list-group.checked-list-box .list-group-item').each(function () {
-        
-        // Settings
-        var $widget = $(this),
-            $checkbox = $('<input type="checkbox" class="hidden" />'),
-            color = ($widget.data('color') ? $widget.data('color') : "primary"),
-            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
-            settings = {
-                on: {
-                    icon: 'glyphicon glyphicon-check'
-                },
-                off: {
-                    icon: 'glyphicon glyphicon-unchecked'
-                }
-            };
-            
-        $widget.css('cursor', 'pointer')
-        $widget.append($checkbox);
-
-        // Event Handlers
-        $widget.on('click', function () {
-            $checkbox.prop('checked', !$checkbox.is(':checked'));
-            $checkbox.triggerHandler('change');
-            updateDisplay();
-        });
-        $checkbox.on('change', function () {
-            updateDisplay();
-        });
-          
-
-        // Actions
-        function updateDisplay() {
-            var isChecked = $checkbox.is(':checked');
-
-            // Set the button's state
-            $widget.data('state', (isChecked) ? "on" : "off");
-
-            // Set the button's icon
-            $widget.find('.state-icon')
-                .removeClass()
-                .addClass('state-icon ' + settings[$widget.data('state')].icon);
-
-            // Update the button's color
-            if (isChecked) {
-                $widget.addClass(style + color + ' active');
-            } else {
-                $widget.removeClass(style + color + ' active');
-            }
-        }
-
-        // Initialization
-        function init() {
-            
-            if ($widget.data('checked') == true) {
-                $checkbox.prop('checked', !$checkbox.is(':checked'));
-            }
-            
-            updateDisplay();
-
-            // Inject the icon if applicable
-            if ($widget.find('.state-icon').length == 0) {
-                $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span>');
-            }
-        }
-        init();
-    });
-    
-    $('#get-checked-data').on('click', function(event) {
-        event.preventDefault(); 
-        var checkedItems = {}, counter = 0;
-        $("#check-list-box li.active").each(function(idx, li) {
-            checkedItems[counter] = $(li).text();
-            counter++;
-        });
-        $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
-    });
-});
-        
-       
-    </script>
+  
     
      <script>
           
          
     $(document).ready(function () {
-$("#ano").datepicker({
+$("#year").datepicker({
 format: " yyyy",
 viewMode: "years", 
 minViewMode: "years",

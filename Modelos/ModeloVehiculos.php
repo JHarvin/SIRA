@@ -165,6 +165,31 @@ class VehiculosModel extends Conexion{
       
       
   }
+    public function actualizarVehiculoModel($datosModel,$tabla){
+        #me quede aqui revisar maañana
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+        SET numero_de_placa=:placa,marca=:marca,tipo=:tipo, 
+        color=:color,numerochasis=:chasis,numeromotor=:nmotor WHERE numero_de_placa= :placa");
+        
+        $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        $stmt->bindParam(":marca",$datosModel["marca"],PDO::PARAM_STR);
+        $stmt->bindParam(":tipo",$datosModel["tipo"],PDO::PARAM_STR);
+       $stmt->bindParam(":nmotor",$datosModel["nmotor"],PDO::PARAM_STR);
+        $stmt->bindParam(":chasis",$datosModel["chasis"],PDO::PARAM_STR);
+        //$stmt->bindParam(":tcombustible",$datosModel["tcombustible"],PDO::PARAM_STR);
+        $stmt->bindParam(":color",$datosModel["color"],PDO::PARAM_STR);
+        //$stmt->bindParam(":year",$datosModel["year"],PDO::PARAM_STR);
+        echo'<script>alert("entra "+'.$datosModel["marca"].');</script>';
+        if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+        
+        
+    }
     
 }
 

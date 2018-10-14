@@ -217,26 +217,27 @@ class ClientesController{
     public function actualizarClientesController(){
         #---se valida que un campo venga lleno ya que si uno esta lleno lo estaran todos
         #---------------
-        if(isset($_POST["Nombre"])){
+        if(isset($_POST["Nombreu"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
-                    "dui"=>$_POST["dui"],
-                    "nombre"=>$_POST["Nombre"],
-                    "telefono"=>$_POST["Telefono"],
-                    "direccion"=>$_POST["Direccion"],
-<<<<<<< HEAD
-                    
-                    "licencia"=>$_POST["licencia"],
-=======
+                    "dui"=>$_POST["duiu"],
+                    "nombre"=>$_POST["Nombreu"],
+                    "telefono"=>$_POST["Telefonou"],
+                    "direccion"=>$_POST["Direccionu"],
 
                     
-                    "licencia"=>$_POST["licencia"],
+                    "licencia"=>$_POST["licenciau"]
 
-                     "licencia"=>$_POST["licencia"],
 
->>>>>>> 7cbbf95383ccc9dc2ba9ebb6c593448c1427e2fb
-                    "status"=>$_POST["status"]
+                    
+                   
+
+
+                   // "status"=>$_POST["statusu"]
                 );
+                echo'<script>
+                alert(""+'.$_POST["duiu"].');
+                </script>';
             
             $respuesta=Datoscliente::actualizarClientesModel($dato,"tclientes");
             

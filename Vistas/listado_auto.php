@@ -14,13 +14,13 @@ require_once"../Controladores/ControladorClientes.php";
 <meta http-equiv='pragma' content='no-cache'>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-     
+
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
    <!--Libreria fancybox para mostrar imagens-->
  <link rel="stylesheet" href="../css/fancybox.min.css" />
- 
- 
+
+
  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
  <script src="../Vistas/js/reservarAlquilar.js"></script>
   <!-- include the RTL css files-->
@@ -36,10 +36,10 @@ require_once"../Controladores/ControladorClientes.php";
 alertify.defaults.glossary.title = 'أليرتفاي جي اس';
 alertify.defaults.glossary.ok = 'موافق';
 alertify.defaults.glossary.cancel = 'إلغاء';
-    
-    
-   
-    
+
+
+
+
 </script>
     <!-- include alertify.css -->
 <link rel="stylesheet" href="../css/alertify.css">
@@ -47,14 +47,14 @@ alertify.defaults.glossary.cancel = 'إلغاء';
 <link rel="stylesheet" href="../css/themes/semantic.css">
 <!-- include alertify script -->
 <script src="../js/alertify.js"></script>
-<script type="text/javascript">        
+<script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "zoom";
 alertify.defaults.theme.ok = "ui positive button";
 alertify.defaults.theme.cancel = "ui black button";
-    
+
 </script>
-    
+
 <!-- include boostrap theme  -->
 <link rel="stylesheet" href="../css/themes/bootstrap.css">
 
@@ -69,30 +69,30 @@ alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
 
- 
 
-</head>      
+
+</head>
 <body class="app sidebar-mini rtl">
-     <?php 
+     <?php
     include"menu.php";
     ?>
       <main class="app-content">
        <div class="app-title">
         <div>
           <h1><i class="fa fa-car"></i> Autos registrados</h1>
-          
+
         </div>
-        
+
       </div>
-       
+
        <div class="row">
       <div class="col-md-12">
          <!--contenedor de la tabla de vehiculos (principal vista)-->
           <div id="contenedorTabla" class="tile">
-            
+
             <h3 class="tile-title">Autos</h3>
-             	    
-       
+
+
             <div class="table table-responsive" >
             <table id="tabla"  class="table display table-striped  " style="font-size:13.4px;">
               <thead>
@@ -102,7 +102,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>MARCA,MODELO,AÑO</th>
                    <th>TIPO</th>
                   <th>COLOR</th>
-                
+
                   <th>COMBUSTIBLE</th>
                   <th>ESTADO</th>
                  <th>Acciones</th>
@@ -113,23 +113,23 @@ alertify.defaults.theme.input = "form-control";
                 </tr>
               </thead>
               <tbody>
-                <?php 
+                <?php
                   $mostrar=new RegistrarVehiculoController();
                   $mostrar->mostrarVehiculosController();
-                  
+
                   ?>
-                 
-                 
+
+
               </tbody>
             </table>
             </div>
-          
-            
+
+
           </div>
         </div>
-        
-        
-        
+
+
+
       </div>
       </main>
       <!------------------------------------------------------------------------->
@@ -149,13 +149,13 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal body -->
       <div class="modal-body">
-     
+
               <div><img src="../images/pregunta.png" alt=""></div>
          <label>¿Desea Eliminar este vehiculo?</label> <b><p id="nombrePl"></p> Placas: <p id="numeroPl"></p> </b>
-           
-              
+
+
           </div>
-          
+
       <!-- Modal footer -->
       <div class="modal-footer">
       <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
@@ -167,7 +167,39 @@ alertify.defaults.theme.input = "form-control";
     </div>
   </div>
 </div>
-      
+<!------------------------------------------------------------------------->
+ <!-- Modal para actualizar la imagen1 del vehiculo -->
+ <!------------------------------------------------------------------------->
+<div class="modal" id="imagen1">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+
+<!-- Modal Header -->
+<div class="modal-header">
+  <h4 class="modal-title">Selecione imagen </h4>
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+
+      <input type="file" name="imagen1" class="form-control">
+      <input type="hidden" id="placaimg" name="placaimg" value="">
+<input type="hidden" id="numero_imagen" name="numero_imagen">
+    </div>
+
+<!-- Modal footer -->
+<div class="modal-footer">
+<button id="btnCambiarImagen" name="btnCambiarImagen" class="btn btn-info" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Cambiar</button>
+  |
+  <button type="button" class="btn btn-danger" data-dismiss="modal">
+  <i class="fa fa-undo"></i> Cancelar</button>
+</div>
+
+</div>
+</div>
+</div>
+
       <!------------------------------------------------------------------------->
       <!-- Modal  PARA PONER IMAGEN DEL CARRO-->
       <!------------------------------------------------------------------------->
@@ -183,25 +215,37 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal body -->
       <div class="modal-body">
-     
-              <div id="img" name="img">
-                <!--Imagenes-->
-                 <!--Para imagen 1-->
-                  <a id="imagen1" data-fancybox="gallery" href=""> <img id="imagenDC"  src="" width="240" height="150"></a>
-                  <!--Para imagen 2-->
-                  <a id="imagen2" data-fancybox="gallery" href=""> <img id="imagenDC2"  src="" width="240" height="150"></a>
-                  <!--Para imagen 3-->
-                  <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="240" height="150"></a>
-                  <!--Para imagen 4-->
-        <a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="240" height="150"></a>
-           
-              <!--Fin imagenes-->
-          </div>
-          
+
+
+    <div id="img" name="img">
+      <!--Imagenes-->
+       <!--Para imagen 1-->
+        <a id="imagen1" data-fancybox="gallery" href=""> <img id="imagenDC"  src="" width="165" height="100"></a>
+        <!--Para imagen 2-->
+        <a id="imagen2" data-fancybox="gallery" href=""> <img id="imagenDC2"  src="" width="165" height="100"></a>
+        <!--Para imagen 3-->
+        <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="165" height="100"></a>
+        <!--Para imagen 4-->
+<a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="165" height="100"></a>
+
+    <!--Fin imagenes-->
+</div>
+
+
+
+
+
       <!-- Modal footer -->
-      <div class="modal-footer">
-     
-        
+      <div class="modal-footer btn-group" role="group">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <i class="fa fa-image"></i>Cambiar imagen 1</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <i class="fa fa-image"></i>Cambiar imagen 2</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <i class="fa fa-image"></i>Cambiar imagen 3</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <i class="fa fa-image"></i>Cambiar imagen 4</button>
+
         <button type="button" class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i>Atras</button>
       </div>
@@ -209,8 +253,8 @@ alertify.defaults.theme.input = "form-control";
     </div>
   </div>
 </div>
-    </div> 
-        
+    </div>
+
       <!------------------------------------------------------------------------->
       <!-- |MODAL PARA PREGUNTAR SI ALQUILAR EL CARRO O MANDARLO A MANTENIMIENTO|-->
       <!------------------------------------------------------------------------->
@@ -226,12 +270,12 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal body -->
       <div class="modal-body">
-     
-             
-           
-              
+
+
+
+
           </div>
-          
+
       <!-- Modal footer -->
       <div class="modal-footer">
       <a href="#" id="btnIrAlquiler" name="btnIrAlquiler" class="btn btn-success" data-toggle="modal" data-target="#modalAlquilar" data-dismiss="modal"> <i class="fa fa-key"></i> Alquilar Vehiculo</a>
@@ -246,7 +290,7 @@ alertify.defaults.theme.input = "form-control";
      <!-------------------------------------------------------------------------->
       <!-- |MODAL PARA MOSTRAR LOS CLIENTES Y ALQUILAR EL VEHICUO|--------------->
       <!------------------------------------------------------------------------->
-      
+
       <div class="modal" id="modalAlquilar">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -278,26 +322,26 @@ alertify.defaults.theme.input = "form-control";
                  ?>
              </tbody>
          </table>
-         
-         
+
+
      </div>
-             
-           
-              
+
+
+
           </div>
-          
+
       <!-- Modal footer -->
       <div class="modal-footer">
       <button id="btnRetrocederAlquiler" name="btnRetrocederAlquiler" class="btn btn-info" data-dismiss="modal"> <i class="fa fa-undo"></i> Retroceder</button>
-      
+
       </div>
 
     </div>
   </div>
 </div>
-    
+
       <!------------------------------------------------------------------------->
-      
+
       <!-- Modal para mostrar contrato -->
 <div class="modal fade" id="modalContrato" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -348,7 +392,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
         </p>
       </div>
       <div class="modal-footer">
-        
+
         <button type="button" class="btn btn-primary">Aceptar</button>
         <button type="button" class="btn btn-primary" onclick="printContrato()">Aceptar e Imprimir contrato</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -357,8 +401,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
   </div>
 </div>
   <!--------------------------------------------------------->
-   <!--Modal para seleccionar la fecha de alquiler--> 
-   <!-------------------------------------------------------------> 
+   <!--Modal para seleccionar la fecha de alquiler-->
+   <!------------------------------------------------------------->
     <div class="modal fade" id="modalTiempo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -368,12 +412,12 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        
-            
-            
+
+
+
             <div class="modal-body">
-            
-               
+
+
 <form id="formulario_alquilar">
   <div id="rowM" class="form-row">
     <div class="form-group col-md-6">
@@ -384,7 +428,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
       <label for="duiClienteAl">DUI del cliente</label>
       <input type="text" class="form-control" id="duiClienteAl" disabled>
     </div>
-    
+
      <div class="form-group col-md-6">
     <label for="autoname">Auto a rentar</label>
     <input type="text" class="form-control" id="autoname" disabled>
@@ -393,7 +437,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <label for="placarente">Placas del auto</label>
     <input type="text" class="form-control" id="placarent" disabled>
   </div>
-  
+
                <div class="form-group col-md-6">
                   <label for="fechaFin">Fecha de renta(inicio)</label>
                    <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
@@ -403,12 +447,12 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                    <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
   </div>
- 
-  
-  
-  
+
+
+
+
 </form>
-              
+
 
             </div>
             <div class="modal-footer">
@@ -421,7 +465,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                Rentar y ver contrato</button>
                 <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
               </div>
-               
+
             </div>
         </div>
     </div>
@@ -440,16 +484,16 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        
-            
-            
+
+
+
             <div class="modal-body">
-            
-               
+
+
 <form>
   <div id="rowM" class="form-row">
-    
-    
+
+
      <div class="form-group col-md-6">
     <label for="autoname">Auto</label>
     <input type="text" class="form-control" id="autoname" disabled>
@@ -458,7 +502,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <label for="placarente">Placas del auto</label>
     <input type="text" class="form-control" id="placarent" disabled>
   </div>
-  
+
                <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha:</label>
                    <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
@@ -467,12 +511,12 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                   <label for="fechaInicio">Descripción:</label>
                   <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
-                
-                
-                
+
+
+
   </div>
- 
-  
+
+
   <div class="form-check">
   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
   <label class="form-check-label" for="defaultCheck1">
@@ -485,28 +529,28 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     Airbag
   </label>
 </div>
-  
+
 </form>
-              
+
 
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                 
+
         <button type="button" class="btn btn-success"  data-dismiss="modal">
                <i class="fa fa-clipboard"></i>
                Mandar a mantenimiento</button>
                 <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
               </div>
-               
+
             </div>
         </div>
     </div>
 </div>
 
-     
+
      <!------------------------------------------------------->
-      
+
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -515,76 +559,76 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <script src="../js/plugins/pace.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/dataTables.bootstrap.min.js"></script>
-    
-   
+
+
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      <script src="../js/bootstrap-datepicker.js"></script>
-    
+
   <script>
-  
+
       $(document).ready(function() {
           //---para data tables codigo
     $('#tabla').DataTable( {
-        
-         
+
+
         "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todos"]],
-        
-        
+
+
            "language": {
             "lengthMenu": "Mostrar _MENU_",
             "zeroRecords": "No se encontraron registros",
             "info": "Mostrando _PAGE_ de _PAGES_ paginas",
             "infoEmpty": "Busqueda no encontrada",
             "infoFiltered": "(Total de registrados _MAX_ )",
-            "sSearch":"Buscar",   
+            "sSearch":"Buscar",
             "paginate": {
             "previous": "Anterior",
                 "next": "Siguente"
     }
         }
-        
+
     } );
 } );
-    
+
     </script>
- 
+
      <script>
-    
+
     $(document).ready(function() {
           //---para data tables codigo
     $('#clientesAquiler').DataTable( {
-        
-         
+
+
         "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todos"]],
-        
-        
+
+
            "language": {
             "lengthMenu": "Mostrar _MENU_",
             "zeroRecords": "No se encontraron registros",
             "info": "Mostrando _PAGE_ de _PAGES_ paginas",
             "infoEmpty": "Busqueda no encontrada",
             "infoFiltered": "(Total de registrados _MAX_ )",
-            "sSearch":"Buscar",   
+            "sSearch":"Buscar",
             "paginate": {
             "previous": "Anterior",
                 "next": "Siguente"
     }
         }
-        
+
     } );
 } );
     </script>
-   
-    
+
+
     <script>
     //--------pone los datos en el modal
-        
+
         //---Funcion para detectar el clic y obtener los datos
       $("#tabla tbody tr").click(function() {
           //---se obtiene de la tabla la placa y nombre del vehiculo
  var placa=$(this).find("td:eq(1)").text();
-  var nombre=$(this).find("td:eq(2)").text(); 
+  var nombre=$(this).find("td:eq(2)").text();
     //----obteniendo las imagenes de la tabla (td hidden) en caso seleccione ver-
           // -imagenes
           //--imagenes
@@ -594,15 +638,15 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
           var imagen4=$(this).find("td:eq(11)").text();
           //---------------------------------------
           //---poniendo los datos en los inputs del modal de eliminar en caso seleccione eliminar
-          
-         
-        
+
+
+
          $("#numeroPl").text(placa);
         $("#nombrePl").text(nombre);
-          
+
           //---poniendo imagen en el modal detalles (es el boton con el icono de admiracion)
-         
-          
+
+
           //--imagen 1
           $("#imagen1").attr("href",""+imagen);
           $("#imagenDC").attr("src",""+imagen);
@@ -615,63 +659,63 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
           //---imagen 4
           $("#imagen4").attr("href",""+imagen4);
           $("#imagenDC4").attr("src",""+imagen4);
-          
+
           //--Poniendo el nombre y placa del vehiculo en el modal de alquilar
-          
+
            $("#placarent").val(placa);
         $("#autoname").val(nombre);
-          
-            
+
+
       });
-        
+
     </script>
-     
+
     <script>
     //----Se ejecuta cuando se da click en el boton eliminar del modal eliminar
         //----La funcion llama a otra funcion que se encarga de ejecutar el ajax
         //---que sirve para eliminar
         $(document).ready(function(){
-            
+
             $("#btnEliminarVehiculo").click(function(){
-                
+
                 var idEliminar=$("#numeroPl").text();
             eliminar(idEliminar);
-                
+
             });
-            
+
         });
-        
+
     </script>
-     
+
      <script>
     //Para imprimir contrato
          function printContrato() {
-            
+
      var contenido= document.getElementById("contratoP").innerHTML;
      var contenidoOriginal= document.body.innerHTML;
      document.body.innerHTML = contenido;
      window.print();
      document.body.innerHTML = contenidoOriginal;
 }
-    
+
     </script>
-    
+
     <script>
     //-Codigo para obtener el nombre y dui del cliente y ponerlo en el modal de alquiler
-        
+
         $("#clientesAquiler tbody tr").click(function() {
           //---se obtiene de la tabla la placa y nombre del vehiculo
  var nombreClienteA=$(this).find("td:eq(0)").text();
-  var duiAlquilerCliente=$(this).find("td:eq(3)").text(); 
-          
+  var duiAlquilerCliente=$(this).find("td:eq(3)").text();
+
         $("#nombreClienteAl").val(nombreClienteA);
         $("#duiClienteAl").val(duiAlquilerCliente);
-          
-            
+
+
       });
-        
+
     </script>
-    
+
     <script>
     //Codigo para no permitir seleccionar dias pasados de la fecha de inicio del alquiler
    var getDate = function (input) {
