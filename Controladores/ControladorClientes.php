@@ -12,7 +12,6 @@ require_once"../Modelos/ModeloClientes.php";
 class ClientesController{
    
     #FUNCIÓN REGISTRAR
-
     public function registrarCliente(){
         
         #VALIDACION DE LOS DATOS--------
@@ -59,12 +58,7 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-center");
-
           alertify.error("Dui o Licencia ya han sido registrados");
-
-
-
-
         
             </script>
             ';  
@@ -83,12 +77,8 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-right");
-
           alertify.success("Registro Guardado    ✔");
-
         
-
-
         
             </script>
             ';
@@ -99,12 +89,7 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-right");
-
           alertify.error("Algo salio mal :(");
-
-
-
-
         
             </script>
             ';  
@@ -221,18 +206,13 @@ class ClientesController{
         if(isset($_POST["nombreUpdate"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
-
                     "dui"=>$_POST["duiUpdate"],
                     "nombre"=>$_POST["nombreUpdate"],
                     "telefono"=>$_POST["telefonoUpdate"],
                     "direccion"=>$_POST["direccionUpdate"],
-
                     
                     "licencia"=>$_POST["licenciaUpdate"]
-
                    // "status"=>$_POST["statusu"]
-
-
                 );
                 
             
@@ -295,6 +275,4 @@ class ClientesController{
     }  
     
 }
-
-
 ?>
