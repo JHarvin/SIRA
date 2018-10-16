@@ -1,5 +1,20 @@
 <?php 
 require_once"../Controladores/ControladorClientes.php";
+
+if(isset($_GET["ok"]) && !empty($_GET["ok"])){
+    
+     echo '
+                <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
+    <script src="../js/alertify.min.js"></script>
+               <script>
+               
+               alertify.success("Datos actualizados correctamente");
+               
+            
+               </script>';
+    
+}
+
 ?>
 <html lang="es">
 <head>
@@ -155,7 +170,7 @@ function inhabilitar(idE){
                 <b><p id="nombre" style="font-size:16px;"></p></b>
           
              
-                <input id="idDelete" name="idDelete" type="text" >
+                <input id="idDelete" name="idDelete" type="hidden" >
                 </div>
        </div>
           

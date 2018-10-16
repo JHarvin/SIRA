@@ -8,6 +8,7 @@
 #--------------------INCIADO POR HARVIN RAMOS-----------------------------------
 #-------------------------------------------------------------------------------
 #---------Clase encarga de manejar e crud a nivel de controlador..............
+require_once"../Modelos/modeloclienteina.php";
 require_once"../Modelos/ModeloClientes.php";
 class ClientesController{
    
@@ -112,9 +113,7 @@ class ClientesController{
         
         foreach($respuesta as $row =>$item){
             if($item["status"]==1){
-                $habilitado="activo";
-      
-              }else{$habilitado="Inactivo";}
+            
         echo'
         
         <tr>
@@ -124,9 +123,7 @@ class ClientesController{
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["dui"].'</td>
                   <td>'.$item["licencia_de_conducir"].'</td>
-                   
-                
-                  <td>'.$habilitado.'</td>
+                 <td>Habilitado</td>
                 
                  
                   
@@ -136,12 +133,13 @@ class ClientesController{
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
                   </div>
                   </td>
-                 
+                  
                 </tr>
         
         ';
         }
         
+    }
         
     }
     #-------------------------------------------------------------------------
@@ -206,6 +204,7 @@ class ClientesController{
         if(isset($_POST["nombreUpdate"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
+
                     "dui"=>$_POST["duiUpdate"],
                     "nombre"=>$_POST["nombreUpdate"],
                     "telefono"=>$_POST["telefonoUpdate"],
@@ -213,6 +212,7 @@ class ClientesController{
                     
                     "licencia"=>$_POST["licenciaUpdate"]
                    // "status"=>$_POST["statusu"]
+
                 );
                 
             
@@ -230,6 +230,7 @@ class ClientesController{
                 
                 
                 ';
+                  echo'<script>location.href="../Vistas/clientes.php?ok=ok";</script>';
                // header("location:clientes.php");
                // header("location:..Vistas/clientes.php?ok=1");
                 

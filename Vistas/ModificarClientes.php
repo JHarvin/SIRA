@@ -132,7 +132,7 @@ function soloLetras(e) {
            <!--Dui y licencia de conducir-->
            <div class="form-group col-md-3"> 
            <label class="label label-success">DUI:</label>
-           <input type="text" name="duiUpdate" id="duiUpdate" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." value="<?php echo $datos["dui"] ?>" required disabled>
+           <input type="text" name="duiUpdate" id="duiUpdate" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." value="<?php echo $datos["dui"] ?>" required>
            </div>
            <div class="form-group col-md-3">
            <label class="label label-success">N° Licenia de conducir</label>

@@ -155,7 +155,7 @@ function inhabilitar(idE){
                  </div>
               <label for="nombre" style="font-size:16px;">¿Desea habilitar a  :  </label>
                 <b><p id="nombre" style="font-size:16px;"></p></b>
-                <input id="idDelete" name="idDelete" type="text" >
+                <input id="idDelete" name="idDelete" type="hidden" >
     
                  
                 </div>
