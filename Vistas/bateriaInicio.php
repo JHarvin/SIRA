@@ -101,39 +101,7 @@ alertify.defaults.theme.input = "form-control";
         
  </div>
 
-       <div class="app-title" style="background-color:#FFFF9650;" >
-
-
-     <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          
-          <li class="breadcrumb-item"><a href="#">Baterias disponibles</a></li>
-          
-        </ul>
-
-
-          <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          
-          <li class="breadcrumb-item"><a href="#">Baterias vendidas</a></li>
-          
-        </ul>
-
-          <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          
-          <li class="breadcrumb-item"><a href="#">Baterias en mantenimiento</a></li>
-          
-        </ul>
-         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          
-          <li class="breadcrumb-item"><a href="#">Baterias en garantia</a></li>
-          
-        </ul>
-        </div>
-  
-       
+     
 
     <div class="row">   
        
