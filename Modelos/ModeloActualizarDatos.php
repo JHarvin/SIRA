@@ -13,7 +13,7 @@ class EditarUsuario extends Conexion{
     
     public function editarUsuarioModel($idModelDatos,$tabla){
         
-         $stmt =Conexion::conectar()->prepare("SELECT idpersonal,nombre,telefono,direccion,username,password,status,email FROM $tabla WHERE idpersonal= :id");
+         $stmt =Conexion::conectar()->prepare("SELECT idpersonal,nombre,telefono,direccion,username,status,email FROM $tabla WHERE idpersonal= :id");
         
          
        
@@ -33,13 +33,13 @@ class EditarUsuario extends Conexion{
    
     #--Funcion encargada de actualizar
     public function actualizarUsuarioModel($datosModel,$tabla){
-         $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre,telefono=:telefono,direccion=:direccion, username=:username ,password=:password WHERE idpersonal= :id");
+         $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre,telefono=:telefono,direccion=:direccion, username=:username WHERE idpersonal= :id");
         
          $stmt->bindParam(":nombre",$datosModel["nombre"],PDO::PARAM_STR);
         $stmt->bindParam(":telefono",$datosModel["telefono"],PDO::PARAM_STR);
         $stmt->bindParam(":direccion",$datosModel["direccion"],PDO::PARAM_STR);
         $stmt->bindParam(":username",$datosModel["username"],PDO::PARAM_STR);
-        $stmt->bindParam(":password",$datosModel["password"],PDO::PARAM_STR);
+       
         $stmt->bindParam(":id",$datosModel["id"],PDO::PARAM_INT);
         
         

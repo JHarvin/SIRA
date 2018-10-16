@@ -120,17 +120,22 @@ alertify.defaults.theme.input = "form-control";
                       <label for="Nombre">Nombre Completo</label>
                       <input id="Nombre" name="Nombre" class="form-control" type="text" value="<?php echo $datosVista["nombre"]; ?>"
                     
-                        maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required >
+                        maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required autocomplete="off">
                     </div>
                     <div class="col-md-4">
                       <label for="Telefono">Teléfono</label>
-                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required>
+                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required autocomplete="off">
                     </div>
                      <div class="col-md-4">
                       <label>Email</label>
                       <input id="Email" name="Email" class="form-control" type="email" required value="<?php echo $datosVista["email"]; ?>" autocomplete="off">
                     </div>
                   </div>
+                   <div class="clearfix"></div>
+                    <div class="col-md-4">
+                      <label>Nombre de Usuario</label>
+                      <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required autocomplete="off">
+                    </div>
                   <div class="row">
                    
                     <div class="clearfix"></div>
@@ -138,41 +143,13 @@ alertify.defaults.theme.input = "form-control";
                       <label>Dirección</label>
                       <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
                     </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-4">
-                      <label>Nombre de Usuario</label>
-                      <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required>
-                    </div>
+                   
                     
                     
-                    <div class="col-md-4">
-                      <label>Contraseña</label>
-                      <input id="Pass" name="Pass" class="form-control" type="password" value="<?php echo $datosVista["password"]; ?>" placeholder="Escriba la nueva contraseña" required>
-                    </div>
+                   
                   </div>
                  <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idpersonal"]; ?>" >
-                   <div class="form-group">
-
-              <label for="status">Estado</label>
-                <select class="form-control" name="status">
-                  <?php 
-                  if ($datosVista["status"]== 1) {
-                    # code...
-                   
-                    echo '<option value="1">activo</option>';
-                    echo '<option  value="0"> Inactivo</option>';
-
-                  }
-                  else{
                  
-
-                   echo '<option  value="0"> Inactivo</option>';
-                    echo '<option value="1">activo</option>';
-}
-                   ?>
-                  
-                </select>
-            </div>
                  
                   <!-- Modal footer -->
       <div class="tile-footer">
