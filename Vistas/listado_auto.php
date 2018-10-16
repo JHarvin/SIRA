@@ -170,7 +170,7 @@ alertify.defaults.theme.input = "form-control";
 <!------------------------------------------------------------------------->
  <!-- Modal para actualizar la imagen1 del vehiculo -->
  <!------------------------------------------------------------------------->
-<div class="modal" id="imagen1">
+<div class="modal" id="imagenModal">
 <div class="modal-dialog modal-sm">
 <div class="modal-content">
 
@@ -237,13 +237,13 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal footer -->
       <div class="modal-footer btn-group" role="group">
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 1</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 2</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 3</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagen1" data-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 4</button>
 
         <button type="button" class="btn btn-info" data-dismiss="modal">

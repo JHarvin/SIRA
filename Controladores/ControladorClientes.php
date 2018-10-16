@@ -12,7 +12,6 @@ require_once"../Modelos/ModeloClientes.php";
 class ClientesController{
    
     #FUNCIÓN REGISTRAR
-
     public function registrarCliente(){
         
         #VALIDACION DE LOS DATOS--------
@@ -59,12 +58,7 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-center");
-
           alertify.error("Dui o Licencia ya han sido registrados");
-
-
-
-
         
             </script>
             ';  
@@ -83,12 +77,8 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-right");
-
           alertify.success("Registro Guardado    ✔");
-
         
-
-
         
             </script>
             ';
@@ -99,12 +89,7 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-right");
-
           alertify.error("Algo salio mal :(");
-
-
-
-
         
             </script>
             ';  
@@ -215,9 +200,10 @@ class ClientesController{
     public function actualizarClientesController(){
         #---se valida que un campo venga lleno ya que si uno esta lleno lo estaran todos
         #---------------
-        if(isset($_POST["Nombreu"])){
+        if(isset($_POST["nombreUpdate"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
+<<<<<<< HEAD
                     "dui"=>$_POST["dui"],
                     "nombre"=>$_POST["Nombre"],
                     "telefono"=>$_POST["Telefono"],
@@ -232,10 +218,17 @@ class ClientesController{
 
 
                     "status"=>$_POST["status"]
+=======
+                    "dui"=>$_POST["duiUpdate"],
+                    "nombre"=>$_POST["nombreUpdate"],
+                    "telefono"=>$_POST["telefonoUpdate"],
+                    "direccion"=>$_POST["direccionUpdate"],
+                    
+                    "licencia"=>$_POST["licenciaUpdate"]
+                   // "status"=>$_POST["statusu"]
+>>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
                 );
-                echo'<script>
-                alert(""+'.$_POST["duiu"].');
-                </script>';
+                
             
             $respuesta=Datoscliente::actualizarClientesModel($dato,"tclientes");
             
@@ -296,6 +289,4 @@ class ClientesController{
     }  
     
 }
-
-
 ?>

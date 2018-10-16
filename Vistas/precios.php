@@ -27,7 +27,7 @@ require_once"../Controladores/ControladorClientes.php";
 
 <link rel="stylesheet" href="../css/alertify.rtl.css">
 <link rel="stylesheet" href="../css/themes/default.rtl.css">
-
+<script src="../Vistas/js/preciosAjax.js"></script>
 <!-- include alertify script -->
 <script src="../js/alertify.js"></script>
 
@@ -187,7 +187,7 @@ alertify.defaults.theme.input = "form-control";
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                  <button type="button" class="btn btn-primary" onclick="reservar()">
+                  <button type="button" class="btn btn-primary" id="btnGuardarPrecio" name="btnGuardarPrecio">
                <i class="fa fa-check"></i>
                Guardar precio</button>
        
@@ -290,6 +290,19 @@ alertify.defaults.theme.input = "form-control";
     $('#precio').mask('000.000.000.000.000,00', {reverse: true});
     </script>
      
+     <script>
+    //Para agregar precios
+          $(document).ready(function(){
+            
+            $("#btnGuardarPrecio").click(function(){
+                var placa=$("#placarent").val();
+                var precio=$("#precio").val();
+            addprecio(precio,placa);
+                
+            });
+            
+        });
+    </script>
      
     
    
