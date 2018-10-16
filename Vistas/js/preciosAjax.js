@@ -5,7 +5,7 @@ function addprecio(precio,placa){
         var datos=new FormData();
     datos.append("precio",precio);
         datos.append("placa",placa);
-
+alert(""+precio);
     
          $.ajax({
         
@@ -48,14 +48,14 @@ function addprecio(precio,placa){
 //-------------------------------------------------------------
 function updateprecio(precio,placa){
         var datos=new FormData();
-    datos.append("precio",precio);
+       datos.append("precio",precio);
         datos.append("placa",placa);
 
     
          $.ajax({
         
         type: "POST",
-        url: "ajaxPrecios.php",
+        url: "ajaxActualizarPrecio.php",
         data: datos,
         cache:false,
         contentType:false,
