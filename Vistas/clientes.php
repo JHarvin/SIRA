@@ -4,7 +4,7 @@ require_once"../Controladores/ControladorClientes.php";
 <html lang="es">
 <head>
 
-    <title>Clientes registrados</title>
+    <title>Clientes habilitados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,7 @@ function inhabilitar(idE){
 
         if(r==1){
         
-           $("#tabla").load("clientes.php #tabla > *");
+          // $("#tabla").load("clientes.php #tabla > *");
             alertify.success("cliente inhabilitado"+r);
             
     }
@@ -166,7 +166,7 @@ function inhabilitar(idE){
       <div class="modal-footer">
 
       
-      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inhabilitar</button>
 
      
         
@@ -300,7 +300,9 @@ toastr.options = {
             });
             
         });
-        
+        </script>
+     <script>
+        alertify.set('notifier','position', 'top-right'); 
     </script>
     </body>
 </html>

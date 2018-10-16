@@ -1,16 +1,10 @@
 <?php 
-
-
-
 require_once "../Controladores/ControladorMostrarUsuarios.php";
-
-
-
 ?>
 <html lang="es">
 <head>
 
-    <title>Usuarios Habiliados</title>
+    <title>Usuarios habiliados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -187,8 +181,6 @@ alertify.defaults.theme.input = "form-control";
       <div class="modal-header">
 
         <h4 class="modal-title">Seleccione </h4>
-
-      
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>

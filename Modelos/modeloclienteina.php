@@ -10,7 +10,7 @@
 
 
 require_once"Conexion.php";
-class DatosCliente extends Conexion{
+class DatosClienteIna extends Conexion{
     #_____________________________________________
     #Funciones para validar repetidos
     #______________________________________________

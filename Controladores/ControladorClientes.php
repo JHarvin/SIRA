@@ -127,9 +127,7 @@ class ClientesController{
         
         foreach($respuesta as $row =>$item){
             if($item["status"]==1){
-                $habilitado="activo";
-      
-              }else{$habilitado="Inactivo";}
+            
         echo'
         
         <tr>
@@ -139,9 +137,7 @@ class ClientesController{
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["dui"].'</td>
                   <td>'.$item["licencia_de_conducir"].'</td>
-                   
-                
-                  <td>'.$habilitado.'</td>
+                 <td>Habilitado</td>
                 
                  
                   
@@ -151,12 +147,13 @@ class ClientesController{
                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-down"></i></a>
                   </div>
                   </td>
-                 
+                  
                 </tr>
         
         ';
         }
         
+    }
         
     }
     #-------------------------------------------------------------------------
@@ -221,15 +218,6 @@ class ClientesController{
         if(isset($_POST["Nombreu"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
-<<<<<<< HEAD
-                    "dui"=>$_POST["duiu"],
-                    "nombre"=>$_POST["Nombreu"],
-                    "telefono"=>$_POST["Telefonou"],
-                    "direccion"=>$_POST["Direccionu"],
-
-                    
-                    "licencia"=>$_POST["licenciau"]
-=======
                     "dui"=>$_POST["dui"],
                     "nombre"=>$_POST["Nombre"],
                     "telefono"=>$_POST["Telefono"],
@@ -237,18 +225,13 @@ class ClientesController{
 
                     
                     "licencia"=>$_POST["licencia"],
->>>>>>> 1d769a92b9d2db5fed9aa0a84af361b776029483
 
 
                     
                    
 
 
-<<<<<<< HEAD
-                   // "status"=>$_POST["statusu"]
-=======
                     "status"=>$_POST["status"]
->>>>>>> 1d769a92b9d2db5fed9aa0a84af361b776029483
                 );
                 echo'<script>
                 alert(""+'.$_POST["duiu"].');
