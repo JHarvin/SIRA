@@ -203,22 +203,7 @@ class ClientesController{
         if(isset($_POST["nombreUpdate"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
-<<<<<<< HEAD
-                    "dui"=>$_POST["dui"],
-                    "nombre"=>$_POST["Nombre"],
-                    "telefono"=>$_POST["Telefono"],
-                    "direccion"=>$_POST["Direccion"],
 
-                    
-                    "licencia"=>$_POST["licencia"],
-
-
-                    
-                   
-
-
-                    "status"=>$_POST["status"]
-=======
                     "dui"=>$_POST["duiUpdate"],
                     "nombre"=>$_POST["nombreUpdate"],
                     "telefono"=>$_POST["telefonoUpdate"],
@@ -226,7 +211,7 @@ class ClientesController{
                     
                     "licencia"=>$_POST["licenciaUpdate"]
                    // "status"=>$_POST["statusu"]
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
+
                 );
                 
             
