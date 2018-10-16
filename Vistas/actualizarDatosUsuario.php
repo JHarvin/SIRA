@@ -130,16 +130,17 @@ alertify.defaults.theme.input = "form-control";
                       <label>Email</label>
                       <input id="Email" name="Email" class="form-control" type="email" required value="<?php echo $datosVista["email"]; ?>" autocomplete="off">
                     </div>
+                      
                   </div>
-                   <div class="clearfix"></div>
-                    <div class="col-md-4">
+                  
+                 
+                  <div class="row">
+                   
+                   <div class="col-md-4">
                       <label>Nombre de Usuario</label>
                       <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required autocomplete="off">
                     </div>
-                  <div class="row">
-                   
-                    <div class="clearfix"></div>
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                       <label>Dirección</label>
                       <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
                     </div>
