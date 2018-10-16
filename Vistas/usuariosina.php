@@ -87,13 +87,7 @@ alertify.defaults.theme.input = "form-control";
         <div>
 
           <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
-<<<<<<< HEAD
-=======
 
-
-
-
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
 
 
          
@@ -106,23 +100,14 @@ alertify.defaults.theme.input = "form-control";
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
 
             <h3 class="tile-title">Usuarios inhabilitados</h3>
 
 
             
 
-<<<<<<< HEAD
-             
-           
-=======
 
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
 
 
             
@@ -146,15 +131,13 @@ alertify.defaults.theme.input = "form-control";
               <tbody>
                
                <?php 
-<<<<<<< HEAD
-=======
+
 
 
                   #--Llamamos al controlador antes instanciando la clase
 
 
 
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
 
                   $mostrar=new MostrarUsuariosController();
                   $mostrar->vistaUsuariosDesController();
@@ -220,14 +203,7 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal Header -->
       <div class="modal-header">
 
-<<<<<<< HEAD
-        
-=======
 
-
-        
-
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
 
         <h4 class="modal-title">Seleccione </h4>
 
@@ -261,12 +237,7 @@ alertify.defaults.theme.input = "form-control";
      
       <!-- Modal footer -->
       <div class="modal-footer">
-<<<<<<< HEAD
-=======
 
-
-     
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
 
   
 
@@ -279,10 +250,6 @@ alertify.defaults.theme.input = "form-control";
 
    
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e5d2e792c0c8feb6dfb3f3ba94f54a899b86ab2a
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>

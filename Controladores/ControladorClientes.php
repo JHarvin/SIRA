@@ -8,7 +8,7 @@
 #--------------------INCIADO POR HARVIN RAMOS-----------------------------------
 #-------------------------------------------------------------------------------
 #---------Clase encarga de manejar e crud a nivel de controlador..............
-require_once"../Modelos/ModeloClientes.php";
+require_once"../Modelos/modeloclienteina.php";
 class ClientesController{
    
     #FUNCIÓN REGISTRAR

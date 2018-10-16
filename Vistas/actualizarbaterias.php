@@ -91,7 +91,7 @@ alertify.defaults.theme.input = "form-control";
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
-    include"menu.php";
+    include"menuVentas.php";
     ?>
       <main class="app-content">
        
@@ -204,14 +204,14 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/jquery.maskedinput.min.js"></script>
+    <script src="../js/plugins/jquery.mask.min.js"></script>
     
       <script type="text/javascript">
       
  jQuery(function($){
             // Definimos las mascaras para cada input
-            
-            $("#Telefono").mask("9999-9999");
+            $('#precio_venta').mask('000.000.000.000.000,00', {reverse: true});
+            $("#precio_unitario").mask('000.000.000.000.000,00', {reverse: true});
             
         });
           
