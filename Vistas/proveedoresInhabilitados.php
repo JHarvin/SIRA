@@ -53,7 +53,7 @@ alertify.defaults.theme.input = "form-control";
     function habilitar(idE){
         var datos=new FormData();
     datos.append("id",idE);
-        
+     // alert(""+idE);  
          $.ajax({
         
         type: "POST",
@@ -365,7 +365,7 @@ toastr.options = {
          
         
           $("#nombreU").text(nombre+"?");
-          $("#idDelete").text(id);
+          $("#ide").val(id);
   
 });
     </script>
@@ -391,7 +391,7 @@ toastr.options = {
             
             $("#btnEliminar").click(function(){
                 
-                var idEliminar=$("#idDelete").text();
+                var idEliminar=$("#idDelete").val();
             eliminar(idEliminar);
                 
             });

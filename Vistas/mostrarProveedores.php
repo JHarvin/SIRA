@@ -352,7 +352,7 @@ toastr.options = {
          
         
           $("#nombreU").text(nombre+"?");
-          $("#idDelete").text(id);
+          $("#ide").val(id);
   
 });
     </script>

@@ -8,6 +8,7 @@
 #--------------------INCIADO POR HARVIN RAMOS-----------------------------------
 #-------------------------------------------------------------------------------
 #---------Clase encarga de manejar e crud a nivel de controlador..............
+require_once"../Modelos/modeloclienteina.php";
 require_once"../Modelos/ModeloClientes.php";
 class ClientesController{
     
@@ -122,7 +123,7 @@ class ClientesController{
     #-------------------------------------------------------------------------
     public function mostrarCliente1(){
         
-         $respuesta=DatosCliente::mostrarClienteModel1("tclientes where status=0");
+         $respuesta=DatosClienteIna::mostrarClienteModel1("tclientes where status=0");
         
         foreach($respuesta as $row =>$item){
             if($item["status"]==1){

@@ -1,5 +1,5 @@
 <?php 
-require_once "../Controladores/ControladorRegistrarProveedor.php";
+//require_once "../Controladores/ControladorRegistrarProveedor.php";
 require_once"../Modelos/ModeloProveedores.php";
 
  class RegistrarProveedorController

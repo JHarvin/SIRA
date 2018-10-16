@@ -1,5 +1,5 @@
 <?php 
-require_once "../Controladores/ControladorRegitrarProveedor.php";
+require_once "../Controladores/ControladorRegistrarProveedor.php";
  
 class habilitarAjax{
     

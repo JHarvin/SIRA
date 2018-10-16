@@ -110,9 +110,8 @@ alertify.defaults.theme.input = "form-control";
           <div class="tile-body">
                  <form method="post" onsubmit="return validarActualizarDatos();">
                  
-         
-
-                    <div class="form-group col-md-6">
+        
+                <div class="form-group col-md-6">
                   <label class="control-label" for="Nombre">Nombre</label>
                   <input id="Nombre" name="Nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100"  pattern=".{4,}" title="4 o mas caracteres para nombre real" value="<?php echo $datosVista["nombre"]; ?>" onkeypress="return soloLetras(event)"  required autocomplete="off">
                 </div>
