@@ -93,8 +93,6 @@ alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.defaults.theme.input = "form-control";
 </script>
- 
-    
     
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
@@ -122,11 +120,11 @@ alertify.defaults.theme.input = "form-control";
                       <label for="Nombre">Nombre Completo</label>
                       <input id="Nombre" name="Nombre" class="form-control" type="text" value="<?php echo $datosVista["nombre"]; ?>"
                     
-                        maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required autocomplete="off">
+                        maxlength="100" pattern=".{7,}" title="7 o mas caracteres para nombre real" required >
                     </div>
                     <div class="col-md-4">
                       <label for="Telefono">Teléfono</label>
-                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required autocomplete="off">
+                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required>
                     </div>
                      <div class="col-md-4">
                       <label>Email</label>
@@ -138,12 +136,12 @@ alertify.defaults.theme.input = "form-control";
                     <div class="clearfix"></div>
                     <div class="col-md-12">
                       <label>Dirección</label>
-                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required autocomplete="off">
+                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-4">
                       <label>Nombre de Usuario</label>
-                      <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required autocomplete="off">
+                      <input id="Username" name="Username" class="form-control" type="text" value="<?php echo $datosVista["username"]; ?>" required>
                     </div>
                     
                     
@@ -155,86 +153,30 @@ alertify.defaults.theme.input = "form-control";
                  <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idpersonal"]; ?>" >
                    <div class="form-group">
 
-          
-      <!-- modal para modificar los datos de los usuarios  solo los hice de prueba por si los necesitaba-->
-       
-       <div class="modal" id="modalValidar">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
+              <label for="status">Estado</label>
+                <select class="form-control" name="status">
+                  <?php 
+                  if ($datosVista["status"]== 1) {
+                    # code...
+                   
+                    echo '<option value="1">activo</option>';
+                    echo '<option  value="0"> Inactivo</option>';
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-
-        <h4 class="modal-title">Seleccione </h4>
-
-      
-
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-      <div class="row">
-                 <div> 
-                 <img src="../images/pregunta.png" alt="">
-                 </div>
+                  }
+                  else{
                  
-              <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
-                <b><p id="nombreU" style="font-size:16px;"></p></b>
-          
-    
-                 <input type="hidden" id="ide" name="ide" class="form-control">
-                </div>
 
-       </div>
-
-       
-    
-            <div class="modal-footer">
-
-
-      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
-
-     
-      
-     
-
-
-        
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
-        <i class="fa fa-undo"></i> Cancelar</button>
-      </div>
-              
-          </div>
-
-          
-          
-          
-     
-      <!-- Modal footer -->
-      
-
-    </div>
-  </div>
-
-       
-        <!-- fin modal datos de los usuarios -->
-          
-      
-      <!-- Essential javascripts for application to work-->
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
-    
-    <script src="../js/jquery.quicksearch2.2.1.js" ></script>
-    <script src="../js/jquery.maskedinput.min.js"></script>
-    <script src="../js/datatables.min.js"></script>
-     
+                   echo '<option  value="0"> Inactivo</option>';
+                    echo '<option value="1">activo</option>';
+}
+                   ?>
+                  
+                </select>
+            </div>
                  
                   <!-- Modal footer -->
       <div class="tile-footer">
-        <button type="submit" onClick="llamarPagina()" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
+        <button type="submit" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
         |
         <a href="usuarios.php"  class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i> Atras</a>

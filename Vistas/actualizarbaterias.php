@@ -1,29 +1,21 @@
 
 <?php 
 
-require_once "../Controladores/ControladorActualizarBaterias.php";
-require_once "../Controladores/ControladorRegistrarBaterias.php";
-require_once "../Modelos/ModeloActualizarBaterias.php";
-
-session_start();
-if(!$_SESSION["validar"]){
-    
-
-    header("location:../index.php");
-    exit();
-}
-
-
-$EditarBaterias=new editarBateriasController();
-$verdatos=$EditarBaterias->EditarBateriasController();
-
+#--------------------Made by Harvin Ramos---------------
+require_once"../Controladores/ControladorActualizarBaterias.php";
+require_once"../Controladores/ControladorRegistrarProveedor.php";
+#-------------------------------------------------------------
+#-se instancia y se llama a la funcion en el controlador que se encarga de llamar al modelo que ejecuta la consulta devolviendo un array para luego poner los datos del usuario seleccionado
+#---------------------------------------------------------------
+$editarBateria=new ActualizarBateriasController();
+$datosVista=$editarBateria->editarBateriasController();
 
 ?>
 
 <html lang="es">
 <head>
 
-    <title>Editar Bateria</title>
+    <title>Editar Baterias</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -103,6 +95,16 @@ alertify.defaults.theme.input = "form-control";
     ?>
       <main class="app-content">
        
+       <div class="app-title">
+        <div >
+          <h1><i class="fa fa-inbox"   style="font-size:25px;color:orange"></i>  Editar Baterias</h1>
+          <p>Rent a Car Chacón </p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          
+          
+        </ul>
+ </div>
        
        <div class="row">
            
@@ -113,54 +115,66 @@ alertify.defaults.theme.input = "form-control";
 <div class="col-md-12">
       
       <div class="tile">
-       <h3 class="tile-title">Editar Datos Bateria</h3>
+       
+
                  <form method="post" onsubmit="return validarActualizarDatos();">
                   <div class="row mb-4">
-                            
-                     <div class="form-group col-md-4">
-      <label class="control-label">Proveedor</label>
-                  <select class="form-control" name="idproveedor" id="idproveedor">
+
+                <div class="col-md-4">
+                  <label for="idproveedor">Proveedor</label>
+                  <select class="form-control" name="idproveedor" id="idproveedor" type="text" value="<?php echo $datosVista["idproveedor"]; ?>" >
                      
-                     
+                      <?php 
+                      $combo=new RegistrarProveedorController();
+                      $combo->mostrarCombo();
+                      
+                      ?>
+                      
                   </select>
-       </div>
+                </div>
 
-                           
-    <div class="form-group col-md-4">
-     <label class="control-label">Código</label>
-      <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
-      type="text" value="<?php echo $verdatos["codigo"]; ?>" autocomplete="off" maxlength="5" value=""  required>
-    </div>
 
-   
-     <div class="form-group col-md-4">
-      <label for="tipo">Tipo de bateria</label>
-      <select name="tipo" id="tipo" value="<?php echo $verdatos["tipo"]; ?>"class="form-control" required>
-          <option value="Moto">Moto</option>
-          <option value="Auto">Auto</option>
-      </select>
-    </div>
+                    <div class="col-md-4">
+                      <label for="codigo">Código</label>
+                      <input id="codigo" name="codigo" class="form-control" type="text" value="<?php echo $datosVista["codigo"]; ?>"      
+                        maxlength="5" pattern=".{5,}" title="5 caracteres para un código real" required >
+                    </div>  
 
-   <div class="form-group col-md-4">
-     <label class="control-label">Precio Unitario ($) </label>
-      <input id="precio_unitario" name="precio_unitario" type="precio_unitario" 
-      type="text" onkeypress="return validaNumericos(event)"class="form-control" autocomplete="off" value="<?php echo $verdatos["precio_unitario"]; ?>" required>
-    </div>
-     <br>
-   <div class="form-group col-md-4">
-     <label class="control-label">Precio Venta ($) </label>
-      <input id="precio_venta" name="precio_venta"  type="precio_venta" 
-      type="text" onkeypress="return validaNumericos(event)" class="form-control" autocomplete="off"  value="<?php echo $verdatos["precio_venta"]; ?>"required>
-    </div>
+                    <div class="col-md-4">
+                      <label for="tipo">Tipo</label>
+                       <select name="tipo" id="tipo" class="form-control" value="<?php echo $datosVista["tipo"]; ?>" required>
+                       <option value="MOTO">MOTO</option>
+                       <option value="AUTO">AUTO</option>
+                       </select>
+                     </div>
 
-   
-    <div class="form-group col-md-4">
+                      <div class="col-md-4">
+                      <label for="precio_unitario">Precio Unitario ($)</label>
+                      <input id="precio_unitario" name="precio_unitario" class="form-control" type="text" value="<?php echo $datosVista["precio_unitario"]; ?>"      
+                         required >
+                    </div>  
+
+                    <div class="col-md-4">
+                      <label for="precio_venta">Precio Venta ($)</label>
+                      <input id="precio_venta" name="precio_venta" class="form-control" type="text" value="<?php echo $datosVista["precio_venta"]; ?>"      
+                         required >
+                    </div>  
+
+                    <div class="col-md-4">
+
     <label class="control-label">Fecha</label>
-      <input id="fecha_venta" name="fecha_venta" type="date" class="form-control">
-     <?php   $fecha_venta=date('Y-m-d')?>
-    </div> 
-     </div>
-                 
+    <?php   $fecha_venta=date('Y-m-d')?>
+  
+      <input id="fecha_venta"  min="<?php echo $fecha_venta; ?>" 
+      name="fecha_venta" type="date" value="<?php echo $fecha_venta; ?>"
+      class="form-control"  max="<?php echo $fecha_venta; ?>" >
+   
+    </div>
+
+
+              
+                 <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idproducto"]; ?>" >
+                  
                   <!-- Modal footer -->
       <div class="tile-footer">
         <button type="submit" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
@@ -168,7 +182,9 @@ alertify.defaults.theme.input = "form-control";
         <a href="bateriaInicio.php"  class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i> Atras</a>
       </div>
-          
+          <?php
+                     $editarBateria->actualizarBateriasController();
+                     ?>
            </form>     
        </div>
          
@@ -176,7 +192,7 @@ alertify.defaults.theme.input = "form-control";
               
           
            </div> 
-        
+   
       </div>
       </main>
       

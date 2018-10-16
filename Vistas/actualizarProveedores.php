@@ -1,11 +1,9 @@
 
 <?php 
 
-#--------------------Made by Harvin Ramos---------------
+
 require_once"../Controladores/ControladorActualizarProveedor.php";
-#-------------------------------------------------------------
-#-se instancia y se llama a la funcion en el controlador que se encarga de llamar al modelo que ejecuta la consulta devolviendo un array para luego poner los datos del usuario seleccionado
-#---------------------------------------------------------------
+
 $editarProveedor=new ActualizarProveedorController();
 $datosVista=$editarProveedor->editarProveedorController();
 
@@ -14,7 +12,7 @@ $datosVista=$editarProveedor->editarProveedorController();
 <html lang="es">
 <head>
 
-    <title>Editar Proveedores</title>
+    <title>Editar Proveedor</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,10 +91,9 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       
-       <div class="app-title">
+        <div class="app-title">
         <div >
-          <h1><i class="fa fa-inbox"   style="font-size:25px;color:orange"></i>  Editar Proveedor</h1>
+          <h1><i class="app-menu__icon fa fa-file-text-o" style="font-size:25px;color:orange"></i>  Editar Proveedor</h1>
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -105,46 +102,40 @@ alertify.defaults.theme.input = "form-control";
         </ul>
  </div>
        
-       <div class="row">
-           
-  
-    
-
      
-<div class="col-md-12">
-      
-      <div class="tile">
-       
+       <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
 
+          <div class="tile-body">
                  <form method="post" onsubmit="return validarActualizarDatos();">
-                  <div class="row mb-4">
-                    <div class="col-md-4">
-
-                      <label for="nombre">Nombre proveedor</label>
-                      <input id="nombre" name="nombre" class="form-control" type="text" value="<?php echo $datosVista["nombre"]; ?>"      
-                        maxlength="100" pattern=".{5,}" title="7 o mas caracteres para nombre real" required >
-                    </div>
-
-                   <div class="col-md-4">
-                      <label for="telefono">Teléfono</label>
-                      <input id="telefono" name="telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" required autocomplete="off">
-                    </div>
-
-                     <div class="col-md-4">
-                      <label>Email</label>
-                      <input id="email" name="email" class="form-control" type="email" required value="<?php echo $datosVista["email"]; ?>" autocomplete="off">
-                    </div>
                  
-                <div class="col-md-4">
-                      <label>Dirección</label>
-                      <input id="direccion" name="direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
+         
+
+                    <div class="form-group col-md-6">
+                  <label class="control-label" for="Nombre">Nombre</label>
+                  <input id="Nombre" name="Nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100"  pattern=".{4,}" title="4 o mas caracteres para nombre real" value="<?php echo $datosVista["nombre"]; ?>" onkeypress="return soloLetras(event)"  required autocomplete="off">
+                </div>
+
+
+                    <div class="form-group col-md-6">
+                      <label class="control-label" for="Telefono">Teléfono</label>
+                      <input id="Telefono" name="Telefono" class="form-control" type="text" value="<?php echo $datosVista["telefono"]; ?>" autocomplete="off" required>
                     </div>
                    
-                  </div>   
-                    
-              
+                     <div class="form-group col-md-6">
+                      <label class="control-label" >Email</label>
+                      <input id="Email" name="Email" class="form-control" placeholder="E-mail" type="email" required value="<?php echo $datosVista["email"]; ?>" autocomplete="off">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label>Dirección</label>
+                      <input id="Direccion" name="Direccion" value="<?php echo $datosVista["direccion"]; ?>"class="form-control" type="text"  autocomplete="off" required>
+                    </div>
+
+                   
                  <input id="id" name="id" type="hidden" value="<?php echo $datosVista["idproveedor"]; ?>" >
-                  
+                 
                   <!-- Modal footer -->
       <div class="tile-footer">
         <button type="submit" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
@@ -152,7 +143,7 @@ alertify.defaults.theme.input = "form-control";
         <a href="mostrarProveedores.php"  class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i> Atras</a>
       </div>
-          <?php
+      <?php
                      $editarProveedor->actualizarProveedorController();
                      ?>
            </form>     
@@ -176,17 +167,28 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/main.js"></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     
-       <script type="text/javascript">
+      <script type="text/javascript">
       
  jQuery(function($){
             // Definimos las mascaras para cada input
             
-            $("#telefono").mask("9999-9999");
+            $("#Telefono").mask("9999-9999");
+      
+            
+        });
+    jQuery(function($){
+            // Definimos las mascaras para cada input
+            
+            
+            
+
             
         });
           
+          
         
     </script>
+    
     
     <script>
    
@@ -199,6 +201,9 @@ alertify.defaults.theme.input = "form-control";
 } 
         
     </script>
+    
+   
+    
     
     </body>
 </html>

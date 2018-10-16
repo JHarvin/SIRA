@@ -1,6 +1,7 @@
 
 <?php 
 require_once"../Controladores/ControladorRegistrarProveedor.php";
+
 ?>
 
 
@@ -75,65 +76,61 @@ alertify.defaults.theme.input = "form-control";
     include"menuVentas.php";
     ?>
       <main class="app-content">
-        <div class="app-title">
-        <div>
-          <h1><i class="app-menu__icon fa fa-file-text-o" style="font-size:24px;color:#F7861D" ></i> Agregar Proveedores</h1>
-           <p>Rent a Car Chacón </p>
+
+       <div class="app-title">
+        <div >
+          <h1><i class="app-menu__icon fa fa-file-text-o"  style="font-size:25px;color:orange"></i>  Agregar Proveedores</h1>
+          <p>Rent a Car Chacón </p>
         </div>
-        
-      </div>
-       
+        <ul class="app-breadcrumb breadcrumb">
+          
+          
+        </ul>
+ </div>
        
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
-         
+          
             <div class="tile-body">
               <form id="formulario_registro" name="form1" method="post" onsubmit="return validarRegistro();" class="row">
-                <div class="form-group col-md-6">
-                  <label class="control-label" for="nombre">Nombre</label>
-                  <input id="nombre" autocomplete="off" name="nombre" class="form-control" type="text" placeholder="Nombre" 
-                  maxlength="100"   value="" required>
-                </div>
-                <div class=" col-md-6">
-                  <label class="control-label">Teléfono</label>
-                  <input id="telefono" name="telefono" class="form-control" 
-                  type="telefono" placeholder="Ingrese número de teléfono" 
-                  maxlength="9"  autocomplete="off" value=""   required>
-                </div>
+                
 
-                <div  class=" col-md-6">
-                  <label  class="control-label">E-mail</label>
-                  <input id="email" type="email" class="form-control"  placeholder="E-mail" 
-                   name="email"  autocomplete="off" onkeypress=" return ValidateEmail(email)"  required >
+                 <div class="form-group col-md-6">
+                  <label class="control-label" for="nombre">Nombre</label>
+                  <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" 
+                  maxlength="100"  pattern=".{4,}" title="4 o mas caracteres para nombre real" onkeypress="return soloLetras(event)" value="" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Teléfono</label>
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese número de teléfono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required autocomplete="off">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email" class="control-label">E-mail</label>
+                  <input type="email" class="form-control" placeholder="E-mail" id="email" name="email" value="" required autocomplete="off">
                 </div>
 
         
                 
                 <div class="form-group col-md-6">
-                  <label for="direccion" class="control-label">Dirección</label>
-                  <input type="text" class="form-control" 
-                  placeholder="Dirección"  autocomplete="off"  id="direccion" name="direccion"  required >
+                  <label class="control-label">Dirección</label>
+                  <textarea id="direccion" name="direccion" class="form-control" rows="" placeholder="Ingrese su dirección" value="" required></textarea>
                 </div>
-                
-                
-                
-              
                
                 <div class="tile-footer">
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
               type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
 
+              
+              
+              </form>
                <?php 
                 #--para guardar registros se llama a la clase y funcion
                 $registro= new RegistrarProveedorController();
                 $registro->registrarProveedor();
                 
                 ?>
-              
-              </form>
-              
                
             </div>
            
@@ -182,7 +179,7 @@ alertify.defaults.theme.input = "form-control";
 var mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 if(email.value.match(mailformat)) 
 { 
-alert("Gracias, Direccion de Email valida"); 
+alert("Gracias, Direccion de Email valida"); <--------------
 document.form1.email.focus();
 
 return true; 
