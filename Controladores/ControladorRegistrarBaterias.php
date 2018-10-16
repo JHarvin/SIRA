@@ -15,7 +15,7 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
           ){
             
    $datosBateriasController =array("tipo"=>$_POST["tipo"], 
-          "codigo"=>$_POST["codigo"], 
+          "codigo"=>strtoupper($_POST["codigo"]), 
         "idproveedor"=>$_POST["idproveedor"],
         "precio_venta"=>$_POST["precio_venta"],
         "fecha_venta"=>$_POST["fecha_venta"],
@@ -85,8 +85,9 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
         <tr>
                   <td>'.$item["tipo"].'</td>
                   <td>'.$item["codigo"].' </td>
-                  <td>'.$item["precio_unitario"].'</td>
                   <td>'.$item["nombre"].'</td>
+                  <td>'.$item["precio_unitario"].'</td>
+                  
                   <td>'.$item["precio_venta"].'</td>
                   <td>'.$item["fecha_venta"].'</td>
                               
@@ -94,7 +95,7 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
                    <div class="btn-group" role="group">
                   <a href="actualizarbaterias.php?id='.$item["idproducto"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   >
                   <i class="fa fa-edit"></i></a>
-                  <a href="" class="btn btn-danger" onclick=""><i class="icon fa fa-cart-plus fa-3x"></i></a>
+                  <a href="generarVentas.php" class="btn btn-danger" onclick=""><i class="icon fa fa-cart-plus fa-3x"></i></a>
                   </td>
 
           </tr>

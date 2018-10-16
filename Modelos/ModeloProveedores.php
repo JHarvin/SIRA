@@ -4,8 +4,8 @@ require_once"Conexion.php";
 
 class DatosProveedor extends Conexion
 {
-     #-----------------------------------------------------
-    #Para validar que no se repita el email del proveedor
+     #-----------------------------------------------------cd
+    #Para validar que no se repita el email del proveedor sssxsxsxs
     #-----------------------------------------------------
      public function validarEmail($email,$tabla){
         $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where email=:email");
@@ -66,6 +66,39 @@ public function mostrarProveedoresModel($tabla){
         return $stmt->fetchAll();
         $stmt->close();
         
+    }
+
+        //Para habilitar proveedores
+        public function habilitarProvModel($id,$tabla){
+         $stado=1;
+         $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET status=:estado WHERE idproveedor= :id");
+         $stmt->bindParam(":estado",$stado,PDO::PARAM_INT); 
+         $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+        
+        if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+    }
+
+
+     #para inhabilitar
+    public function inhabilitarProvModel($id,$tabla){
+        $stado=0;
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla SET status=:estado WHERE idproveedor= :id");
+        $stmt->bindParam(":estado",$stado,PDO::PARAM_INT); 
+        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+        
+        if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
     }
 }
 ?>

@@ -173,18 +173,8 @@ alertify.defaults.theme.input = "form-control";
             // Definimos las mascaras para cada input
             
             $("#Telefono").mask("9999-9999");
-      
             
         });
-    jQuery(function($){
-            // Definimos las mascaras para cada input
-            
-            
-            
-
-            
-        });
-          
           
         
     </script>
