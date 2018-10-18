@@ -1,4 +1,13 @@
 <!-- Navbar-->
+   <?php 
+session_start();
+if(!empty($_SESSION["usuario"])){
+    
+$usuario=$_SESSION["usuario"];
+    
+    
+}
+?>
     <header class="app-header" style="background-color:#7f8be8;"><a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">rentalSys</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
@@ -15,7 +24,7 @@
          
           </li>
         <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg">Sesión</i></a>
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"><?php echo " ".$usuario; ?></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
 
             

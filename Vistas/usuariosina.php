@@ -90,12 +90,6 @@ alertify.defaults.theme.input = "form-control";
 
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 61ebd700e7ea828b9d0fa1add606893dba3b2394
          
 
           
@@ -106,20 +100,13 @@ alertify.defaults.theme.input = "form-control";
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
-<<<<<<< HEAD
-=======
 
->>>>>>> 61ebd700e7ea828b9d0fa1add606893dba3b2394
 
             <h3 class="tile-title">Usuarios inhabilitados</h3>
 
 
             
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 61ebd700e7ea828b9d0fa1add606893dba3b2394
 
 
             
@@ -143,10 +130,7 @@ alertify.defaults.theme.input = "form-control";
               <tbody>
                
                <?php 
-<<<<<<< HEAD
-=======
 
->>>>>>> 61ebd700e7ea828b9d0fa1add606893dba3b2394
 
 
                   #--Llamamos al controlador antes instanciando la clase
@@ -220,12 +204,6 @@ alertify.defaults.theme.input = "form-control";
 
 
 
-<<<<<<< HEAD
-        
-
-
-=======
->>>>>>> 61ebd700e7ea828b9d0fa1add606893dba3b2394
         <h4 class="modal-title">Seleccione </h4>
 
      
@@ -260,11 +238,6 @@ alertify.defaults.theme.input = "form-control";
       <div class="modal-footer">
 
 
-<<<<<<< HEAD
-     
-
-=======
->>>>>>> 61ebd700e7ea828b9d0fa1add606893dba3b2394
   
 
 

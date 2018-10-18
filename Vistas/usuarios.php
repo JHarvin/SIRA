@@ -195,7 +195,7 @@ alertify.defaults.theme.input = "form-control";
               <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
           
-    
+    <p>Si tiene sesion iniciada, la proxima vez que inicie no podra hacerlo</p>
                  <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
 

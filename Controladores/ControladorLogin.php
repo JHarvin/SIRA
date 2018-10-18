@@ -32,7 +32,7 @@ class MvcController{
                 
                session_start();
                 $_SESSION["validar"]=true;
-               
+               $_SESSION["usuario"]=$respuesta["username"];
                 header("location:Vistas/inicio.php"); 
                 
                 
