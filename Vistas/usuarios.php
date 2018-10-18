@@ -1,6 +1,14 @@
 <?php 
 require_once "../Controladores/ControladorMostrarUsuarios.php";
+session_start();
+if(!empty($_SESSION["usuario"])){
+    
+$usuario=$_SESSION["usuario"];
+    
+    
+}
 ?>
+
 <html lang="es">
 <head>
 
@@ -86,7 +94,7 @@ alertify.defaults.theme.input = "form-control";
         </div>
         
       </div>
-       
+       <input type="hidden" id="usuario" name="usuario" class="form-control" value="<?php echo "".$usuario?>">
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
@@ -139,7 +147,7 @@ alertify.defaults.theme.input = "form-control";
       </div>
       </main>
       
-      <!-- Modal -->
+      <!-- Modal que avisa que elusuario no s epuede modificar porque a iniciado sesion -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -147,7 +155,7 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="btn close" data-dismiss="modal"></button>
-        <h4 class="modal-title">Modificar Username</h4>
+        <h4 class="modal-title">Error</h4>
       </div>
       <div class="modal-body">
         <p>Username anterior. </p>
@@ -170,6 +178,61 @@ alertify.defaults.theme.input = "form-control";
   </div>
 </div>
      
+      <div class="modal" id="cancelar">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+
+        <h4 class="modal-title">Seleccione </h4>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <div class="row">
+                 <div> 
+                 <img src="../images/pregunta.png" alt="">
+                 </div>
+                 
+              <label for="nombreU" style="font-size:16px;">No puede Inhabilitarse ha iniciado sesion  </label>
+                <b><p id="nombreU" style="font-size:16px;"></p></b>
+          
+    <p>Si tiene sesion iniciada, la proxima vez que inicie no podra hacerlo</p>
+                 <input type="hidden" id="ide" name="ide" class="form-control">
+                </div>
+
+       </div>
+
+       
+    
+            <div class="modal-footer">
+
+
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i>Aceptar</button>
+
+     
+      
+     
+
+
+        
+      
+      </div>
+              
+          </div>
+
+          
+          
+          
+     
+      <!-- Modal footer -->
+      
+
+    </div>
+  </div>
       
       <!-- modal para modificar los datos de los usuarios  solo los hice de prueba por si los necesitaba-->
        
@@ -327,7 +390,14 @@ alertify.defaults.theme.input = "form-control";
             
             $("#btnInhabilitar").click(function(){
                 
+                var usuario=$("#usuario").val();
+                
                 var idEliminar=$("#ide").val();
+                
+                if(usuario==idEliminar){
+                    $("#cancelar").modal();
+                }
+                
             inhabilitar(idEliminar);
                 
             });
