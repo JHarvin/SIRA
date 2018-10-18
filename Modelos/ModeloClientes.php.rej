@@ -1,0 +1,9 @@
+diff a/Modelos/ModeloClientes.php b/Modelos/ModeloClientes.php	(rejected hunks)
+@@ -97,6 +97,7 @@
+        
+         
+       
++<<<<<<< HEAD
+ 
+        
+       // $stmt->execute();
