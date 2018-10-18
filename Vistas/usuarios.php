@@ -87,19 +87,20 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       <div class="app-title">
+      
+ <div class="app-title">
         <div>
-          <h1><i class="fa fa-id-card"></i> Usuarios Habilitados</h1>
-          
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Usuarios habilitados</h1>
+          <p>Rent a Car Chacón </p>
         </div>
         
-      </div>
+ </div>
        <input type="hidden" id="usuario" name="usuario" class="form-control" value="<?php echo "".$usuario?>">
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
             
-            <h3 class="tile-title">Usuarios</h3>
+            
              
            
 

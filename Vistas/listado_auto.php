@@ -77,20 +77,20 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       <div class="app-title">
+       
+ <div class="app-title">
         <div>
-          <h1><i class="fa fa-car"></i> Autos registrados</h1>
-
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Autos registrados</h1>
+          <p>Rent a Car Chacón </p>
         </div>
-
-      </div>
-
+        
+ </div>
        <div class="row">
       <div class="col-md-12">
          <!--contenedor de la tabla de vehiculos (principal vista)-->
           <div id="contenedorTabla" class="tile">
 
-            <h3 class="tile-title">Autos</h3>
+            
 
 
             <div class="table table-responsive" >

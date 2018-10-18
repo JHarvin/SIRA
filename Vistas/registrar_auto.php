@@ -33,18 +33,18 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
     ?>
      
       <main class="app-content">
-       <div class="app-title">
+         <div class="app-title">
         <div>
-          <h1><i class="fa fa-credit-card"></i> Registrar auto</h1>
-          
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Modificar clientes </h1>
+          <p>Rent a Car Chacón </p>
         </div>
         
-      </div>
+ </div>
        
        <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Registrar</h3>
+            
             <div class="tile-body">
              
               <form method="post" enctype="multipart/form-data"     onsubmit="return validarVehiculo();">

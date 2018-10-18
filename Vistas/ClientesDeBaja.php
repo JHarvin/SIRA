@@ -81,18 +81,17 @@ function inhabilitar(idE){
       <main class="app-content">
        <div class="app-title">
         <div>
-          <h1><i class="fa fa-credit-card"></i> Clientes Inhabilitados</h1>
-          
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Clientes inhabilitados</h1>
+          <p>Rent a Car Chacón </p>
         </div>
         
-      </div>
+ </div>
        
        <div class="row">
       <div class="col-md-12">
 
           <div class="tile">
             
-            <h3 class="tile-title">Clientes</h3>
              
             <div class="table table-responsive">
             <table id="tabla"  class="table table-striped">
