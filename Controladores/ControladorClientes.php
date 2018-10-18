@@ -10,6 +10,7 @@
 #---------Clase encarga de manejar e crud a nivel de controlador..............
 require_once"../Modelos/modeloclienteina.php";
 require_once"../Modelos/ModeloClientes.php";
+require_once"../Modelos/ModeloAlquiler.php";
 class ClientesController{
    
     #FUNCIÓN REGISTRAR
@@ -157,8 +158,9 @@ class ClientesController{
         $respuesta=DatosCliente::mostrarClienteModel("tclientes");
         
         foreach($respuesta as $row =>$item){
-        
-        echo'
+        $verificar=ModeloAlquilar::verificarClienteAlquilerModel($item["dui"]);
+            if($verificar=="success"){
+                 echo'
         
         <tr>
                   <td>'.$item["nombre"].'</td>
@@ -172,7 +174,36 @@ class ClientesController{
                   
                   
                   <td>'.$item["genero"].'</td>
-                 <td>C.Vigente</td>
+                 <td>con alquiler</td>
+                  
+                  <td>
+                  
+                   <div class="btn-group" role="group">
+                  <button disabled id="btnAlquilar" name="btnEditar" class="btn btn-success"   data-toggle="modal" data-target="#modalTiempo"><i class="fa fa-plane"></i></button>
+                  
+                  </div>
+                  </td>
+                 
+                </tr>
+        
+        ';
+            }
+            else{
+                 echo'
+        
+        <tr>
+                  <td>'.$item["nombre"].'</td>
+                  <td>'.$item["telefono"].'
+                  
+                  </td>
+                  <td>'.$item["direccion"].'</td>
+                  <td>'.$item["dui"].'</td>
+                  <td>'.$item["licencia_de_conducir"].'</td>
+                  
+                  
+                  
+                  <td>'.$item["genero"].'</td>
+                 <td>Sin alquiler</td>
                   
                   <td>
                   
@@ -185,6 +216,8 @@ class ClientesController{
                 </tr>
         
         ';
+            }
+       
         }
     }
     public function editarClientesController(){

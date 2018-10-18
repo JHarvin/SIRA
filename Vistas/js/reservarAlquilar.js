@@ -31,13 +31,13 @@ function alquilarVehiculo(placa,dui,fechaAlquiler,fechaDevolución){
         if(respuesta==1){
          
            
-          location.reload();  
+           $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
           alertify.success("Auto en alquiler");
            
             
     }
           else if(respuesta!=1){
-           location.reload();  
+            $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
           alertify.success("Auto en alquiler");
               
           }
@@ -79,6 +79,7 @@ divM.insertAdjacentHTML('afterend', '<div class="alert alert-danger alert-dismis
     }
     
     else{
+         
         //Aqui va ir el ajax para alquilar el auto
         alquilarVehiculo(placa,dui,fechaInicio,fechaFin);
     }

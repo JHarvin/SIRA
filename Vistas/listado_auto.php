@@ -112,7 +112,7 @@ alertify.defaults.theme.input = "form-control";
                  <th hidden></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tcuerpo">
                 <?php
                   $mostrar=new RegistrarVehiculoController();
                   $mostrar->mostrarVehiculosController();
@@ -457,13 +457,11 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                  <button type="button" class="btn btn-primary" onclick="reservar()">
+                  <button type="button" class="btn btn-primary" onclick="reservar()" data-dismiss="modal">
                <i class="fa fa-get-pocket"></i>
-               Reservar</button>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalContrato" data-dismiss="modal">
-               <i class="fa fa-clipboard"></i>
-               Rentar y ver contrato</button>
-                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+               Alquilar</button>
+        
+                <button class="btn btn-info" data-dismiss="modal"><i class="fa fa-ban"></i>Cancelar</button>
               </div>
 
             </div>
