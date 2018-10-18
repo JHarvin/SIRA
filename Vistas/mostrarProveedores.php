@@ -1,12 +1,26 @@
 <?php 
-//Llamado al controlador
+
 require_once "../Controladores/ControladorRegistrarProveedor.php";
-require_once "../Controladores/ControladorActualizarProveedor.php";
+
+/*
+if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
+
+en pocas palabras es la encarga de mostrar el mensaje de actualizado
+
+*/
+
+if(isset($_GET["ok"]) && !empty($_GET["ok"])){
+    
+    echo'
+    <script>
+    alertify.success("Registro Actualizado ");
+    </script>
+    ';
+    
+}
+
 ?>
-
 <html lang="es">
-
-
 <head>
 
     <title>Mostrar Proveedores</title>
@@ -25,110 +39,184 @@ require_once "../Controladores/ControladorActualizarProveedor.php";
     <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
     <script src="../js/alertify.min.js"></script>
-    <script src="../Vistas/js/validarRegistro.js"></script>
+<script src="../Vistas/js/validarRegistro.js"></script>
 
-      <script type="text/javascript">
-      //override defaults
-      alertify.defaults.transition = "slide";
-      alertify.defaults.theme.ok = "btn btn-primary";
-      alertify.defaults.theme.cancel = "btn btn-danger";
-      alertify.defaults.theme.input = "form-control";
-      </script>
+<script type="text/javascript">
+//override defaults
+alertify.defaults.transition = "slide";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+</script>
 
+<script>
+  //----------funcion ajax
+    function inhabilitar(idE){
+        var datos=new FormData();
+    datos.append("id",idE);
+        
+         $.ajax({
+        
+        type: "POST",
+        url: "ajaxprovinhabilitar.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        
+        success:function(r){
+         
+
+        if(r==1){
+    
+           // setTimeout(alertify.success("Usuario inhabilitado"),5000);
+    
+           $("#tabla").load("mostrarProveedores.php #tabla > *");
+            alertify.success("Proveedor inhabilitado")
+            
+    }
+          else if(r!=1){
+           
+              alertify.error("Algo salio mal"+r);
+              
+          }
+            else{
+              //  $("#table").load();
+                
+                alert("Error -> "+r  );}
+        
+    }
+        
+        
+    });
+        
+    }
+     
+    
+    </script>
 
 <script>
   //----------funcion ajax
     function eliminar(idE){
-    var datos=new FormData();
+        var datos=new FormData();
     datos.append("idb",idE);
+        
+        
          $.ajax({
         
-          type: "POST",
-          url: "../Controladores/ControladorAjaxEliminar.php",
-          data: datos,
-          cache:false,
-          contentType:false,
-          processData:false,
+        type: "POST",
+        url: "../Controladores/ControladorAjaxEliminar.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
         
-        success:function(r){        
+        success:function(r){
+         
 
         if(r==1){
-        // $(".table").load("../Vistas/usuarios.php");
-        toastr.success("Eliminado");
-       }else if(r!=1){
-           alert("diferente "+r);
-              }else{
+        
+           // $(".table").load("../Vistas/usuarios.php");
+            toastr.success("Eliminado");
+    }
+          else if(r!=1){
+           
+              alert("diferente "+r);
+              
+          }
+            else{
               //  $("#table").load();
-                alert("Error -> "+r  );
-              }
-        }
+                
+                alert("Error -> "+r  );}
+        
+    }
         
         
-    });//Aqui termina el Ajax
+    });
         
-    }//final de la funcion Ajax
-     </script>
-</head>
-
-
+    }
+     
+    
+    </script>
+</head>      
 <body class="app sidebar-mini rtl">
      <?php 
     include"menuVentas.php";
     ?>
       <main class="app-content">
-      <!--Para el titulo-->
        <div class="app-title">
         <div >
-          <h1><i class="app-menu__icon fa fa-file-text-o"  style="font-size:25px;color:orange"></i>  Mostrar Proveedores</h1>
+          <h1><i class="app-menu__icon fa fa-file-text-o"   style="font-size:25px;color:orange"></i> Proveedores Habilitados</h1>
           <p>Rent a Car Chacón </p>
         </div>
-      </div>
+        <ul class="app-breadcrumb breadcrumb">
+          
+          
+        </ul>
+ </div>
        
-       <div class="col-md-12">
-       <div class="row" >
-         <div class="tile"  >
-         <h3 class="tile-title" ></h3>
+       <div class="row">
+      <div class="col-md-12">
+          <div class="tile">
+            
+            <h3 class="tile-title"></h3>
             <!-- Search form -->
  
-        <div class="table table-responsive" style="font-size:20px;color:blue" >
-            <table id="tabla"  class="table table-striped"  >
+        <div class="table table-responsive">
+            <table id="tabla"  class="table table-striped" >
               <thead>
                 <tr>
 
                   <th >Nombre</th>
                   <th>Teléfono</th>
-                  <th>Email</th>
+                   <th>Email</th>
                   <th>Dirección</th>
-                  <th>Estado</th>
-                
-                  <th hidden></th>
+                   <th>Estado</th>
+                    <th>Acciones</th>
+        
+                 
+                 <th hidden></th>
                  
                 </tr>
               </thead>
-          <tbody>
+              <tbody>
                
                <?php 
+                   
                   $proveedor=new RegistrarProveedorController();
-                  $proveedor->mostrarProveedores();                  
-                ?>
-          </tbody>
-          </table>
+                  $proveedor->mostrarProveedores();
+                  
+                  ?>
+                  
+                
+              </tbody>
+            </table>
+              </div>
           </div>
         </div>
-        </div>
-        </div>
+        
+        
+        
+      </div>
       </main>
       
-      <!-- Modal para habilitar o inhabilitar a proveedores-->
+      <!-- Modal -->
 
+     
+      
+        
        <div class="modal" id="modalValidar">
-       <div class="modal-dialog modal-md">
-       <div class="modal-content">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-      <h4 class="modal-title">Seleccione </h4>
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        <h4 class="modal-title">Seleccione </h4>
+
+      
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
@@ -137,17 +225,22 @@ require_once "../Controladores/ControladorActualizarProveedor.php";
                  <div> 
                  <img src="../images/pregunta.png" alt="">
                  </div>
-                 <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+                 
+              <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
+          
+    
                  <input type="hidden" id="ide" name="ide" class="form-control">
                 </div>
 
        </div>
 
-       
-      <div class="modal-footer">
+            <div class="modal-footer">
+
+
       <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
       </div>
               
@@ -155,6 +248,9 @@ require_once "../Controladores/ControladorActualizarProveedor.php";
     </div>
   </div>
 
+        <!-- fin modal datos de los usuarios -->
+          
+      
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -190,17 +286,19 @@ require_once "../Controladores/ControladorActualizarProveedor.php";
 } );
     
     </script>
-     <script>
-    alertify.set('notifier','position', 'top-right');
-    </script>
+     
      
       <script type="text/javascript">
       
-            jQuery(function($){
+ jQuery(function($){
             // Definimos las mascaras para cada input, se valida automaticamente
+            
             $("#updateTelefono").mask("9999-9999");
-            });
-      </script>
+            
+        });
+          
+        
+    </script>
     
     
     <script>
@@ -237,7 +335,7 @@ toastr.options = {
     <script>
       $(function () {
 
-  $('#search').quicksearch('table tbody tr');               
+  $('#search').quicksearch('table tbody tr');								
 });
     </script>
     
@@ -254,11 +352,12 @@ toastr.options = {
          
         
           $("#nombreU").text(nombre+"?");
-          $("#idDelete").text(id);
+          $("#ide").val(id);
   
 });
     </script>
-    <script>
+    
+     <script>
     //accion para inhabilitar usuario
         $(document).ready(function(){
             
@@ -272,7 +371,6 @@ toastr.options = {
         });
         
     </script>
-    
     
     <script>
     
@@ -288,8 +386,6 @@ toastr.options = {
         });
         
     </script>
-
-
     
     </body>
 </html>

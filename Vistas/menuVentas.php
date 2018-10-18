@@ -30,7 +30,13 @@
     <aside class="app-sidebar">
       
       <ul class="app-menu">
-        <li><a class="app-menu__item active" href="bateriaInicio.php"><i class="app-menu__icon fa fa-folder-open"></i><span class="app-menu__label">Catalogo</span></a></li>
+ <li class="treeview"><a class="app-menu__item" href="" data-toggle="treeview"><i class="app-menu__icon fa fa-folder-open"></i><span class="app-menu__label">Catálogo baterias</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bateriaInicio.php"><i class="icon fa fa-circle-o"></i> Baterias Disponibles</a></li>
+            <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Baterias en Garantia</a></li>
+          
+          </ul>
+        </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-shopping-cart"></i><span class="app-menu__label">Ventas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="generarVentas.php"><i class="icon fa fa-circle-o"></i> Generar Ventas</a></li>
@@ -57,8 +63,8 @@
            
             
             <li><a class="treeview-item" href="agregarproveedores.php"><i class="icon fa fa-circle-o"></i> Agregar Proveedores</a></li>
-            <li><a class="treeview-item" href="mostrarProveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores Registrados</a></li>
-            <li><a class="treeview-item" href="mostrarProveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores dados de baja</a></li>
+            <li><a class="treeview-item" href="mostrarProveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores Habilitados</a></li>
+            <li><a class="treeview-item" href="proveedoresInhabilitados.php"><i class="icon fa fa-circle-o"></i> Proveedores Inhabilitados</a></li>
             
           </ul>
         </li>

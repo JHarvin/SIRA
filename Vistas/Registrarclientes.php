@@ -121,13 +121,13 @@ function soloLetras(e) {
            <label class="control-label" for="nombre">Nombre:</label>
            <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" autofocus placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
            </div>
-           <div class="form-group col-md-2">
+           <div class="form-group col-md-3">
            <label class="control-label">Género:</label>
            <div class="form-check">
            <label class="form-check-label" >
-           <input class="form-check-input" type="radio" id="masculino" name="sexo" value="Masculino">  Masculino </label>
+           <input class="form-check-input" style="Margin-right: 30px;" type="radio" id="masculino" name="sexo" value="Masculino">  Masculino </label>
           
-           <label class="form-check-label" style="Margin-left: 20px;">
+           <label class="form-check-label" style="Margin-left: 60px;">
            <input class="form-check-input"    type="radio" id="femenino" name="sexo" value="Femenino">Femenino</label>
            
            </div>

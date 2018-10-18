@@ -1,5 +1,5 @@
 <?php 
-#Clase para registrar un nuevo proveedor
+//require_once "../Controladores/ControladorRegistrarProveedor.php";
 require_once"../Modelos/ModeloProveedores.php";
 
  class RegistrarProveedorController
@@ -11,7 +11,7 @@ require_once"../Modelos/ModeloProveedores.php";
           isset($_POST["email"]) && !empty($_POST["email"]) &&
            isset($_POST["direccion"]) && !empty($_POST["direccion"])
           ){
-
+ 
 
        
             
@@ -20,9 +20,11 @@ require_once"../Modelos/ModeloProveedores.php";
         "email"=>$_POST["email"],
         "direccion"=>$_POST["direccion"]);
         #Para validar email y nombre de proveedor-----------------<--------<---<----
-        $validarEmail=DatosProveedor::validarEmail($_POST["email"],"tproveedores");
+        
         $validarNombre=DatosProveedor::validarNombre($_POST["nombre"],"tproveedores");
-        if($validarNombre=="error" || $validarEmail=="success"){
+        $validarEmail=DatosProveedor::validarEmail($_POST["email"],"tproveedores");
+
+        if($validarNombre=="error" || $validarEmail=="error"){
              echo' 
              
             <script type="text/javascript">
@@ -33,7 +35,7 @@ require_once"../Modelos/ModeloProveedores.php";
             </script>
             ';  
         }
-        else if($validarNombre=="success" && $validarEmail=="success"){
+        else if($validarNombre=="success" || $validarEmail=="success"){
             
             $respuesta=DatosProveedor::registroProveedorModel($datosProveedorController,"tproveedores");
    
@@ -97,39 +99,89 @@ require_once"../Modelos/ModeloProveedores.php";
      }
 
 
-        
+        //Mostrar los proveedores habilitados
         public function mostrarProveedores(){
         
-         $respuesta=DatosProveedor::mostrarProveedoresModel("tproveedores");
+         $respuesta=DatosProveedor::mostrarProveedoresModel("tproveedores where status=1");
         
         foreach($respuesta as $row =>$item){
-        
+        if ($item["status"]==1) {
+         
         echo'
-        
         <tr>
                   <td>'.$item["nombre"].'</td>
                   <td>'.$item["telefono"].' </td>
                   <td>'.$item["email"].'</td>
                   <td>'.$item["direccion"].'</td>
-                  <td>'.$item["status"].'</td>
-                 
-                  
+                  <td>Habilitado</td>
+                   
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" style="background-color:#3F3933" class="btn btn-info"  ><i class="fa fa-edit" ></i></a>
-                  <a href=".php?idb='.$item["idproveedor"].'" class="btn btn-danger" style="background-color:#FF3F00" onclick=""><i class="fa fa-trash-o"></i></a>
+                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="mostrarProveedores.php"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i i class="fa fa-arrow-circle-down"></i></a>
+                  </td>
                   </div>
                   </td>
-                 
-                </tr>
+                  <td hidden>'.$item["idproveedor"].'</td>
+        </tr>
         
         ';
         }
+      }  
+    }
+//Funcion que miestra los proveedores que estas inahabilitados
+     public function provInahabilitadosController(){
         
+        $respuesta= DatosProveedor::mostrarProveedoresModel("tproveedores where status=0");
+        
+        foreach($respuesta as $row =>$item){
+        if($item["status"]==0){//inicio if
+         
+        echo'
+        
+        <tr>
+                  <td>'.$item["nombre"].'</td>
+                  <td>'.$item["telefono"].'</td>
+                  <td>'.$item["direccion"].'</td>
+                  <td>'.$item["email"].'</td>
+                  <td>Deshabilitado</td>
+                
+                  <td>
+                  <div class="btn-group" role="group">
+                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="mostrarproveedor.php"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
+                  </div>
+                  </td>
+                 <td hidden>'.$item["idproveedor"].'</td>
+       </tr>
+        
+        ';
+        }//fin de if
+    }//fin de foreach
+  }
+
+
+   //para habilitar a los proveedores
+    public function habilitarProvController($id){
+         $respuesta=DatosProveedor::habilitarProvModel($id,"tproveedores");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
+    }
+
+    //para inabilitar a los proveedores
+    public function inhabilitarController($id){
+         
+        $respuesta=DatosProveedor::inhabilitarProvModel($id,"tproveedores");
+        
+        if($respuesta=="success"){
+            return "success";
+            
+        }else { return "error";}
         
     }
-        
-    
-}
+}//fin de la clase
 ?>
 

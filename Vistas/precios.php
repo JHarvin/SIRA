@@ -133,21 +133,13 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modales -->
       <!------------------------------------------------------------------------->
        
+       <!--modal para editar precio del auto si ya se ingreso por primera vez-->
       
-      
-        
-      
-     
-    
-      
-  <!--------------------------------------------------------->
-   <!--Modal para editar precio del carro--> 
-   <!-------------------------------------------------------------> 
-    <div class="modal fade" id="modalPrecio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalPrecioEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header text-center" style="background-color:#7f8be8;">
-                <h4 class="modal-title w-100 font-weight-bold">Tiempo de alquiler del auto</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Editar precio de alquiler</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -173,6 +165,69 @@ alertify.defaults.theme.input = "form-control";
   <div class="form-group col-md-4">
     <label for="precio">Cambie el precio de alquiler $</label>
     <input type="text" class="form-control" id="precio" autofocus placeholder="digite precio del auto">
+  </div>
+               
+               
+  </div>
+ 
+  
+  
+  
+</form>
+              
+
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+                  <button type="button" class="btn btn-primary" id="btnEditarPrecio" name="btnEditarPrecio">
+               <i class="fa fa-check"></i>
+               Actualizar precio</button>
+       
+                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+              </div>
+               
+            </div>
+        </div>
+    </div>
+</div>    
+        
+      
+     
+    
+      
+  <!--------------------------------------------------------->
+   <!--Modal para agregar precio del carro por primera vez--> 
+   <!-------------------------------------------------------------> 
+    <div class="modal fade" id="modalPrecio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color:#7f8be8;">
+                <h4 class="modal-title w-100 font-weight-bold">Precio por dia de alquiler</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        
+            
+            
+            <div class="modal-body">
+            
+               
+<form>
+  <div id="rowM" class="form-row">
+    
+    
+     <div class="form-group col-md-4">
+    <label for="autoname">Auto</label>
+    <input type="text" class="form-control" id="autoname" disabled>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="placarente">Placas del auto</label>
+    <input type="text" class="form-control" id="placarent" name="placarent" disabled>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="precio">Digite precio $</label>
+    <input type="text" class="form-control" id="precio" name="precio" autofocus placeholder="digite precio del auto">
   </div>
                
                
@@ -291,6 +346,7 @@ alertify.defaults.theme.input = "form-control";
     </script>
      
      <script>
+         
     //Para agregar precios
           $(document).ready(function(){
             
@@ -304,7 +360,20 @@ alertify.defaults.theme.input = "form-control";
         });
     </script>
      
-    
+    <script>
+        //Se usan los mismos nombres que el modal de agregar precios por primera vez
+    //Para editar precios
+          $(document).ready(function(){
+            
+            $("#btnEditarPrecio").click(function(){
+                var placa=$("#placarent").val();
+                var precio=$("#precio").val();
+            updateprecio(precio,placa);
+                
+            });
+            
+        });
+    </script>
    
     
    

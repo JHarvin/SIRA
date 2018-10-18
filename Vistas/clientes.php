@@ -1,10 +1,25 @@
 <?php 
 require_once"../Controladores/ControladorClientes.php";
+
+if(isset($_GET["ok"]) && !empty($_GET["ok"])){
+    
+     echo '
+                <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
+    <script src="../js/alertify.min.js"></script>
+               <script>
+               
+               alertify.success("Datos actualizados correctamente");
+               
+            
+               </script>';
+    
+}
+
 ?>
 <html lang="es">
 <head>
 
-    <title>Clientes habilitados</title>
+    <title>Clientes registrados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +64,7 @@ function inhabilitar(idE){
 
         if(r==1){
         
-          // $("#tabla").load("clientes.php #tabla > *");
+           $("#tabla").load("clientes.php #tabla > *");
             alertify.success("cliente inhabilitado"+r);
             
     }
@@ -155,7 +170,7 @@ function inhabilitar(idE){
                 <b><p id="nombre" style="font-size:16px;"></p></b>
           
              
-                <input id="idDelete" name="idDelete" type="text" >
+                <input id="idDelete" name="idDelete" type="hidden" >
                 </div>
        </div>
           
@@ -166,7 +181,7 @@ function inhabilitar(idE){
       <div class="modal-footer">
 
       
-      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inhabilitar</button>
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
 
      
         
@@ -300,9 +315,7 @@ toastr.options = {
             });
             
         });
-        </script>
-     <script>
-        alertify.set('notifier','position', 'top-right'); 
+        
     </script>
     </body>
 </html>

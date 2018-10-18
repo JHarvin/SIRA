@@ -6,6 +6,8 @@
 require_once"../Modelos/ModeloVehiculos.php";
 #-----------------------------------------------------------------------------
 require_once"../Modelos/ModeloAlquiler.php";
+#-----------------------------------------------------------------------------
+require_once"../Modelos/ModeloPrecios.php";
 class RegistrarVehiculoController{
 
     public function registrarVController(){
@@ -208,8 +210,9 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
         $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
 
          foreach($respuesta as $row =>$item){
-
-        echo'
+             $precio=PreciosModel::obtenerPrecioModel($item["numero_de_placa"],"tprecios");
+             if($precio["contador"]==1){
+                 echo'
 
         <tr>
 
@@ -219,11 +222,13 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                   <td>'.$item["color"].'</td>
 
                   <td>'.$item["tipocombustible"].'</td>
-                  <td>$400</td>
+                  <td>'.$precio["precio"].'</td>
                   <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalPrecio" ><i class="fa fa-money" title="editar precio"></i></a>
+                  <button disabled class="btn btn-primary" data-toggle="modal" data-target="#modalPrecio" ><i class="fa fa-money" title="registrar precio"></i></button>
+                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#modalPrecioEditar" ><i class="fa fa-edit" title="editar precio"></i></a>
+
 
 
                   </div>
@@ -233,6 +238,37 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                 </tr>
 
         ';
+                 
+             }else{
+                 
+                 echo'
+
+        <tr>
+
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$item["color"].'</td>
+
+                  <td>'.$item["tipocombustible"].'</td>
+                  <td>Sin precio</td>
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalPrecio" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button disabled class="btn btn-secondary" data-toggle="modal" data-target="#modalPrecioEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        ';
+             }
+        
         }
         //-----------------FALTA AGREGAR IMAGEN<-------------<--------<-------
     }

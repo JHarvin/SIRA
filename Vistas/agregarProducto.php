@@ -7,7 +7,7 @@ require_once"../Controladores/ControladorRegistrarProveedor.php";
 
 <html lang="es">
  <head>
- <title>Registro  Baterias</title>
+ <title>Agregar baterias</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -139,7 +139,7 @@ alertify.defaults.theme.input = "form-control";
 
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-inbox"></i>  Registro de baterias</h1>
+          <h1><i class="app-menu__icon fa fa-battery-half" style="font-size:25px;color:orange"></i>  Agregar Baterias</h1>
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -176,15 +176,15 @@ alertify.defaults.theme.input = "form-control";
     <div class="form-group col-md-4">
      <label class="control-label">Código</label>
       <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
-      type="text" autocomplete="off" maxlength="5" value=""  required>
+      type="text" autocomplete="off" maxlength="5"  maxlength="100"  pattern=".{5,}" title="5 caracteres para codigo real" value=""  required>
     </div>
 
    
      <div class="form-group col-md-4">
       <label for="tipo">Tipo</label>
       <select name="tipo" id="tipo" class="form-control" required>
-          <option value="moto">Moto</option>
-          <option value="auto">Auto</option>
+          <option value="MOTO">MOTO</option>
+          <option value="AUTO">AUTO</option>
       </select>
     </div>
 

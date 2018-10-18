@@ -124,48 +124,47 @@ alertify.defaults.theme.input = "form-control";
             <h3 class="tile-title">Registrar</h3>
             <div class="tile-body">
               <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label class="control-label" for="nombre">Nombre</label>
                   <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Escriba su nombre completo" maxlength="100"  pattern=".{7,}" title="7 o mas caracteres para nombre real" onkeypress="return soloLetras(event)" value="" required autocomplete="off">
                 </div>
-                <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
+           <label class="control-label">Género:</label>
+           <div class="form-check">
+           <label class="form-check-label" >
+           <input class="form-check-input" style="Margin-right: 30px;" type="radio" id="masculino" name="masculino" value="Masculino">  Masculino </label>
+          
+           <label class="form-check-label" style="Margin-left: 60px;">
+           <input class="form-check-input"    type="radio" id="femenino" name="femenino" value="Femenino">Femenino</label>
+           
+           </div>
+           </div>  
+                <div class="form-group col-md-3">
                   <label class="control-label">Teléfono</label>
                   <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required autocomplete="off">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label for="email" class="control-label">E-mail</label>
                   <input type="email" class="form-control" placeholder="email" id="email" name="email" value="" required autocomplete="off">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label class="control-label">Digite un nombre de usuario</label>
                   <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username" value="" required autocomplete="off">
                 </div>
                 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label class="control-label" for="password">Digite contraseña</label>
                   <input type="password" pattern=".{4,}" title="4 o mas caracteres" class="form-control" placeholder="Contraseña" id="password" name="password" value="" required>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label for="rPassword" class="control-label">Vuelva a escribir la contraseña</label>
                   <input type="password" class="form-control" placeholder="Otra vez" id="rPassword" name="rPassword" value="" required>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                   <label class="control-label">Dirección</label>
                   <textarea id="direccion" name="direccion" class="form-control" rows="" placeholder="Ingrese su dirección" value="" required></textarea>
                 </div>
-                <div class="form-group col-md-5 form-check-inline">
-                  <label class="control-label">Género</label>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input id="masculino" class="form-check-input" type="radio" name="masculino">Masculino
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input id="femenino" class="form-check-input" type="radio" name="femenino">Femenino
-                    </label>
-                  </div>
-                </div>
+                
                
                 <div class="tile-footer">
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</button>

@@ -19,15 +19,15 @@ class ActualizarProveedorController{
     public function actualizarProveedorController(){
         #---se valida que un campo venga lleno ya que si uno esta lleno lo estaran todos
         #---------------
-        if(isset($_POST["nombre"])){
+        if(isset($_POST["Nombre"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
                     "id"=>$_POST["id"],
-                    "nombre"=>$_POST["nombre"],
-                    "telefono"=>$_POST["telefono"],
-                    "email"=>$_POST["email"],
-                    "direccion"=>$_POST["direccion"]
-                    
+                    "nombre"=>$_POST["Nombre"],
+                    "telefono"=>$_POST["Telefono"],
+                    "email"=>$_POST["Email"],
+                    "direccion"=>$_POST["Direccion"]
+                   
                   
                 );
             
