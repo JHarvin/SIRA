@@ -57,6 +57,7 @@ class ClientesController{
                 
                  echo' 
              
+             
             <script type="text/javascript">
              alertify.set("notifier","position", "top-center");
 
@@ -129,7 +130,7 @@ class ClientesController{
             if($item["status"]==1){
                 $habilitado="activo";
       
-              }else{$habilitado="Inactivo";}
+              }else{$habilitado="Inhabilitado";}
         echo'
         
         <tr>
