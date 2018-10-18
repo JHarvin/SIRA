@@ -35,7 +35,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
       <main class="app-content">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Modificar clientes </h1>
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Registrar autos </h1>
           <p>Rent a Car Chacón </p>
         </div>
         

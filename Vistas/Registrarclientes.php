@@ -108,7 +108,7 @@ function soloLetras(e) {
       <main class="app-content">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Registrar Usuarios</h1>
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Registrar clientes</h1>
           <p>Rent a Car Chacón </p>
         </div>
         

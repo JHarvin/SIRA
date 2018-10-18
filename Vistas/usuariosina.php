@@ -85,7 +85,7 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
         <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Usuarios habilitados</h1>
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Usuarios inhabilitados</h1>
           <p>Rent a Car Chacón </p>
         </div>
         
