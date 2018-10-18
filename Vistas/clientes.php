@@ -1,5 +1,12 @@
 <?php 
 require_once"../Controladores/ControladorClientes.php";
+session_start();
+if(!$_SESSION["validar"]){
+    
+
+    header("location:../index.php");
+    exit();
+}
 
 if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     

@@ -1,7 +1,13 @@
 
 <?php 
 require_once"../Controladores/ControladorRegistrarProveedor.php";
+session_start();
+if(!$_SESSION["validar"]){
+    
 
+    header("location:../index.php");
+    exit();
+}
 ?>
 
 

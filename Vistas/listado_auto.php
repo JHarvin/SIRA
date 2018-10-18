@@ -1,6 +1,13 @@
 <?php
 require_once"../Controladores/ControladorRegistrarVehiculo.php";
 require_once"../Controladores/ControladorClientes.php";
+session_start();
+if(!$_SESSION["validar"]){
+    
+
+    header("location:../index.php");
+    exit();
+}
 ?>
 <html lang="es">
 <head>

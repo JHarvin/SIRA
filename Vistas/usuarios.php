@@ -1,11 +1,11 @@
 <?php 
 require_once "../Controladores/ControladorMostrarUsuarios.php";
 session_start();
-if(!empty($_SESSION["usuario"])){
+if(!$_SESSION["validar"]){
     
-$usuario=$_SESSION["usuario"];
-    
-    
+
+    header("location:../index.php");
+    exit();
 }
 ?>
 
