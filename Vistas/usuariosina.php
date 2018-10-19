@@ -358,7 +358,7 @@ alertify.defaults.theme.input = "form-control";
         
     </script>
      <script>
-    alertify.set('notifier','position', 'top-left');
+    alertify.set('notifier','position', 'righ');
     </script>
     </body>
 </html>
