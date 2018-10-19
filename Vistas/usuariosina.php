@@ -10,10 +10,7 @@ if(!$_SESSION["validar"]){
     header("location:../index.php");
     exit();
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 7696df883be39346608aaad3cf3c10bdc3b5cfea
 
 ?>
 <html lang="es">

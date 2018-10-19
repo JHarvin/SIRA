@@ -4,7 +4,6 @@ session_start();
 if(!$_SESSION["validar"]){
     
 
-<<<<<<< HEAD
 
     header("location:../index.php");
     exit();
@@ -12,13 +11,11 @@ if(!$_SESSION["validar"]){
 
 
   
-=======
-    header("location:../index.php");
-    exit();
-}
+
+  
 
  
->>>>>>> 7696df883be39346608aaad3cf3c10bdc3b5cfea
+
 
 if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     
