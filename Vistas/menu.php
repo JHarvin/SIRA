@@ -60,9 +60,9 @@ $usuario=$_SESSION["usuario"];
             <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar usuarios</a></li>
            
             
-            <li><a class="treeview-item" href="usuarios.php"><i class="icon fa fa-circle-o"></i> Usuarios Habilitado</a></li>
+            <li><a class="treeview-item" href="usuarios.php"><i class="icon fa fa-circle-o"></i> Usuarios habilitado</a></li>
             
-             <li><a class="treeview-item" href="usuariosina.php"><i class="icon fa fa-circle-o"></i> Usuarios Inhabilitado</a></li>
+             <li><a class="treeview-item" href="usuariosina.php"><i class="icon fa fa-circle-o"></i> Usuarios inhabilitado</a></li>
           </ul>
         </li>
 
@@ -76,8 +76,8 @@ $usuario=$_SESSION["usuario"];
             <li><a class="treeview-item" href="Registrarclientes.php"><i class="icon fa fa-circle-o"></i> Registrar Clientes</a></li>
            
             
-            <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Clientes registrados</a></li>
-            <li><a class="treeview-item" href="ClientesDeBaja.php"><i class="icon fa fa-circle-o"></i> Clientes dados de baja</a></li>
+            <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Clientes habilitado</a></li>
+            <li><a class="treeview-item" href="ClientesDeBaja.php"><i class="icon fa fa-circle-o"></i> Clientes inhabilitado</a></li>
           </ul>
         </li>
         

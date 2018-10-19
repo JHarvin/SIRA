@@ -117,7 +117,7 @@ function soloLetras(e) {
            <div class="row">
            <div class="col-md-12">
            <div class="tile">
-           <h3 class="tile-title">Digite datos del cliente:</h3> 
+          
            <div class="tile-body">
            <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
            <div class="form-group col-md-3">  
