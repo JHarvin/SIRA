@@ -96,6 +96,7 @@ alertify.defaults.theme.input = "form-control";
         
  </div>
        <input type="hidden" id="usuario" name="usuario" class="form-control" value="<?php echo "".$usuario?>">
+       <input type="hidden" id="nusuario" name="nusuario" class="form-control">
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
@@ -357,7 +358,7 @@ alertify.defaults.theme.input = "form-control";
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
   var id=$(this).find("td:eq(7)").text(); 
-           
+      // var nusuario=$(this).find("td:eq(4)").text    
           
           //---poniendo los datos en los inputs del modal
           
@@ -365,7 +366,7 @@ alertify.defaults.theme.input = "form-control";
         
           $("#nombreU").text(nombre+"?");
           $("#ide").val(id);
-  
+         // $("#nusuario").val(nusuario);
 });
     </script>
     
@@ -391,14 +392,11 @@ alertify.defaults.theme.input = "form-control";
             
             $("#btnInhabilitar").click(function(){
                 
-                var usuario=$("#usuario").val();
-                
+               // var usuario=$("#usuario").val();
+              //  var nusuario=$("#nusuario").val();
                 var idEliminar=$("#ide").val();
                 
-                if(usuario==idEliminar){
-                    $("#cancelar").modal();
-                }
-                
+             
             inhabilitar(idEliminar);
                 
             });

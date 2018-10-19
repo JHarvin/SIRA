@@ -191,6 +191,17 @@ class VehiculosModel extends Conexion{
         
     }
     
+    #borrar imagen del direcctorio
+    public function borrarImgModel($nombreI,$archivo,$posicion,$placa,"tvehiculos"){
+         $stmt=Conexion::conectar()->prepare("SELECT imagen,imagen2,imagen3,imagen4 
+        from $tabla where numero_de_placa=:placa");
+         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+         $stmt->close();
+        
+    }
+    
     
 }
 
