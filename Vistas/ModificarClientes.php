@@ -123,9 +123,13 @@ function soloLetras(e) {
            <div class="row">
            <div class="col-md-12">
            <div class="tile">
+<<<<<<< HEAD
 
           
 
+=======
+            
+>>>>>>> 7696df883be39346608aaad3cf3c10bdc3b5cfea
            <div class="tile-body">
            <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
            <div class="form-group col-md-3">  
