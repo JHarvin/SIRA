@@ -11,7 +11,7 @@ if(!$_SESSION["validar"]){
 
 
 ?>
-?>
+
 <html lang="es">
 <head>
 
@@ -90,30 +90,25 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       <div class="app-title">
+      <div class="app-title">
         <div>
-          <h1><i class="fa fa-id-card"></i> Usuarios Habilitados</h1>
-          
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Usuarios habilitados</h1>
+          <p>Rent a Car Chacón </p>
         </div>
         
-<<<<<<< HEAD
-      </div>
-       
-=======
-<<<<<<< HEAD
+ </div>
+
  </div>
        <input type="hidden" id="usuario" name="usuario" class="form-control" value="<?php echo "".$usuario?>">
        <input type="hidden" id="nusuario" name="nusuario" class="form-control">
-=======
+
       </div>
        
->>>>>>> 48e2e70663ad7191340a692eb13681495974cf1d
->>>>>>> 2baf7d5b4b3317a9349c448f69b088e6798f155c
+
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
-            
-            <h3 class="tile-title">Usuarios</h3>
+           
              
            
 
@@ -349,19 +344,17 @@ alertify.defaults.theme.input = "form-control";
             
             $("#btnInhabilitar").click(function(){
                 
-<<<<<<< HEAD
+
                 var idEliminar=$("#ide").val();
-=======
-<<<<<<< HEAD
+
                // var usuario=$("#usuario").val();
               //  var nusuario=$("#nusuario").val();
                 var idEliminar=$("#ide").val();
                 
              
-=======
+
                 var idEliminar=$("#ide").val();
->>>>>>> 48e2e70663ad7191340a692eb13681495974cf1d
->>>>>>> 2baf7d5b4b3317a9349c448f69b088e6798f155c
+
             inhabilitar(idEliminar);
                 
             });
