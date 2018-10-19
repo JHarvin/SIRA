@@ -10,7 +10,10 @@ if(!$_SESSION["validar"]){
     header("location:../index.php");
     exit();
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2baf7d5b4b3317a9349c448f69b088e6798f155c
 
 ?>
 <html lang="es">
@@ -89,26 +92,18 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       <div class="app-title">
+        <div class="app-title">
         <div>
-
-          <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
-
-
-
-         
-
-          
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Usuarios inhabilitados</h1>
+          <p>Rent a Car Chacón </p>
         </div>
         
-      </div>
-       
+ </div>
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
 
-
-            <h3 class="tile-title">Usuarios inhabilitados</h3>
+           
 
 
             
@@ -136,7 +131,6 @@ alertify.defaults.theme.input = "form-control";
               <tbody>
                
                <?php 
-
 
 
                   #--Llamamos al controlador antes instanciando la clase

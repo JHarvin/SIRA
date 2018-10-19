@@ -16,7 +16,7 @@ class MostrarUsuariosController{
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["email"].'</td>
                   <td>'.$item["username"].'</td>
-                  <td>Deshabilitado</td>
+                  <td>Inhabilitados</td>
                  
                 
                   <td>

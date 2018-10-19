@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php
+=======
+<?php 
+>>>>>>> 2baf7d5b4b3317a9349c448f69b088e6798f155c
 session_start();
 if(!$_SESSION["validar"]){
     
