@@ -277,12 +277,16 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
         $nombreI=$img["imagen"]["name"];
         $archivo=$img["imagen"]["tmp_name"];
         if($posicion==0){$posicion="imagen";}
-        else if($posicion==){}
+        else if($posicion==2){$posicion="imagen2";}
+        else if($posicion==3){$posicion="imagen3";}
+        else{$posicion="imagen4";}
         #Borra la imagen del direcctorio
          //$editar=VehiculosModel::borrarImgModel($nombreI,$archivo,$posicion,$placa,"tvehiculos");
     #Actualiza la imagen con el nuevo direcctorio
          $respuesta=VehiculosModel::actualizarImgModel($nombreI,$archivo,$posicion,$placa,"tvehiculos");
-        
+        if($respuesta=="success"){
+            return "success";
+        }else{return "error";}
     }
 
     #---------------------------------------------

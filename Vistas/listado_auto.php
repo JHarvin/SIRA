@@ -80,6 +80,54 @@ alertify.defaults.theme.input = "form-control";
 
 </head>
 <body class="app sidebar-mini rtl">
+    <script>
+    function actualizar(placa,posicion){
+    
+   
+    var datos=new FormData();
+    
+    datos.append("placa",placa);
+    datos.append("imagen",posicion);
+    
+    
+    
+     $.ajax({
+        
+        type: "POST",
+        url: "../Vistas/ajaxActualizarImagen.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        
+        success:function(respuesta){
+         
+
+        if(respuesta==1){
+         
+           
+           $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
+          alertify.success("Auto en alquiler");
+           
+            
+    }
+          else if(respuesta!=1){
+            $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
+          alertify.success("Auto en alquiler");
+              
+          }
+            else{
+              //  $("#table").load();
+                
+                alert("Error -> "+respuesta  );}
+        
+    }
+        
+        
+    });
+    
+}
+    </script>
      <?php
     include"menu.php";
     ?>
@@ -175,7 +223,7 @@ alertify.defaults.theme.input = "form-control";
   </div>
 </div>
 <!------------------------------------------------------------------------->
- <!-- Modal para actualizar la imagen1 del vehiculo -->
+ <!-- Modal para actualizar la imagenes del vehiculo -->
  <!------------------------------------------------------------------------->
 <div class="modal" id="imagenModal">
 <div class="modal-dialog modal-sm">
@@ -190,9 +238,9 @@ alertify.defaults.theme.input = "form-control";
 <!-- Modal body -->
 <div class="modal-body">
 
-      <input type="file" name="imagen1" class="form-control">
+      <input type="file" id="imagen1" name="imagen1" class="form-control">
       <input type="hidden" id="placaimg" name="placaimg" value="">
-<input type="hidden" id="numero_imagen" name="numero_imagen">
+
     </div>
 
 <!-- Modal footer -->
@@ -244,16 +292,16 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal footer -->
       <div class="modal-footer btn-group" role="group">
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
+        <button type="button" id="btn1" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 1</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
+        <button id="btn2" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 2</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
+        <button id="btn3" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 3</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
+        <button id="btn3" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 4</button>
 
-        <button type="button" class="btn btn-info" data-dismiss="modal">
+        <button id="btn4" type="button" class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i>Atras</button>
       </div>
 
@@ -669,6 +717,9 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
            $("#placarent").val(placa);
         $("#autoname").val(nombre);
+          
+          //poniendo la placa para cambiar imagen
+         // $("#placaimg").val(placa);
 
 
       });
@@ -685,6 +736,24 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
                 var idEliminar=$("#numeroPl").text();
             eliminar(idEliminar);
+
+            });
+
+        });
+
+    </script>
+     
+     <script>
+    //----Se ejecuta cuando se da click en el boton eliminar del modal eliminar
+        //----La funcion llama a otra funcion que se encarga de ejecutar el ajax
+        //---que sirve para eliminar
+        $(document).ready(function(){
+
+            $("#btn1").click(function(){
+
+                var idEliminar=$("#numeroPl").text();
+                var imagen=$("#imagen1").Image();
+            actualizar(idEliminar,imagen);
 
             });
 

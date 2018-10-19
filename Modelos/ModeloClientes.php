@@ -96,7 +96,10 @@ class DatosCliente extends Conexion{
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE dui= :dui");
        
         
+      
 
+
+   
 
        $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_STR);
 
@@ -104,7 +107,13 @@ class DatosCliente extends Conexion{
 
        
 
+       $stmt->execute();
+
+
        
+      // $stmt->execute();
+
+
       
        return $stmt->fetch();
        

@@ -179,7 +179,7 @@ class VehiculosModel extends Conexion{
         //$stmt->bindParam(":tcombustible",$datosModel["tcombustible"],PDO::PARAM_STR);
         $stmt->bindParam(":color",$datosModel["color"],PDO::PARAM_STR);
         //$stmt->bindParam(":year",$datosModel["year"],PDO::PARAM_STR);
-        echo'<script>alert("entra "+'.$datosModel["marca"].');</script>';
+       // echo'<script>alert("entra "+'.$datosModel["marca"].');</script>';
         if($stmt->execute()){
             return "success";
             
@@ -191,17 +191,79 @@ class VehiculosModel extends Conexion{
         
     }
     
-    #borrar imagen del direcctorio
-    public function borrarImgModel($nombreI,$archivo,$posicion,$placa,"tvehiculos"){
-         $stmt=Conexion::conectar()->prepare("SELECT imagen,imagen2,imagen3,imagen4 
-        from $tabla where numero_de_placa=:placa");
-         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetch();
-         $stmt->close();
+    #Actualizar imagen 1
+   public function actualizarImgModel($nombreI,$archivo,$posicion,$placa,$tabla){
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+        SET imagen=:imagen WHERE numero_de_placa= :placa");
         
-    }
+        $stmt->bindParam(":imagen",$posicion,PDO::PARAM_STR);
+       $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+      
+       
+         if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+       
+   }
     
+    #Actualizar imagen 2
+   public function actualizarImgModel2($nombreI,$archivo,$posicion,$placa,$tabla){
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+        SET imagen2=:imagen WHERE numero_de_placa= :placa");
+        
+        $stmt->bindParam(":imagen",$posicion,PDO::PARAM_STR);
+       $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+      
+       
+         if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+       
+   }
+    #Actualizar imagen 3
+   public function actualizarImgModel3($nombreI,$archivo,$posicion,$placa,$tabla){
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+        SET imagen3=:imagen WHERE numero_de_placa= :placa");
+        
+        $stmt->bindParam(":imagen",$posicion,PDO::PARAM_STR);
+       $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+      
+       
+         if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+       
+   }
+    #Actualizar imagen 4
+   public function actualizarImgModel4($nombreI,$archivo,$posicion,$placa,$tabla){
+        $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+        SET imagen4=:imagen WHERE numero_de_placa= :placa");
+        
+        $stmt->bindParam(":imagen",$posicion,PDO::PARAM_STR);
+       $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+      
+       
+         if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+       
+   }
     
 }
 

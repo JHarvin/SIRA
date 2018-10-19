@@ -108,22 +108,16 @@ function soloLetras(e) {
     include"menu.php";
     ?>
       <main class="app-content">
-       
-    
-        
-         <div class="app-title">
+       <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Modificar clientes </h1>
-          <p>Rent a Car Chacón </p>
-        </div>
         
- </div> 
+        <h1><i class="fa fa-address-card"></i> Modificar datos del cliente</h1>  
            </div> 
            </div>
            <div class="row">
            <div class="col-md-12">
            <div class="tile">
-            
+           <h3 class="tile-title">Digite datos del cliente:</h3> 
            <div class="tile-body">
            <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
            <div class="form-group col-md-3">  
