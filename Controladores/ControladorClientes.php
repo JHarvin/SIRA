@@ -169,7 +169,6 @@ class ClientesController{
                   <td>'.$item["dui"].'</td>
                   <td>'.$item["licencia_de_conducir"].'</td>
                   
-                  
                   <td>'.$item["genero"].'</td>
                  <td>C.Vigente</td>
                   
