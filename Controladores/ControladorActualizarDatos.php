@@ -31,6 +31,7 @@ class ActualizarDatosController{
                     "id"=>$_POST["id"],
                     "nombre"=>$_POST["Nombre"],
                     "telefono"=>$_POST["Telefono"],
+                    "email"=>$_POST["email"],
                     "direccion"=>$_POST["Direccion"],
                     "username"=>$_POST["Username"],
                    

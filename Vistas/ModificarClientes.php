@@ -117,7 +117,17 @@ function soloLetras(e) {
            <div class="row">
            <div class="col-md-12">
            <div class="tile">
+<<<<<<< HEAD
            <h3 class="tile-title">Digite datos del cliente:</h3> 
+=======
+<<<<<<< HEAD
+
+          
+
+=======
+            
+>>>>>>> 7696df883be39346608aaad3cf3c10bdc3b5cfea
+>>>>>>> b8a729c072672004ec4bedc5d5ea01ba40c185a7
            <div class="tile-body">
            <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
            <div class="form-group col-md-3">  
