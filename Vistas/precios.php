@@ -226,15 +226,15 @@ alertify.defaults.theme.input = "form-control";
     
      <div class="form-group col-md-4">
     <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
+    <input type="text" class="form-control" id="autonameup" disabled>
   </div>
   <div class="form-group col-md-4">
     <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" name="placarent" disabled>
+    <input type="text" class="form-control" id="placaup" name="placaup" disabled>
   </div>
   <div class="form-group col-md-4">
     <label for="precio">Digite precio $</label>
-    <input type="text" class="form-control" id="precio" name="precio" autofocus placeholder="digite precio del auto">
+    <input type="text" class="form-control" id="precioup" name="precioup" autofocus placeholder="digite precio del auto">
   </div>
                
                
@@ -342,6 +342,8 @@ alertify.defaults.theme.input = "form-control";
            $("#placarent").val(placa);
         $("#autoname").val(nombre);
           
+          $("#placaup").val(placa);
+          $("#autonameup").val(nombre);
             
       });
         
@@ -358,8 +360,8 @@ alertify.defaults.theme.input = "form-control";
           $(document).ready(function(){
             
             $("#btnGuardarPrecio").click(function(){
-                var placa=$("#placarent").val();
-                var precio=$("#precio").val();
+                var placa=$("#placaup").val();
+                var precio=$("#precioup").val();
             addprecio(precio,placa);
                 
             });

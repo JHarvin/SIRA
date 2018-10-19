@@ -5,7 +5,7 @@ function addprecio(precio,placa){
         var datos=new FormData();
     datos.append("precio",precio);
         datos.append("placa",placa);
-alert(""+precio);
+
     
          $.ajax({
         
