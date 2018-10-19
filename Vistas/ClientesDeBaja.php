@@ -56,7 +56,7 @@ function inhabilitar(idE){
 
         if(r==1){
         
-           $("#tabla").load("clientesDeBaja.php #tabla > *");
+           $("#tcuerpo").load("clientesDeBaja.php #tcuerpo > *");
             alertify.success("Cliente habilitado");
             
     }
@@ -115,7 +115,7 @@ function inhabilitar(idE){
                  
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tcuerpo">
               
               <?php 
                   #AQUI SE LLAMA LA FUNCION PARA MOSTRAR LOS DATOS
@@ -308,6 +308,9 @@ toastr.options = {
             
         });
         
+    </script>
+     <script>
+    alertify.set('notifier','position', 'top-right');
     </script>
     </body>
 </html>

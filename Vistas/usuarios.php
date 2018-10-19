@@ -60,8 +60,8 @@ alertify.defaults.theme.input = "form-control";
         if(r==1){
     
            // setTimeout(alertify.success("Usuario inhabilitado"),5000);
-    location.reload();
-          // $("#tabla").load("usuarios.php #tabla > *");
+    
+          $("#tcuerpo").load("usuarios.php #tcuerpo > *");
             alertify.success("Usuario inhabilitado")
             
     }
@@ -131,7 +131,7 @@ alertify.defaults.theme.input = "form-control";
                  <th hidden></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tcuerpo">
                
                <?php 
                   #--Llamamos al controlador antes instanciando la clase
@@ -363,7 +363,7 @@ alertify.defaults.theme.input = "form-control";
         
     </script>
      <script>
-    alertify.set('notifier','position', 'top-right');
+    alertify.set('notifier','position', 'top-left');
     </script>
     </body>
 </html>

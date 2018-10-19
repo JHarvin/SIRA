@@ -60,7 +60,7 @@ alertify.defaults.theme.input = "form-control";
 
         if(r==1){
         
-           $("#tabla").load("usuariosina.php #tabla > *");
+           $("#tcuerpo").load("usuariosina.php #tcuerpo > *");
             alertify.success("Usuario Habilitado");
             
     }
@@ -125,7 +125,7 @@ alertify.defaults.theme.input = "form-control";
                  <th hidden></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tcuerpo">
                
                <?php 
 
@@ -357,6 +357,8 @@ alertify.defaults.theme.input = "form-control";
         });
         
     </script>
-    
+     <script>
+    alertify.set('notifier','position', 'top-left');
+    </script>
     </body>
 </html>
