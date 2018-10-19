@@ -70,9 +70,12 @@ $usuario=$_SESSION["usuario"];
             
             
 
+<<<<<<< HEAD
 
            
 
+=======
+>>>>>>> b136bddcbeeec160cd0bd763767df642e5880535
           </ul>
         </li>
 
@@ -94,6 +97,10 @@ $usuario=$_SESSION["usuario"];
            
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b136bddcbeeec160cd0bd763767df642e5880535
           </ul>
         </li>
         
