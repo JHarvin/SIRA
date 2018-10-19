@@ -57,7 +57,7 @@ function inhabilitar(idE){
         if(r==1){
         
            $("#tabla").load("clientesDeBaja.php #tabla > *");
-            alertify.success("cliente inhabilitado");
+            alertify.success("Cliente habilitado");
             
     }
           else if(r!=1){
@@ -143,7 +143,7 @@ function inhabilitar(idE){
       
    <!-- Modal Header -->
    <div class="modal-header">
-        <h4 class="modal-title">Inshabilitar</h4>
+        <h4 class="modal-title">Inhabilitar</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
      
       </div>
