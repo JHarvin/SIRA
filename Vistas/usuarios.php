@@ -12,7 +12,6 @@ if(!$_SESSION["validar"]){
 
 ?>
 ?>
-
 <html lang="es">
 <head>
 
@@ -98,6 +97,10 @@ alertify.defaults.theme.input = "form-control";
         </div>
         
 <<<<<<< HEAD
+      </div>
+       
+=======
+<<<<<<< HEAD
  </div>
        <input type="hidden" id="usuario" name="usuario" class="form-control" value="<?php echo "".$usuario?>">
        <input type="hidden" id="nusuario" name="nusuario" class="form-control">
@@ -105,6 +108,7 @@ alertify.defaults.theme.input = "form-control";
       </div>
        
 >>>>>>> 48e2e70663ad7191340a692eb13681495974cf1d
+>>>>>>> 2baf7d5b4b3317a9349c448f69b088e6798f155c
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
@@ -346,6 +350,9 @@ alertify.defaults.theme.input = "form-control";
             $("#btnInhabilitar").click(function(){
                 
 <<<<<<< HEAD
+                var idEliminar=$("#ide").val();
+=======
+<<<<<<< HEAD
                // var usuario=$("#usuario").val();
               //  var nusuario=$("#nusuario").val();
                 var idEliminar=$("#ide").val();
@@ -354,6 +361,7 @@ alertify.defaults.theme.input = "form-control";
 =======
                 var idEliminar=$("#ide").val();
 >>>>>>> 48e2e70663ad7191340a692eb13681495974cf1d
+>>>>>>> 2baf7d5b4b3317a9349c448f69b088e6798f155c
             inhabilitar(idEliminar);
                 
             });
