@@ -52,6 +52,23 @@ class ModeloAlquilar{
     $stmt->close();
     }
     
+    public function verificarClienteAlquilerModel($dui){
+        $stmt =Conexion::conectar()->prepare("SELECT COUNT(*) from talquiler,tclientes where talquiler.dui=:dui and tclientes.dui=:dui");
+        
+        $stmt->bindParam(":dui",$dui,PDO::PARAM_STR);
+        
+        
+        $stmt->execute();
+         
+         if($stmt->fetchColumn()>0){
+            return "success";
+        }else{
+            return "error";
+        }
+        
+    $stmt->close();
+        
+    }
     
     #----------------------------------------------------------------------
     #Funcion en la que se consultara todos los autos que estan en alquiler

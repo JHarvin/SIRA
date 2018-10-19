@@ -1,4 +1,13 @@
 <!-- Navbar-->
+   <?php 
+session_start();
+if(!empty($_SESSION["usuario"])){
+    
+$usuario=$_SESSION["usuario"];
+    
+    
+}
+?>
     <header class="app-header" style="background-color:#7f8be8;"><a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">rentalSys</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
@@ -15,7 +24,7 @@
          
           </li>
         <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg">Sesión</i></a>
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"><?php echo " ".$usuario; ?></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
 
             
@@ -51,9 +60,9 @@
             <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar usuarios</a></li>
            
             
-            <li><a class="treeview-item" href="usuarios.php"><i class="icon fa fa-circle-o"></i> Usuarios Habilitado</a></li>
+            <li><a class="treeview-item" href="usuarios.php"><i class="icon fa fa-circle-o"></i> Usuarios habilitado</a></li>
             
-             <li><a class="treeview-item" href="usuariosina.php"><i class="icon fa fa-circle-o"></i> Usuarios Inhabilitado</a></li>
+             <li><a class="treeview-item" href="usuariosina.php"><i class="icon fa fa-circle-o"></i> Usuarios inhabilitado</a></li>
           </ul>
         </li>
 
@@ -67,8 +76,8 @@
             <li><a class="treeview-item" href="Registrarclientes.php"><i class="icon fa fa-circle-o"></i> Registrar Clientes</a></li>
            
             
-            <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Clientes registrados</a></li>
-            <li><a class="treeview-item" href="ClientesDeBaja.php"><i class="icon fa fa-circle-o"></i> Clientes dados de baja</a></li>
+            <li><a class="treeview-item" href="clientes.php"><i class="icon fa fa-circle-o"></i> Clientes habilitado</a></li>
+            <li><a class="treeview-item" href="ClientesDeBaja.php"><i class="icon fa fa-circle-o"></i> Clientes inhabilitado</a></li>
           </ul>
         </li>
         

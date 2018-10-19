@@ -1,7 +1,13 @@
 <?php 
 
 require_once "../Controladores/ControladorRegistrarProveedor.php";
+session_start();
+if(!$_SESSION["validar"]){
+    
 
+    header("location:../index.php");
+    exit();
+}
 /*
 if que valida si la variable enviada por la vista actualizar es igual 1 ya que si lo es muestrara el mensaje de actualizado con exito en la vista de usuarios
 

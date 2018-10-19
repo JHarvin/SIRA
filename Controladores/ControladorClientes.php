@@ -10,6 +10,7 @@
 #---------Clase encarga de manejar e crud a nivel de controlador..............
 require_once"../Modelos/modeloclienteina.php";
 require_once"../Modelos/ModeloClientes.php";
+require_once"../Modelos/ModeloAlquiler.php";
 class ClientesController{
    
     #FUNCIÓN REGISTRAR
@@ -157,8 +158,38 @@ class ClientesController{
         $respuesta=DatosCliente::mostrarClienteModel("tclientes");
         
         foreach($respuesta as $row =>$item){
+        $verificar=ModeloAlquilar::verificarClienteAlquilerModel($item["dui"]);
+            if($verificar=="success"){
+                 echo'
         
-        echo'
+        <tr>
+                  <td>'.$item["nombre"].'</td>
+                  <td>'.$item["telefono"].'
+                  
+                  </td>
+                  <td>'.$item["direccion"].'</td>
+                  <td>'.$item["dui"].'</td>
+                  <td>'.$item["licencia_de_conducir"].'</td>
+                  
+                  
+                  
+                  <td>'.$item["genero"].'</td>
+                 <td>con alquiler</td>
+                  
+                  <td>
+                  
+                   <div class="btn-group" role="group">
+                  <button disabled id="btnAlquilar" name="btnEditar" class="btn btn-success"   data-toggle="modal" data-target="#modalTiempo"><i class="fa fa-plane"></i></button>
+                  
+                  </div>
+                  </td>
+                 
+                </tr>
+        
+        ';
+            }
+            else{
+                 echo'
         
         <tr>
                   <td>'.$item["nombre"].'</td>
@@ -170,7 +201,7 @@ class ClientesController{
                   <td>'.$item["licencia_de_conducir"].'</td>
                   
                   <td>'.$item["genero"].'</td>
-                 <td>C.Vigente</td>
+                 <td>Sin alquiler</td>
                   
                   <td>
                   
@@ -183,6 +214,8 @@ class ClientesController{
                 </tr>
         
         ';
+            }
+       
         }
     }
     public function editarClientesController(){
@@ -202,6 +235,10 @@ class ClientesController{
         if(isset($_POST["nombreUpdate"])){
             #----arrray de dato, sin s, el anterior lleva s, xd
             $dato=array(
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7bedec8000cee3d25bf2af795993fbc1d04b8286
                     "dui"=>$_POST["duiUpdate"],
                     "nombre"=>$_POST["nombreUpdate"],
                     "telefono"=>$_POST["telefonoUpdate"],
@@ -209,6 +246,10 @@ class ClientesController{
                     
                     "licencia"=>$_POST["licenciaUpdate"]
                    // "status"=>$_POST["statusu"]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7bedec8000cee3d25bf2af795993fbc1d04b8286
                 );
                 
             

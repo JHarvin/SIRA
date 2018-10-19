@@ -272,6 +272,18 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
         }
         //-----------------FALTA AGREGAR IMAGEN<-------------<--------<-------
     }
+    public function actualizarImgController($img,$posicion,$placa){
+        
+        $nombreI=$img["imagen"]["name"];
+        $archivo=$img["imagen"]["tmp_name"];
+        if($posicion==0){$posicion="imagen";}
+        else if($posicion==){}
+        #Borra la imagen del direcctorio
+         //$editar=VehiculosModel::borrarImgModel($nombreI,$archivo,$posicion,$placa,"tvehiculos");
+    #Actualiza la imagen con el nuevo direcctorio
+         $respuesta=VehiculosModel::actualizarImgModel($nombreI,$archivo,$posicion,$placa,"tvehiculos");
+        
+    }
 
     #---------------------------------------------
     #Editar vehiculo---funcion que obtiene el id por el get para consultar los datos en la bd para mostrarlos en la vista de actualizar

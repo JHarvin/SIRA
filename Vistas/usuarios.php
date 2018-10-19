@@ -1,6 +1,18 @@
+
 <?php 
 require_once "../Controladores/ControladorMostrarUsuarios.php";
+session_start();
+if(!$_SESSION["validar"]){
+    
+
+    header("location:../index.php");
+    exit();
+}
+
+
 ?>
+?>
+
 <html lang="es">
 <head>
 
@@ -85,8 +97,14 @@ alertify.defaults.theme.input = "form-control";
           
         </div>
         
+<<<<<<< HEAD
+ </div>
+       <input type="hidden" id="usuario" name="usuario" class="form-control" value="<?php echo "".$usuario?>">
+       <input type="hidden" id="nusuario" name="nusuario" class="form-control">
+=======
       </div>
        
+>>>>>>> 48e2e70663ad7191340a692eb13681495974cf1d
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
@@ -293,7 +311,7 @@ alertify.defaults.theme.input = "form-control";
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
   var id=$(this).find("td:eq(7)").text(); 
-           
+      // var nusuario=$(this).find("td:eq(4)").text    
           
           //---poniendo los datos en los inputs del modal
           
@@ -301,7 +319,7 @@ alertify.defaults.theme.input = "form-control";
         
           $("#nombreU").text(nombre+"?");
           $("#ide").val(id);
-  
+         // $("#nusuario").val(nusuario);
 });
     </script>
     
@@ -327,7 +345,15 @@ alertify.defaults.theme.input = "form-control";
             
             $("#btnInhabilitar").click(function(){
                 
+<<<<<<< HEAD
+               // var usuario=$("#usuario").val();
+              //  var nusuario=$("#nusuario").val();
                 var idEliminar=$("#ide").val();
+                
+             
+=======
+                var idEliminar=$("#ide").val();
+>>>>>>> 48e2e70663ad7191340a692eb13681495974cf1d
             inhabilitar(idEliminar);
                 
             });

@@ -3,8 +3,13 @@
 
 
 require_once "../Controladores/ControladorMostrarUsuarios.php";
+session_start();
+if(!$_SESSION["validar"]){
+    
 
-
+    header("location:../index.php");
+    exit();
+}
 
 ?>
 <html lang="es">
@@ -83,8 +88,9 @@ alertify.defaults.theme.input = "form-control";
     include"menu.php";
     ?>
       <main class="app-content">
-       <div class="app-title">
+        <div class="app-title">
         <div>
+<<<<<<< HEAD
 
           <h1><i class="fa fa-id-card"></i> Usuarios inhabilitados</h1>
 
@@ -93,15 +99,22 @@ alertify.defaults.theme.input = "form-control";
          
 
           
+=======
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Usuarios inhabilitados</h1>
+          <p>Rent a Car Chacón </p>
+>>>>>>> 7bedec8000cee3d25bf2af795993fbc1d04b8286
         </div>
         
-      </div>
-       
+ </div>
        <div class="row">
       <div class="col-md-12">
           <div class="tile">
+<<<<<<< HEAD
+=======
 
-            <h3 class="tile-title">Usuarios inhabilitados</h3>
+>>>>>>> 7bedec8000cee3d25bf2af795993fbc1d04b8286
+
+           
 
 
             
@@ -129,6 +142,10 @@ alertify.defaults.theme.input = "form-control";
               <tbody>
                
                <?php 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7bedec8000cee3d25bf2af795993fbc1d04b8286
 
 
                   #--Llamamos al controlador antes instanciando la clase

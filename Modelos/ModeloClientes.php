@@ -96,9 +96,11 @@ class DatosCliente extends Conexion{
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE dui= :dui");
        
         
+<<<<<<< HEAD
       
+=======
+>>>>>>> 7bedec8000cee3d25bf2af795993fbc1d04b8286
 
-   
 
        $stmt->bindParam(":dui",$idModelDatos,PDO::PARAM_STR);
 
@@ -106,12 +108,12 @@ class DatosCliente extends Conexion{
 
        
 
-       $stmt->execute();
-
-
        
+<<<<<<< HEAD
       // $stmt->execute();
 
+=======
+>>>>>>> 7bedec8000cee3d25bf2af795993fbc1d04b8286
       
        return $stmt->fetch();
        
@@ -185,6 +187,8 @@ class DatosCliente extends Conexion{
     }
     $stmt->close();
 }
+    
+    
 
 
 }
