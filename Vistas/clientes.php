@@ -3,17 +3,13 @@ require_once"../Controladores/ControladorClientes.php";
 session_start();
 if(!$_SESSION["validar"]){
     
-<<<<<<< HEAD
-=======
 
     header("location:../index.php");
     exit();
 }
->>>>>>> 2baf7d5b4b3317a9349c448f69b088e6798f155c
 
-    header("location:../index.php");
-    exit();
-}
+ 
+
 if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     
      echo '
@@ -78,7 +74,7 @@ function inhabilitar(idE){
         if(r==1){
         
            $("#tabla").load("clientes.php #tabla > *");
-            alertify.success("cliente inhabilitado"+r);
+            alertify.success("Cliente inhabilitado");
             
     }
           else if(r!=1){
