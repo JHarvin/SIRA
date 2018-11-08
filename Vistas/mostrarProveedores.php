@@ -29,7 +29,7 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
 <html lang="es">
 <head>
 
-    <title>Mostrar Proveedores</title>
+    <title>Proveedores inhabilitados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -152,7 +152,7 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
        <div class="app-title">
         <div >
-          <h1><i class="app-menu__icon fa fa-file-text-o"   style="font-size:25px;color:orange"></i> Proveedores Habilitados</h1>
+          <h1><i class="app-menu__icon fa fa-file-text-o"   style="font-size:25px;color:orange"></i> Proveedores Inhabilitados</h1>
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">

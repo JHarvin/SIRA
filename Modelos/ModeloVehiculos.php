@@ -128,12 +128,8 @@ class VehiculosModel extends Conexion{
     #---------------------------------------------------------------
     #FUNCION PARA ELIMINAR REGISTRO DEL AUTO Y ELIMINAR LAS IMAGENES
     #---------------------------------------------------------------
-    public function borrarVehiculoModel($placa,$ruta1,$ruta2,$ruta3,$ruta4,$tabla){
-        #Eliminamos primero las imagenes del servidor
-        unlink($ruta1);
-        unlink($ruta2);
-        unlink($ruta3);
-        unlink($ruta4);
+    public function borrarVehiculoModel($placa,$tabla){
+       
         #Luego elimino el registro de la bd
         $stmt =Conexion::conectar()->prepare("DELETE FROM $tabla WHERE numero_de_placa = :placa");
         

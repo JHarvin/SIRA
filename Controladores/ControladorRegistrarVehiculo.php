@@ -368,4 +368,52 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
 
     }
 
+    
+    #Funcion para mostrar los datos de mantenimiento del carro
+    public function mantenimientoController(){
+         $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
+             foreach($respuesta as $row =>$item){
+            // $precio=PreciosModel::obtenerPrecioModel($item["numero_de_placa"],"tprecios");
+             
+                 
+                 echo'
+
+        <tr>
+
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>5000 km</td>
+                   
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalPrecio" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button disabled class="btn btn-secondary" data-toggle="modal" data-target="#modalPrecioEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        ';
+             
+        
+        }
+    }
 }

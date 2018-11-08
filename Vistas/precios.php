@@ -111,7 +111,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>COLOR</th>
                 
                   <th>COMBUSTIBLE</th>
-                  <th>Precio alquiler(mes)</th>
+                  <th>Precio alquiler(dia)</th>
                  <th>Acciones</th>
                 
                 </tr>
