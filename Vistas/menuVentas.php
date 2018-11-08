@@ -63,8 +63,8 @@
            
             
             <li><a class="treeview-item" href="agregarproveedores.php"><i class="icon fa fa-circle-o"></i> Agregar Proveedores</a></li>
-            <li><a class="treeview-item" href="mostrarProveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores Habilitados</a></li>
-            <li><a class="treeview-item" href="proveedoresInhabilitados.php"><i class="icon fa fa-circle-o"></i> Proveedores Inhabilitados</a></li>
+            <li><a class="treeview-item" href="mostrarProveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores Inhabilitados</a></li>
+            <li><a class="treeview-item" href="proveedoresInhabilitados.php"><i class="icon fa fa-circle-o"></i> Proveedores Habilitados</a></li>
             
           </ul>
         </li>

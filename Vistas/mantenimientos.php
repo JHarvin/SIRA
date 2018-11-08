@@ -12,7 +12,7 @@ if(!$_SESSION["validar"]){
 <html lang="es">
 <head>
 
-    <title>Autos registrados</title>
+    <title>Mantenimientos</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,7 +135,7 @@ alertify.defaults.theme.input = "form-control";
        
  <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Autos registrados</h1>
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Mantenimiento</h1>
           <p>Rent a Car Chacón </p>
         </div>
         
@@ -152,25 +152,20 @@ alertify.defaults.theme.input = "form-control";
             <table id="tabla"  class="table display table-striped  " style="font-size:13.4px;">
               <thead>
                 <tr>
-                 <th></th>
-                  <th>NUMERO DE PLACA</th>
+                 <th>NUMERO DE PLACA</th>
                   <th>MARCA,MODELO,AÑO</th>
-                   <th>TIPO</th>
-                  <th>COLOR</th>
+                  <th>TIPO</th>
+                   <th>Kilometraje</th>
+                  <th>Ver detalles</th>
 
-                  <th>COMBUSTIBLE</th>
-                  <th>ESTADO</th>
-                 <th>Acciones</th>
-                 <th hidden></th>
-                 <th hidden></th>
-                 <th hidden></th>
-                 <th hidden></th>
+                  <th>Acciones</th>
+                  
                 </tr>
               </thead>
               <tbody id="tcuerpo">
                 <?php
                   $mostrar=new RegistrarVehiculoController();
-                  $mostrar->mostrarVehiculosController();
+                  $mostrar->mantenimientoController();
 
                   ?>
 
@@ -529,7 +524,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
      <!--Modal para mantenimiento insertar-->
      <!------------------------------------------------------->
       <div class="modal fade" id="modalMantenimiento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header text-center" style="background-color:#7f8be8;">
                 <h4 class="modal-title w-100 font-weight-bold">Mantenimiento</h4>
@@ -574,6 +569,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                   <label for="fechaInicio">Cada cuantos km es la revision preventiva:</label>
                   <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
+                
+                
 
 
 
