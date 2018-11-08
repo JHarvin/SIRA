@@ -1,13 +1,11 @@
 <?php
-session_start();
-if(!$_SESSION["validar"]){
-    
+require_once"../Controladores/ControladorRegistrarBaterias.php";
 
-    header("location:../index.php");
-    exit();
-}
+$lista= new RegistrarBateriasController();
+$datos=$lista->Baterias();
+
 ?>
-  <!DOCTYPE html>
+
 <html lang="es">
  <head>
  <title>Generar Venta</title>
@@ -27,83 +25,66 @@ if(!$_SESSION["validar"]){
  <main class="app-content">
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-inbox"></i> Cajero : Administrador</h1>
-          <p>Venta de baterias</p>
+          <h1><i  class="fa fa-cart-plus" style="font-size:25px;color:orange"></i>  Generar Ventas</h1>
+          <p>Rent a Car Chacón </p>
         </div>
-        
-         
-      </div>
+        <ul class="app-breadcrumb breadcrumb">
+          
+          
+        </ul>
+ </div>
 <div class="row">
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
-               <div class="card-tittle" style="background-color:orange; ">
-                   <h2>Datos de factura:</h2>
+               <div class="card-tittle" style="background-color:#E84D13;">
+                   <h2  style="font-size:25px;color:white">Datos de factura:</h2>
                </div>
                Fecha de emison
                <input type="date" class="form-control">
                <br>
-               <input type="text" class="form-control" placeholder="Cliente">
+               <input type="text" class="form-control" placeholder="Nombre del cliente">
                <br>
-               <input type="text" class="form-control" placeholder="Importe cliente">
+               <input type="text" class="form-control" placeholder="Direccion">
                <br>
-               <input type="text" class="form-control" placeholder="Vuelto">
-               <br>
+              
                <button class="btn btn-info" id="factura">Imprimir factura</button>
            </div>
            <div class="card col-md-9">
           <div class="card-title">
-              <h3>Productos</h3>
+              <h3>Bateria</h3>
           </div>
          <form>
   <div class="form-row">
     
     <div class="col">
-      <input type="text" class="form-control" placeholder="Código">
+
+    <label>Código</label>
+      <input class="form-control" id="nombre" name="codigo" type="text" 
+       value="<?php echo $datos["codigo"]; ?>"  >
     </div>
-    <div class="col-7">
-      
-         <select class="form-control" id="demoSelect" multiple="">
-                <optgroup label="Select Cities">
-                  <option>Ahmedabad</option>
-                  <option>Surat</option>
-                  <option>Vadodara</option>
-                  <option>Rajkot</option>
-                  <option>Bhavnagar</option>
-                  <option>Jamnagar</option>
-                  <option>Gandhinagar</option>
-                  <option>Nadiad</option>
-                  <option>Morvi</option>
-                  <option>Surendranagar</option>
-                  <option>Junagadh</option>
-                  <option>Gandhidham</option>
-                  <option>Veraval</option>
-                  <option>Ghatlodiya</option>
-                  <option>Bharuch</option>
-                  <option>Anand</option>
-                  <option>Porbandar</option>
-                  <option>Godhra</option>
-                  <option>Navsari</option>
-                  <option>Dahod</option>
-                  <option>Botad</option>
-                  <option>Kapadwanj</option>
-                </optgroup>
-              </select>
-           
-      
+
+   <div class="col">
+    <label>Tipo</label>
+      <input type="text" class="form-control" 
+       value="<?php echo $datos["tipo"]; ?>" >
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Precio de Venta">
+    <label>Proveedor</label>
+      <input type="text" class="form-control" >
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Cantidad">
+    <label>Precio</label>
+      <input type="text" class="form-control" >
     </div>
+  
     
     
   </div>
   
    <div class="card-footer">
-       <button class="btn btn-primary">Agregar Producto</button>
-       <button class="btn btn-success">Nuevo Cliente</button>
+       <button class="btn btn-primary">Agregar a compra</button>
+       <a href="bateriaInicio.php"  class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Baterias disponibles</a>
    </div> 
   
 </form>
@@ -118,10 +99,10 @@ if(!$_SESSION["validar"]){
                    <thead>
                 <tr>
                   <th>Código</th>
-                  <th>Descripción</th>
-                   <th>Precio Unitario</th>
-                  <th>Cantidad</th>
-                  <th>Importe</th>
+                  <th>Tipo</th>
+                   <th>Proveedor</th>
+                  <th>Precio</th>
+                
                   <th></th>
                  
                 </tr>
@@ -197,4 +178,22 @@ if(!$_SESSION["validar"]){
 });
     </script>
 </body>
+
+    <script>
+    //---Funcion para detectar el clic y obtener los datos
+      $("table tbody tr").click(function() {
+          //---se obtiene el indice de la tabla
+ var nombre=$(this).find("td:eq(0)").text();
+  var id=$(this).find("td:eq(7)").text(); 
+           
+          
+          //---poniendo los datos en los inputs del modal
+          
+         
+        
+          $("#nombre").text(nombre+"?");
+          
+  
+});
+    </script>
 </html>

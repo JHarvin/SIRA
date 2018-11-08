@@ -20,6 +20,7 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
         "precio_venta"=>$_POST["precio_venta"],
         "fecha_venta"=>$_POST["fecha_venta"],
         "precio_unitario"=>$_POST["precio_unitario"]);
+ 
 #Para validar codigo de la bateria
  $validarCodigo=DatosBaterias::validarCodigo($_POST["codigo"],"tproductos");
    if($validarCodigo=="error"){
@@ -95,7 +96,7 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
                    <div class="btn-group" role="group">
                   <a href="actualizarbaterias.php?id='.$item["idproducto"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   >
                   <i class="fa fa-edit"></i></a>
-                  <a href="generarVentas.php" class="btn btn-danger" onclick=""><i class="icon fa fa-cart-plus fa-3x"></i></a>
+                  <a href="generarVentas.php?id='.$item["idproducto"].'" class="btn btn-danger" onclick=""><i class="icon fa fa-cart-plus fa-3x"></i></a>
                   </td>
 
           </tr>
@@ -107,7 +108,14 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
               <?php 
         
     }
-        
+
+
+     public function Baterias(){
+$datos=$_GET["id"];
+$respueta=DatosBaterias::ventasBateriasModel($datos,"tproductos");
+return $respuesta;
+
+     }   
     
 }
 ?>
