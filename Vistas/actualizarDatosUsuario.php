@@ -145,7 +145,7 @@ alertify.defaults.theme.input = "form-control";
                     </div>
                     <div class="col-md-8">
                       <label>Dirección</label>
-                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required>
+                      <input id="Direccion" name="Direccion" class="form-control" type="text" value="<?php echo $datosVista["direccion"]; ?>" required autocomplete="off">
                     </div>
                    
                     
@@ -157,7 +157,7 @@ alertify.defaults.theme.input = "form-control";
                  
                   <!-- Modal footer -->
       <div class="tile-footer">
-        <button type="submit" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle"></i> Actualizar</button>
+        <button type="submit" id="btnGuardarNuevo" name="btnGuardarNuevo" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check-circle" ></i> Actualizar</button>
         |
         <a href="usuarios.php"  class="btn btn-info" data-dismiss="modal">
         <i class="fa fa-undo"></i> Atras</a>

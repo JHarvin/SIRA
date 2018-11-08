@@ -8,6 +8,7 @@ session_destroy();
 
 <html>
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,18 +20,19 @@ session_destroy();
   </head>
   <body>
     <section class="material-half-bg">
-      <div class="cover" style="background-color:#7f8be8;"></div>
+      <div class="cover" style="background: linear-gradient(130deg, #7f8be8 30%, gray 100%);"></div>
     </section>
     <section class="login-content">
       <div class="logo" style="font:400 16px/1.8 sans-serif;
         color: white;
        ">
-        <h1
-        >Rent a Car Chacon</h1>
+        <h1  >Rent a Car Chacón </h1>
+
+
       </div>
       <div class="login-box">
         <form class="login-form" method="post">
-          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Incio de sesion</h3>
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user" style="font-size:40px;color:orange"></i>Incio de Sesión</h3>
           <div class="form-group">
             <label class="control-label">Nombre de usuario</label>
             <input id="usuarioLog" name="usuarioLog" class="form-control" type="text" placeholder="Nombre de usuario" autofocus required autocomplete="off">
@@ -42,12 +44,15 @@ session_destroy();
           <div class="form-group">
             <div class="utility">
              
-              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">¿Olvido la contraseña ?</a></p>
+              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">¿Olvidó la contraseña ?</a></p>
             </div>
           </div>
-          <div class="form-group btn-container">
-            <button type="submit" class="btn btn-primary btn-block" style="background-color: #FF8E31;"><i class="fa fa-sign-in fa-lg fa-fw"></i>Iniciar</button>
-          </div>
+          <div class="container">    
+           <button type="submit" class="btn btn-primary " style="background-color: #FF8E31;">       
+           <i class="fa fa-sign-in fa-lg fa-fw"></i><span>Iniciar</span>       
+ <div class="dot"></div>    </div>  
+
+          
         </form>
         <?php 
           
@@ -81,9 +86,25 @@ session_destroy();
     <script type="text/javascript">
       // Login Page Flipbox control para la vuelta de olvido de password
       $('.login-content [data-toggle="flip"]').click(function() {
-      	$('.login-box').toggleClass('flipped');
-      	return false;
+        $('.login-box').toggleClass('flipped');
+        return false;
       });
     </script>
   </body>
 </html>
+
+<style >
+:root {    --bg: #3C465C;
+    --primary: #78FFCD;  
+      --solid: #fff;   
+       --btn-w: 12em;   
+        --dot-w: calc(var(--btn-w)*.3);    
+        --tr-X: calc(var(--btn-w) - var(--dot-w));}*
+         {box-sizing: border-box;}*:before, *:after {box-sizing: border-box;}
+
+
+         body {    height: 100vh;    display: flex;    justify-content: center;    align-items: center;    flex-flow: wrap;    background: var(--bg);    font-size: 15px;    font-family: 'Titillium Web', sans-serif;}h1 {    color: var(--solid);    font-size: 2rem;    margin-top: 2rem;   }
+         .btn {    position: center;    margin: 0 auto;    width: var(--btn-w);    color: var(--primary);    border: .15em solid var(--primary);    text-align: center;    font-size: 1.3em;    line-height: 1em;    cursor: pointer;    }
+         .dot {    content: '';    position: absolute;    top: 0;    width: var(--dot-w);    height: 100%;    border-radius: 100%;    transition: all 500ms ease;    display: none;}.dot:after {    content: '';    position: absolute;    left: calc(90% - .4em);    top: -.4em;    height: .8em;    width: .8em;    background: var(--primary);    border-radius: 1em;    border: .25em solid var(--solid);    box-shadow: 0 0 .7em var(--solid),                0 0 2em var(--primary);}.btn:hover .dot,.btn:focus .dot {    animation: atom 2s infinite linear;    display: block;}@keyframes atom {    0% {transform: translateX(0) rotate(0);}    30%{transform: translateX(var(--tr-X)) rotate(0);}    50% {transform: translateX(var(--tr-X)) rotate(180deg);}    80% {transform: translateX(0) rotate(180deg);}    100% {transform: translateX(0) rotate(360deg);}}
+
+                          </style>

@@ -63,7 +63,7 @@ alertify.defaults.theme.input = "form-control";
     
           $("#tcuerpo").load("usuarios.php #tcuerpo > *");
             alertify.success("Usuario inhabilitado")
-            
+            window.Location=("../Vistas/usuariosina.php");
     }
           else if(r!=1){
            
