@@ -194,7 +194,7 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Eliminar </h4>
+        <h4 class="modal-title">Editar </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -203,12 +203,12 @@ alertify.defaults.theme.input = "form-control";
         <div class="row">
             
             <div class="col-md-6">
-                <label for="fechain">Cada cuantos meses sera la revision</label>
+                <label for="fechain">Cada cuantos meses será la revisión</label>
                 <input type="text" class="form-control" id="fechain" name="fechain">
             </div>
             
             <div class="col-md-6">
-                <label for="kilom">Ingrese el kilometraje a siguente revision</label>
+                <label for="kilom">Ingrese el kilometraje a siguente revisión</label>
                 <input type="text" class="form-control" id="kilom" name="kilom">
             </div>
         </div>
@@ -217,7 +217,7 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-info" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Eliminar</button>
+      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
