@@ -53,5 +53,14 @@ public function mostrarBateriasModel($tabla,$tablaUnir){
         $stmt->close();
         
     }
+
+   public function ventasBateriasModel($id, $tabla){
+     $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla where idproducto=:id");
+
+      $stmt->bindParam(":id",$id,PDO::PARAM_INT); 
+        $stmt->execute();
+        return $stmt->fetch();
+        $stmt->close();
+   }
 }
 ?>
