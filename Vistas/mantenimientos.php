@@ -156,6 +156,7 @@ alertify.defaults.theme.input = "form-control";
                   <th>MARCA,MODELO,AÑO</th>
                   <th>TIPO</th>
                    <th>Kilometraje</th>
+                   <th>Fecha de proximo revision</th>
                   <th>Ver detalles</th>
 
                   <th>Acciones</th>
@@ -187,8 +188,8 @@ alertify.defaults.theme.input = "form-control";
       <!------------------------------------------------------------------------->
        <!-- Modal para eliminar vehiculo -->
        <!------------------------------------------------------------------------->
-      <div class="modal" id="modalEliminar">
-  <div class="modal-dialog modal-sm">
+      <div class="modal" id="modalEditar">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -199,10 +200,18 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal body -->
       <div class="modal-body">
-
-              <div><img src="../images/pregunta.png" alt=""></div>
-         <label>¿Desea Eliminar este vehiculo?</label> <b><p id="nombrePl"></p> Placas: <p id="numeroPl"></p> </b>
-
+        <div class="row">
+            
+            <div class="col-md-6">
+                <label for="fechain">Cada cuantos meses sera la revision</label>
+                <input type="text" class="form-control" id="fechain" name="fechain">
+            </div>
+            
+            <div class="col-md-6">
+                <label for="kilom">Ingrese el kilometraje a siguente revision</label>
+                <input type="text" class="form-control" id="kilom" name="kilom">
+            </div>
+        </div>
 
           </div>
 
@@ -552,22 +561,20 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
   </div>
 
                <div class="form-group col-md-6">
-                  <label for="fechaInicio">Fecha:</label>
+                  <label for="fechaInicio">Fecha de entrada:</label>
                    <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="fechaInicio">Descripción:</label>
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" required>
-                </div>
+               
+                
+                
                 
                  <div class="form-group col-md-6">
-                  <label for="fechaInicio">Digite kilometraje:</label>
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" required>
-                </div>
-                
-                 <div class="form-group col-md-6">
-                  <label for="fechaInicio">Cada cuantos km es la revision preventiva:</label>
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                  <label for="fechaInicio">Tipo de mantenimiento</label>
+                  <select name="tipomantenimiento" id="tipomantenimiento" class="form-control">
+                      <option value="Preventivo">Preventivo</option>
+                      <option value="Correctivo">Correctivo</option>
+                      <option value="Kilometraje">Kilometraje</option>
+                  </select>
                 </div>
                 
                 
@@ -577,18 +584,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
   </div>
 
 
-  <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">
-    Alarma
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-  <label class="form-check-label" for="defaultCheck2">
-    Airbag
-  </label>
-</div>
+   
+
 
 </form>
 
@@ -599,7 +596,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
         <button type="button" class="btn btn-success"  data-dismiss="modal">
                <i class="fa fa-clipboard"></i>
-               Mandar a mantenimiento</button>
+               Enviar a mantenimiento</button>
                 <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
               </div>
 
@@ -610,6 +607,221 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
 
      <!------------------------------------------------------->
+     <!--Modal mantenimiento revision-->
+     <!-------------------------------------------------------->
+        <div class="modal fade" id="modalRevision" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color:#7f8be8;">
+                <h4 class="modal-title w-100 font-weight-bold">Revisión</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+<form>
+  <div id="rowM" class="form-row">
+
+
+     <div class="form-group col-md-6">
+    <label for="autoname">Auto</label>
+    <input type="text" class="form-control" id="autoname" disabled>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="placarente">Placas del auto</label>
+    <input type="text" class="form-control" id="placarent" disabled>
+  </div>
+
+               <div class="form-group col-md-6">
+                  <label for="fechaInicio">Fecha de salida:</label>
+                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                </div>
+               
+                
+                
+                
+                 <div class="form-group col-md-6">
+                  <label for="fechaInicio">Encargado de servicio</label>
+                  <input type="text" class="form-control" id="encargado" name="encargado">
+                </div>
+                
+                 <div class="form-group col-md-12">
+                  <label for="fechaInicio">Servicio</label>
+                  <textarea name="servicio" id="servicio" cols="30" rows="7" class="form-control"></textarea>
+                </div>
+                
+                
+                
+                
+
+
+
+  </div>
+
+
+   
+
+
+</form>
+
+
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+
+        <button type="button" class="btn btn-success"  data-dismiss="modal">
+               <i class="fa fa-save"></i>
+               Guardar</button>
+                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+      
+      <!-------------------------------------------------------------->
+      <!----------------------------Modal detalle--------------------->
+      <!-------------------------------------------------------------->
+         <div class="modal fade" id="modalVerDetalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color:#7f8be8;">
+                <h4 class="modal-title w-100 font-weight-bold">Detalle</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+<form>
+  <div id="rowM" class="form-row">
+
+
+     <div class="form-group col-md-6">
+    <label for="autoname">Auto</label>
+    <input type="text" class="form-control" id="autoname" disabled>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="placarente">Placas del auto</label>
+    <input type="text" class="form-control" id="placarent" disabled>
+  </div>
+
+               <div class="form-group col-md-6">
+                  <label for="fechaInicio">Fecha de entrada:</label>
+                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                </div>
+                 <div class="form-group col-md-6">
+                  <label for="fechaInicio">Fecha de salida:</label>
+                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                </div>
+               
+                <div class="form-group col-md-6">
+                  <label for="fechaInicio">Tipo de servicio</label>
+                  <input type="text" class="form-control" id="encargado" name="encargado">
+                </div>
+                
+                
+                 <div class="form-group col-md-6">
+                  <label for="fechaInicio">Encargado de servicio</label>
+                  <input type="text" class="form-control" id="encargado" name="encargado">
+                </div>
+                
+                 <div class="form-group col-md-12">
+                  <label for="fechaInicio">Servicio</label>
+                  <textarea name="servicio" id="servicio" cols="30" rows="7" class="form-control"></textarea>
+                </div>
+                
+                
+                
+                
+
+
+
+  </div>
+
+
+   
+
+
+</form>
+
+
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+
+        <button type="button" class="btn btn-success"  data-dismiss="modal">
+               <i class="fa fa-save"></i>
+               Guardar</button>
+                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+      <!-------------------------------------------------------------------------------->
+      <!--------------------------Modal historial--------------------------------------->
+      <!-------------------------------------------------------------------------------->
+          <div class="modal fade" id="modalHistorial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" style="background-color:#7f8be8;">
+                <h4 class="modal-title w-100 font-weight-bold">Detalle</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+<div class="row">
+    <div class="table table-responsive">
+        <table>
+            <thead>
+                <th>Fecha de entrada</th>
+                <th>Fecha de salida</th>
+                <th>Ver</th>
+            </thead>
+            <tbody>
+                <td>1/09/2018</td>
+                <td>5/12/2018</td>
+                <td><button class="btn btn-info" data-toggle="modal" data-target="#modalVerDetalle">Ver</button></td>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+
+        <button type="button" class="btn btn-success"  data-dismiss="modal">
+               <i class="fa fa-save"></i>
+               Guardar</button>
+                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+      
 
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>

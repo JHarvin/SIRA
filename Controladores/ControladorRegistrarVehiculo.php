@@ -383,12 +383,12 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td>5000 km</td>
-                   
+                  <td><p style="color:red;">5000 km<p></td>
+                   <td>09/12/2018</td>
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalPrecio" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
                   
 
 
@@ -401,8 +401,9 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                   <div class="btn-group" role="group">
 
                   <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
-                  <button disabled class="btn btn-secondary" data-toggle="modal" data-target="#modalPrecioEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
-
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
 
 
                   </div>
