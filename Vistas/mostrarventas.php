@@ -1,19 +1,8 @@
 <?php 
-
-
 require_once"../Controladores/ControladorVentas.php";
+ ?>
 
-if(isset($_GET["ok"]) && !empty($_GET["ok"])){
-    
-    echo'
-    <script>
-    alertify.success("Registro Actualizado ");
-    </script>
-    ';
-    
-}
 
-?>
 
 
 <html lang="es">
@@ -61,6 +50,7 @@ alertify.defaults.theme.input = "form-control";
         
  </div>
 
+
      
 
     <div class="row">   
@@ -79,7 +69,8 @@ alertify.defaults.theme.input = "form-control";
                 <th>Código</th>
                 <th>Tipo</th>
                 <th>Proveedor</th>
-                <th>Precio($)</th>
+              
+
                 <th hidden></th>
               </tr>
               </thead>

@@ -125,6 +125,7 @@ alertify.defaults.theme.input = "form-control";
                    <th>Precio unitario($)</th>
                   <th>Precio venta($)</th>
                   <th>Fecha venta</th>
+                  
                    <th hidden></th>
               </tr>
               </thead>

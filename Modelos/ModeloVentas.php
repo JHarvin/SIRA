@@ -1,30 +1,46 @@
 <?php
-require
 
-public function registroVentasModel($datosVetasModel,$tabla){
+require_once"Conexion.php";
 
-      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(tipo, codigo, idproveedor, precio_venta ,fecha_venta, precio_unitario) 
-            VALUES (:tipo,:codigo,:idproveedor,:precio_venta,:fecha_venta,:precio_unitario)");
+class DatosVentas extends Conexion{
+
+ 
+public function registroVentasModel($datosVentasModel,$tabla){
+
+      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio) 
+            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio)");
         
-        $stmt->bindParam(":tipo",$datosBateriasModel["tipo"],PDO::PARAM_STR);
+        $stmt->bindParam(":cliente",$datosVentasModel["tipo"],PDO::PARAM_STR);
 
-       $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(tipo, codigo, idproveedor, precio_venta ,fecha_venta, precio_unitario) 
-            VALUES (:tipo,:codigo,:idproveedor,:precio_venta,:fecha_venta,:precio_unitario)");
-
-    $stmt->bindParam(":tipo",$datosBateriasModel["tipo"],PDO::PARAM_STR);
-
+      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio) 
+            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio)");
+        
+        $stmt->bindParam(":cliente",$datosBateriasModel["cliente"],PDO::PARAM_STR);
+        $stmt->bindParam(":direccion",$datosBateriasModel["direccion"],PDO::PARAM_STR);
+        $stmt->bindParam(":fecha",$datosBateriasModel["fecha"],PDO::PARAM_STR);
         $stmt->bindParam(":codigo",$datosBateriasModel["codigo"],PDO::PARAM_STR);
-        $stmt->bindParam(":idproveedor",$datosBateriasModel["idproveedor"],PDO::PARAM_STR);
-        $stmt->bindParam(":precio_venta",$datosBateriasModel["precio_venta"],PDO::PARAM_STR);
-        $stmt->bindParam(":fecha_venta",$datosBateriasModel["fecha_venta"],PDO::PARAM_STR);
-        $stmt->bindParam(":precio_unitario",$datosBateriasModel["precio_unitario"],PDO::PARAM_STR);
+        $stmt->bindParam(":tipo",$datosBateriasModel["tipo"],PDO::PARAM_STR);
+        $stmt->bindParam(":proveedor",$datosBateriasModel["proveedor"],PDO::PARAM_STR);
+        $stmt->bindParam(":precio",$datosBateriasModel["precio"],PDO::PARAM_STR);
        
         if($stmt->execute()){
             return "success";
         }
         else{ return "error";}
         
-        $stmt->close();
+        $stmt->close();      
         
 }
+ //funcion para mostrar usuarios
+    public function mostrarventas($tabla){
+        
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+        
+    }
+
+
+}//fin de clase
 ?>

@@ -1,8 +1,8 @@
 <?php
 //Llama al modelo 
-require_once"../Modelos/ModeloVentas.php"
-
-class VentasController(){
+require_once"../Modelos/ModeloVentas.php";
+require_once"../Modelos/ModeloRegistroBaterias.php";
+class VentasController{
 	//clas epara registrar las ventas a la tabla
 	public function ventas()
 	{//inicio ventas
@@ -12,11 +12,12 @@ class VentasController(){
            isset($_POST["codigo"]) && !empty($_POST["codigo"])&&
            isset($_POST["tipo"]) && !empty($_POST["tipo"])&&
            isset($_POST["proveedor"]) && !empty($_POST["proveedor"])&&
-           isset($_POST["precio"]) && !empty($_POST["precio"]))
+           isset($_POST["precio"]) && !empty($_POST["precio"])
+           )
           
 	       {
 	       //incio if
-	       	$datosVentasController=$array = array("nombre" =>strtoupper($_POST["nombre"])
+	       	$datosVentasController=$array = array("nombre" =>strtoupper($_POST["nombre"]),
 	       	 "direccion"=>$_POST["direccion"], 
 	       	 "fecha"=>$_POST["fecha"],  
 	       	 "codigo"=>$_POST["codigo"],
@@ -30,7 +31,7 @@ class VentasController(){
 	}//fin de clase
 
 	public function mostrarventas(){
-		 $respuesta=DatosVentas::mostrarVentasModel("tventas");
+		 $respuesta=DatosVentas::mostrarventas("tventas");
 
 		 foreach ($respuesta as $row => $item) {
 		 	echo'
@@ -41,13 +42,13 @@ class VentasController(){
 		 	         <td>'.$item["codigo"].'</td>
 		 	         <td>'.$item["tipo"].'</td>
 		 	         <td>'.$item["proveedor"].'</td>
-		 	         <td>'.$item["precio"].'</td>
+		 	       
 		 	         
 
 		 	      <td>
                    <div class="btn-group" role="group">
                   <a href="" id="btnEditar" name="btnEditar" class="btn btn-info"   >
-                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-money"></i>
                   </a>
                  
                   </td>
@@ -55,10 +56,12 @@ class VentasController(){
 		 	       
 
 		 	</tr>
+		 	   ';
+        }
+        ?>   
+              <?php 
+		} 
+	
+}
 
-
-
-		 	'
-		 }
-	}
 ?>
