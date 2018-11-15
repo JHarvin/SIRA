@@ -186,7 +186,7 @@ alertify.defaults.theme.input = "form-control";
       <!------------------------------------------------------------------------->
       <!-- Modales -->
       <!------------------------------------------------------------------------->
-       <!-- Modal para eliminar vehiculo -->
+       <!-- Modal para editar km vehiculo -->
        <!------------------------------------------------------------------------->
       <div class="modal" id="modalEditar">
   <div class="modal-dialog modal-lg">
@@ -217,7 +217,7 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
+      <button id="btnActualizarV" name="btnActualizarV" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -553,16 +553,16 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
      <div class="form-group col-md-6">
     <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
+    <input type="text" class="form-control" id="auto" disabled>
   </div>
   <div class="form-group col-md-6">
     <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
+    <input type="text" class="form-control" id="placa" disabled>
   </div>
 
                <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha de entrada:</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input type="text" class="form-control" id="fechaIn" name="fechaIn"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
                
                 
@@ -594,7 +594,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             <div class="modal-footer">
               <div class="form-group">
 
-        <button type="button" class="btn btn-success"  data-dismiss="modal">
+        <button type="button" id="btnMantenimiento" class="btn btn-success"  data-dismiss="modal">
                <i class="fa fa-clipboard"></i>
                Enviar a mantenimiento</button>
                 <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
@@ -836,7 +836,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      <script src="../js/bootstrap-datepicker.js"></script>
-
+    <script src="../Vistas/js/mantenimiento.js"></script>
   <script>
 
       $(document).ready(function() {
