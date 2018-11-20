@@ -5,7 +5,9 @@ class KilometrajeController{
     public $tipomantenimiento;
     public $fecha;
     public function guardarKilometraje(){
-        $datos=array("placa"=>$this->placa,"tipomantenimiento"=>$this->tipomantenimiento,"fecha"=>$this->fecha);
+        $datos=array("placa"=>$this->placa,
+                     "tipomantenimiento"=>$this->tipomantenimiento,
+                     "fecha"=>$this->fecha);
         $respuesta=MantenimientoModel::guardarKmModel($datos,"tmantenimiento");
         echo $respuesta;
         

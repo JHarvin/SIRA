@@ -370,17 +370,14 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
 
     
     #Funcion para mostrar los datos de mantenimiento del carro
-    public function mantenimientoController(){
+   public function mantenimientoController(){
          $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
              foreach($respuesta as $row =>$item){
-            // $precio=PreciosModel::obtenerPrecioModel($item["numero_de_placa"],"tprecios");
-             
-                 
-                 echo'
-
-        <tr>
-
-                  <td>'.$item["numero_de_placa"].'</td>
+           
+$en_mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"]);
+                if($en_mantenimiento<0){
+        echo'    <tr class"table-danger">
+                  <td class="bg-info">'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
                   <td><p style="color:red;">5000 km<p></td>
@@ -413,6 +410,48 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                 </tr>
 
         ';
+                }
+                 else {
+                     echo'<script>alertify.error("error '.$en_mantenimiento.'");</script>';
+                                     echo'
+
+        <tr>
+
+                  <td class="bg-info">'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td><p style="color:red;">5000 km<p></td>
+                   <td>09/12/2018</td>
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
+                  
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        '; 
+                 }
+          
              
         
         }
