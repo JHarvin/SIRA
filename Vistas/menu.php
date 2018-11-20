@@ -7,6 +7,7 @@ $usuario=$_SESSION["usuario"];
     
     
 }
+
 ?>
     <header class="app-header" style="background-color:#7f8be8;">
     <a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">rentalSys</a>
