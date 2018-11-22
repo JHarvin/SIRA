@@ -36,4 +36,22 @@ class MantenimientoModel extends Conexion{
         $stmt->close();
         
     }
+    
+     #Para ingresar el kilometraje del vehiculo
+    public function ingresarKiloMesesModel($datosModel,$tabla){
+         $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cada_cuantos_meses_revision, cada_cuantos_kilometros, numero_de_placa) VALUES (:meses,:km,:placa)");
+        
+        $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        $stmt->bindParam(":km",$datosModel["km"],PDO::PARAM_STR);
+        $stmt->bindParam(":meses",$datosModel["meses"],PDO::PARAM_INT);
+        
+        if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+        
+    }
 }

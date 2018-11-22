@@ -270,10 +270,6 @@ class VehiculosModel extends Conexion{
         
     }
     
-    #Para ingresar el kilometraje del vehiculo
-    public function ingresarKiloMesesModel($datos,$tabla){
-        
-        
-    }
+   
 }
 

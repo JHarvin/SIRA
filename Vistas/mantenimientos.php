@@ -200,10 +200,10 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal body -->
       <div class="modal-body">
         <div class="row">
-            
+            <input type="hidden" id="idkm">
             <div class="col-md-6">
                 <label for="fechain">Cada cuantos meses será la revisión</label>
-                <input type="text" class="form-control" id="fechain" name="fechain">
+                <input type="text" class="form-control" id="mes" name="mes">
             </div>
             
             <div class="col-md-6">
@@ -216,7 +216,7 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnActualizarV" name="btnActualizarV" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
+      <button id="btnActualizarKMM" name="btnActualizarV" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -672,11 +672,11 @@ alertify.defaults.theme.input = "form-control";
 
      <div class="form-group col-md-6">
     <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
+    <input type="text" class="form-control" id="autoDetalle" disabled>
   </div>
   <div class="form-group col-md-6">
     <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
+    <input type="text" class="form-control" id="placaDetalle" disabled>
   </div>
 
                <div class="form-group col-md-6">
@@ -685,12 +685,12 @@ alertify.defaults.theme.input = "form-control";
                 </div>
                  <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha de salida:</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input type="text" class="form-control" id="fechaSalida" name="fechaSalida"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
                
                 <div class="form-group col-md-6">
                   <label for="fechaInicio">Tipo de servicio</label>
-                  <input type="text" class="form-control" id="encargado" name="encargado">
+                  <input type="text" class="form-control" id="tiposervicio" name="tiposervicio">
                 </div>
                 
                 
@@ -801,6 +801,7 @@ alertify.defaults.theme.input = "form-control";
      <script src="../js/bootstrap-datepicker.js"></script>
     <script src="../Vistas/js/mantenimiento.js"></script>
     <script src="../Vistas/js/revision.js"></script>
+    <script src="../Vistas/js/kilometrajes.js"></script>
   <script>
 
       $(document).ready(function() {
