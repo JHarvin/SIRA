@@ -62,16 +62,9 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
             }
   
    }  
-        
-        
-        
-        
-        
-        }
+}
 
-
-         
-        }
+}
     
 
 
@@ -110,9 +103,13 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
     }
 
 
+  
+
+
+
      public function Baterias(){
 $datos=$_GET["id"];
-$respueta=DatosBaterias::ventasBateriasModel($datos,"tproductos");
+$respuesta=DatosBaterias::ventasBateriasModel($datos,"tproductos");
 return $respuesta;
 
      }   

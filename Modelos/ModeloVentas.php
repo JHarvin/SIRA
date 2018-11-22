@@ -7,13 +7,13 @@ class DatosVentas extends Conexion{
  
 public function registroVentasModel($datosVentasModel,$tabla){
 
-      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio) 
-            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio)");
+      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio,garantia,total) 
+            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio,:garantia,:total)");
         
         $stmt->bindParam(":cliente",$datosVentasModel["tipo"],PDO::PARAM_STR);
 
-      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio) 
-            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio)");
+      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio,garantia,total) 
+            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio,:garantia,total)");
         
         $stmt->bindParam(":cliente",$datosBateriasModel["cliente"],PDO::PARAM_STR);
         $stmt->bindParam(":direccion",$datosBateriasModel["direccion"],PDO::PARAM_STR);
@@ -22,6 +22,8 @@ public function registroVentasModel($datosVentasModel,$tabla){
         $stmt->bindParam(":tipo",$datosBateriasModel["tipo"],PDO::PARAM_STR);
         $stmt->bindParam(":proveedor",$datosBateriasModel["proveedor"],PDO::PARAM_STR);
         $stmt->bindParam(":precio",$datosBateriasModel["precio"],PDO::PARAM_STR);
+        $stmt->bindParam(":garantia",$datosBateriasModel["garantia"],PDO::PARAM_STR);
+        $stmt->bindParam(":total",$datosBateriasModel["total"],PDO::PARAM_STR);
        
         if($stmt->execute()){
             return "success";

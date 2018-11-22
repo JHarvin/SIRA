@@ -1,5 +1,7 @@
 <?php
 require_once"../Controladores/ControladorRegistrarBaterias.php";
+require_once"../Controladores/ControladorRegistrarBaterias.php";
+
 
 $lista= new RegistrarBateriasController();
 $datos=$lista->Baterias();
@@ -46,12 +48,15 @@ $datos=$lista->Baterias();
                <br>
                <input type="text" class="form-control" placeholder="Direccion">
                <br>
+               <input type="text" class="form-control" placeholder="Garantía (Meses)">
+               <br>
               
-               <button class="btn btn-info" id="factura">Imprimir factura</button>
+               <button class="btn btn-info" id="factura"><i class="far fa-file-alt"></i>Imprimir factura</button>
+               <br>
            </div>
            <div class="card col-md-9">
           <div class="card-title">
-              <h3>Bateria</h3>
+              <h3>Baterias</h3>
           </div>
          <form>
   <div class="form-row">
@@ -59,30 +64,33 @@ $datos=$lista->Baterias();
     <div class="col">
 
     <label>Código</label>
-      <input class="form-control" id="nombre" name="codigo" type="text" 
-       value="<?php echo $datos["codigo"]; ?>"  >
+      <input class="form-control" id="codigo" name="codigo" type="text" 
+       value="<?php echo $datos["codigo"]; ?>" disabled>
     </div>
 
    <div class="col">
     <label>Tipo</label>
-      <input type="text" class="form-control" 
-       value="<?php echo $datos["tipo"]; ?>" >
+      <input type="text" class="form-control" id="tipo" name="tipo"
+       value="<?php echo $datos["tipo"]; ?>" disabled>
     </div>
     <div class="col">
     <label>Proveedor</label>
-      <input type="text" class="form-control" >
+      <input type="text" class="form-control" id="proveedor" name="proveedor"
+      value="<?php echo $datos["proveedor"]; ?>" disabled>
     </div>
     <div class="col">
-    <label>Precio</label>
-      <input type="text" class="form-control" >
+    <label>Precio($)</label>
+      <input type="text" class="form-control" id="precio_venta" name="precio_venta"
+      value="<?php echo $datos["precio_venta"]; ?>" disabled>
     </div>
   
     
     
   </div>
+
   
    <div class="card-footer">
-       <button class="btn btn-primary">Agregar a compra</button>
+       <button name="btnguardarb" id="btnguardarb" class="btn btn-primary"><i class="fa fa-plus-circle"></i>Agregar a compra</button>
        <a href="bateriaInicio.php"  class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Baterias disponibles</a>
    </div> 
@@ -95,25 +103,24 @@ $datos=$lista->Baterias();
            
            <div class="card col-md-9 ">
                
-               <table class="table table-striped">
+               <table class="table table-striped" name="tabla">
                    <thead>
                 <tr>
                   <th>Código</th>
                   <th>Tipo</th>
                    <th>Proveedor</th>
-                  <th>Precio</th>
-                
-                  <th></th>
+                  <th>Precio($)</th>
+                 <th hidden></th>
+                 
                  
                 </tr>
               </thead>
-                   <tbody>
-                <tr>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
+                   <tbody >
+                
+               <tr>
+                  <?php 
+                  
+                  ?>
                  <td>
                      <button class="btn btn-warning"><i class="fa fa-trash-o"></i></button>
                      
@@ -169,6 +176,7 @@ $datos=$lista->Baterias();
     <script type="text/javascript" src="../js/plugins/select2.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <!--escript para buscar en la tabla-->
+    <script src="../js/yanci.js"></script>
     <script>
       $(function () {
 
