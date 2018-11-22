@@ -14,12 +14,13 @@ $(document).ready(function()
             var nuevaFila="<tr>";
             for(var i=0;i<tds;i++){
                 // añadimos las columnas
-                nuevaFila+="<td> "+codigo+" "+tipo+" "+proveedor+" "+precio_venta+" Añadida con jquery</td>";
+                 nuevaFila+="<td>columna "+(i+1)+" Añadida con jquery</td>"; 
+              //  nuevaFila+="<td> "+codigo+""+tipo+" "+proveedor+" "+precio_venta+" Añadida con jquery</td>";
             }
             // Añadimos una columna con el numero total de filas.
             // Añadimos uno al total, ya que cuando cargamos los valores para la
             // columna, todavia no esta añadida
-            nuevaFila+="<td>"+(trs+1)+" filas";
+           
             nuevaFila+="</tr>";
             $("#tabla").append(nuevaFila);
 	});

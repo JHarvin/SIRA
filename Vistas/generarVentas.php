@@ -121,10 +121,7 @@ $datos=$lista->Baterias();
                   <?php 
                   
                   ?>
-                 <td>
-                     <button class="btn btn-warning"><i class="fa fa-trash-o"></i></button>
-                     
-                 </td>
+                 
                 </tr>
                    </tbody> 
                </table>
