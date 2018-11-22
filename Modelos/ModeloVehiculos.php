@@ -269,5 +269,11 @@ class VehiculosModel extends Conexion{
         return $stmt->fetchColumn()>0;
         
     }
+    
+    #Para ingresar el kilometraje del vehiculo
+    public function ingresarKiloMesesModel($datos,$tabla){
+        
+        
+    }
 }
 
