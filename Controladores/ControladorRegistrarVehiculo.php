@@ -412,7 +412,7 @@ $en_mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"
         ';
                 }
                  else {
-                     echo'<script>alertify.error("error '.$en_mantenimiento.'");</script>';
+                   
                                      echo'
 
         <tr>

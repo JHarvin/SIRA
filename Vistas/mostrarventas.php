@@ -62,7 +62,7 @@ alertify.defaults.theme.input = "form-control";
             <div class="table table-responsive">
             <table id="tabla"  class="table table-striped">
               <thead>
-                <tr>
+                <tr class="bg-info">
                 <th>Cliente</th>
                 <th>Dirección</th>
                 <th>Fecha</th>
