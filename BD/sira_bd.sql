@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2018 a las 22:16:51
+-- Tiempo de generación: 22-11-2018 a las 20:47:42
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.1.19
 
@@ -124,6 +124,19 @@ CREATE TABLE `tfactura` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tkilometraje`
+--
+
+CREATE TABLE `tkilometraje` (
+  `id` int(11) NOT NULL,
+  `cada_cuantos_meses_revision` int(11) NOT NULL,
+  `cada_cuantos_kilometros` int(11) NOT NULL,
+  `numero_de_placa` varchar(8) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tmantenimiento`
 --
 
@@ -131,8 +144,16 @@ CREATE TABLE `tmantenimiento` (
   `numero_de_placa` varchar(8) COLLATE utf8_spanish_ci NOT NULL,
   `fecha` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `tipomantenimiento` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `status` int(11) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tmantenimiento`
+--
+
+INSERT INTO `tmantenimiento` (`numero_de_placa`, `fecha`, `tipomantenimiento`, `status`, `id`) VALUES
+('P111-111', 'Ã±jÃ±ilj', 'Preventivo', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -257,8 +278,16 @@ CREATE TABLE `trevision` (
   `fechasalida` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `encargadoservicio` int(11) NOT NULL,
   `servicio` text COLLATE utf8_spanish_ci NOT NULL,
-  `numero_de_placa` varchar(8) COLLATE utf8_spanish_ci NOT NULL
+  `numero_de_placa` varchar(8) COLLATE utf8_spanish_ci NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `trevision`
+--
+
+INSERT INTO `trevision` (`idrevision`, `fechasalida`, `encargadoservicio`, `servicio`, `numero_de_placa`, `status`) VALUES
+(1, '', 0, 'Marcos Ermenejildo Martinez Vazquez', 'P111-111', 0);
 
 -- --------------------------------------------------------
 
@@ -354,6 +383,13 @@ ALTER TABLE `tfactura`
   ADD KEY `fk_personalt` (`idpersonal`);
 
 --
+-- Indices de la tabla `tkilometraje`
+--
+ALTER TABLE `tkilometraje`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_placa_km` (`numero_de_placa`);
+
+--
 -- Indices de la tabla `tmantenimiento`
 --
 ALTER TABLE `tmantenimiento`
@@ -428,10 +464,16 @@ ALTER TABLE `tfactura`
   MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `tkilometraje`
+--
+ALTER TABLE `tkilometraje`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tmantenimiento`
 --
 ALTER TABLE `tmantenimiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tpersonal`
@@ -455,7 +497,7 @@ ALTER TABLE `tproveedores`
 -- AUTO_INCREMENT de la tabla `trevision`
 --
 ALTER TABLE `trevision`
-  MODIFY `idrevision` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idrevision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tventas`
@@ -498,6 +540,12 @@ ALTER TABLE `testado_vehiculo`
 ALTER TABLE `tfactura`
   ADD CONSTRAINT `fk_personalt` FOREIGN KEY (`idpersonal`) REFERENCES `tpersonal` (`idpersonal`),
   ADD CONSTRAINT `fk_producto` FOREIGN KEY (`idproducto`) REFERENCES `tproductos` (`idproducto`);
+
+--
+-- Filtros para la tabla `tkilometraje`
+--
+ALTER TABLE `tkilometraje`
+  ADD CONSTRAINT `fk_placa_km` FOREIGN KEY (`numero_de_placa`) REFERENCES `tvehiculos` (`numero_de_placa`);
 
 --
 -- Filtros para la tabla `tmantenimiento`
