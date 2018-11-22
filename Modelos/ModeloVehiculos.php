@@ -261,6 +261,15 @@ class VehiculosModel extends Conexion{
        
    }
     
+    #Para verificar si el carro esta en mantenimiento
+    public function verificarMantenimiento($placa){
+        
+         $stmt=Conexion::conectar()->prepare("SELECT count(*) FROM tmantenimiento WHERE status=1 AND tmantenimiento.numero_de_placa=:placa");
+         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+        return $stmt->fetchColumn()>0;
+        
+    }
+    
+   
 }
 
-?>

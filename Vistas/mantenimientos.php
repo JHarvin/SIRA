@@ -46,7 +46,6 @@ alertify.defaults.glossary.cancel = 'إلغاء';
 
 
 
-
 </script>
     <!-- include alertify.css -->
 <link rel="stylesheet" href="../css/alertify.css">
@@ -186,7 +185,7 @@ alertify.defaults.theme.input = "form-control";
       <!------------------------------------------------------------------------->
       <!-- Modales -->
       <!------------------------------------------------------------------------->
-       <!-- Modal para eliminar vehiculo -->
+       <!-- Modal para editar km vehiculo -->
        <!------------------------------------------------------------------------->
       <div class="modal" id="modalEditar">
   <div class="modal-dialog modal-lg">
@@ -201,10 +200,10 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal body -->
       <div class="modal-body">
         <div class="row">
-            
+            <input type="hidden" id="idkm">
             <div class="col-md-6">
                 <label for="fechain">Cada cuantos meses será la revisión</label>
-                <input type="text" class="form-control" id="fechain" name="fechain">
+                <input type="text" class="form-control" id="mes" name="mes">
             </div>
             
             <div class="col-md-6">
@@ -217,7 +216,7 @@ alertify.defaults.theme.input = "form-control";
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnEliminarVehiculo" name="btnEliminarVehiculo" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
+      <button id="btnActualizarKMM" name="btnActualizarV" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -286,11 +285,8 @@ alertify.defaults.theme.input = "form-control";
         <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="165" height="100"></a>
         <!--Para imagen 4-->
 <a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="165" height="100"></a>
-
     <!--Fin imagenes-->
 </div>
-
-
 
 
 
@@ -413,41 +409,7 @@ alertify.defaults.theme.input = "form-control";
       </div>
       <div class="modal-body">
         <p id="contratoP">
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+           
         </p>
       </div>
       <div class="modal-footer">
@@ -496,6 +458,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <label for="placarente">Placas del auto</label>
     <input type="text" class="form-control" id="placarent" disabled>
   </div>
+
 
                <div class="form-group col-md-6">
                   <label for="fechaFin">Fecha de renta(inicio)</label>
@@ -553,16 +516,16 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
      <div class="form-group col-md-6">
     <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
+    <input type="text" class="form-control" id="auto" disabled>
   </div>
   <div class="form-group col-md-6">
     <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
+    <input type="text" class="form-control" id="placa" disabled>
   </div>
 
                <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha de entrada:</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input type="text" class="form-control" id="fechaIn" name="fechaIn"  autocomplete="off" data-format="dd/MM/yyyy" required value="<?php echo date("d/m/Y")?>" disabled>
                 </div>
                
                 
@@ -594,7 +557,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             <div class="modal-footer">
               <div class="form-group">
 
-        <button type="button" class="btn btn-success"  data-dismiss="modal">
+        <button type="button" id="btnMantenimiento" class="btn btn-success"  data-dismiss="modal">
                <i class="fa fa-clipboard"></i>
                Enviar a mantenimiento</button>
                 <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
@@ -630,16 +593,16 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
      <div class="form-group col-md-6">
     <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
+    <input type="text" class="form-control" id="autor" disabled>
   </div>
   <div class="form-group col-md-6">
     <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
+    <input type="text" class="form-control" id="placar" disabled>
   </div>
 
                <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha de salida:</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
                
                 
@@ -674,7 +637,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             <div class="modal-footer">
               <div class="form-group">
 
-        <button type="button" class="btn btn-success"  data-dismiss="modal">
+        <button id="btnGuardarRevision" type="button" class="btn btn-success"  data-dismiss="modal">
                <i class="fa fa-save"></i>
                Guardar</button>
                 <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
@@ -709,11 +672,11 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
      <div class="form-group col-md-6">
     <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
+    <input type="text" class="form-control" id="autoDetalle" disabled>
   </div>
   <div class="form-group col-md-6">
     <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
+    <input type="text" class="form-control" id="placaDetalle" disabled>
   </div>
 
                <div class="form-group col-md-6">
@@ -722,12 +685,12 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                 </div>
                  <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha de salida:</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input type="text" class="form-control" id="fechaSalida" name="fechaSalida"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
                
                 <div class="form-group col-md-6">
                   <label for="fechaInicio">Tipo de servicio</label>
-                  <input type="text" class="form-control" id="encargado" name="encargado">
+                  <input type="text" class="form-control" id="tiposervicio" name="tiposervicio">
                 </div>
                 
                 
@@ -836,7 +799,9 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      <script src="../js/bootstrap-datepicker.js"></script>
-
+    <script src="../Vistas/js/mantenimiento.js"></script>
+    <script src="../Vistas/js/revision.js"></script>
+    <script src="../Vistas/js/kilometrajes.js"></script>
   <script>
 
       $(document).ready(function() {
