@@ -202,18 +202,23 @@ alertify.defaults.theme.input = "form-control";
         <div class="row">
             <input type="hidden" id="idkm">
             <div class="col-md-6">
+           
                 <label for="fechain">Cada cuantos meses será la revisión</label>
+<<<<<<< HEAD
+                <input type="text" class="form-control mask-fechain" id="fechain" name="fechain" autocomplete="off" autofocus placeholder="numero de meses por cada revision..." pattern=".{9,}" title="8 o mas caracteres para  real" value="" required>
+=======
                 <input type="text" class="form-control" id="mes" name="mes">
+>>>>>>> 6d2007bfd5b03846ffe29dbe64e2186ad2ff5257
             </div>
             
             <div class="col-md-6">
                 <label for="kilom">Ingrese el kilometraje a siguente revisión</label>
-                <input type="text" class="form-control" id="kilom" name="kilom">
+                <input type="text" class="form-control mask-kilom" id="kilom" name="kilom">
             </div>
         </div>
 
           </div>
-
+          
       <!-- Modal footer -->
       <div class="modal-footer">
       <button id="btnActualizarKMM" name="btnActualizarV" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
@@ -998,6 +1003,30 @@ alertify.defaults.theme.input = "form-control";
     </script>
     <script>
     alertify.set('notifier','position', 'top-right');
+    </script>
+     <script type="text/javascript">
+    
+    jQuery(function($){
+            // Definimos las mascaras para cada input
+            
+            $("#kilom").mask("99999999");
+            $('#fechain').mask('999999999');
+            
+          
+            
+
+            
+        });
+            
+    </script>
+      </script>
+    
+   
+    
+    
+    <script type="text/javascript">
+    $('.mask-kilom').mask('999-9999');
+   $('.mask-fechain').mask('99999999-9');
     </script>
     </body>
 </html>
