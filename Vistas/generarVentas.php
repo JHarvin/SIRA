@@ -16,6 +16,12 @@ $datos=$lista->Baterias();
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/buscarInput.css">
+    
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
   </head>
   <body class="app sidebar-mini rtl">
   <?php
@@ -28,12 +34,13 @@ $datos=$lista->Baterias();
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          
-          
+               
         </ul>
  </div>
 <div class="row" >
+
       <form class="POST">
+
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
@@ -94,7 +101,7 @@ $datos=$lista->Baterias();
    <div class="card-footer">
        <button type="button" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
        <i class="fa fa-plus-circle"></i>Agregar a compra</button>
-       <a href="bateriaInicio.php"  class="btn btn-danger" data-dismiss="modal">
+       <a data-toggle="modal" data-target="#modalForm" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Baterias disponibles</a>
 
    </div> 
@@ -137,12 +144,12 @@ $datos=$lista->Baterias();
                </div>
            </div> 
            
+
        </div>   
        </form> 
-       <?php 
-                #--para guardar registros se llama a la clase y funcion
-             
-                ?>
+    
+       </div>
+
       </div>
       
       
@@ -150,15 +157,6 @@ $datos=$lista->Baterias();
       
 </main>
 
-<!--para modal de repaciones-->
- 
-
-
-<!--para modal de autos disponibles lista-->
- 
-
-
-<!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -168,6 +166,7 @@ $datos=$lista->Baterias();
     <script src="../js/plugins/pace.min.js"></script>
     <script type="text/javascript" src="../js/plugins/select2.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+    <script src="js/ventas.js"></script>
     <!--escript para buscar en la tabla-->
   
   
