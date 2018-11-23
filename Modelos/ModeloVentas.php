@@ -10,11 +10,7 @@ public function registroVentasModel($datosVentasModel,$tabla){
       $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, idproveedor,precio,garantia) 
             VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:idproveedor,:precio,:garantia)");
         
-        $stmt->bindParam(":cliente",$datosVentasModel["cliente"],PDO::PARAM_STR);
-
-      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, idproveedor,precio,garantia) 
-            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:idproveedor,:precio,:garantia)");
-        
+     
         $stmt->bindParam(":cliente",$datosVentasModel["cliente"],PDO::PARAM_STR);
         $stmt->bindParam(":direccion",$datosVentasModel["direccion"],PDO::PARAM_STR);
         $stmt->bindParam(":fecha",$datosVentasModel["fecha"],PDO::PARAM_STR);
@@ -35,8 +31,11 @@ public function registroVentasModel($datosVentasModel,$tabla){
 }
 
  //funcion para mostrar usuarios
+
+
+
     public function mostrarventas($tabla,$tablaUnir){
-        //ll
+
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.idproveedor=$tablaUnir.idproveedor"); 
         $stmt->execute();
         return $stmt->fetchAll();
