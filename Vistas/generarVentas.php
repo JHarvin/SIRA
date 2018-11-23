@@ -33,7 +33,7 @@ $datos=$lista->Baterias();
         </ul>
  </div>
 <div class="row" >
-      
+      <form class="POST">
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
@@ -152,7 +152,7 @@ $datos=$lista->Baterias();
        
         
         
-        
+       </form> 
       </div>
       
       
