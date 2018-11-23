@@ -184,6 +184,7 @@ alertify.defaults.theme.input = "form-control";
      <label class="control-label">Código</label>
       <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
       type="text" autocomplete="off" maxlength="5"  maxlength="100"  pattern=".{5,}" title="5 caracteres para codigo real" value=""  required>
+    
     </div>
 
    
@@ -326,6 +327,7 @@ alertify.defaults.theme.input = "form-control";
 } );
     
     </script>
+
     <script>
    
           function validaNumericos(event) {

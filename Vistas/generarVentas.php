@@ -1,11 +1,8 @@
 <?php
 require_once"../Controladores/ControladorRegistrarBaterias.php";
-require_once"../Controladores/ControladorRegistrarBaterias.php";
-
 
 $lista= new RegistrarBateriasController();
 $datos=$lista->Baterias();
-
 ?>
 
 <html lang="es">
@@ -35,20 +32,24 @@ $datos=$lista->Baterias();
           
         </ul>
  </div>
-<div class="row">
+<div class="row" >
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
                    <h2  style="font-size:25px;color:white">Datos de factura:</h2>
                </div>
+                <form method="POST">
+
+
                Fecha de emison
-               <input type="date" class="form-control">
+               <input type="date" id="fecha" name="fecha"class="form-control">
                <br>
-               <input type="text" class="form-control" placeholder="Nombre del cliente">
+               <input type="text" class="form-control" placeholder="Nombre del cliente"
+               id="cliente" name="cliente" >
                <br>
-               <input type="text" class="form-control" placeholder="Direccion">
+               <input type="text" id="direccion" name="direccion"class="form-control" placeholder="Direccion">
                <br>
-               <input type="text" class="form-control" placeholder="Garantía (Meses)">
+               <input type="text" id="garantia" name="garantia" class="form-control" placeholder="Garantía (Meses)">
                <br>
               
                <button class="btn btn-info" id="factura"><i class="far fa-file-alt"></i>Imprimir factura</button>
@@ -58,30 +59,30 @@ $datos=$lista->Baterias();
           <div class="card-title">
               <h3>Baterias</h3>
           </div>
-         <form>
+        
   <div class="form-row">
     
     <div class="col">
 
     <label>Código</label>
       <input class="form-control" id="codigo" name="codigo" type="text" 
-       value="<?php echo $datos["codigo"]; ?>" disabled>
+       value="<?php echo $datos["codigo"]; ?>" >
     </div>
 
    <div class="col">
     <label>Tipo</label>
       <input type="text" class="form-control" id="tipo" name="tipo"
-       value="<?php echo $datos["tipo"]; ?>" disabled>
+       value="<?php echo $datos["tipo"]; ?>" >
     </div>
     <div class="col">
     <label>Proveedor</label>
       <input type="text" class="form-control" id="proveedor" name="proveedor"
-      value="<?php echo $datos["proveedor"]; ?>" disabled>
+      value="<?php echo $datos["idproveedor"]; ?>" >
     </div>
     <div class="col">
     <label>Precio($)</label>
       <input type="text" class="form-control" id="precio_venta" name="precio_venta"
-      value="<?php echo $datos["precio_venta"]; ?>" disabled>
+      value="<?php echo $datos["precio_venta"]; ?>" >
     </div>
   
     
@@ -90,9 +91,11 @@ $datos=$lista->Baterias();
 
   
    <div class="card-footer">
-       <button name="btnguardarb" id="btnguardarb" class="btn btn-primary"><i class="fa fa-plus-circle"></i>Agregar a compra</button>
+       <button type="button" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
+       <i class="fa fa-plus-circle"></i>Agregar a compra</button>
        <a href="bateriaInicio.php"  class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Baterias disponibles</a>
+
    </div> 
   
 </form>
@@ -103,36 +106,35 @@ $datos=$lista->Baterias();
            
            <div class="card col-md-9 ">
                
-               <table class="table table-striped" name="tabla">
+               <table class="table table-striped" name="tabla" id="tabla" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                    <thead>
                 <tr>
                   <th>Código</th>
                   <th>Tipo</th>
                    <th>Proveedor</th>
                   <th>Precio($)</th>
-                 <th hidden></th>
+                 
                  
                  
                 </tr>
               </thead>
-                   <tbody >
+                   <tbody class="tabla_ajax">
                 
                <tr>
                   <?php 
                   
                   ?>
-                 <td>
-                     <button class="btn btn-warning"><i class="fa fa-trash-o"></i></button>
-                     
-                 </td>
+                 
                 </tr>
                    </tbody> 
                </table>
                
               <h3> <label>Total:</label></h3>
                <div class="card-footer">
+                    
+                     <button class="btn btn-success" type="submit" name="btnguardar" id="btnguardar"><i class="fa fa-check-circle"></i>Registrar Venta
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
-                     <button class="btn btn-success"><i class="fa fa-check-circle"></i>Registrar Venta</button>
+                     </button>
                </div>
            </div>
            
@@ -176,32 +178,40 @@ $datos=$lista->Baterias();
     <script type="text/javascript" src="../js/plugins/select2.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <!--escript para buscar en la tabla-->
-    <script src="../js/yanci.js"></script>
-    <script>
-      $(function () {
-
-  $('#search').quicksearch('table tbody tr');
-          
-           $('#demoSelect').select2();
-});
-    </script>
-</body>
-
-    <script>
-    //---Funcion para detectar el clic y obtener los datos
-      $("table tbody tr").click(function() {
-          //---se obtiene el indice de la tabla
- var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(7)").text(); 
-           
-          
-          //---poniendo los datos en los inputs del modal
-          
-         
-        
-          $("#nombre").text(nombre+"?");
-          
   
-});
+  
+   
+
+    <script>
+     function agregarT()
+     {
+      alert('aaaaaa');
+      var codigo = $('#codigo').val();
+      var tipo = $('#tipo').val();
+      var precio = $('#precio_venta').val();
+      var proveedor = $('#proveedor').val();
+      var tabla = $('#tabla');
+
+      var datos = "<tr>"+
+      "<td>"+codigo+"</td>"+
+      "<td>"+tipo+"</td>"+
+      "<td>"+proveedor+"</td>"+
+      "<td>"+precio+"</td>"+
+      "</tr>";
+
+      tabla.append(datos);
+     }
+
     </script>
+
+    <?php
+if(isset($_POST['submit'])) 
+{ 
+    $name = $_POST['name'];
+    echo "User Has submitted the form and entered this name : <b> $name </b>";
+    echo "<br>You can use the following form again to enter a new name."; 
+}
+?>
+
+    </body>
 </html>

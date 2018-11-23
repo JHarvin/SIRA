@@ -7,23 +7,23 @@ class DatosVentas extends Conexion{
  
 public function registroVentasModel($datosVentasModel,$tabla){
 
-      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio,garantia,total) 
-            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio,:garantia,:total)");
+      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, idproveedor,precio,garantia) 
+            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:idproveedor,:precio,:garantia)");
         
-        $stmt->bindParam(":cliente",$datosVentasModel["tipo"],PDO::PARAM_STR);
+        $stmt->bindParam(":cliente",$datosVentasModel["cliente"],PDO::PARAM_STR);
 
-      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio,garantia,total) 
-            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:proveedor,:precio,:garantia,total)");
+      $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, idproveedor,precio,garantia) 
+            VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:idproveedor,:precio,:garantia)");
         
-        $stmt->bindParam(":cliente",$datosBateriasModel["cliente"],PDO::PARAM_STR);
-        $stmt->bindParam(":direccion",$datosBateriasModel["direccion"],PDO::PARAM_STR);
-        $stmt->bindParam(":fecha",$datosBateriasModel["fecha"],PDO::PARAM_STR);
-        $stmt->bindParam(":codigo",$datosBateriasModel["codigo"],PDO::PARAM_STR);
-        $stmt->bindParam(":tipo",$datosBateriasModel["tipo"],PDO::PARAM_STR);
-        $stmt->bindParam(":proveedor",$datosBateriasModel["proveedor"],PDO::PARAM_STR);
-        $stmt->bindParam(":precio",$datosBateriasModel["precio"],PDO::PARAM_STR);
-        $stmt->bindParam(":garantia",$datosBateriasModel["garantia"],PDO::PARAM_STR);
-        $stmt->bindParam(":total",$datosBateriasModel["total"],PDO::PARAM_STR);
+        $stmt->bindParam(":cliente",$datosVentasModel["cliente"],PDO::PARAM_STR);
+        $stmt->bindParam(":direccion",$datosVentasModel["direccion"],PDO::PARAM_STR);
+        $stmt->bindParam(":fecha",$datosVentasModel["fecha"],PDO::PARAM_STR);
+        $stmt->bindParam(":codigo",$datosVentasModel["codigo"],PDO::PARAM_STR);
+        $stmt->bindParam(":tipo",$datosVentasModel["tipo"],PDO::PARAM_STR);
+        $stmt->bindParam(":idproveedor",$datosVentasModel["idproveedor"],PDO::PARAM_STR);
+        $stmt->bindParam(":precio",$datosVentasModel["precio"],PDO::PARAM_STR);
+        $stmt->bindParam(":garantia",$datosVentasModel["garantia"],PDO::PARAM_STR);
+
        
         if($stmt->execute()){
             return "success";
@@ -33,10 +33,11 @@ public function registroVentasModel($datosVentasModel,$tabla){
         $stmt->close();      
         
 }
+
  //funcion para mostrar usuarios
     public function mostrarventas($tabla){
         
-        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.idproveedor=$tablaUnir.idproveedor"); 
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();

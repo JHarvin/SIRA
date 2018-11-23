@@ -1,7 +1,7 @@
 <?php
 //Llama al modelo 
 require_once"../Modelos/ModeloVentas.php";
-require_once"../Modelos/ModeloRegistroBaterias.php";
+
 
 class VentasController{
 	//clas epara registrar las ventas a la tabla
@@ -12,30 +12,71 @@ class VentasController{
            isset($_POST["fecha"]) && !empty($_POST["fecha"]) &&
            isset($_POST["codigo"]) && !empty($_POST["codigo"])&&
            isset($_POST["tipo"]) && !empty($_POST["tipo"])&&
-           isset($_POST["proveedor"]) && !empty($_POST["proveedor"])&&
+           isset($_POST["idproveedor"]) && !empty($_POST["idproveedor"])&&
            isset($_POST["precio"]) && !empty($_POST["precio"])&&
-           isset($_POST["garantia"]) && !empty($_POST["garantia"])&&
-           	isset($_POST["total"]) && !empty($_POST["total"]))
+           isset($_POST["garantia"]) && !empty($_POST["garantia"]))
           
 	       {
 	       //incio if
-	       	$datosVentasController=$array = array("cliente" =>strtoupper($_POST["cliente"]),
+	       	$datosVentasController=$array = array("cliente" =>$_POST["cliente"],
 	       	 "direccion"=>$_POST["direccion"], 
 	       	 "fecha"=>$_POST["fecha"],  
-	       	 "codigo"=>$_POST["codigo"],
+	       	 "codigo"=>strtoupper($_POST["codigo"]),
 	       	 "tipo"=>$_POST["tipo"],
-	       	 "proveedor"=>$_POST["proveedor"],
+	       	 "idproveedor"=>$_POST["idproveedor"],
 	       	 "precio"=>$_POST["precio"],
-	       	 "garantia"=>$_POST["garantia"],
-	       	 "total"=>$_POST["total"]);
+	       	 "garantia"=>$_POST["garantia"]);
 	       	 
-	       	
-            //fin if
-	        }
+	       	$validarCodigo=DatosVentas::validarCodigo($_POST["codigo"],"tventas");
+          
+   if($validarCodigo=="error"){
+        echo' 
+             
+            <script type="text/javascript">
+              
+
+          alertify.error("El codigo de la bateria ya ha sido registrado");
+    
+            </script>
+            ';  
+       
+   }else{
+       $respuesta=DatosVentas::registroVentasModel($datosVentasController,"tventas");
+   
+   if( $respuesta=="success"){
+            echo' 
+             
+            <script type="text/javascript">
+              
+
+          alertify.success("Registro Guardado    ✔");
+   
+            </script>
+            ';
+        }
+          else {
+               echo' 
+             
+            <script type="text/javascript">
+              
+
+          alertify.error("Algo salio mal :(");
+    
+            </script>
+            ';  
+                
+            }
+  
+   }
+}
+
+                
+            
+	        
 	}//fin de clase
 
 	public function mostrarventas(){
-		 $respuesta=DatosVentas::mostrarventas("tventas");
+		 $respuesta=DatosVentas::mostrarventas("tventas","tproveedores");
 
 		 foreach ($respuesta as $row => $item) {
 		 	echo'
@@ -45,7 +86,7 @@ class VentasController{
 		 	         <td>'.$item["fecha"].'</td>
 		 	         <td>'.$item["codigo"].'</td>
 		 	         <td>'.$item["tipo"].'</td>
-		 	         <td>'.$item["proveedor"].'</td>
+		 	         <td>'.$item["nombre"].'</td>
 		 	      
 		 	<td>
                    <div class="btn-group" role="group">
