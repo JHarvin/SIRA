@@ -33,12 +33,13 @@ $datos=$lista->Baterias();
         </ul>
  </div>
 <div class="row" >
+      
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
                    <h2  style="font-size:25px;color:white">Datos de factura:</h2>
                </div>
-                <form method="POST">
+                
 
 
                Fecha de emison
@@ -98,7 +99,7 @@ $datos=$lista->Baterias();
 
    </div> 
   
-</form>
+
                
            </div>
            
