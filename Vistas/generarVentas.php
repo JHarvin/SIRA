@@ -16,6 +16,12 @@ $datos=$lista->Baterias();
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/buscarInput.css">
+    
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
   </head>
   <body class="app sidebar-mini rtl">
   <?php
@@ -33,7 +39,7 @@ $datos=$lista->Baterias();
         </ul>
  </div>
 <div class="row" >
-      <form method="POST">
+      
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
@@ -152,7 +158,8 @@ $datos=$lista->Baterias();
        
         
         
-       </form> 
+       
+       
       </div>
       
       
@@ -178,6 +185,7 @@ $datos=$lista->Baterias();
     <script src="../js/plugins/pace.min.js"></script>
     <script type="text/javascript" src="../js/plugins/select2.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
+    <script src="js/ventas.js"></script>
     <!--escript para buscar en la tabla-->
   
   
