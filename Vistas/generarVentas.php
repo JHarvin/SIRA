@@ -141,9 +141,7 @@ $datos=$lista->Baterias();
        </form> 
        <?php 
                 #--para guardar registros se llama a la clase y funcion
-                $registro= new VentasController();
-                $registro->ventas();
-                
+             
                 ?>
       </div>
       
