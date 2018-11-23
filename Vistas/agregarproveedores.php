@@ -185,7 +185,7 @@ alertify.defaults.theme.input = "form-control";
 var mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 if(email.value.match(mailformat)) 
 { 
-alert("Gracias, Direccion de Email valida"); <--------------
+alert("Gracias, Direccion de Email valida"); 
 document.form1.email.focus();
 
 return true; 

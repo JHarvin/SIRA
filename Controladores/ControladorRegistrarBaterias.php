@@ -89,22 +89,16 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
                    <div class="btn-group" role="group">
                   <a href="actualizarbaterias.php?id='.$item["idproducto"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   >
                   <i class="fa fa-edit"></i></a>
-                  <a href="generarVentas.php?id='.$item["idproducto"].'" class="btn btn-danger" onSubmit="enviarDatos() onclick=""><i class="icon fa fa-cart-plus fa-3x"></i></a>
+                  <a href="generarVentas.php?id='.$item["idproducto"].'" class="btn btn-danger" onclick=""><i class="icon fa fa-cart-plus fa-3x"></i></a>
                   </td>
 
           </tr>
         ';
         }
-        ?>
-         
-            
+        ?>          
               <?php 
         
     }
-
-
-  
-
 
 
      public function Baterias(){

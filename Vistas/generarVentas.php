@@ -1,6 +1,6 @@
 <?php
 require_once"../Controladores/ControladorRegistrarBaterias.php";
-
+require_once"../Controladores/ControladorVentas.php";
 $lista= new RegistrarBateriasController();
 $datos=$lista->Baterias();
 ?>
@@ -34,12 +34,13 @@ $datos=$lista->Baterias();
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          
-          
+               
         </ul>
  </div>
 <div class="row" >
-      
+
+      <form class="POST">
+
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
@@ -83,7 +84,7 @@ $datos=$lista->Baterias();
     </div>
     <div class="col">
     <label>Proveedor</label>
-      <input type="text" class="form-control" id="proveedor" name="proveedor"
+      <input type="text" class="form-control" id="idproveedor" name="idproveedor"
       value="<?php echo $datos["idproveedor"]; ?>" >
     </div>
     <div class="col">
@@ -100,7 +101,7 @@ $datos=$lista->Baterias();
    <div class="card-footer">
        <button type="button" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
        <i class="fa fa-plus-circle"></i>Agregar a compra</button>
-       <a href="bateriaInicio.php"  class="btn btn-danger" data-dismiss="modal">
+       <a data-toggle="modal" data-target="#modalForm" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Baterias disponibles</a>
 
    </div> 
@@ -128,9 +129,7 @@ $datos=$lista->Baterias();
                    <tbody class="tabla_ajax">
                 
                <tr>
-                  <?php 
-                  
-                  ?>
+
                  
                 </tr>
                    </tbody> 
@@ -143,23 +142,14 @@ $datos=$lista->Baterias();
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
                      </button>
                </div>
-           </div>
+           </div> 
            
-          
-           
-           
-           
-           
-           
-           
+
+       </div>   
+       </form> 
+    
        </div>
-      
-   
-       
-        
-        
-       
-       
+
       </div>
       
       
@@ -167,15 +157,6 @@ $datos=$lista->Baterias();
       
 </main>
 
-<!--para modal de repaciones-->
- 
-
-
-<!--para modal de autos disponibles lista-->
- 
-
-
-<!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -198,13 +179,13 @@ $datos=$lista->Baterias();
       var codigo = $('#codigo').val();
       var tipo = $('#tipo').val();
       var precio = $('#precio_venta').val();
-      var proveedor = $('#proveedor').val();
+      var idproveedor = $('#idproveedor').val();
       var tabla = $('#tabla');
 
       var datos = "<tr>"+
       "<td>"+codigo+"</td>"+
       "<td>"+tipo+"</td>"+
-      "<td>"+proveedor+"</td>"+
+      "<td>"+idproveedor+"</td>"+
       "<td>"+precio+"</td>"+
       "</tr>";
 
