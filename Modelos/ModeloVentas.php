@@ -35,7 +35,7 @@ public function registroVentasModel($datosVentasModel,$tabla){
 }
 
  //funcion para mostrar usuarios
-    public function mostrarventas($tabla){
+    public function mostrarventas($tabla, $tablaUnir){
         
         $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.idproveedor=$tablaUnir.idproveedor"); 
         $stmt->execute();

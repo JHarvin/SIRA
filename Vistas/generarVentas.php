@@ -1,6 +1,6 @@
 <?php
 require_once"../Controladores/ControladorRegistrarBaterias.php";
-
+require_once"../Controladores/ControladorVentas.php";
 $lista= new RegistrarBateriasController();
 $datos=$lista->Baterias();
 ?>
@@ -33,7 +33,7 @@ $datos=$lista->Baterias();
         </ul>
  </div>
 <div class="row" >
-      <form method="POST">
+      <form class="POST">
        <div  class="col-md-12">
            <div class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
@@ -77,7 +77,7 @@ $datos=$lista->Baterias();
     </div>
     <div class="col">
     <label>Proveedor</label>
-      <input type="text" class="form-control" id="proveedor" name="proveedor"
+      <input type="text" class="form-control" id="idproveedor" name="idproveedor"
       value="<?php echo $datos["idproveedor"]; ?>" >
     </div>
     <div class="col">
@@ -122,9 +122,7 @@ $datos=$lista->Baterias();
                    <tbody class="tabla_ajax">
                 
                <tr>
-                  <?php 
-                  
-                  ?>
+
                  
                 </tr>
                    </tbody> 
@@ -137,22 +135,16 @@ $datos=$lista->Baterias();
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
                      </button>
                </div>
-           </div>
+           </div> 
            
-          
-           
-           
-           
-           
-           
-           
-       </div>
-      
-   
-       
-        
-        
+       </div>   
        </form> 
+       <?php 
+                #--para guardar registros se llama a la clase y funcion
+                $registro= new VentasController();
+                $registro->ventas();
+                
+                ?>
       </div>
       
       
@@ -190,13 +182,13 @@ $datos=$lista->Baterias();
       var codigo = $('#codigo').val();
       var tipo = $('#tipo').val();
       var precio = $('#precio_venta').val();
-      var proveedor = $('#proveedor').val();
+      var idproveedor = $('#idproveedor').val();
       var tabla = $('#tabla');
 
       var datos = "<tr>"+
       "<td>"+codigo+"</td>"+
       "<td>"+tipo+"</td>"+
-      "<td>"+proveedor+"</td>"+
+      "<td>"+idproveedor+"</td>"+
       "<td>"+precio+"</td>"+
       "</tr>";
 

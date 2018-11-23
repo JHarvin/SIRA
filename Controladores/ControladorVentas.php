@@ -35,7 +35,7 @@ class VentasController{
             <script type="text/javascript">
               
 
-          alertify.error("El codigo de la bateria ya ha sido registrado");
+          alertify.error("El codigo de la bateria ya ha sido vendido");
     
             </script>
             ';  
