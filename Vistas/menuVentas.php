@@ -34,6 +34,7 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="bateriaInicio.php"><i class="icon fa fa-circle-o"></i> Baterias Disponibles</a></li>
             <li><a class="treeview-item" href="mostrarventas.php"><i class="icon fa fa-circle-o"></i> Baterias Vendidas</a></li>
+               <li><a class="treeview-item" href="bateriadevuelta.php"><i class="icon fa fa-circle-o"></i> Baterias Devueltas</a></li>
           
           </ul>
         </li>
