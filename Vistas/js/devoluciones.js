@@ -23,13 +23,13 @@ $(document).ready(function(){
    
 });
 function devolver(codigo){
-    var codigo=new FormData();
-    codigo.append("codigo",codigo);
+    var codig=new FormData();
+    codig.append("codigo",codigo);
     $.ajax({
         
         type: "POST",
         url: "../Controladores/ControladorDevolucion.php",
-        data: codigo,
+        data: codig,
         cache:false,
         contentType:false,
         processData:false,
@@ -62,13 +62,15 @@ function devolver(codigo){
 }
 
 function verificarGarantia(codigo){
+    var garantia="";
     var codigo=new FormData();
-    codigo.append("codigo",codigo);
+    codig.append("codigo",codigo);
+    codig.append("n",1);
      $.ajax({
         
         type: "POST",
         url: "../Controladores/ControladorVerificarGarantia.php",
-        data: codigo,
+        data: codig,
         cache:false,
         contentType:false,
         processData:false,
@@ -76,6 +78,30 @@ function verificarGarantia(codigo){
         
         success:function(respuesta){
          
+
+     $("#aplica").val(respuesta);
+        
+            
+        
+    }
+        
+        
+    });
+    //fin ajax 1
+    //inicio ajax 2
+    codig.append("n",0);
+     $.ajax({
+        
+        type: "POST",
+        url: "../Controladores/ControladorVerificarGarantia.php",
+        data: codig,
+        cache:false,
+        contentType:false,
+        processData:false,
+         dataType:"json",
+        
+        success:function(respuesta){
+         var calculo=respu
 
      $("#aplica").val(respuesta);
         
