@@ -99,7 +99,7 @@ class VentasController{
                   <td>
                    <div class="btn-group" role="group">
                   
-                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" >
+                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-left"></i> </a>
             </td>
 
           </tr>

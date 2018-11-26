@@ -109,7 +109,7 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script src="../js/datatables.min.js"></script>
-     
+     <script src="../Vistas/js/devoluciones.js"></script>
      <script>
   
       $(document).ready(function() {
@@ -225,7 +225,7 @@ toastr.options = {
      
 </body>
     
-        //---Funcion modal para devoluciones
+        <!--Modal devolver-->
     <div class="modal" id="modalValidar">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" >
@@ -246,32 +246,22 @@ toastr.options = {
         <div class="col-md-12">
           <div class="tile">
             
-            <h3 class="tile-title"></h3>
-            <div class="table table-responsive">
-            <table id="tabla"  class="table table-striped">
-              <thead>
-                <tr>
-               <th>Tipo</th>
-                  <th>Código</th>
-                  <th>Proveedor</th>
-                   <th>Precio unitario($)</th>
-                  <th>Precio venta($)</th>
-                  <th>Fecha venta</th>
-                  
-                   <th hidden></th>
-              </tr>
-              </thead>
-              <tbody>
-                  <?php 
-                   
-                  $proveedor=new RegistrarBateriasController();
-                  $proveedor->mostrarBaterias();
-                  
-                  ?>
-              </tbody>
-            </table>
-          
-       </div>
+            <h3 class="tile-title">Devoluciones</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Codigo" id="codigo" name="codigo">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Codigo" id="tipobateria" name="tipobateria">
+            </div>
+             <div class="col-md-6">
+                <input type="text" class="form-control" id="aplica" name="aplica">
+            </div>
+            
+             <div class="col-md-6">
+              <label id="importe">Cantidad a pagar(importe): $</label>
+            </div>
+        </div>
           </div>
         </div>
         
@@ -284,8 +274,7 @@ toastr.options = {
       <!-- Modal footer -->
       <div class="modal-footer">
 
-      <button id="btnaceptar" name="btnaceptar" class="btn btn-primary" data-dismiss="modal">
-       <i class="fa fa-plus-circle"></i>Agregar a compra</button>
+       <button class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></button>
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
