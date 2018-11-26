@@ -78,7 +78,7 @@ alertify.defaults.theme.input = "form-control";
                   <?php 
                    
                   $ventas=new VentasController();
-                  $ventas->mostrarventas();
+                  $ventas->mostrarBateriasvendidas();
                   
                   ?>
               </tbody>

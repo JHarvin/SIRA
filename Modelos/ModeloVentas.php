@@ -34,9 +34,10 @@ public function registroVentasModel($datosVentasModel,$tabla){
 
 
 
-    public function mostrarventas($tabla,$tablaUnir){
+   
 
-        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.idproveedor=$tablaUnir.idproveedor"); 
+    public function mostrarVentas($tabla,$tablaUnir){
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.proveedor=$tablaUnir.idproveedor"); 
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
