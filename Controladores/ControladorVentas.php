@@ -98,8 +98,8 @@ class VentasController{
                               
                   <td>
                    <div class="btn-group" role="group">
-                  <a href="actualizarbaterias.php?id='.$item["idventa"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   >
-                  <i class="fa fa-money"></i></a>
+                  
+                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" >
             </td>
 
           </tr>
