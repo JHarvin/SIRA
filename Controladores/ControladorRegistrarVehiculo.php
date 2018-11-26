@@ -380,12 +380,12 @@ $en_mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"
                   <td class="bg-info">'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td><p style="color:red;">5000 km<p></td>
+                  <td></td>
                    <td>09/12/2018</td>
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="#" id="btnHistorial" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
                   
 
 
@@ -425,7 +425,7 @@ $en_mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="#" id="btnHistorial" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
                   
 
 

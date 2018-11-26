@@ -204,11 +204,11 @@ alertify.defaults.theme.input = "form-control";
             <div class="col-md-6">
            
                 <label for="fechain">Cada cuantos meses será la revisión</label>
-<<<<<<< HEAD
+
                 <input type="text" class="form-control mask-fechain" id="fechain" name="fechain" autocomplete="off" autofocus placeholder="numero de meses por cada revision..." pattern=".{9,}" title="8 o mas caracteres para  real" value="" required>
-=======
+
                 <input type="text" class="form-control" id="mes" name="mes">
->>>>>>> 6d2007bfd5b03846ffe29dbe64e2186ad2ff5257
+
             </div>
             
             <div class="col-md-6">
@@ -758,16 +758,15 @@ alertify.defaults.theme.input = "form-control";
 
 <div class="row">
     <div class="table table-responsive">
-        <table>
+       <div id="dato" name="dato">aqui se vera el dato-> </div>
+        <table id="tablah">
             <thead>
                 <th>Fecha de entrada</th>
                 <th>Fecha de salida</th>
                 <th>Ver</th>
             </thead>
-            <tbody>
-                <td>1/09/2018</td>
-                <td>5/12/2018</td>
-                <td><button class="btn btn-info" data-toggle="modal" data-target="#modalVerDetalle">Ver</button></td>
+            <tbody id="tbodyHistorial">
+                
             </tbody>
         </table>
     </div>

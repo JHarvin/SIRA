@@ -15,6 +15,20 @@ $(document).ready(function(){
         var tipo=$("#tipomantenimiento").val();
         ingresar(placa,tipo,fechaIn);
     });
+    //---------------------------------------------
+    $("#btnHistorial").click(function(){
+           $("#tabla tbody tr").click(function(){
+        var placa=$(this).find("td:eq(0)").text();
+       
+       
+        verDatos(placa);
+        
+    //alert(""+placa);
+    });
+        
+        
+       
+    });
 });
 
 function ingresar(placa,tipo,fecha){
@@ -59,3 +73,40 @@ function ingresar(placa,tipo,fecha){
     });
     
 }
+
+//Para ver los datos del historial del carro
+function verDatos(placa){
+    
+    var datos=new FormData();
+    datos.append("placa",placa);
+    $.ajax({
+        
+        type: "POST",
+        url: "../Controladores/ControladorDatosMantemiento.php",
+        data: datos,
+        
+        cache:false,
+        contentType:false,
+        processData:false,
+        dataType:"json",
+        success:function(respuesta){
+         //aqui se cargaran los datos del modal
+     
+            var fila="<tr>"+
+                "<td>"+respuesta["entrada"]+"</td>"+
+                "<td>"+respuesta["salida"]+"</td>"+
+                "</tr>";
+                
+            
+            
+$("#tablah").append(fila);
+    
+          
+            
+        
+    }
+        
+        
+    }); 
+}
+
