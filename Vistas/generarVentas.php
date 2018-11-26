@@ -1,6 +1,8 @@
 <?php
 require_once"../Controladores/ControladorRegistrarBaterias.php";
 require_once"../Controladores/ControladorVentas.php";
+require_once"../Controladores/ControladorRegistrarProveedor.php";
+
 $lista= new RegistrarBateriasController();
 $datos=$lista->Baterias();
 ?>
@@ -23,7 +25,7 @@ $datos=$lista->Baterias();
 <!-- include alertify script -->
 <script src="../js/alertify.js"></script>
   </head>
-  <body class="app sidebar-mini rtl">
+  <body class="app sidebar-mini rtl" class="panel panel-info">
   <?php
       include"menuVentas.php";
       ?>
@@ -41,8 +43,8 @@ $datos=$lista->Baterias();
 
       <form class="POST">
 
-       <div  class="col-md-12">
-           <div class="card col-md-3" style="float:right;">
+       <div   class="col-md-12">
+           <div  class="card col-md-3" style="float:right;">
                <div class="card-tittle" style="background-color:#E84D13;">
                    <h2  style="font-size:25px;color:white">Datos de factura:</h2>
                </div>
@@ -101,8 +103,7 @@ $datos=$lista->Baterias();
    <div class="card-footer">
        <button type="button" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
        <i class="fa fa-plus-circle"></i>Agregar a compra</button>
-       <a data-toggle="modal" data-target="#modalForm" class="btn btn-danger" data-dismiss="modal">
-        <i class="fa fa-undo"></i> Baterias disponibles</a>
+        <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
 
    </div> 
   
@@ -197,4 +198,75 @@ $datos=$lista->Baterias();
     
 
     </body>
+
+           
+       <div class="modal" id="modalValidar">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+
+         <div>
+          <h4><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Disponibles</h4>
+          <p>Rent a Car Chacón </p>
+        </div>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" >
+         <div class="row">   
+       
+        <div class="col-md-12">
+          <div class="tile">
+            
+            <h3 class="tile-title"></h3>
+            <div class="table table-responsive">
+            <table id="tabla"  class="table table-striped">
+              <thead>
+                <tr>
+               <th>Tipo</th>
+                  <th>Código</th>
+                  <th>Proveedor</th>
+                   <th>Precio unitario($)</th>
+                  <th>Precio venta($)</th>
+                  <th>Fecha venta</th>
+                  
+                   <th hidden></th>
+              </tr>
+              </thead>
+              <tbody>
+                  <?php 
+                   
+                  $proveedor=new RegistrarBateriasController();
+                  $proveedor->mostrarBaterias();
+                  
+                  ?>
+              </tbody>
+            </table>
+          
+       </div>
+          </div>
+        </div>
+        
+        
+       <input type="hidden" id="ide" name="ide" class="form-control"> 
+      </div>
+ 
+          </div>
+s
+      <!-- Modal footer -->
+      <div class="modal-footer">
+
+      <button id="btnaceptar" name="btnaceptar" class="btn btn-primary" data-dismiss="modal">
+       <i class="fa fa-plus-circle"></i>Agregar a compra</button>
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </html>

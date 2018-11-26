@@ -80,8 +80,7 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
                   <td>'.$item["tipo"].'</td>
                   <td>'.$item["codigo"].' </td>
                   <td>'.$item["nombre"].'</td>
-                  <td>'.$item["precio_unitario"].'</td>
-                  
+                  <td>'.$item["precio_unitario"].'</td>                
                   <td>'.$item["precio_venta"].'</td>
                   <td>'.$item["fecha_venta"].'</td>
                               

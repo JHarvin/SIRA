@@ -78,12 +78,14 @@ alertify.defaults.theme.input = "form-control";
                   <?php 
                    
                   $ventas=new VentasController();
-                  $ventas->mostrarventas();
+                  $ventas->mostrarBateriasvendidas();
+                 
                   
                   ?>
               </tbody>
             </table>
-          
+       
+  
        </div>
           </div>
         </div>
@@ -222,4 +224,74 @@ toastr.options = {
     </script>
      
 </body>
+    
+        //---Funcion modal para devoluciones
+    <div class="modal" id="modalValidar">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+
+         <div>
+          <h4><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Disponibles</h4>
+          <p>Rent a Car Chacón </p>
+        </div>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" >
+         <div class="row">   
+       
+        <div class="col-md-12">
+          <div class="tile">
+            
+            <h3 class="tile-title"></h3>
+            <div class="table table-responsive">
+            <table id="tabla"  class="table table-striped">
+              <thead>
+                <tr>
+               <th>Tipo</th>
+                  <th>Código</th>
+                  <th>Proveedor</th>
+                   <th>Precio unitario($)</th>
+                  <th>Precio venta($)</th>
+                  <th>Fecha venta</th>
+                  
+                   <th hidden></th>
+              </tr>
+              </thead>
+              <tbody>
+                  <?php 
+                   
+                  $proveedor=new RegistrarBateriasController();
+                  $proveedor->mostrarBaterias();
+                  
+                  ?>
+              </tbody>
+            </table>
+          
+       </div>
+          </div>
+        </div>
+        
+        
+       <input type="hidden" id="ide" name="ide" class="form-control"> 
+      </div>
+ 
+          </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+
+      <button id="btnaceptar" name="btnaceptar" class="btn btn-primary" data-dismiss="modal">
+       <i class="fa fa-plus-circle"></i>Agregar a compra</button>
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 </html>

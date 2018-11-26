@@ -75,31 +75,41 @@ class VentasController{
 	        
 	}//fin de clase
 
-	public function mostrarventas(){
-		 $respuesta=DatosVentas::mostrarventas("tventas","tproveedores");
+	
 
-		 foreach ($respuesta as $row => $item) {
-		 	echo'
-	<tr>
-		 	         <td>'.$item["cliente"].'</td>
-		 	         <td>'.$item["direccion"].'</td>
-		 	         <td>'.$item["fecha"].'</td>
-		 	         <td>'.$item["codigo"].'</td>
-		 	         <td>'.$item["tipo"].'</td>
-		 	         <td>'.$item["nombre"].'</td>
-		 	      
-		 	<td>
+
+
+
+           public function mostrarBateriasvendidas(){
+        
+         $respuesta=DatosVentas::mostrarVentas("tventas","tproveedores");
+        
+        foreach($respuesta as $row =>$item){
+        
+        echo'
+        
+        <tr>
+                  <td>'.$item["cliente"].'</td>
+                  <td>'.$item["direccion"].' </td>
+                  <td>'.$item["fecha"].'</td>
+                  <td>'.$item["codigo"].'</td>                
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$item["idproveedor"].'</td>
+                              
+                  <td>
                    <div class="btn-group" role="group">
-                  <a href="" id="btnEditar" name="btnEditar" class="btn btn-info">
-                  <i class="fa fa-money"></i></a>
+                  
+                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" >
             </td>
 
-	</tr>
-		 	   ';
+          </tr>
+        ';
         }
-        ?>   
+        ?>          
               <?php 
-		} 
+        
+    }
+
 	
 }
 
