@@ -7,7 +7,7 @@ require_once"../Controladores/ControladorVentas.php";
 
 <html lang="es">
  <head>
- <title>Baterias Vendidas</title>
+ <title>Baterias Devueltas</title>
    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,7 +44,7 @@ alertify.defaults.theme.input = "form-control";
 
  <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Vendidas</h1>
+          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Devueltas</h1>
           <p>Rent a Car Chacón </p>
         </div>
         
