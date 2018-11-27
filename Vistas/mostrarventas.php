@@ -63,12 +63,12 @@ alertify.defaults.theme.input = "form-control";
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr class="bg-info">
-                <th>Cliente</th>
-                <th>Dirección</th>
+                <th>Codigo</th>
                 <th>Fecha</th>
-                <th>Código</th>
+                <th>Precio</th>
                 <th>Tipo</th>
                 <th>Proveedor</th>
+                <th>Garantia</th>
               
 
                 <th hidden></th>

@@ -7,24 +7,21 @@ class VentasController{
 	//clas epara registrar las ventas a la tabla
 	public function ventas()
 	{//inicio ventas
-		if(isset($_POST["cliente"]) && !empty($_POST["cliente"]) && 
-           isset($_POST["direccion"]) && !empty($_POST["direccion"]) && 
+		if(isset($_POST["codigo"]) && !empty($_POST["codigo"])&&
            isset($_POST["fecha"]) && !empty($_POST["fecha"]) &&
-           isset($_POST["codigo"]) && !empty($_POST["codigo"])&&
+           isset($_POST["precio"]) && !empty($_POST["precio"])&&
            isset($_POST["tipo"]) && !empty($_POST["tipo"])&&
            isset($_POST["idproveedor"]) && !empty($_POST["idproveedor"])&&
-           isset($_POST["precio"]) && !empty($_POST["precio"])&&
+           
            isset($_POST["garantia"]) && !empty($_POST["garantia"]))
           
 	       {
 	       //incio if
-	       	$datosVentasController=$array = array("cliente" =>$_POST["cliente"],
-	       	 "direccion"=>$_POST["direccion"], 
-	       	 "fecha"=>$_POST["fecha"],  
-	       	 "codigo"=>strtoupper($_POST["codigo"]),
+	       	$datosVentasController=$array = array( "codigo"=>strtoupper($_POST["codigo"]), 
+	       	 "fecha"=>$_POST["fecha"],  "precio"=>$_POST["precio"],
 	       	 "tipo"=>$_POST["tipo"],
 	       	 "idproveedor"=>$_POST["idproveedor"],
-	       	 "precio"=>$_POST["precio"],
+	       	 
 	       	 "garantia"=>$_POST["garantia"]);
 	       	 
 	       	$validarCodigo=DatosVentas::validarCodigo($_POST["codigo"],"tventas");
@@ -89,12 +86,14 @@ class VentasController{
         echo'
         
         <tr>
-                  <td>'.$item["cliente"].'</td>
-                  <td>'.$item["direccion"].' </td>
-                  <td>'.$item["fecha"].'</td>
-                  <td>'.$item["codigo"].'</td>                
+                  <td>'.$item["codigo"].'</td>
+                  <td>'.$item["fecha"].' </td>
+                   <td>'.$item["precio"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td>'.$item["idproveedor"].'</td>
+                                
+                 
+                  <td>'.$item["nombre"].'</td>
+                  <td>'.$item["garantia"].'</td>
                               
                   <td>
                    <div class="btn-group" role="group">
