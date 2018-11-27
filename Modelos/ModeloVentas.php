@@ -93,11 +93,12 @@ public function registroVentasModel($datosVentasModel,$tabla){
     
     #Funcion para verificar la garantia
     public function verificarGarantiaModel($codigo){
-        $stmt =Conexion::conectar()->prepare("SELECT * FROM tventas WHERE codigo=:codigo"); 
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM tventas WHERE codigo=:codigo "); 
         $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetch();
         $stmt->close();
     }
+    
 
 }//fin de clase

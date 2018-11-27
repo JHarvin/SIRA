@@ -91,15 +91,23 @@ function verDatos(placa){
         dataType:"json",
         success:function(respuesta){
          //aqui se cargaran los datos del modal
-     
-            var fila="<tr>"+
-                "<td>"+respuesta["entrada"]+"</td>"+
-                "<td>"+respuesta["salida"]+"</td>"+
-                "</tr>";
+     var fila,i=0;
+            
+          //agregar contador
                 
+        $.each(respuesta, function(indice,valor){
+            i++;
             
             
-$("#tablah").append(fila);
+        });
+            var x=i-3;
+            for(var j=0;j<i ;j++){
+                 fila="<tr>"+
+                 "<td>"+respuesta.entrada+"</td>"+
+                  "<td>"+respuesta.salida+"</td>"+
+                 "</tr>"
+                $("#tablah").append(fila);
+            }
     
           
             

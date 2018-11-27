@@ -259,7 +259,9 @@ toastr.options = {
             </div>
             
              <div class="col-md-6">
-              <label id="importe">Cantidad a pagar(importe): $</label>
+              <label id="importe">Cantidad a pagar(importe): $
+              <p id="importe"></p>
+              </label>
             </div>
         </div>
           </div>

@@ -13,17 +13,23 @@ class Devolver{
     public function enviar(){
         
         $matricula=$this->codigo;
+        $mensaje="";
        $garantia="No aplica garantia";
-        #Se llama a la funcion en el controlador y luego en el controlador llama al
-        #modelo que es el encargado de obtener las imagenes eliminarlas y luego eliminar
-        #el registro de la bd-----------------------------------------------------------
-        $respuesta=DatosVentas::devolverModel($matricula);
-        if($respuesta["garantia"]<=date("n")){
+       $total="garantia vencida";
+        $respuesta=DatosVentas::verificarGarantiaModel($matricula);
+        $precio=$respuesta["precio"];
+        $date1 = new DateTime($respuesta["fecha"]);
+$date2 = new DateTime(date("Y-m-d"));
+$intervalo = $date1->diff($date2);
+        if($date1<$date2){
             $garantia="Aplica garantia";
+            $total=($precio/$respuesta["garantia"])*$intervalo->m; 
         }
-        #Si la variable $respuesta cumple con la condicion se retorna 1 con echo al ajax
-     echo json_encode($garantia);
         
+        
+ 
+     echo json_encode(array("garantia"=>$garantia,"precio"=>$total));
+       
         
         
         

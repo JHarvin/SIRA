@@ -11,10 +11,9 @@ class VerHistorialController{
     public function ajaxVerController(){
         
        $placaV=$this->placa;
-       
+       $html="";
         $respuesta=MantenimientoModel::verHistorialFechaModel($placaV);
-        
-        
+     
         
         
         

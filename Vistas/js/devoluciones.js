@@ -62,10 +62,10 @@ function devolver(codigo){
 }
 
 function verificarGarantia(codigo){
-    var garantia="";
-    var codigo=new FormData();
+    //var garantia="";
+    var codig=new FormData();
     codig.append("codigo",codigo);
-    codig.append("n",1);
+    
      $.ajax({
         
         type: "POST",
@@ -74,41 +74,21 @@ function verificarGarantia(codigo){
         cache:false,
         contentType:false,
         processData:false,
-         dataType:"json",
+        dataType:"json",
         
         success:function(respuesta){
-         
+          
 
-     $("#aplica").val(respuesta);
-        
-            
+     
+      $("#aplica").val(respuesta.garantia);  
+    $("#importe").text("Cantidad a pagar(importe): $ "+respuesta.precio); 
         
     }
         
         
     });
     //fin ajax 1
-    //inicio ajax 2
-    codig.append("n",0);
-     $.ajax({
-        
-        type: "POST",
-        url: "../Controladores/ControladorVerificarGarantia.php",
-        data: codig,
-        cache:false,
-        contentType:false,
-        processData:false,
-         dataType:"json",
-        
-        success:function(respuesta){
-         var calculo=respu
-
-     $("#aplica").val(respuesta);
-        
-            
-        
-    }
-        
-        
-    });
+    
+   
+   
 }
