@@ -374,11 +374,14 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
          $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
              foreach($respuesta as $row =>$item){
 $estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"talquiler");   
-                 $mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"]);
-                
+$mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"]);
+$kilometraje=VehiculosModel::verKmModel($item["numero_de_placa"]);                
 
                 if($estado=="success"){
-                    
+                    $maintence="";
+                    if($mantenimiento==0){
+                        $maintence="table-warning";
+                    }
         echo'    <tr class="table-info">
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>

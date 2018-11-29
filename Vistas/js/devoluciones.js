@@ -92,7 +92,7 @@ function verificarGarantia(codigo){
      
       $("#aplica").val(respuesta.garantia);  
     $("#importe").text(respuesta.precio); 
-        
+       
     }
         
         
