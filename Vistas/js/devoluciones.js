@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
     $("#tabla tbody tr").click(function(){
-        var codigo=$(this).find("td:eq(3)").text();
+        var codigo=$(this).find("td:eq(0)").text();
         var tipo=$(this).find("td:eq(4)").text();
         
         //se ponen los datos en el modal
@@ -38,7 +38,7 @@ function devolver(codigo,tipo,importe,fecha){
     $.ajax({
         
         type: "POST",
-        url: "../Controladores/ControladorDevolucion.php",
+        url: "../Controladores/controladordevoprovee.php",
         data: codig,
         cache:false,
         contentType:false,

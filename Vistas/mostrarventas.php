@@ -283,7 +283,7 @@ toastr.options = {
       <!-- Modal footer -->
       <div class="modal-footer">
 
-       <a href="../Vistas/mostrardevoluciones.php" class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></a>
+       <a href="../Vistas/mostrarventas.php" class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></a>
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
