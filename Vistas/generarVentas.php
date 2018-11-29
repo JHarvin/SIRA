@@ -41,7 +41,7 @@ $datos=$lista->Baterias();
  </div>
 <div class="row" >
 
-      <form class="POST">
+      <form class="POST" >
 
        <div   class="col-md-12">
            <div  class="card col-md-3" style="float:right;">
@@ -61,7 +61,7 @@ $datos=$lista->Baterias();
                <br>
                <input type="text" class="form-control" placeholder="Nombre del cliente"
                id="cliente" name="cliente" onkeypress="return soloLetras(event)" autocomplete="off"
-               maxlength="65"  pattern=".{7,}" title="7 o mas caracteres para nombre real" >
+               maxlength="65"  pattern=".{7,}" title="7 o mas caracteres para nombre real" required>
                <br>
                <input type="text" id="direccion" name="direccion"class="form-control" placeholder="Direccion"
                autocomplete="off"  maxlength="150"  pattern=".{7,}" title="7 o mas caracteres para Direccion real">
@@ -94,7 +94,8 @@ $datos=$lista->Baterias();
 
     <label>Código</label>
       <input class="form-control" id="codigo" name="codigo" type="text" 
-       value="<?php echo $datos["codigo"]; ?>" disabled>
+       value="<?php echo $datos["codigo"]; ?>" 
+        disabled>
     </div>
 
    <div class="col">
@@ -119,9 +120,10 @@ $datos=$lista->Baterias();
 
   
    <div class="card-footer">
-       <button type="button" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
-       <i class="icon fa fa-cart-plus fa-3x"></i>Agregar al carrito</button>
+       <button type="button" id="limpiar" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
+       <i class="icon fa fa-cart-plus fa-3x" id="limpiar"></i>Agregar al carrito</button>
    </div> 
+   
   
 
                
@@ -216,7 +218,13 @@ $datos=$lista->Baterias();
 
     
 
- 
+ <script type="text/javascript">
+        $(document).ready(function() {
+            $('#limpiar').click(function() {
+                $('.form-control').val('');
+            });
+        });
+    </script>
 
            
        <div class="modal" id="modalValidar">
