@@ -22,7 +22,7 @@ $datos=$lista->Baterias();
 <link rel="stylesheet" href="../css/alertify.rtl.css">
 <link rel="stylesheet" href="../css/themes/default.rtl.css">
 
-<!-- include alertify script -->
+<!-- include alertify -->
 <script src="../js/alertify.js"></script>
   </head>
   <body class="app sidebar-mini rtl" class="panel panel-info">
@@ -48,27 +48,36 @@ $datos=$lista->Baterias();
                <div class="card-tittle" style="background-color:#E84D13;">
                    <h2  style="font-size:25px;color:white">Datos de factura:</h2>
                </div>
-                
+  
+  
 
-
-               Fecha de emison
-               <input type="date" id="fecha" name="fecha"class="form-control">
+    <label class="control-label">Fecha</label>
+    <?php   $fecha=date('Y-m-d')?>
+  
+      <input id="fecha"  min="<?php echo $fecha; ?>" 
+      name="fecha" type="date" value="<?php echo $fecha; ?>"
+      class="form-control"  max="<?php echo $fecha; ?>" >
+   
                <br>
                <input type="text" class="form-control" placeholder="Nombre del cliente"
-               id="cliente" name="cliente" >
+               id="cliente" name="cliente" onkeypress="return soloLetras(event)" autocomplete="off"
+               maxlength="65"  pattern=".{7,}" title="7 o mas caracteres para nombre real" >
                <br>
-               <input type="text" id="direccion" name="direccion"class="form-control" placeholder="Direccion">
+               <input type="text" id="direccion" name="direccion"class="form-control" placeholder="Direccion"
+               autocomplete="off"  maxlength="150"  pattern=".{7,}" title="7 o mas caracteres para Direccion real">
                <br>
-               <input type="text" id="garantia" name="garantia" class="form-control" placeholder="Garantía (Meses)">
+               <input type="text" id="garantia" onkeypress="return validaNumericos(event)"name="garantia" class="form-control"  placeholder="Garantía (Meses)" autocomplete="off">
                <br>
-              
+
+<br>
                <button class="btn btn-info" id="factura"><i class="far fa-file-alt"></i>Imprimir factura</button>
                <br>
            </div>
            <div class="card col-md-9">
           <div class="card-title">
-              <h3>Baterias</h3>
+              <h3>Datos bateria</h3>
           </div>
+
         
   <div class="form-row">
     
@@ -76,23 +85,23 @@ $datos=$lista->Baterias();
 
     <label>Código</label>
       <input class="form-control" id="codigo" name="codigo" type="text" 
-       value="<?php echo $datos["codigo"]; ?>" >
+       value="<?php echo $datos["codigo"]; ?>" disabled>
     </div>
 
    <div class="col">
     <label>Tipo</label>
-      <input type="text" class="form-control" id="tipo" name="tipo"
-       value="<?php echo $datos["tipo"]; ?>" >
+      <input type="text" class="form-control" id="tipo" name="tipo" disables
+       value="<?php echo $datos["tipo"]; ?>" disabled>
     </div>
     <div class="col">
     <label>Proveedor</label>
       <input type="text" class="form-control" id="idproveedor" name="idproveedor"
-      value="<?php echo $datos["idproveedor"]; ?>" >
+      value="<?php echo $datos["idproveedor"]; ?>" disabled>
     </div>
     <div class="col">
     <label>Precio($)</label>
       <input type="text" class="form-control" id="precio_venta" name="precio_venta"
-      value="<?php echo $datos["precio_venta"]; ?>" >
+      value="<?php echo $datos["precio_venta"]; ?>" disabled>
     </div>
   
     
@@ -102,9 +111,12 @@ $datos=$lista->Baterias();
   
    <div class="card-footer">
        <button type="button" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
-       <i class="fa fa-plus-circle"></i>Agregar a compra</button>
-        <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
+       <i class="icon fa fa-cart-plus fa-3x"></i>Agregar al carrito</button>
 
+
+
+        <button href="bateriaInicio.php"  class="btn btn-danger" >
+        <i class="fa fa-plus-circle"></i>Dis</button>
    </div> 
   
 
@@ -115,7 +127,7 @@ $datos=$lista->Baterias();
            
            <div class="card col-md-9 ">
                
-               <table class="table table-striped" name="tabla" id="tabla" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+               <table class="table table-striped" name="tabla" id="tabla">
                    <thead>
                 <tr>
                   <th>Código</th>
@@ -138,10 +150,10 @@ $datos=$lista->Baterias();
                
               <h3> <label>Total:</label></h3>
                <div class="card-footer">
-                    
-                     <button class="btn btn-success" type="submit" name="btnguardar" id="btnguardar"><i class="fa fa-check-circle"></i>Registrar Venta
+                    <button class="btn btn-success" type="submit" name="btnguardar" id="btnguardar"><i class="fa fa-check-circle">
+                       </i>Registrar Venta </button>
                     <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
-                     </button>
+                    
                </div>
            </div> 
            
@@ -168,7 +180,7 @@ $datos=$lista->Baterias();
     <script type="text/javascript" src="../js/plugins/select2.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="js/ventas.js"></script>
-    <!--escript para buscar en la tabla-->
+    <!--escript n la tabla-->
   
   
    
@@ -176,7 +188,7 @@ $datos=$lista->Baterias();
     <script>
      function agregarT()
      {
-      alert('aaaaaa');
+      //alert('aaaaaa');
       var codigo = $('#codigo').val();
       var tipo = $('#tipo').val();
       var precio = $('#precio_venta').val();
@@ -197,7 +209,7 @@ $datos=$lista->Baterias();
 
     
 
-    </body>
+ 
 
            
        <div class="modal" id="modalValidar">
@@ -205,68 +217,41 @@ $datos=$lista->Baterias();
     <div class="modal-content" >
 
       <!-- Modal Header -->
-      <div class="modal-header">
+     
 
-         <div>
-          <h4><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Disponibles</h4>
-          <p>Rent a Car Chacón </p>
-        </div>
-      </div>
+   </body>
 
-      <!-- Modal body -->
-      <div class="modal-body" >
-         <div class="row">   
-       
-        <div class="col-md-12">
-          <div class="tile">
-            
-            <h3 class="tile-title"></h3>
-            <div class="table table-responsive">
-            <table id="tabla"  class="table table-striped">
-              <thead>
-                <tr>
-               <th>Tipo</th>
-                  <th>Código</th>
-                  <th>Proveedor</th>
-                   <th>Precio unitario($)</th>
-                  <th>Precio venta($)</th>
-                  <th>Fecha venta</th>
-                  
-                   <th hidden></th>
-              </tr>
-              </thead>
-              <tbody>
-                  <?php 
-                   
-                  $proveedor=new RegistrarBateriasController();
-                  $proveedor->mostrarBaterias();
-                  
-                  ?>
-              </tbody>
-            </table>
-          
-       </div>
-          </div>
-        </div>
+
+       <script>
+   
+         //funcionpara valida solo numero en el campo de telefono
+          function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+} 
         
+    </script>
+
+     <script type="text/javascript">
+
+           function soloLetras(e){
+        key=e.keyCode || e.which;
+        teclado=String.fromCharCode(key).toLowerCase();
+        letras=" áéíóúabcdefghijklmnñopqrstuvwxyz";
+        especiales="8-37-38-46-164";
+        teclado_especial=false;
+        for(var i in especiales){
+            if(key==especiales[i]){
+                teclado_especial=true;break;
+            }
+        }
+        if(letras.indexOf(teclado)==-1 && !teclado_especial){
+        return false;
+    }
+        }
         
-       <input type="hidden" id="ide" name="ide" class="form-control"> 
-      </div>
- 
-          </div>
-s
-      <!-- Modal footer -->
-      <div class="modal-footer">
-
-      <button id="btnaceptar" name="btnaceptar" class="btn btn-primary" data-dismiss="modal">
-       <i class="fa fa-plus-circle"></i>Agregar a compra</button>
-
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
-        <i class="fa fa-undo"></i> Cancelar</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
+    </script>
+    
 </html>
