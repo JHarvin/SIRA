@@ -117,8 +117,31 @@ class VentasController{
          $respuesta=DatosVentas::mostrarDev("tdevoluciones");
         
         foreach($respuesta as $row =>$item){
+            $devuleta="";
+        if($item["estado"]=="DEVUELTA"){
+              echo'
         
-        echo'
+        <tr>
+                  <td>'.$item["codigo"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                                
+                 
+                  
+                  <td>'.$item["importe"].'</td>
+                  <td>'.$item["fecha"].'</td>
+                  <td>'.$item["estado"].'</td>
+                              
+                  <td>
+                   <div class="btn-group" role="group">
+                  
+                   
+            </td>
+
+          </tr>
+        ';
+        }
+            else{
+                  echo'
         
         <tr>
                   <td>'.$item["codigo"].'</td>
@@ -138,9 +161,10 @@ class VentasController{
 
           </tr>
         ';
+            }
+      
         }
-        ?>          
-              <?php 
+       
         
     }
 

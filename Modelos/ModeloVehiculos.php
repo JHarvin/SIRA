@@ -272,7 +272,13 @@ class VehiculosModel extends Conexion{
         
     }
     
-    
+   public function verKmModel($placa){
+       $stmt=Conexion::conectar()->prepare("select cada_cuantos_kilometros as km, 	cada_cuantos_meses_revision as mes, from tkilometraje ");
+         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+         $stmt->execute();
+        return $stmt->fetch();
+        $stmt->close();
+   } 
    
 }
 
