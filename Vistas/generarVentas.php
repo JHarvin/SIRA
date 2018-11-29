@@ -121,11 +121,6 @@ $datos=$lista->Baterias();
    <div class="card-footer">
        <button type="button" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
        <i class="icon fa fa-cart-plus fa-3x"></i>Agregar al carrito</button>
-
-
-
-        <a href="../Vistas/bateriaInicio.php"  class="btn btn-danger" >
-        <i class="fa fa-plus-circle"></i>Dis</a>
    </div> 
   
 
@@ -156,12 +151,15 @@ $datos=$lista->Baterias();
                 </tr>
                    </tbody> 
                </table>
-               
-              <h3> <label>Total:</label></h3>
+
+
+
+              <h3> <label>Total:$ <?php echo $datos["precio_venta"]; ?></label></h3>
                <div class="card-footer">
                     <button class="btn btn-success" type="submit" name="btnguardar" id="btnguardar"><i class="fa fa-check-circle">
                        </i>Registrar Venta </button>
-                    <button class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</button>
+      
+                    <a href="../Vistas/bateriaInicio.php" class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</a>
                     
                </div>
            </div> 
