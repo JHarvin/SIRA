@@ -92,7 +92,10 @@ function verificarGarantia(codigo){
      
       $("#aplica").val(respuesta.garantia);  
     $("#importe").text(respuesta.precio); 
-       
+      
+            if(respuesta.garantia=="No aplica garantia "){$("#btnDevolver").hide();}
+           
+            
     }
         
         
