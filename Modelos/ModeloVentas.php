@@ -108,7 +108,30 @@ public function registroVentasModel($datosVentasModel,$tabla){
        
         #-----------------------------------------------------
     }
+    //==========devolver proveedor================================
+    #Funcion para mandar a la tabla de baterias devueltas
+    public function devolverModelPro($codigo){
+        #-----------------------------------------------------
+        
+        
+        $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA' WHERE tdevoluciones.codigo =:codigo");
+        
+         $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
     
+       
+        
+        if($stmt->execute()){
+            return 1;
+        }
+        else{ return 0;}
+        
+        $stmt->close(); 
+        
+       
+        #-----------------------------------------------------
+    }
+    
+    //====================================
     #Funcion para verificar la garantia
     public function verificarGarantiaModel($codigo){
         $stmt =Conexion::conectar()->prepare("SELECT * FROM tventas WHERE tipo=:codigo "); 

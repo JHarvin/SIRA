@@ -87,6 +87,7 @@ class VentasController{
         
         <tr>
                   <td>'.$item["codigo"].'</td>
+                   
                   <td>'.$item["fecha"].' </td>
                    <td>'.$item["precio"].'</td>
                   <td>'.$item["tipo"].'</td>
@@ -94,6 +95,8 @@ class VentasController{
                  
                   <td>'.$item["nombre"].'</td>
                   <td>'.$item["garantia"].'</td>
+                  <td>'.$item["cliente"].'</td>
+                  
                               
                   <td>
                    <div class="btn-group" role="group">
