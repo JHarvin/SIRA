@@ -32,7 +32,6 @@ function devolver(codigo){
     var codig=new FormData();
      
     codig.append("codigo",codigo);
-   alert(""+codigo)
     
     $.ajax({
         
