@@ -14,21 +14,26 @@ class Devolver{
         
         $matricula=$this->codigo;
         $mensaje="";
-       $garantia="No aplica garantia";
-       $total="garantia vencida";
+       $garantia="No aplica garantia ";
+       $total="No aplica garantia";
         $respuesta=DatosVentas::verificarGarantiaModel($matricula);
         $precio=$respuesta["precio"];
         $date1 = new DateTime($respuesta["fecha"]);
 $date2 = new DateTime(date("Y-m-d"));
 $intervalo = $date1->diff($date2);
-        if($date1<$date2){
+        
+        if($date1<=$date2 && $intervalo->m<=$respuesta["garantia"]){
             $garantia="Aplica garantia";
-            $total=($precio/$respuesta["garantia"])*$intervalo->m; 
+            $total=round(($precio/$respuesta["garantia"])*$intervalo->m,2);
+            echo json_encode(array("garantia"=>$garantia,"precio"=>$total));
+        }else{
+            echo json_encode(array("garantia"=>$garantia,"precio"=>$total));
         }
         
         
+        
  
-     echo json_encode(array("garantia"=>$garantia,"precio"=>$total));
+     
        
         
         

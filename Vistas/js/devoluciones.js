@@ -16,15 +16,23 @@ $(document).ready(function(){
       //-----------------------
     $("#btnDevolver").click(function(){
         var codigo=$("#codigo").val();
+         var tipo=$("#tipobateria").val();
+         var importe=$("#importe").text();
+         var fecha=$("#fecha").val();
         
-        devolver(codigo);
+        devolver(codigo,tipo,importe,fecha);
     });
     //---------------------------------------------
    
 });
-function devolver(codigo){
+function devolver(codigo,tipo,importe,fecha){
     var codig=new FormData();
+     
     codig.append("codigo",codigo);
+    codig.append("tipobateria",tipo); 
+    codig.append("importe",importe);
+    codig.append("fecha",fecha);
+    
     $.ajax({
         
         type: "POST",
@@ -41,7 +49,7 @@ function devolver(codigo){
          
            
            //$("#tcuerpo").load("mantenimientos.php #tcuerpo > *");
-          alertify.success("Registrad en mantenimiento");
+          alertify.success("Bateria devuelta");
            
             
     }
@@ -81,7 +89,7 @@ function verificarGarantia(codigo){
 
      
       $("#aplica").val(respuesta.garantia);  
-    $("#importe").text("Cantidad a pagar(importe): $ "+respuesta.precio); 
+    $("#importe").text(respuesta.precio); 
         
     }
         
