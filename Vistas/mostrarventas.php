@@ -63,13 +63,15 @@ alertify.defaults.theme.input = "form-control";
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr class="bg-info">
-                <th>Codigo</th>
+                <th>Tipo</th>
+                
                 <th>Fecha</th>
                 <th>Precio</th>
-                <th>Tipo</th>
+                <th>Codigo</th>
                 <th>Proveedor</th>
                 <th>Garantia</th>
-              
+                    <th>Cliente</th>
+             
 
                 <th hidden></th>
               </tr>
@@ -262,7 +264,7 @@ toastr.options = {
                 <input type="date" class="form-control" id="fecha" name="fecha">
             </div>
              <div class="col-md-6">
-              <label id="importe">Cantidad a pagar(importe): $
+              <label id="importes">Cantidad a pagar(importe): $
               <p id="importe"></p>
               </label>
             </div>
@@ -281,7 +283,7 @@ toastr.options = {
       <!-- Modal footer -->
       <div class="modal-footer">
 
-       <button class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></button>
+       <a href="../Vistas/mostrardevoluciones.php" class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></a>
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>

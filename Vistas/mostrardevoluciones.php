@@ -110,7 +110,7 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script src="../js/datatables.min.js"></script>
-     <script src="../Vistas/js/devoluciones.js"></script>
+     <script src="../Vistas/js/devolucionespro.js"></script>
      <script>
   
       $(document).ready(function() {
@@ -247,7 +247,7 @@ toastr.options = {
         <div class="col-md-12">
           <div class="tile">
             
-            <h3 class="tile-title">Devoluciones</h3>
+            <h3 class="tile-title">Devoluciones Proveedor</h3>
         <div class="row">
             <div class="col-md-6">
                 <input type="text" class="form-control" placeholder="Codigo" id="codigo" name="codigo">
@@ -256,13 +256,11 @@ toastr.options = {
                 <input type="text" class="form-control" placeholder="Codigo" id="tipobateria" name="tipobateria">
             </div>
              <div class="col-md-6">
-                <input type="text" class="form-control" id="aplica" name="aplica">
+                <input type="date" class="form-control" id="fechapro" name="fechapro">
             </div>
             
              <div class="col-md-6">
-              <label id="importe">Cantidad a pagar(importe): $
-              <p id="importe"></p>
-              </label>
+              <input type="text" class="form-control" id="estado" name="estado">
             </div>
             
         </div>
@@ -278,7 +276,7 @@ toastr.options = {
       <!-- Modal footer -->
       <div class="modal-footer">
 
-       <button class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></button>
+       <button class="btn btn-warning" id="btnDevolverPro" name="btnDevolverPro">Devolver<i class="fa fa-shopping-basket"></i></button>
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>

@@ -1,39 +1,38 @@
 $(document).ready(function(){
     
     $("#tabla tbody tr").click(function(){
-        var codigo=$(this).find("td:eq(3)").text();
-        var tipo=$(this).find("td:eq(4)").text();
+        var codigo=$(this).find("td:eq(0)").text();
+        var tipo=$(this).find("td:eq(1)").text();
+        var fechita=$(this).find("td:eq(3)").text();
+        var estados=$(this).find("td:eq(4)").text();
         
         //se ponen los datos en el modal
         
         $("#codigo").val(codigo);
         $("#tipobateria").val(tipo);
-        $("#aplicagarantia").val("Aplica");
+        $("#fechapro").val(fechita);
+         $("#estado").val(estados);
         
-       verificarGarantia(codigo);
+       //verificarGarantia(codigo);
     
     });
       //----------------------
     
     //============================
-    $("#btnDevolver").click(function(){
+    $("#btnDevolverPro").click(function(){
         var codigo=$("#codigo").val();
-         var tipo=$("#tipobateria").val();
-         var importe=$("#importe").text();
-         var fecha=$("#fecha").val();
         
-        devolver(codigo,tipo,importe,fecha);
+        
+        devolver(codigo);
     });
     //---------------------------------------------
    
 });
-function devolver(codigo,tipo,importe,fecha){
+function devolver(codigo){
     var codig=new FormData();
      
     codig.append("codigo",codigo);
-    codig.append("tipobateria",tipo); 
-    codig.append("importe",importe);
-    codig.append("fecha",fecha);
+   alert(""+codigo)
     
     $.ajax({
         
