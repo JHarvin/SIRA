@@ -122,6 +122,7 @@ $datos=$lista->Baterias();
    <div class="card-footer">
        <button type="button" id="limpiar" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
        <i class="icon fa fa-cart-plus fa-3x" id="limpiar"></i>Agregar al carrito</button>
+       <a href="../Vistas/bateriaInicio.php" class="btn btn-danger"><i class="fa fa-plus-circle"></i>Baterias Disponibles</a>
    </div> 
    
   
@@ -160,8 +161,8 @@ $datos=$lista->Baterias();
                <div class="card-footer">
                     <button class="btn btn-success" type="submit" name="btnguardar" id="btnguardar"><i class="fa fa-check-circle">
                        </i>Registrar Venta </button>
-      
-                    <a href="../Vistas/bateriaInicio.php" class="btn btn-danger"><i class="fa fa-ban"></i>Cancelar</a>
+                      <button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
+                    
                     
                </div>
            </div> 
