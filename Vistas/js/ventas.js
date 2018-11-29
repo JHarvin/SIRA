@@ -61,7 +61,7 @@ function guardarVenta(cliente,direccion,fecha,codigo,tipo,proveedor,precio,garan
         if(respuesta==1){
          confirmar=1;
            
-          alert(""+respuesta);
+          
            
             
     }
@@ -73,7 +73,8 @@ function guardarVenta(cliente,direccion,fecha,codigo,tipo,proveedor,precio,garan
             else{
               //  $("#table").load();
                 
-                alert("Error -> "+respuesta  );}
+                //alert("Error -> "+respuesta  );
+            }
         
     }
         

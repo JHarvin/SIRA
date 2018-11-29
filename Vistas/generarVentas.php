@@ -120,8 +120,8 @@ $datos=$lista->Baterias();
 
   
    <div class="card-footer">
-       <button type="button" id="limpiar" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
-       <i class="icon fa fa-cart-plus fa-3x" id="limpiar"></i>Agregar al carrito</button>
+       <button type="button" id="limp" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
+       <i class="icon fa fa-cart-plus fa-3x" id="l"></i>Agregar al carrito</button>
        <a href="../Vistas/bateriaInicio.php" class="btn btn-danger"><i class="fa fa-plus-circle"></i>Baterias Disponibles</a>
    </div> 
    
