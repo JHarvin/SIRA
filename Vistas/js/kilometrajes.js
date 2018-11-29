@@ -51,7 +51,7 @@ function ingresarKMM(placa,mes,kilom){
           }
     
         
-        
+        }
     });
     
 }
