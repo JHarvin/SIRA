@@ -51,9 +51,9 @@ class ModeloAlquilar{
         
     $stmt->close();
     }
-    
+    #---------------------------------------------------------
     public function verificarClienteAlquilerModel($dui){
-        $stmt =Conexion::conectar()->prepare("SELECT COUNT(*) from talquiler,tclientes where talquiler.dui=:dui and tclientes.dui=:dui");
+        $stmt =Conexion::conectar()->prepare("SELECT COUNT(*) from talquiler,tclientes where talquiler.dui=:dui and tclientes.dui=:dui and talquiler.status=0");
         
         $stmt->bindParam(":dui",$dui,PDO::PARAM_STR);
         
@@ -91,9 +91,24 @@ tclientes.dui=talquiler.dui and tvehiculos.numero_de_placa=talquiler.numero_de_p
     
     #---------------------------------------------------------------------------
     
-    #Funciones de devolver el auto y modificar faltan por hacer
+    #Funciones de devolver el auto
+    public function devolverCarroModel($placa){
+        $stmt =Conexion::conectar()->prepare("UPDATE talquiler 
+        SET status=1 where numero_de_placa=:placa");
+        
+       
+       $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+      
+       
+         if($stmt->execute()){
+            return 1;
+            
+        }else{
+            return 0;
+        }
+        $stmt->close();
+        
+    }
     
 }
 
-
-?>

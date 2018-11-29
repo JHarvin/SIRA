@@ -113,7 +113,7 @@ alertify.defaults.theme.input = "form-control";
                 
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tablabody">
                 <?php 
                  $alquiler=new AlquilarVehiculoController();
                  $alquiler->mostrarAlquilerController();
@@ -146,13 +146,13 @@ alertify.defaults.theme.input = "form-control";
     
       
   <!--------------------------------------------------------->
-   <!--Modal para editar precio del carro--> 
+   <!--Modal para devolver el carro--> 
    <!-------------------------------------------------------------> 
-    <div class="modal fade" id="modalPrecio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal fade" id="modalDevolver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#7f8be8;">
-                <h4 class="modal-title w-100 font-weight-bold">Tiempo de alquiler del auto</h4>
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Devolver</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -163,40 +163,20 @@ alertify.defaults.theme.input = "form-control";
             <div class="modal-body">
             
                
-<form>
-  <div id="rowM" class="form-row">
-    
-    
-     <div class="form-group col-md-4">
-    <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
-  </div>
-  <div class="form-group col-md-4">
-    <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
-  </div>
-  <div class="form-group col-md-4">
-    <label for="precio">Cambie el precio de alquiler $</label>
-    <input type="text" class="form-control" id="precio" autofocus placeholder="digite precio del auto">
-  </div>
-               
-               
-  </div>
- 
-  
-  
-  
-</form>
+<label id="ldevolver">¿Desea devolver el carro?
+             <p id="dplaca"></p>
+             <p id="carro"></p>
+             </label>
               
 
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                  <button type="button" class="btn btn-primary" onclick="reservar()">
-               <i class="fa fa-check"></i>
-               Guardar precio</button>
+                  <button id="btnDevolverAlquilado" type="button" class="btn btn-primary" data-dismiss="modal">
+               <i class="fa fa-exchange"></i>
+               Devolver</button>
        
-                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
+                <button class="btn btn-info" data-dismiss="modal"><i class="fa fa-ban"></i>Cancelar</button>
               </div>
                
             </div>
@@ -224,7 +204,7 @@ alertify.defaults.theme.input = "form-control";
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      <script src="../js/bootstrap-datepicker.js"></script>
      
-     <script src="../js/plugins/jquery.mask.min.js"></script>
+     <script src="../Vistas/js/devolverCarro.js"></script>
     
   <script>
   

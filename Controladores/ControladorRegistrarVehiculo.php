@@ -425,7 +425,7 @@ $en_mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" id="btnHistorial" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
                   
 
 
