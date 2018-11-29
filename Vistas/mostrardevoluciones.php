@@ -64,11 +64,12 @@ alertify.defaults.theme.input = "form-control";
               <thead>
                 <tr class="bg-info">
                 <th>Codigo</th>
-                <th>Fecha</th>
-                <th>Precio</th>
+                >
                 <th>Tipo</th>
-                <th>Proveedor</th>
-                <th>Garantia</th>
+                
+                <th>Importe</th>
+                    <th>Fecha</th>
+                 <th>Estado</th>
               
 
                 <th hidden></th>
@@ -78,7 +79,7 @@ alertify.defaults.theme.input = "form-control";
                   <?php 
                    
                   $ventas=new VentasController();
-                  $ventas->mostrarBateriasvendidas();
+                  $ventas->mostrarDevoluciones();
                  
                   
                   ?>
@@ -263,6 +264,7 @@ toastr.options = {
               <p id="importe"></p>
               </label>
             </div>
+            
         </div>
           </div>
         </div>

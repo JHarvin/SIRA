@@ -37,7 +37,15 @@ public function registroVentasModel($datosVentasModel,$tabla){
    
 
     public function mostrarVentas($tabla,$tablaUnir){
-        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.proveedor=$tablaUnir.idproveedor"); 
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN $tablaUnir ON $tabla.proveedor=$tablaUnir.nombre where $tabla.codigo='AUTO'"); 
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+        
+    }
+    //para mostrar las devoluciones 
+     public function mostrarDev($tabla){
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM $tabla"); 
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
@@ -70,30 +78,40 @@ public function registroVentasModel($datosVentasModel,$tabla){
     }
     
     #Funcion para mandar a la tabla de baterias devueltas
-    public function devolverModel($codigo){
+    public function devolverModel($codigo,$tipo,$importe,$fecha){
         #-----------------------------------------------------
-        $stmt =Conexion::conectar()->prepare("INSERT INTO tdevoluciones(codigo) 
-            VALUES (:codigo)");
+        $estado="NO DEVUELTA";
+        $stmt =Conexion::conectar()->prepare("INSERT INTO tdevoluciones(codigo,tipo,importe,fecha,estado)
+            VALUES (:codigo,:tipo,:importe,:fecha,'NO DEVUELTA')");
         
-       
+        $eli =Conexion::conectar()->prepare("DELETE FROM tventas WHERE tventas.tipo=:codigo");
+        
+         $eli->bindParam(":codigo",$codigo,PDO::PARAM_STR);
+        $eli->execute();
 
      
        
-        $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
-
+         $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
+         $stmt->bindParam(":tipo",$tipo,PDO::PARAM_STR);
+         $stmt->bindParam(":importe",$importe,PDO::PARAM_STR);
+         $stmt->bindParam(":fecha",$fecha,PDO::PARAM_STR);
+        
        
+        
         if($stmt->execute()){
             return 1;
         }
         else{ return 0;}
         
-        $stmt->close();   
+        $stmt->close(); 
+        
+       
         #-----------------------------------------------------
     }
     
     #Funcion para verificar la garantia
     public function verificarGarantiaModel($codigo){
-        $stmt =Conexion::conectar()->prepare("SELECT * FROM tventas WHERE codigo=:codigo "); 
+        $stmt =Conexion::conectar()->prepare("SELECT * FROM tventas WHERE tipo=:codigo "); 
         $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetch();

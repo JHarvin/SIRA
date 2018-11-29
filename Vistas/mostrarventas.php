@@ -258,11 +258,16 @@ toastr.options = {
                 <input type="text" class="form-control" id="aplica" name="aplica">
             </div>
             
+              <div class="col-md-6">
+                <input type="date" class="form-control" id="fecha" name="fecha">
+            </div>
              <div class="col-md-6">
               <label id="importe">Cantidad a pagar(importe): $
               <p id="importe"></p>
               </label>
             </div>
+            
+            
         </div>
           </div>
         </div>

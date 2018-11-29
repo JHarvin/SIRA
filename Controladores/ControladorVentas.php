@@ -108,6 +108,38 @@ class VentasController{
               <?php 
         
     }
+    
+      public function mostrarDevoluciones(){
+        
+         $respuesta=DatosVentas::mostrarDev("tdevoluciones");
+        
+        foreach($respuesta as $row =>$item){
+        
+        echo'
+        
+        <tr>
+                  <td>'.$item["codigo"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                                
+                 
+                  
+                  <td>'.$item["importe"].'</td>
+                  <td>'.$item["fecha"].'</td>
+                  <td>'.$item["estado"].'</td>
+                              
+                  <td>
+                   <div class="btn-group" role="group">
+                  
+                   <a href="#"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-left"></i> </a>
+            </td>
+
+          </tr>
+        ';
+        }
+        ?>          
+              <?php 
+        
+    }
 
 	
 }
