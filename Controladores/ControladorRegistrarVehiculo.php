@@ -373,11 +373,13 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
    public function mantenimientoController(){
          $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
              foreach($respuesta as $row =>$item){
-$estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"talquiler");           
+$estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"talquiler");   
+                 $mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"]);
+                
 
                 if($estado=="success"){
-                    $estado='class"table-danger"';
-        echo'    <tr'.$estado.'>
+                    
+        echo'    <tr class="table-info">
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
@@ -386,7 +388,44 @@ $estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"t
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" id="btnHistorial" class="btn btn-primary" data-toggle="modal" data-target="#modalHistorial"  ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <button disabled href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></button>
+                  <button disabled class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button disabled class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        ';
+                }
+               if($mantenimiento!=0){
+                    
+        echo'    <tr class="table-warning">
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td></td>
+                   <td>09/12/2018</td>
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
                   
 
 
@@ -418,7 +457,7 @@ $estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"t
 
         <tr>
 
-                  <td class="bg-info">'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
                   <td><p style="color:red;">5000 km<p></td>

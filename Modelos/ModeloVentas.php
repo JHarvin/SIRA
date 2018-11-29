@@ -56,9 +56,9 @@ public function registroVentasModel($datosVentasModel,$tabla){
          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(cliente, direccion, fecha, codigo ,tipo, proveedor,precio,garantia) 
             VALUES (:cliente,:direccion,:fecha,:codigo,:tipo,:idproveedor,:precio,:garantia)");
         
-       
-
-     
+        $stmt2 =Conexion::conectar()->prepare("DELETE FROM tproductos WHERE codigo=:codigo");
+     $stmt2->bindParam(":codigo",$datosVentasModel["codigo"],PDO::PARAM_STR);
+        $stmt2->execute();
         $stmt->bindParam(":cliente",$datosVentasModel["cliente"],PDO::PARAM_STR);
         $stmt->bindParam(":direccion",$datosVentasModel["direccion"],PDO::PARAM_STR);
         $stmt->bindParam(":fecha",$datosVentasModel["fecha"],PDO::PARAM_STR);

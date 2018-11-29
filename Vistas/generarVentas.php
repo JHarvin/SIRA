@@ -66,8 +66,17 @@ $datos=$lista->Baterias();
                <input type="text" id="direccion" name="direccion"class="form-control" placeholder="Direccion"
                autocomplete="off"  maxlength="150"  pattern=".{7,}" title="7 o mas caracteres para Direccion real">
                <br>
+               <?php 
+               if($datos["tipo"]=="MOTO"){
+                ?>
+               <input type="text" id="garantia" onkeypress="return validaNumericos(event)"name="garantia" class="form-control"  placeholder="Garantía (Meses)" autocomplete="off" disabled value="00">
+               <br>
+               <?php }
+               else{
+               ?>
                <input type="text" id="garantia" onkeypress="return validaNumericos(event)"name="garantia" class="form-control"  placeholder="Garantía (Meses)" autocomplete="off">
                <br>
+               <?php }?>
 
 <br>
                <button class="btn btn-info" id="factura"><i class="far fa-file-alt"></i>Imprimir factura</button>
@@ -115,8 +124,8 @@ $datos=$lista->Baterias();
 
 
 
-        <button href="bateriaInicio.php"  class="btn btn-danger" >
-        <i class="fa fa-plus-circle"></i>Dis</button>
+        <a href="../Vistas/bateriaInicio.php"  class="btn btn-danger" >
+        <i class="fa fa-plus-circle"></i>Dis</a>
    </div> 
   
 
