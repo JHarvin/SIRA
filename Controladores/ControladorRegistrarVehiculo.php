@@ -376,18 +376,56 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
 $estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"talquiler");   
 $mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"]);
 $kilometraje=VehiculosModel::verKmModel($item["numero_de_placa"]);                
+if($kilometraje["placa"]==$item["numero_de_placa"]){//----Inicio del if para mostrar si hay km
+      echo'
 
-                if($estado=="success"){
-                    $maintence="";
-                    if($mantenimiento==0){
-                        $maintence="table-warning";
-                    }
+        <tr>
+
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$kilometraje["km"].'</td>
+                   <td>09/12/2018</td>
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        '; 
+}
+                 //----fin if mostrar km
+                  
+             /*   if($estado=="success"){
+                    
+                   
         echo'    <tr class="table-info">
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td></td>
-                   <td>09/12/2018</td>
+                  <td>'.$kilometraje["km"].'</td>
+                   <td>'.$kilometraje["mes"].'</td>
                     <td>
                   <div class="btn-group" role="group">
 
@@ -424,7 +462,7 @@ $kilometraje=VehiculosModel::verKmModel($item["numero_de_placa"]);
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
                   <td></td>
-                   <td>09/12/2018</td>
+                   <td>'.$kilometraje["km"].'</td>
                     <td>
                   <div class="btn-group" role="group">
 
@@ -463,7 +501,7 @@ $kilometraje=VehiculosModel::verKmModel($item["numero_de_placa"]);
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td><p style="color:red;">5000 km<p></td>
+                  <td>'.$kilometraje["km"].'</td>
                    <td>09/12/2018</td>
                     <td>
                   <div class="btn-group" role="group">
@@ -493,7 +531,7 @@ $kilometraje=VehiculosModel::verKmModel($item["numero_de_placa"]);
                 </tr>
 
         '; 
-                 }
+                 }*/
           
              
         

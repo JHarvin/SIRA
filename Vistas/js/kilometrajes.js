@@ -13,6 +13,7 @@ $(document).ready(function(){
         var placa=$("#idkm").val();
         var mes=$("#mes").val();
         var kilom=$("#kilom").val();
+       // alert(""+mes);
         ingresarKMM(placa,mes,kilom);
     });
 });
