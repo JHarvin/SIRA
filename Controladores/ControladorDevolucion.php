@@ -18,14 +18,14 @@ class Devolver{
     public function enviar(){
         
         $matricula=$this->codigo;
-        //$tipo1=$this->tipo;
-         //$importe1=$this->importe;
-        //$fecha1=$this->fecha;
+        $tipo1=$this->tipo;
+         $importe1=$this->importe;
+        $fecha1=$this->fecha;
         #Se llama a la funcion en el controlador y luego en el controlador llama al
         #modelo que es el encargado de obtener las imagenes eliminarlas y luego eliminar
         #el registro de la bd-----------------------------------------------------------
-       // $respuesta=DatosVentas::devolverModel($matricula,$tipo1,$importe1,$fecha1);
-         $respuesta=DatosVentas::devolverModelPro($matricula);
+        $respuesta=DatosVentas::devolverModel($matricula,$tipo1,$importe1,$fecha1);
+       //  $respuesta=DatosVentas::devolverModelPro($matricula);
         #Si la variable $respuesta cumple con la condicion se retorna 1 con echo al ajax
      echo $respuesta;
         

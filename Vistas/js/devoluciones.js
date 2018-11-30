@@ -38,7 +38,7 @@ function devolver(codigo,tipo,importe,fecha){
     $.ajax({
         
         type: "POST",
-        url: "../Controladores/controladordevoprovee.php",
+        url: "../Controladores/controladorDevolucion.php",
         data: codig,
         cache:false,
         contentType:false,
