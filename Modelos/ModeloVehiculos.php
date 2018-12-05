@@ -264,17 +264,26 @@ class VehiculosModel extends Conexion{
     #Para verificar si el carro esta en mantenimiento
     public function verificarMantenimiento($placa){
         
-         $stmt=Conexion::conectar()->prepare("select trevision.`status` as estado from trevision where trevision.numero_de_placa=:placa and trevision.`status`=0");
+         $stmt=Conexion::conectar()->prepare("select trevision.numero_de_placa as placa, trevision.status as estado from trevision where trevision.numero_de_placa=:placa and trevision.status=0");
          $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
          $stmt->execute();
         return $stmt->fetch();
         $stmt->close();
         
     }
-    
+    #para obtener todos los registros de los caros
+     public function verificarMantenimientoTodos($placa){
+        
+         $stmt=Conexion::conectar()->prepare("select trevision.numero_de_placa as placa, trevision.status as estado from trevision where trevision.numero_de_placa=:placa and trevision.status=1");
+         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+         $stmt->execute();
+        return $stmt->fetch();
+        $stmt->close();
+        
+    }
    public function verKmModel($placa){
        $stmt=Conexion::conectar()->prepare("SELECT tkilometraje.numero_de_placa as placa, tkilometraje.cada_cuantos_kilometros as km, tkilometraje.cada_cuantos_meses_revision as mes from tkilometraje
-WHERE tkilometraje.numero_de_placa='P111-111'");
+WHERE tkilometraje.numero_de_placa=:placa");
          $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
          $stmt->execute();
         return $stmt->fetch();

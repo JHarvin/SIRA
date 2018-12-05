@@ -373,9 +373,187 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
    public function mantenimientoController(){
          $respuesta=VehiculosModel::mostrarVehiculoModel("tvehiculos");
              foreach($respuesta as $row =>$item){
+                 $km="00";
+                 $mes="00/00/0000";
 $estado=ModeloAlquilar::verificarEstadoAlquilerModel($item["numero_de_placa"],"talquiler");   
 $mantenimiento=VehiculosModel::verificarMantenimiento($item["numero_de_placa"]);
-$kilometraje=VehiculosModel::verKmModel($item["numero_de_placa"]);                
+$kilometraje=VehiculosModel::verKmModel($item["numero_de_placa"]); 
+$mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);                 
+                 if($kilometraje["placa"]==$item["numero_de_placa"]){
+                         $km=$kilometraje["km"];
+                     $mes=$kilometraje["mes"];
+                     }
+                 // if para ver si el carro a sido alquilado
+                 if($estado=="success"){
+                     
+                      echo'
+
+        <tr class="table-info">
+
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$km.'</td>
+                   <td>09/12/2018</td>
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        '; 
+
+                 }
+                 //--if para verificar si el carro esta en mantenimiento
+                 if( $mantenimiento["estado"]==0 && $mantenimiento["placa"]==$item["numero_de_placa"]){
+                    
+                     echo'
+
+        <tr class="table-warning">
+
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$km.'</td>
+                   <td>09/12/2018</td>
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <button id="habilitarCarro" class="btn btn-warning" data-toggle="modal" data-target="#modalQuitarH" >
+<li class="fa fa-arrow-up"></li>
+</button>
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        '; 
+                     
+                 }
+                 //////
+                   if( $mante["estado"]==1 && $mante["placa"]==$item["numero_de_placa"]){
+                    
+                     echo'
+
+        <tr>
+
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$km.'</td>
+                   <td>'.$mes.'</td>
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        '; 
+                     
+                 }  
+                 /////
+                 else if($mantenimiento["placa"]!=$item["numero_de_placa"] && $kilometraje["placa"]!=$item["numero_de_placa"] && $estado=="error" ){
+                      echo'
+
+        <tr>
+
+                  <td>'.$item["numero_de_placa"].'</td>
+                  <td>'.$item["marca"].' '.$item["year"].'</td>
+                  <td>'.$item["tipo"].'</td>
+                  <td>'.$km.'</td>
+                   <td>'.$mes.'</td>
+                    <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  
+
+
+
+                  </div>
+                  </td>
+                
+                  
+                  <td>
+                  <div class="btn-group" role="group">
+
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
+                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+     
+
+
+                  </div>
+                  </td>
+
+
+                </tr>
+
+        '; 
+
+                 }
+                 //--if para kilometraje
+                 /*
 if($kilometraje["placa"]==$item["numero_de_placa"]){//----Inicio del if para mostrar si hay km
       echo'
 
@@ -414,7 +592,7 @@ if($kilometraje["placa"]==$item["numero_de_placa"]){//----Inicio del if para mos
                 </tr>
 
         '; 
-}
+}*/
                  //----fin if mostrar km
                   
              /*   if($estado=="success"){

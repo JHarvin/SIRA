@@ -6,6 +6,8 @@ $(document).ready(function(){
         
         $("#auto").val(carro);
         $("#placa").val(placa);
+        $("#sacarplaca").text(placa);
+        $("#sacarcarro").text(carro);
     //alert(""+placa);
     });
       //-----------------------
@@ -28,6 +30,12 @@ $(document).ready(function(){
         
         
        
+    });
+    //----------------------------------------------
+    $("#btnSiH").click(function(){
+        var placa=$("#sacarplaca").text();
+        sacarMantenimiento(placa);
+        
     });
 });
 
@@ -116,5 +124,43 @@ function verDatos(placa){
         
         
     }); 
+}
+function sacarMantenimiento(placa){
+    var datos=new FormData();
+    datos.append("placa",placa);
+    $.ajax({
+        
+        type: "POST",
+        url: "../Controladores/ControladorSacarMantenimiento.php",
+        data: datos,
+        
+        cache:false,
+        contentType:false,
+        processData:false,
+        success:function(respuesta){
+         //aqui se cargaran los datos del modal
+     
+            
+          if(respuesta==1){
+              alertify.success("Auto disponible");
+              $("#tabla").load("../Vistas/mantenimiento.php #tabla > *");
+          }
+            else{
+                 alertify.success("Auto disponible");
+              $("#tabla").load("../Vistas/mantenimiento.php #tabla > *");
+            }
+                
+      
+            
+            
+    
+          
+            
+        
+    }
+        
+        
+    }); 
+    
 }
 

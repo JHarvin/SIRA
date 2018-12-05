@@ -11,10 +11,11 @@ $(document).ready(function(){
       //-----------------------
     $("#btnGuardarRevision").click(function(){
         var placa=$("#placar").val();
-        var fechaFin=$("#fechaFin").val();
+        var fechaFin=$("#fechasalida").val();
         var encargado=$("#encargado").val();
         var servicio=$("#servicio").val();
-        ingresarRevision(placa,fechaFin,encargado,servicio);
+        
+       ingresarRevision(placa,fechaFin,encargado,servicio);
     });
 });
 

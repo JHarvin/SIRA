@@ -3,7 +3,7 @@ require_once"Conexion.php";
 class MantenimientoModel extends Conexion{
     public function guardarKmModel($datosModel,$tabla){
           $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(numero_de_placa,fecha,tipomantenimiento,status) VALUES (
-        :placa,:fecha,:tipo,1)");
+        :placa,:fecha,:tipo,0)");
         
         $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
         $stmt->bindParam(":fecha",$datosModel["fecha"],PDO::PARAM_STR);
@@ -20,12 +20,12 @@ class MantenimientoModel extends Conexion{
     
     public function guardarRevisionModel($datosModel,$tabla){
          $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(fechasalida,encargadoservicio,servicio,numero_de_placa,status) VALUES (
-        :fechafin,:encargadoservicio,:servicio,:placa,1)");
+        :fechafin,:encargadoservicio,:servicio,:placa,0)");
         
         $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
         $stmt->bindParam(":fechafin",$datosModel["fechaFin"],PDO::PARAM_STR);
         $stmt->bindParam(":encargadoservicio",$datosModel["encargado"],PDO::PARAM_STR);
-        $stmt->bindParam(":servicio",$datosModel["encargado"],PDO::PARAM_STR);
+        $stmt->bindParam(":servicio",$datosModel["servicio"],PDO::PARAM_STR);
         
         
         if($stmt->execute()){
@@ -72,5 +72,21 @@ class MantenimientoModel extends Conexion{
          $stmt->execute();
          return $stmt->fetch();
          $stmt->close();
+    }
+    public function sacarModel($placa){
+         $stmt =Conexion::conectar()->prepare("UPDATE trevision 
+        SET status=1 WHERE numero_de_placa= :placa");
+        
+       
+       $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+      
+       
+         if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
     }
 }

@@ -148,7 +148,7 @@ alertify.defaults.theme.input = "form-control";
 
 
             <div class="table table-responsive" >
-            <table id="tabla"  class="table display table-striped  " style="font-size:13.4px;">
+            <table id="tabla"  class="table" style="font-size:13.4px;">
               <thead>
                 <tr>
                  <th>NUMERO DE PLACA</th>
@@ -205,9 +205,9 @@ alertify.defaults.theme.input = "form-control";
            
                 <label for="fechain">Cada cuantos meses será la revisión</label>
 
-                <input type="text" class="form-control mask-fechain" id="fechain" name="fechain" autocomplete="off" autofocus placeholder="numero de meses por cada revision..." pattern=".{9,}" title="8 o mas caracteres para  real" value="" required>
+               
 
-                <input type="text" class="form-control" id="mes" name="mes">
+                <input type="text" class="form-control" class="form-control" id="mes" name="mes" pattern=".{9,}">
 
             </div>
             
@@ -427,13 +427,13 @@ alertify.defaults.theme.input = "form-control";
   </div>
 </div>
   <!--------------------------------------------------------->
-   <!--Modal para seleccionar la fecha de alquiler-->
+   <!--Modal para quitar de mantenimiento-->
    <!------------------------------------------------------------->
-    <div class="modal fade" id="modalTiempo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalQuitarH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#7f8be8;">
-                <h4 class="modal-title w-100 font-weight-bold">Tiempo de alquiler del auto</h4>
+            <div class="modal-header text-center" >
+                <h4 class="modal-title w-100 font-weight-bold">Habilitar auto</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -444,49 +444,17 @@ alertify.defaults.theme.input = "form-control";
             <div class="modal-body">
 
 
-<form id="formulario_alquilar">
-  <div id="rowM" class="form-row">
-    <div class="form-group col-md-6">
-      <label for="nombreClienteAl">Nombre del cliente</label>
-      <input type="text" class="form-control"  disabled id="nombreClienteAl">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="duiClienteAl">DUI del cliente</label>
-      <input type="text" class="form-control" id="duiClienteAl" disabled>
-    </div>
-
-     <div class="form-group col-md-6">
-    <label for="autoname">Auto a rentar</label>
-    <input type="text" class="form-control" id="autoname" disabled>
-  </div>
-  <div class="form-group col-md-6">
-    <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
-  </div>
-
-
-               <div class="form-group col-md-6">
-                  <label for="fechaFin">Fecha de renta(inicio)</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="fechaFin">Fecha de devolucion(fin)</label>
-                   <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required>
-                </div>
-  </div>
-
-
-
-
-</form>
+<p>¿Desea sacar de mantenimiento el auto?</p>
+<p id="sacarplaca"></p>
+<p id="sacarcarro"></p>
 
 
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                  <button type="button" class="btn btn-primary" onclick="reservar()" data-dismiss="modal">
+                  <button id="btnSiH" type="button" class="btn btn-primary" data-dismiss="modal">
                <i class="fa fa-get-pocket"></i>
-               Alquilar</button>
+               Si</button>
         
                 <button class="btn btn-info" data-dismiss="modal"><i class="fa fa-ban"></i>Cancelar</button>
               </div>
@@ -606,20 +574,20 @@ alertify.defaults.theme.input = "form-control";
   </div>
 
                <div class="form-group col-md-6">
-                  <label for="fechaInicio">Fecha de salida:</label>
-                   <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                  <label for="fechasalida">Fecha de salida:</label>
+                   <input type="text" class="form-control" id="fechasalida" name="fechasalida"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
                
                 
                 
                 
                  <div class="form-group col-md-6">
-                  <label for="fechaInicio">Encargado de servicio</label>
+                  <label for="encargado">Encargado de servicio</label>
                   <input type="text" class="form-control" id="encargado" name="encargado">
                 </div>
                 
                  <div class="form-group col-md-12">
-                  <label for="fechaInicio">Servicio</label>
+                  <label for="servicio">Servicio</label>
                   <textarea name="servicio" id="servicio" cols="30" rows="7" class="form-control"></textarea>
                 </div>
                 
@@ -983,11 +951,11 @@ alertify.defaults.theme.input = "form-control";
    var getDate = function (input) {
         return new Date(input.date.valueOf());
     }
-    $('#fechaInicio, #fechaFin').datepicker({
+    $('#fechaInicio, #fechasalida').datepicker({
         format: "dd/mm/yyyy",
         language: 'es'
     });
-    $('#fechaFin').datepicker({
+    $('#fechasalida').datepicker({
         startDate: '+6d',
         endDate: '+36d',
     });
@@ -996,8 +964,8 @@ alertify.defaults.theme.input = "form-control";
         endDate: '+35d',
     }).on('changeDate',
         function (selected) {
-            $('#fechaFin').datepicker('clearDates');
-            $('#fechaFin').datepicker('setStartDate', getDate(selected));
+            $('#fechasalida').datepicker('clearDates');
+            $('#fechasalida').datepicker('setStartDate', getDate(selected));
         });
     </script>
     <script>
