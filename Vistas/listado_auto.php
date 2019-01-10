@@ -135,8 +135,8 @@ alertify.defaults.theme.input = "form-control";
        
  <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Autos registrados</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:#788499;"></i> Autos registrados</h1>
+          <p>RentalSys</p>
         </div>
         
  </div>
@@ -230,22 +230,25 @@ alertify.defaults.theme.input = "form-control";
 <div class="modal-content">
 
 <!-- Modal Header -->
-<div class="modal-header">
+<div class="modal-header" style="background-color:#788499; color:white;">
   <h4 class="modal-title">Selecione imagen </h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 
 <!-- Modal body -->
 <div class="modal-body">
-
-      <input type="file" id="imagen1" name="imagen1" class="form-control">
+<form enctype="multipart/form-data">
+      <input type="file" id="file" name="file" class="form-control">
       <input type="hidden" id="placaimg" name="placaimg" value="">
+      <input type="hidden" id="numeroImg" name="numeroImg" value="">
 
+</form>
+      
     </div>
 
 <!-- Modal footer -->
 <div class="modal-footer">
-<button id="btnCambiarImagen" name="btnCambiarImagen" class="btn btn-info" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Cambiar</button>
+<button id="btnCambiarImagen" name="btnCambiarImagen" class="btn btn-info"><i class="fa fa-fw fa-lg fa-check-circle"></i> Cambiar</button>
   |
   <button type="button" class="btn btn-danger" data-dismiss="modal">
   <i class="fa fa-undo"></i> Cancelar</button>
@@ -263,8 +266,8 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Imagenes del vehiculo </h4>
+      <div class="modal-header" style="background-color:#788499; color:white;">
+        <h4 class="modal-title">Imagenes del auto </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -298,7 +301,7 @@ alertify.defaults.theme.input = "form-control";
         <i class="fa fa-image"></i>Cambiar imagen 2</button>
         <button id="btn3" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 3</button>
-        <button id="btn3" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
+        <button id="btn4" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
         <i class="fa fa-image"></i>Cambiar imagen 4</button>
 
         <button id="btn4" type="button" class="btn btn-info" data-dismiss="modal">
@@ -311,14 +314,14 @@ alertify.defaults.theme.input = "form-control";
     </div>
 
       <!------------------------------------------------------------------------->
-      <!-- |MODAL PARA PREGUNTAR SI ALQUILAR EL CARRO O MANDARLO A MANTENIMIENTO|-->
+      <!-- |MODAL PARA PREGUNTAR SI ALQUILAR ||||||||||||||||||||||||||||||||||-->
       <!------------------------------------------------------------------------->
       <div class="modal" id="modalOpcion">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header panel-info">
+      <div class="modal-header panel-info" style="background-color:#788499; color:white;">
         <h4 class="modal-title">Elegir Acción </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -335,8 +338,8 @@ alertify.defaults.theme.input = "form-control";
       <div class="modal-footer">
       <a href="#" id="btnIrAlquiler" name="btnIrAlquiler" class="btn btn-success" data-toggle="modal" data-target="#modalAlquilar" data-dismiss="modal"> <i class="fa fa-key"></i> Alquilar Vehiculo</a>
         |
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" data-dismiss="modal">
-        <i class="fa fa-exclamation-triangle"></i> Mandar a Mantenimiento</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+        <i class="fa fa-exclamation-triangle"></i> Cancelar</button>
       </div>
 
     </div>
@@ -351,13 +354,13 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header" style="background-color:#788499; color:white;">
         <h4 class="modal-title">Rentar auto </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body" >
      <div class="table table-responsive">
          <table id="clientesAquiler" style="font-size:13.5px;">
              <thead>
@@ -397,71 +400,13 @@ alertify.defaults.theme.input = "form-control";
 
       <!------------------------------------------------------------------------->
 
-      <!-- Modal para mostrar contrato -->
-<div class="modal fade" id="modalContrato" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalLongTitle">Contrato</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="contratoP">
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-        </p>
-      </div>
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-primary">Aceptar</button>
-        <button type="button" class="btn btn-primary" onclick="printContrato()">Aceptar e Imprimir contrato</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      </div>
-    </div>
-  </div>
-</div>
   <!--------------------------------------------------------->
    <!--Modal para seleccionar la fecha de alquiler-->
    <!------------------------------------------------------------->
     <div class="modal fade" id="modalTiempo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#7f8be8;">
+            <div class="modal-header text-center" style="background-color:#788499; color:white;">
                 <h4 class="modal-title w-100 font-weight-bold">Tiempo de alquiler del auto</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -499,7 +444,23 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
                 </div>
                 <div class="form-group col-md-6">
                     <label for="fechaFin">Fecha de devolucion(fin)</label>
-                   <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required onblur="calcularDias();">
+                </div>
+                
+                <div class="form-group col-md-6" style="border-style: solid double;">
+                    <h5>
+                        <label id="dias"></label>
+                    </h5>
+                </div>
+                <div class="form-group col-md-6" style="border-style: solid double;">
+                    <h5>
+                        <label id="precio"></label>
+                    </h5>
+                </div>
+                 <div class="form-group col-md-12" style="border-style: solid double;">
+                    <h5>
+                        <label id="precioxdia"></label>
+                    </h5>
                 </div>
   </div>
 
@@ -512,11 +473,13 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                  <button type="button" class="btn btn-primary" onclick="reservar()" data-dismiss="modal">
+                  <button type="button" class="btn btn-primary" onclick="reservar()">
                <i class="fa fa-get-pocket"></i>
                Alquilar</button>
-        
-                <button class="btn btn-info" data-dismiss="modal"><i class="fa fa-ban"></i>Cancelar</button>
+        <button class="btn btn-info" data-toggle="modal" data-target="#modalAlquilar" data-dismiss="modal"><i class="fa fa-undo"></i>Atras</button>
+              <button class="btn btn-info" data-dismiss="modal"><i class="fa fa-ban"></i>Cancelar</button>
+              </div>
+               
               </div>
 
             </div>
@@ -525,93 +488,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 </div>
 
 
-    <!------------------------------------------------------->
-     <!--Modal para mantenimiento insertar-->
-     <!------------------------------------------------------->
-      <div class="modal fade" id="modalMantenimiento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#7f8be8;">
-                <h4 class="modal-title w-100 font-weight-bold">Mantenimiento</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-
-
-            <div class="modal-body">
-
-
-<form>
-  <div id="rowM" class="form-row">
-
-
-     <div class="form-group col-md-6">
-    <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoname" disabled>
-  </div>
-  <div class="form-group col-md-6">
-    <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placarent" disabled>
-  </div>
-
-               <div class="form-group col-md-6">
-                  <label for="fechaInicio">Fecha:</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="fechaInicio">Descripción:</label>
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" required>
-                </div>
-                
-                 <div class="form-group col-md-6">
-                  <label for="fechaInicio">Digite kilometraje:</label>
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" required>
-                </div>
-                
-                 <div class="form-group col-md-6">
-                  <label for="fechaInicio">Cada cuantos km es la revision preventiva:</label>
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" required>
-                </div>
-
-
-
-  </div>
-
-
-  <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">
-    Alarma
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-  <label class="form-check-label" for="defaultCheck2">
-    Airbag
-  </label>
-</div>
-
-</form>
-
-
-            </div>
-            <div class="modal-footer">
-              <div class="form-group">
-
-        <button type="button" class="btn btn-success"  data-dismiss="modal">
-               <i class="fa fa-clipboard"></i>
-               Mandar a mantenimiento</button>
-                <button class="btn btn-info"><i class="fa fa-ban"></i>Cancelar</button>
-              </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
+    
      <!------------------------------------------------------->
 
       <!-- Essential javascripts for application to work-->
@@ -627,7 +504,8 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
      <script src="../js/bootstrap-datepicker.js"></script>
-
+<script src="../js/plugins/moment.min.js"></script>
+ <script src="../Vistas/js/actualizarImagen.js"></script>
   <script>
 
       $(document).ready(function() {
@@ -820,6 +698,9 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
         function (selected) {
             $('#fechaFin').datepicker('clearDates');
             $('#fechaFin').datepicker('setStartDate', getDate(selected));
+        //--para calcular dias
+        
+    
         });
     </script>
     <script>

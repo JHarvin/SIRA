@@ -15,7 +15,13 @@ $(document).ready(function(){
         var placa=$("#placa").val();
         var fechaIn=$("#fechaIn").val();
         var tipo=$("#tipomantenimiento").val();
-        ingresar(placa,tipo,fechaIn);
+         var fechaFin=$("#fechasalida").val();
+        var encargado=$("#encargado").val();
+        var servicio=$("#servicio").val();
+        ingresar(placa,tipo,fechaIn,fechaFin,encargado,servicio);
+      // ingresarRevision(placa,fechaFin,encargado,servicio);
+        
+        //ingresarRevision(placa,fechaFin,encargado,servicio);
     });
     //---------------------------------------------
     $("#btnHistorial").click(function(){
@@ -39,12 +45,14 @@ $(document).ready(function(){
     });
 });
 
-function ingresar(placa,tipo,fecha){
+function ingresar(placa,tipo,fecha,fechaFin,encargado,servicio){
     var datos=new FormData();
     datos.append("placa",placa);
     datos.append("tipo",tipo);
     datos.append("fecha",fecha);
-    
+    datos.append("fechaFin",fechaFin);
+    datos.append("encargado",encargado);
+    datos.append("servicio",servicio);
     $.ajax({
         
         type: "POST",
@@ -60,14 +68,14 @@ function ingresar(placa,tipo,fecha){
         if(respuesta==1){
          
            
-           $("#tcuerpo").load("mantenimientos.php #tcuerpo > *");
+          
           alertify.success("Registrad en mantenimiento");
-           
+           setTimeout(function(){location.reload();},500);
             
     }
           else if(respuesta!=1){
            // $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
-          alertify.success("Auto en alquiler "+respuesta);
+          alertify.error("Auto en alquiler "+respuesta);
               
           }
             else{

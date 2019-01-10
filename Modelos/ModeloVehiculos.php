@@ -20,6 +20,97 @@ class VehiculosModel extends Conexion{
             return "success";
         }
     }
+    #---------------------------------------------
+    #-Funcion para actualizar imagen del carro
+    #---------------------------------------------
+    public function cambiarImagenModel($datosModel,$tabla,$rutaImg){
+        #se borran las rutas de las imagenes anteriores para poner las nuevas rutas
+     
+        unlink($rutaImg);
+        #Se pone la nueva imagen en la ruta
+        //Para imagen 1
+        $nombreImagen=$datosModel["nombreImagen"];
+        $archivo=$datosModel["imagen"];
+        $ruta="../vehicles";
+        $ruta=$ruta."/".$nombreImagen;
+        //--------se mueve el archivo a la ruta en especifico donde se guardara la imagen
+        move_uploaded_file($archivo,$ruta);
+        //......fin para imagen 1
+        #luego se inserta a la bd la nueva imagen
+        #----------------------------------------------
+        
+        #Se hacen las comparaciones para asi usar esa variable y con base a eso actualizar la imagen
+      
+        if($datosModel["numero"]==1){
+             $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+                    SET imagen=:imagen WHERE numero_de_placa= :placa");
+            $stmt->bindParam(":imagen",$ruta,PDO::PARAM_STR);
+            $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        }
+        if($datosModel["numero"]==2){
+             $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+                    SET imagen2=:imagen WHERE numero_de_placa= :placa");
+            $stmt->bindParam(":imagen",$ruta,PDO::PARAM_STR);
+            $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        }
+        if($datosModel["numero"]==3){
+             $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+                    SET imagen3=:imagen WHERE numero_de_placa= :placa");
+            $stmt->bindParam(":imagen",$ruta,PDO::PARAM_STR);
+            $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        }
+        else if($datosModel["numero"]==4){
+             $stmt =Conexion::conectar()->prepare("UPDATE $tabla 
+                    SET imagen4=:imagen WHERE numero_de_placa= :placa");
+            $stmt->bindParam(":imagen",$ruta,PDO::PARAM_STR);
+            $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        }
+        #----------------------------------------------
+        
+        
+        
+        
+      
+      
+       
+         if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
+    }
+    #--------------------------------------------------------------------------------------
+    #Funcion para obtener la ruta de la  imagen por imagen, al hacer uso del modal cambiar imagen del carro
+    #---------------------------------------------------------------------------------------
+    public function obtenerRutaImagenModel($datosModel,$tabla){
+        
+         if($datosModel["numero"]==1){
+         $stmt=Conexion::conectar()->prepare("SELECT imagen as imagen from $tabla where numero_de_placa=:placa");
+         $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        
+        }
+        if($datosModel["numero"]==2){
+             $stmt=Conexion::conectar()->prepare("SELECT imagen2 as imagen from $tabla where numero_de_placa=:placa");
+             $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        
+        }
+        if($datosModel["numero"]==3){
+             $stmt=Conexion::conectar()->prepare("SELECT imagen3 as imagen from $tabla where numero_de_placa=:placa");
+             $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        
+        }
+        else if($datosModel["numero"]==4){
+             $stmt=Conexion::conectar()->prepare("SELECT imagen4 as imagen from $tabla where numero_de_placa=:placa");
+             $stmt->bindParam(":placa",$datosModel["placa"],PDO::PARAM_STR);
+        
+        }
+        //---se hace la consulta y se retorna
+        $stmt->execute();
+        return $stmt->fetch();
+         $stmt->close();
+    }
     
     #-----------------------------------------------------
     #Funcion para guardar los datos del vehiculo en la bd-
@@ -281,14 +372,28 @@ class VehiculosModel extends Conexion{
         $stmt->close();
         
     }
+    #----------------------------------------------------------------
+    #Copiar desde aqui al otro proyecto
    public function verKmModel($placa){
-       $stmt=Conexion::conectar()->prepare("SELECT tkilometraje.numero_de_placa as placa, tkilometraje.cada_cuantos_kilometros as km, tkilometraje.cada_cuantos_meses_revision as mes from tkilometraje
+       $stmt=Conexion::conectar()->prepare("SELECT tkilometraje.numero_de_placa as placa, tkilometraje.cada_cuantos_kilometros as km, tkilometraje.cada_cuantos_meses_revision as mes,tkilometraje.fecha from tkilometraje
 WHERE tkilometraje.numero_de_placa=:placa");
          $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
          $stmt->execute();
         return $stmt->fetch();
         $stmt->close();
-   } 
+   }
+    #---------------------------------------------------------------------------------------
+    #Funcion que se utiliza para hacer el calculo de los dias en alquiler por medio de ajax
+    #al momento de alquilar el vehiculo en el modal alquilar
+    #---------------------------------------------------------------------------------------
+    public function mostrarPrecioXDia($placa){
+         $stmt=Conexion::conectar()->prepare("SELECT precio from tprecios
+         WHERE numero_de_placa=:placa");
+         $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
+         $stmt->execute();
+        return $stmt->fetch();
+        $stmt->close();
+    }
    
 }
 

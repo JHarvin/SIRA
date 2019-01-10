@@ -179,7 +179,7 @@ class ClientesController{
                   <td>
                   
                    <div class="btn-group" role="group">
-                  <button disabled id="btnAlquilar" name="btnEditar" class="btn btn-success"   data-toggle="modal" data-target="#modalTiempo"><i class="fa fa-plane"></i></button>
+                  <button disabled id="btnAlquilar" name="btnEditar" class="btn btn-success"   data-toggle="modal" data-target="#modalTiempo" data-dismiss="modal"><i class="fa fa-plane"></i></button>
                   
                   </div>
                   </td>
@@ -206,7 +206,7 @@ class ClientesController{
                   <td>
                   
                    <div class="btn-group" role="group">
-                  <a href="#" id="btnAlquilar" name="btnEditar" class="btn btn-success"   data-toggle="modal" data-target="#modalTiempo"><i class="fa fa-plane"></i></a>
+                  <a href="#" id="btnAlquilar" name="btnEditar" class="btn btn-success"   data-toggle="modal" data-target="#modalTiempo" data-dismiss="modal"><i class="fa fa-plane"></i></a>
                   
                   </div>
                   </td>

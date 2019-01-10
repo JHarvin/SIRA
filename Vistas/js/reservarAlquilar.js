@@ -31,14 +31,14 @@ function alquilarVehiculo(placa,dui,fechaAlquiler,fechaDevolución){
         if(respuesta==1){
          
            
-           $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
-          alertify.success("Auto en alquiler");
            
+          alertify.success("Auto en alquiler");
+           setTimeout(function(){location.reload();},900);
             
     }
           else if(respuesta!=1){
-            $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
-          alertify.success("Auto en alquiler");
+            alertify.success("Auto en alquiler");
+           setTimeout(function(){location.reload();},900);
               
           }
             else{
@@ -85,4 +85,56 @@ divM.insertAdjacentHTML('afterend', '<div class="alert alert-danger alert-dismis
     }
     
     
+}
+
+//----------para calcular precios
+
+  
+
+
+function calcularDias(){
+    
+
+//---------para calcular la fecha
+const diff = moment(new Date($("#fechaFin").datepicker('getDate'))).diff(moment(new Date($("#fechaInicio").datepicker('getDate'))), 'days');
+    //--se valida para evitar error de mostrado numeros negativos
+    if(diff>0){
+        $("#dias").text("Dias de alquiler: "+diff);
+        //---luego obtenemos la placa del auto para calcular el precio del alquiler por los dias
+    var placa=$("#placarent").val();
+        //--ahora se aplicara ajax
+     var datos=new FormData();
+    datos.append("placa",placa); 
+        //--ajax------------------------------
+        $.ajax({
+        
+        type: "POST",
+        url: "../Controladores/ControladorVerPrecio.php",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        dataType:"json",
+        success:function(respuesta){
+         
+            if(respuesta!="" || respuesta!=" "){
+                var precio=respuesta.precio*diff;
+                $("#precio").text("Precio de alquiler: $"+precio);
+                $("#precioxdia").text("Precio por dia: $"+respuesta.precio);
+            }
+            else{
+                $("#precio").text("Aun no se determina el precio a este auto"); 
+            }
+    
+         
+            
+        
+    }
+        
+        
+    });
+        //--------------------------------------
+    }
+    
+
 }

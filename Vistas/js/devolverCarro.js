@@ -16,7 +16,7 @@ $(document).ready(function(){
     //-----------------------------------------------
     $("#btnDevolverAlquilado").click(function(){
        var placa=$("#dplaca").text();
-        alert("placa-> ");
+        
         devolverAlquilado(placa);
     });
 });
@@ -40,8 +40,9 @@ function devolverAlquilado(placa){
         success:function(respuesta){
           
 if(respuesta==1){
+    
     alertify.success("Auto devuelto");
-    $("#tablabody").load("alquilados.php #tabla > *");
+    setTimeout(function(){location.reload();},500);
 }
             else{
                 alertify.error("Auto error en el servidor");

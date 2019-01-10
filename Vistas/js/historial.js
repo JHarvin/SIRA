@@ -1,5 +1,25 @@
 $(document).ready(function(){
     var placa,fechaInicio,fechaFin;
+    $('#tblhistorial').DataTable( {
+
+
+        "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todos"]],
+
+
+           "language": {
+            "lengthMenu": "Mostrar _MENU_",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+            "infoEmpty": "Busqueda no encontrada",
+            "infoFiltered": "(Total de registrados _MAX_ )",
+            "sSearch":"Buscar",
+            "paginate": {
+            "previous": "Anterior",
+                "next": "Siguente"
+    }
+        }
+
+    } );
     $("#btnVer").click(function(){
          $("#tblhistorial tbody tr").click(function(){
          placa=$(this).find("td:eq(0)").text();
