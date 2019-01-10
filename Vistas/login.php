@@ -46,7 +46,7 @@ session_destroy();
           <div class="form-group">
             <div class="utility">
              
-              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">¿Olvidó la contraseña ?</a></p>
+              <p class="semibold-text mb-2"><a href="recuparar/EnviarPassword.php">¿Olvidó la contraseña ?</a></p>
             </div>
           </div>
           <div class="container">    
@@ -63,19 +63,7 @@ session_destroy();
           
           ?>
         
-        <form class="forget-form" action="index.html">
-          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿Olvido la contraseña?</h3>
-          <div class="form-group">
-            <label class="control-label">EMAIL</label>
-            <input class="form-control" type="text" placeholder="Email">
-          </div>
-          <div class="form-group btn-container">
-            <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RESTAURAR</button>
-          </div>
-          <div class="form-group mt-3">
-            <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Regresar</a></p>
-          </div>
-        </form>
+       
       </div>
     </section>
     <!-- Essential javascripts for application to work-->
