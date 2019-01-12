@@ -26,7 +26,21 @@ class RecuperarPassword extends Conexion{
         
     }
     
-    public function actualizarPassword(){
+    public function actualizarPassword($id,$password){
+        $stmt =Conexion::conectar()->prepare("UPDATE tpersonal 
+        SET password=:password WHERE idpersonal=:id");
         
+        $stmt->bindParam(":password",$password,PDO::PARAM_STR);
+        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+       
+      
+       
+         if($stmt->execute()){
+            return "success";
+            
+        }else{
+            return "error";
+        }
+        $stmt->close();
     }
 }

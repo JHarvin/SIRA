@@ -22,24 +22,30 @@ if(!empty($sessData['estado']['msg'])){
   </head>
   <body>
     <section class="material-half-bg">
-      <div class="cover"></div>
+      <div class="cover" style="background: linear-gradient(130deg, #7f8be8 30%, gray 100%);"></div>
     </section>
     <section class="lockscreen-content">
      
       <div class="lock-box"><img class="rounded-circle user-image" src="../images/candado.png">
-        <h4 class="text-center user-name">Nombre de Usuario</h4>
-        <p class="text-center text-muted">Desbloquear cuenta</p>
+        <h4 class="text-center user-name">Digite su email</h4>
+        <p class="text-center text-muted">Digite email con el cual se registro en el sistema para desbloquear</p>
           <?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
 		<div class="regisFrm">
 			<form class="unlock-form" action="MiCuenta.php" method="post">
+			
 				<input type="email" name="email" class="form-control" placeholder="EMAIL" required="">
+				<br>
 				<div class="send-button">
-					<input type="submit" name="forgotSubmit" class="btn btn-info" value="CONTINUAR">
+				
+                    <button type="submit" name="forgotSubmit" class="btn btn-info btn-block" value="Enviar">
+                        <li class="fa fa-send"></li>
+                        Enviar
+                    </button>
 				</div>
 			</form>
 		</div>
         
-        <p><a href="login.php">¿No eres tu ? Ingresa aqui.</a></p>
+        <p><a href="../index.php">Iniciar sesión.</a></p>
       </div>
     </section>
     <!-- Essential javascripts for application to work-->

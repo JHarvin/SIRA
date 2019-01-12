@@ -86,7 +86,7 @@ if(isset($_POST['signupSubmit'])){
             #se obtiene el id del usuario para modificar la contraseña
             $respuestaId=RecuperarPassword::obtenerId($_POST["email"]);
             //send reset password email
-            $resetPassLink = 'https://'.$_SERVER["SERVER_NAME"].'/rentadminsys/recuparar/ReiniciarPassword.php?fp_code='.$respuestaId["idpersonal"];
+            $resetPassLink = 'https://'.$_SERVER["SERVER_NAME"].'/SIRA/recuparar/resetpassword.php?fp_code='.$respuestaId["idpersonal"];
 				$to = $_POST["email"];
 				$subject = "Solicitud de actualización de contraseña";
 				$mailContent = 'Estimado '.$respuestaId['nombre'].', 
