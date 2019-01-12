@@ -1,7 +1,9 @@
 <?php
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 session_start();
 if(!$_SESSION["validar"]){
-    
+
 
     header("location:../index.php");
     exit();
@@ -20,98 +22,47 @@ if(!$_SESSION["validar"]){
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
   </head>
   <body class="app sidebar-mini rtl">
-     
+
      <?php
       include"menu.php";
       ?>
-     
+
       <main class="app-content">
+        <div class="app-title">
+          <div>
+            <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Bitacora</h1>
+            <p>Rent a Car Chacón </p>
+          </div>
+
+   </div>
       <div class="row user">
-        
+
         <div class="col-md-3">
           <div class="tile p-0">
             <ul class="nav flex-column nav-tabs user-tabs">
               <li class="nav-item"><a class="nav-link active" href="#user-timeline" data-toggle="tab">Bitacora</a></li>
-              <li class="nav-item"><a class="nav-link" href="#user-settings" data-toggle="tab">Usuarios</a></li>
+<p>Nombre: <?php $datos=new BitacoraController();
+$mostrar=$datos->obtenerNombreController($idpersonalBit);
+echo "".$mostrar;
+ ?></p>
             </ul>
           </div>
         </div>
         <div class="col-md-9">
           <div class="tab-content">
             <div class="tab-pane active" id="user-timeline">
-              <div class="timeline-post">
-               
-                  <div class="content">
-                    <h5><a href="#">Harvin Jeffeth Ramos Alfaro</a></h5>
-                    <p class="text-muted"><small>2 January at 9:30</small></p>
-                  </div>
-                
-                <div class="post-content">
-                  <p>Incio de sesion.</p>
-                </div>
-               
-              </div>
-              <div class="timeline-post">
-              
-                  <div class="content">
-                    <h5><a href="#">Harvin Jeffeth Ramos Alfaro</a></h5>
-                    <p class="text-muted"><small>2 January at 9:30</small></p>
-                  </div>
-                
-                <div class="post-content">
-                  <p>Registro de usuario.</p>
-                </div>
-               
-              </div>
+              <?php
+              $mostrarBitacora=new BitacoraController();
+              $mostrarBitacora->mostrarBitacoraController($idpersonalBit);
+               ?>
+
             </div>
-            <div class="tab-pane fade" id="user-settings">
-              <div class="tile user-settings">
-                <h4 class="line-head">Datos de Usuario</h4>
-                <form>
-                  <div class="row mb-4">
-                    <div class="col-md-4">
-                      <label>First Nombre</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="col-md-4">
-                      <label>Telefono</label>
-                      <input class="form-control" type="text">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-8 mb-4">
-                      <label>Email</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Mobile No</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Office Phone</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Home Phone</label>
-                      <input class="form-control" type="text">
-                    </div>
-                  </div>
-                  <div class="row mb-10">
-                    <div class="col-md-12">
-                      <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
     </main>
-      
+
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
