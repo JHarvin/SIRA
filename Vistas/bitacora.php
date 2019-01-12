@@ -43,8 +43,15 @@ if(!$_SESSION["validar"]){
               <li class="nav-item"><a class="nav-link active" href="#user-timeline" data-toggle="tab">Bitacora</a></li>
 <p>Nombre: <?php $datos=new BitacoraController();
 $mostrar=$datos->obtenerNombreController($idpersonalBit);
-echo "".$mostrar;
+echo "".$mostrar["nombre"];
  ?></p>
+ <p>Usuario: <?php
+echo $usuario;
+ ?></p>
+ <h4>Historial por meses</h4>
+ <li class="btn btn-info btn-block fa fa-calendar">
+   ver 01/2019
+ </li>
             </ul>
           </div>
         </div>

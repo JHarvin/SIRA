@@ -59,12 +59,12 @@ class BitacoraModel
     }
     public function mostrarBitacoraNombre($id){
       $stmt =Conexion::conectar()->prepare("
-    SELECT nombre from tpersonal, tbitacora WHERE tbitacora=:id
+    SELECT nombre from tpersonal, tbitacora WHERE tbitacora.idpersonal=:id
       ");
       $stmt->bindParam(":id", $id, PDO::PARAM_INT);
       $stmt->execute();
       return $stmt->fetch();
       $stmt->close();
-      #corregir que muestre el nombre
+
     }
 }
