@@ -2,12 +2,16 @@
 //Para añadir por primera vez un precio
 //-------------------------------------------------------------
 function addprecio(precio,placa){
-        var datos=new FormData();
+       
+if(precio==""){
+    var divM = document.getElementById('precio');
+divM.insertAdjacentHTML('afterend', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Llene el campo precio!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+
+}else{
+     var datos=new FormData();
     datos.append("precio",precio);
         datos.append("placa",placa);
-
-    
-         $.ajax({
+      $.ajax({
         
         type: "POST",
         url: "ajaxPrecios.php",
@@ -41,18 +45,24 @@ function addprecio(precio,placa){
         
         
     });
+}
+    
+       
         
     }
 //-------------------------------------------------------------
 //Para modificar un precio ya ingresado
 //-------------------------------------------------------------
 function updateprecio(precio,placa){
-        var datos=new FormData();
+        
+if(precio==""){
+     var divM = document.getElementById('precio');
+divM.insertAdjacentHTML('afterend', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Llene el campo precio!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+}else{
+    var datos=new FormData();
        datos.append("precio",precio);
         datos.append("placa",placa);
-
-    
-         $.ajax({
+     $.ajax({
         
         type: "POST",
         url: "ajaxActualizarPrecio.php",
@@ -86,5 +96,8 @@ function updateprecio(precio,placa){
         
         
     });
+}
+    
+        
         
     }
