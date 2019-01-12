@@ -24,6 +24,7 @@
 		function Footer()
 		{
 			//para el número de páginas
+			$this->SetTextColor(70, 130, 180);
 			$this->SetY(-15);
 			$this->SetFont('Arial','I', 8);
 			$this->Cell(0,10, 'Pagina '.$this->PageNo().'/{nb}',0,0,'C' );

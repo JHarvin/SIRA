@@ -23,7 +23,7 @@
 		}
 		function Footer()
 		{
-			//$this->Cell(0,-130, 'RENT A CAR CHACON',0,0,'C');
+			$this->SetTextColor(70, 130, 180);
 			$this->SetY(-15);
 			$this->SetFont('Arial','I', 8);
 			$this->Cell(0,10, 'Pagina '.$this->PageNo().'/{nb}',0,0,'C' );

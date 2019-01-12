@@ -2,7 +2,7 @@
 	include 'plantillaproveedores.php';
 	require 'Conexion.php';
 	
-	$query = "SELECT nombre, telefono, email, direccion FROM tproveedores where status=0";
+	$query = "SELECT nombre, telefono, email, direccion FROM tproveedores where status=1";
 	$resultado = Conexion::conectar()->prepare($query);
 	$resultado->execute();
 	
