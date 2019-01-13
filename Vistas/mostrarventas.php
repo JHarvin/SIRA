@@ -1,10 +1,7 @@
-<?php 
+<?php
 require_once"../Controladores/ControladorVentas.php";
+require_once"../Controladores/ControladorIntercambiarBateriaAjax.php";
  ?>
-
-
-
-
 <html lang="es">
  <head>
  <title>Baterias Vendidas</title>
@@ -47,53 +44,53 @@ alertify.defaults.theme.input = "form-control";
           <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Vendidas</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+
  </div>
 
 
-     
 
-    <div class="row">   
-       
+
+    <div class="row">
+
         <div class="col-md-12">
           <div class="tile">
-            
+
             <h3 class="tile-title"></h3>
             <div class="table table-responsive">
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr class="bg-info">
                 <th>Codigo</th>
-                
+
                 <th>Fecha</th>
                 <th>Precio</th>
                 <th>Tipo</th>
                 <th>Proveedor</th>
                 <th>Garantia</th>
                     <th>Cliente</th>
-             
+
 
                 <th hidden></th>
               </tr>
               </thead>
               <tbody>
-                  <?php 
-                   
+                  <?php
+
                   $ventas=new VentasController();
                   $ventas->mostrarBateriasvendidas();
-                 
-                  
+
+
                   ?>
               </tbody>
             </table>
-       
-  
+
+
        </div>
           </div>
         </div>
-        
-        
-        
+
+
+
       </div>
 
 
@@ -107,18 +104,18 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    
+
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script src="../js/datatables.min.js"></script>
      <script src="../Vistas/js/devoluciones.js"></script>
      <script>
-  
+
       $(document).ready(function() {
           //---para data tables codigo
     $('#tabla').DataTable( {
-        
-        
+
+
         "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
            "language": {
             "lengthMenu": "Mostrar _MENU_",
@@ -126,32 +123,32 @@ alertify.defaults.theme.input = "form-control";
             "info": "Mostrando _PAGE_ de _PAGES_ paginas",
             "infoEmpty": "Busqueda no encontrada",
             "infoFiltered": "(Total de registrados _MAX_ )",
-            "sSearch":"Buscar",   
+            "sSearch":"Buscar",
             "paginate": {
             "previous": "Anterior",
                 "next": "Siguente"
     }
         }
-        
+
     } );
 } );
-    
+
     </script>
-     
-     
+
+
       <script type="text/javascript">
-      
+
  jQuery(function($){
             // Definimos las mascaras para cada input, se valida automaticamente
-            
+
             $("#updateTelefono").mask("9999-9999");
-            
+
         });
-          
-        
+
+
     </script>
-    
-    
+
+
     <script>
      function alerta(){
         toastr.success("Usuario Guardado");
@@ -171,62 +168,62 @@ toastr.options = {
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
-  
+
   "hideMethod": "fadeOut"
 }
-          
 
-          
+
+
       }
-        
-        
+
+
     </script>
-    
+
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
 
-  $('#search').quicksearch('table tbody tr');               
+  $('#search').quicksearch('table tbody tr');
 });
     </script>
-    
+
     <script>
     //---Funcion para detectar el clic y obtener los datos
       $("table tbody tr").click(function() {
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(6)").text(); 
-           
-          
+  var id=$(this).find("td:eq(6)").text();
+
+
           //---poniendo los datos en los inputs del modal
-          
-         
-        
+
+
+
           $("#nombreU").text(nombre+"?");
           $("#idDelete").text(id);
-  
+
 });
     </script>
-    
-    
-    
+
+
+
     <script>
-    
+
         $(document).ready(function(){
-            
+
             $("#btnEliminar").click(function(){
-                
+
                 var idEliminar=$("#idDelete").text();
             eliminar(idEliminar);
-                
+
             });
-            
+
         });
-        
+
     </script>
-     
+
 </body>
-    
+
         <!--Modal devolver-->
     <div class="modal" id="modalValidar">
   <div class="modal-dialog modal-lg">
@@ -235,25 +232,22 @@ toastr.options = {
       <!-- Modal Header -->
       <div class="modal-header">
 
-         <div>
-          <h4><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Disponibles</h4>
-          <p>Rent a Car Chacón </p>
-        </div>
+        Devolver bateria
       </div>
 
       <!-- Modal body -->
       <div class="modal-body" >
-         <div class="row">   
-       
+         <div class="row">
+
         <div class="col-md-12">
           <div class="tile">
-            
+
             <h3 class="tile-title">Devoluciones</h3>
         <div class="row">
             <div class="col-md-6">
                 <label id="importes">Codigo
                 <input type="text" class="form-control" placeholder="Codigo" id="codigo" name="codigo">
-                                   </label>  
+                                   </label>
             </div>
             <div class="col-md-6">
                 <label id="importes">Proveedor
@@ -263,9 +257,9 @@ toastr.options = {
              <div class="col-md-6">
                  <label id="importes">Garantia
                 <input type="text" class="form-control" id="aplica" name="aplica">
-                   </label>   
+                   </label>
             </div>
-            
+
               <div class="col-md-6">
                   <label id="importes">Fecha de Devolucion
                 <input type="date" class="form-control" id="fecha" name="fecha">
@@ -276,16 +270,24 @@ toastr.options = {
               <p id="importe"></p>
               </label>
             </div>
-            
-            
+            <div class="col-md-12">
+              <select class="form-control" name="bateriasAintercambio" id="bateriasAintercambio" onchange="verPrecioMod()">
+                <?php
+                $combo=new MostrarComboController();
+                $combo->mostrarComboSelect();
+                ?>
+
+              </select>
+            </div>
+
         </div>
           </div>
         </div>
-        
-        
-       <input type="hidden" id="ide" name="ide" class="form-control"> 
+
+
+       <input type="hidden" id="ide" name="ide" class="form-control">
       </div>
- 
+
           </div>
 
       <!-- Modal footer -->
