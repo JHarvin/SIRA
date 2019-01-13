@@ -271,7 +271,7 @@ toastr.options = {
               </label>
             </div>
             <div class="col-md-12">
-              <select class="form-control" name="bateriasAintercambio" id="bateriasAintercambio" onchange="verPrecioMod()">
+              <select class="form-control" name="bateriasAintercambio" id="intercambio" name="intercambio">
                 <?php
                 $combo=new MostrarComboController();
                 $combo->mostrarComboSelect();

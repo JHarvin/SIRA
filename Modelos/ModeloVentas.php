@@ -79,19 +79,21 @@ $stmt2->execute();
     }
 
     #Funcion para mandar a la tabla de baterias devueltas
-    public function devolverModel($codigo,$tipo,$importe,$fecha){
+    public function devolverModel($codigo,$tipo,$importe,$fecha,$codigo2){
         #-----------------------------------------------------
         $estado="NO DEVUELTA";
         $stmt =Conexion::conectar()->prepare("INSERT INTO tdevoluciones(codigo,tipo,importe,fecha,estado)
             VALUES (:codigo,:tipo,:importe,:fecha,'NO DEVUELTA')");
 
-        $eli =Conexion::conectar()->prepare("DELETE FROM tventas WHERE tventas.codigo=:codigo");
+        $eli =Conexion::conectar()->prepare("UPDATE tventas set codigo=:codigo");
 
-         $eli->bindParam(":codigo",$codigo,PDO::PARAM_STR);
+        $stmtProd=Conexion::conectar()->prepare("DELETE FROM tproductos WHERE codigo=:codigo");
+         $eli->bindParam(":codigo",$codigo2,PDO::PARAM_STR);
+          $eli->bindParam(":codigo",$codigo2,PDO::PARAM_STR);
         $eli->execute();
 
-
-
+$stmtProd->bindParam(":codigo",$codigo,PDO::PARAM_STR);
+$stmtProd->execute();
          $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
          $stmt->bindParam(":tipo",$tipo,PDO::PARAM_STR);
          $stmt->bindParam(":importe",$importe,PDO::PARAM_STR);
