@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once"../Controladores/ControladorVentas.php";
  ?>
 
@@ -47,17 +47,17 @@ alertify.defaults.theme.input = "form-control";
           <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Devueltas</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+
  </div>
 
 
-     
 
-    <div class="row">   
-       
+
+    <div class="row">
+
         <div class="col-md-12">
           <div class="tile">
-            
+
             <h3 class="tile-title"></h3>
             <div class="table table-responsive">
             <table id="tabla"  class="table table-striped">
@@ -66,33 +66,33 @@ alertify.defaults.theme.input = "form-control";
                 <th>Codigo</th>
                 >
                 <th>Proveedor</th>
-                
+
                 <th>Importe</th>
                     <th>Fecha</th>
                  <th>Estado</th>
-              
+
 
                 <th hidden></th>
               </tr>
               </thead>
               <tbody>
-                  <?php 
-                   
+                  <?php
+
                   $ventas=new VentasController();
                   $ventas->mostrarDevoluciones();
-                 
-                  
+
+
                   ?>
               </tbody>
             </table>
-       
-  
+
+
        </div>
           </div>
         </div>
-        
-        
-        
+
+
+
       </div>
 
 
@@ -106,18 +106,18 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    
+
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script src="../js/datatables.min.js"></script>
      <script src="../Vistas/js/devolucionespro.js"></script>
      <script>
-  
+
       $(document).ready(function() {
           //---para data tables codigo
     $('#tabla').DataTable( {
-        
-        
+
+
         "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
            "language": {
             "lengthMenu": "Mostrar _MENU_",
@@ -125,32 +125,32 @@ alertify.defaults.theme.input = "form-control";
             "info": "Mostrando _PAGE_ de _PAGES_ paginas",
             "infoEmpty": "Busqueda no encontrada",
             "infoFiltered": "(Total de registrados _MAX_ )",
-            "sSearch":"Buscar",   
+            "sSearch":"Buscar",
             "paginate": {
             "previous": "Anterior",
                 "next": "Siguente"
     }
         }
-        
+
     } );
 } );
-    
+
     </script>
-     
-     
+
+
       <script type="text/javascript">
-      
+
  jQuery(function($){
             // Definimos las mascaras para cada input, se valida automaticamente
-            
+
             $("#updateTelefono").mask("9999-9999");
-            
+
         });
-          
-        
+
+
     </script>
-    
-    
+
+
     <script>
      function alerta(){
         toastr.success("Usuario Guardado");
@@ -170,62 +170,62 @@ toastr.options = {
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
-  
+
   "hideMethod": "fadeOut"
 }
-          
 
-          
+
+
       }
-        
-        
+
+
     </script>
-    
+
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
 
-  $('#search').quicksearch('table tbody tr');               
+  $('#search').quicksearch('table tbody tr');
 });
     </script>
-    
+
     <script>
     //---Funcion para detectar el clic y obtener los datos
       $("table tbody tr").click(function() {
           //---se obtiene el indice de la tabla
  var nombre=$(this).find("td:eq(0)").text();
-  var id=$(this).find("td:eq(6)").text(); 
-           
-          
+  var id=$(this).find("td:eq(6)").text();
+
+
           //---poniendo los datos en los inputs del modal
-          
-         
-        
+
+
+
           $("#nombreU").text(nombre+"?");
           $("#idDelete").text(id);
-  
+
 });
     </script>
-    
-    
-    
+
+
+
     <script>
-    
+
         $(document).ready(function(){
-            
+
             $("#btnEliminar").click(function(){
-                
+
                 var idEliminar=$("#idDelete").text();
             eliminar(idEliminar);
-                
+
             });
-            
+
         });
-        
+
     </script>
-     
+
 </body>
-    
+
         <!--Modal devolver-->
     <div class="modal" id="modalValidar">
   <div class="modal-dialog modal-lg">
@@ -234,19 +234,16 @@ toastr.options = {
       <!-- Modal Header -->
       <div class="modal-header">
 
-         <div>
-          <h4><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Disponibles</h4>
-          <p>Rent a Car Chacón </p>
-        </div>
+        Devolver al proveedor
       </div>
 
       <!-- Modal body -->
       <div class="modal-body" >
-         <div class="row">   
-       
+         <div class="row">
+
         <div class="col-md-12">
           <div class="tile">
-            
+
             <h3 class="tile-title">Devoluciones Proveedor</h3>
         <div class="row">
             <div class="col-md-6">
@@ -264,21 +261,27 @@ toastr.options = {
                 <input type="date" class="form-control" id="fechapro" name="fechapro">
                  </label>
             </div>
-            
+
              <div class="col-md-6">
                  <label id="importes">Estado
               <input type="text" class="form-control" id="estado" name="estado">
                  </label>
             </div>
-            
+            <div class="col-12">
+              <label for="codigonuevo">
+                <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba el nuevo codigo de la bateria" value="">
+              </label>
+
+            </div>
+          <small>Aqui debe ingresar el nuevo codigo de la bateria a ingresar, se asume que el precio seria el mismo con el cual el proveedor le vendio dicha vateria a devolver, datos como la fecha, son los unicos que cambiaran para agregar el nuevo producto de reemplazo.</small>
         </div>
           </div>
         </div>
-        
-        
-       <input type="hidden" id="ide" name="ide" class="form-control"> 
+
+
+       <input type="hidden" id="ide" name="ide" class="form-control">
       </div>
- 
+
           </div>
 
       <!-- Modal footer -->
