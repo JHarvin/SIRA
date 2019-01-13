@@ -12,9 +12,14 @@
 	$pdf->SetTextColor(0, 0,0);
 	//$pdf->SetTextColor(70, 130, 180);
 	$pdf->SetFont('Arial','',13);
-	$pdf->SetFillColor(0, 206, 209);
+	//$pdf->SetFillColor(0, 206, 209);
+	//turquesa medio
+	$pdf->SetFillColor(72, 209, 204);
 	
-	$pdf->SetDrawColor(0, 0, 0 );	
+	//azul acero
+	$pdf->SetDrawColor(70, 130, 180);
+	
+	//$pdf->SetDrawColor(0, 0, 0 );	
 	$pdf->Cell(40,10,'Nombre',1,0,'C',1);
 	$pdf->Cell(40,10,'Telefono',1,0,'C',1);
 	$pdf->Cell(50,10,'Email',1,0,'C',1);

@@ -73,7 +73,10 @@
            
            
             
-            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Ficha de contacto</a></li>
+          <li><a class="treeview-item" href="../reportes/reporteproveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores</a></li>
+            <li><a class="treeview-item" href="../reportes/reporteproductos.php"><i class="icon fa fa-circle-o"></i> Baterias disponibles</a></li>
+            <li><a class="treeview-item" href="../reportes/reportebateriasvendidas.php"><i class="icon fa fa-circle-o"></i> Baterias vendidas</a></li>
+            <li><a class="treeview-item" href="../reportes/reportebaterias_devueltas_clientes.php"><i class="icon fa fa-circle-o"></i>Baterias devueltas (cliente)</a></li>
           </ul>
         </li>
         

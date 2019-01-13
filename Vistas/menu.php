@@ -115,8 +115,7 @@ $idpersonalBit=$_SESSION["id"];
             <li><a class="treeview-item" href="../reportes/reporteautos.php"><i class="icon fa fa-circle-o"></i> Autos</a></li>
             <li><a class="treeview-item" href="../reportes/reportecliente.php"><i class="icon fa fa-circle-o"></i> Clientes</a></li>
             <li><a class="treeview-item" href="../reportes/reporteusuario.php"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
-            <li><a class="treeview-item" href="../reportes/reporteproveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores</a></li>
-            <li><a class="treeview-item" href="../reportes/reporteproductos.php"><i class="icon fa fa-circle-o"></i> Baterias disponibles</a></li>
+       
           </ul>
         </li>
    <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label"> Respaldar/Recuperar</span></a></li>
