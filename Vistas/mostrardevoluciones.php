@@ -264,7 +264,7 @@ toastr.options = {
 
              <div class="col-md-6">
                  <label id="importes">Estado
-              <input type="text" class="form-control" id="estado" name="estado">
+              <input type="text" class="form-control" id="estado" name="estado" disabled>
                  </label>
             </div>
             <div class="col-12">
