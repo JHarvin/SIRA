@@ -115,9 +115,14 @@ function soloLetras(e) {
       <main class="app-content">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Registrar clientes</h1>
+          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:orange"></i>  Registrar clientes</h1>
           <p>Rent a Car Chacón </p>
         </div>
+
+               <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/registrarcliente.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
         
  </div>
            <div class="row">
@@ -128,7 +133,7 @@ function soloLetras(e) {
            <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
            <div class="form-group col-md-3">  
            <label class="control-label" for="nombre">Nombre:</label>
-           <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" autofocus placeholder="Nombre..." maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
+           <input id="nombre" name="nombre" class="form-control" type="text" autocomplete="off" autofocus placeholder="Nombre" maxlength="50" style="text" onkeypress="return soloLetras(event)" onpaste="return false"  pattern=".{7,}" title="7 o mas caracteres para nombre real" value="" required>
            </div>
            <div class="form-group col-md-3">
            <label class="control-label">Género:</label>
@@ -143,20 +148,20 @@ function soloLetras(e) {
            </div>  
            <div class="form-group col-md-3">
            <label class="label label">Teléfono:</label>
-           <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Telefono..." pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required>
+           <input type="text" name="telefono" id="telefono" class="form-control mask-telefono" autocomplete="off" autofocus placeholder="Teléfono" pattern=".{9,}" title="8 o mas caracteres para telefono real" value="" required>
            </div>
            <!--Dui y licencia de conducir-->
            <div class="form-group col-md-3"> 
            <label class="label label-success">DUI:</label>
-           <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." required>
+           <input type="text" name="dui" id="dui" class="form-control mask-dui" autocomplete="off" autofocus placeholder="DUI" required>
            </div>
            <div class="form-group col-md-3">
            <label class="label label-success">N° Licenia de conducir</label>
-           <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="licencia..." required>
+           <input type="text" name="licencia" id="licencia" class="form-control mask-licencia" autocomplete="off" autofocus placeholder="Licencia" required>
            </div>
            <div class="form-group col-md-5">
            <label for="direccion" class="control-label">Dirección</label>
-           <input type="text" class="form-control" placeholder="Direccion..." id="direccion" name="direccion" autocomplete="off" maxlength="100" style="text;" pattern=".{15,}" title="15 o mas caracteres para dirección real" value=""  required >
+           <input type="text" class="form-control" placeholder="Dirección" id="direccion" name="direccion" autocomplete="off" maxlength="100" style="text;" pattern=".{15,}" title="15 o mas caracteres para dirección real" value=""  required >
            </div>
   
               

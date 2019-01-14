@@ -112,10 +112,13 @@ function inhabilitar(idE){
       <main class="app-content">
         <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Clientes habilitados</h1>
+          <h1><i class="app-menu__icon fa fa-address-card-o" style="font-size:25px;color:orange"></i> Clientes habilitados</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+                      <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/clienteshabilitados.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
        
        <div class="row">
@@ -128,13 +131,13 @@ function inhabilitar(idE){
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Teléfono</th>
-                   <th>Dirección</th>
+                  <th>NOMBRE</th>
+                  <th>TELEFONO</th>
+                   <th>DIRECCION</th>
                   <th>DUI</th>
-                  <th>Licencia de conducir</th>
-                  <th>estado</th>
-                <th>Acciones</th> 
+                  <th>LICENCIA DE CONDUCIR</th>
+                  <th>ESTADO</th>
+                <th>ACCIONES</th> 
                  
                  
                 </tr>

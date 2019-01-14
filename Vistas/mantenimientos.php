@@ -134,10 +134,14 @@ alertify.defaults.theme.input = "form-control";
        
  <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Mantenimiento</h1>
+          <h1><i class="fa fa-wrench"  style="font-size:25px;color:orange"></i> Mantenimiento</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+
+        <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/mantenimiento.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
        <div class="row">
       <div class="col-md-12">
