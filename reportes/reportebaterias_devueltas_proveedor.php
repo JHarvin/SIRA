@@ -1,6 +1,6 @@
 
 <?php
-	include 'plantillabaterias_devueltas_cliente.php';
+	include 'plantillabaterias_devueltas_proveedor.php';
 	require 'Conexion.php';
 	
 	$query = "SELECT
