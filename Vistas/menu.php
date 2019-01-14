@@ -61,7 +61,7 @@ $usuario=$_SESSION["usuario"];
          
           <ul class="treeview-menu">
 
-            <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar usuarios</a></li>
+            <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar Usuarios</a></li>
            
             
 

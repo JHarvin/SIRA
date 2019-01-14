@@ -123,10 +123,13 @@ alertify.defaults.theme.input = "form-control";
     <main class="app-content">  
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Registrar Usuarios</h1>
+          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:orange"></i>  Registrar Usuarios</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+        <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/registrarusuario.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
        <div class="row">
         <div class="col-md-12">
@@ -151,15 +154,15 @@ alertify.defaults.theme.input = "form-control";
            </div>  
                 <div class="form-group col-md-3">
                   <label class="control-label">Teléfono</label>
-                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese numero de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required autocomplete="off">
+                  <input id="telefono" name="telefono" class="form-control" type="tel" placeholder="Ingrese número de telefono" maxlength="9" value="" onkeypress="return validaNumericos(event);"  required autocomplete="off">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="email" class="control-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="email" id="email" name="email" value="" required autocomplete="off">
+                  <input type="email" class="form-control" placeholder="E-mail" id="email" name="email" value="" required autocomplete="off">
                 </div>
                 <div class="form-group col-md-3">
                   <label class="control-label">Digite un nombre de usuario</label>
-                  <input type="text" class="form-control" placeholder="nombre de usuario" id="username" name="username" value="" required autocomplete="off">
+                  <input type="text" class="form-control" placeholder="Nombre de usuario" id="username" name="username" value="" required autocomplete="off">
                 </div>
                 
                 <div class="form-group col-md-3">

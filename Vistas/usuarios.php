@@ -15,7 +15,7 @@ if(!$_SESSION["validar"]){
 <html lang="es">
 <head>
 
-    <title>Usuarios habiliados</title>
+    <title>Usuarios habilitados</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,10 +92,13 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Usuarios habilitados</h1>
+          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:orange"></i> Usuarios habilitados</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+        <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/usuarioshabilitados.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
 
  </div>
@@ -121,13 +124,13 @@ alertify.defaults.theme.input = "form-control";
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Teléfono</th>
-                   <th>Dirección</th>
-                   <th>Email</th>
-                  <th>Nombre de usuario</th>
-                  <th> Estado</th>
-                  <th>Acción</th>
+                  <th>NOMBRE</th>
+                  <th>TELEFONO</th>
+                   <th>DIRECCION</th>
+                   <th>EMAIL</th>
+                  <th>NOMBRE DE USUARIO</th>
+                  <th> ESTADO</th>
+                  <th>ACCIONES</th>
                  <th hidden></th>
                 </tr>
               </thead>

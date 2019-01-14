@@ -42,10 +42,13 @@ if(!$_SESSION["validar"]){
       <main class="app-content">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Registrar autos </h1>
+          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:orange"></i>  Registrar autos </h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+                              <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/auto.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
        
        <div class="row">

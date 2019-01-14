@@ -133,12 +133,15 @@ alertify.defaults.theme.input = "form-control";
     ?>
       <main class="app-content">
        
- <div class="app-title">
+<div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:#788499;"></i> Autos registrados</h1>
-          <p>RentalSys</p>
+          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:orange"></i>  Autos registrados </h1>
+          <p>Rent a Car Chacón </p>
         </div>
-        
+                              <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/autosregistrados.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
        <div class="row">
       <div class="col-md-12">
@@ -160,7 +163,7 @@ alertify.defaults.theme.input = "form-control";
 
                   <th>COMBUSTIBLE</th>
                   <th>ESTADO</th>
-                 <th>Acciones</th>
+                 <th>ACCIONES</th>
                  <th hidden></th>
                  <th hidden></th>
                  <th hidden></th>
