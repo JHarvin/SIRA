@@ -144,7 +144,7 @@ require_once"../Modelos/ModeloProveedores.php";
                   <td>'.$item["telefono"].'</td>
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["email"].'</td>
-                  <td>Deshabilitado</td>
+                  <td>Inhabilitado</td>
                 
                   <td>
                   <div class="btn-group" role="group">

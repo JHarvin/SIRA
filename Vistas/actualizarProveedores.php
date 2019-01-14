@@ -18,7 +18,7 @@ $datosVista=$editarProveedor->editarProveedorController();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <!-- libreria para notificaciones toast-->
+    <!-- libreria para toast-->
     <link rel="stylesheet" href="../css/toastr.css">
     
     <!-- Font-icon css-->

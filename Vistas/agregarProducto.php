@@ -198,13 +198,13 @@ alertify.defaults.theme.input = "form-control";
 
    <div class="form-group col-md-4">
      <label class="control-label">Precio Unitario ($) </label>
-      <input id="precio_unitario"   name="precio_unitario" onchange="javascript:validarPrecios();" 
+      <input id="precio_unitarioo"   name="precio_unitario" onchange="javascript:validarPrecios();" 
       type="text" autocomplete="off" class="form-control" placeholder="Precio de compra">
     </div>
     
     <div class="form-group col-md-4">
      <label class="control-label">Precio Venta ($) </label>
-      <input id="precio_venta"    name="precio_venta"  onchange="javascript:validarPrecios();"  type="text" 
+      <input id="precio_ventaa"    name="precio_venta"  onchange="javascript:validarPrecios();"  type="text" 
       class="form-control" autocomplete="off" placeholder="Precio venta">
     </div>
 
@@ -228,9 +228,9 @@ alertify.defaults.theme.input = "form-control";
 
   
      
- <div class="tile-footer">
+ <div class="tile-footer" align="center">
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
-              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
+              type="submit"  align="center"><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
 
 
@@ -296,6 +296,25 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     <!--escript para buscar en la tabla-->
+
+
+          <!-- Essential javascripts for application to work-->
+
+    <script src="../js/toastr.js"></script>
+    <script src="../js/notify.js"></script>
+    <script src="../js/plugins/jquery.mask.min.js"></script>
+    
+      <script type="text/javascript">
+      
+ jQuery(function($){
+            // Definimos las mascaras para cada input
+            $('#precio_ventaa').mask('000.000.000.000.000,00', {reverse: true});
+            $("#precio_unitarioo").mask('000.000.000.000.000,00', {reverse: true});
+            
+        });
+          
+        
+    </script>
     <script>
       $(function () {
   $('#search').quicksearch('table tbody tr');               

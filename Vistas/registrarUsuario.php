@@ -114,12 +114,13 @@ alertify.defaults.theme.input = "form-control";
     }
     </script>
 </head> 
-<body class="app sidebar-mini rtl">
+
      <?php 
     include"menu.php";
     ?>
-
-      <main class="app-content">
+    
+<body class="app sidebar-mini rtl">
+    <main class="app-content">  
          <div class="app-title">
         <div>
           <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Registrar Usuarios</h1>

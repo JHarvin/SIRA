@@ -4,7 +4,7 @@ session_start();
 if(!empty($_SESSION["usuario"])){
 
 $usuario=$_SESSION["usuario"];
-$idpersonalBit=$_SESSION["id"];
+
 
 }
 
@@ -52,7 +52,7 @@ $idpersonalBit=$_SESSION["id"];
 
          <li><a class="app-menu__item" href="mantenimientos.php"><i class="fa fa-wrench"></i><span class="app-menu__label">Mantenimiento</span></a></li>
 
-         <li><a class="app-menu__item" href="alquilados.php"><i class="fa fa-road"></i><span class="app-menu__label">Autos en alquiler</span></a></li>
+         <li><a class="app-menu__item" href="alquilados.php"><i class="fa fa-road"></i><span class="app-menu__label">Autos alquilados</span></a></li>
 
 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users">
 
@@ -112,13 +112,14 @@ $idpersonalBit=$_SESSION["id"];
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Reportes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="../reportes/reporteautos.php"><i class="icon fa fa-circle-o"></i> Autos</a></li>
-            <li><a class="treeview-item" href="../reportes/reportecliente.php"><i class="icon fa fa-circle-o"></i> Clientes</a></li>
-            <li><a class="treeview-item" href="../reportes/reporteusuario.php"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
-       
+            <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Vehiculos</a></li>
+            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Alquileres</a></li>
+            <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Clientes</a></li>
+            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Ficha de contacto</a></li>
           </ul>
         </li>
-   <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label"> Respaldar/Recuperar</span></a></li>
+
+            <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label">Respaldar/restaurar</span></a></li>
 
       </ul>
     </aside>
