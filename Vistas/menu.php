@@ -5,9 +5,8 @@ if(!empty($_SESSION["usuario"])){
 
 $usuario=$_SESSION["usuario"];
 
-$idpersonalBit=$_SESSION["id"];
 
-
+}
 
 ?>
     <header class="app-header" style="background-color:#7f8be8;">
@@ -35,9 +34,9 @@ $idpersonalBit=$_SESSION["id"];
              <li><a class="dropdown-item" href="bitacora.php"><i class="fa fa-edit fa-lg"></i>   Bitacora</a></li>
             <li><a class="dropdown-item" href="../index.php"><i class="fa fa-sign-out fa-lg"></i>Salir</a></li>
 
-            
-            
-            <!--hoy vienen los hermanos flores xD-->
+
+
+
 
           </ul>
         </li>
@@ -62,7 +61,9 @@ $idpersonalBit=$_SESSION["id"];
 
           <ul class="treeview-menu">
 
-            <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar Usuarios</a></li>
+            <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar usuarios</a></li>
+
+
 
 
             <li><a class="treeview-item" href="usuarios.php"><i class="icon fa fa-circle-o"></i> Usuarios habilitados</a></li>
@@ -116,11 +117,9 @@ $idpersonalBit=$_SESSION["id"];
           <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reporteautos.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Autos</a><li>
 
 
-            <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label"> Respaldar/restaurar</span></a></li>
-
-
         </li>
 
+            <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label">Respaldar/restaurar</span></a></li>
 
       </ul>
     </aside>
