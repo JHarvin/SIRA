@@ -104,7 +104,10 @@ alertify.defaults.theme.input = "form-control";
           <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Disponibles</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+        <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/bateriasdisponibles.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
 
      
@@ -119,12 +122,12 @@ alertify.defaults.theme.input = "form-control";
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr>
-               <th>Tipo</th>
-                  <th>Código</th>
-                  <th>Proveedor</th>
-                   <th>Precio unitario($)</th>
-                  <th>Precio venta($)</th>
-                  <th>Fecha venta</th>
+               <th>TIPO</th>
+                  <th>CODIGO</th>
+                  <th>PROVEEDOR</th>
+                   <th>PRECIO UNITARIO ($)</th>
+                  <th>PRECIO VENTA($)</th>
+                  <th>FECHA VENTA</th>
                   
                    <th hidden></th>
               </tr>
