@@ -1,5 +1,7 @@
 <?php 
 require_once "../Modelos/ModeloRegistrarUsuario.php";
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 #Registro de usuarios 
 #------------------------------------
 #---Iniciado por Harvin Ramos--------
@@ -84,7 +86,8 @@ class RegistrarUsuarioController{
         else if($validarusuario=="success" && $validarcorreo=="success"){    
             
     $respuesta=Datos::registroUsuarioModel($datosControladorRegistro,"tpersonal");
-        
+    $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se realizó el registro de un Usuario:".$_POST["nombre"]);  
         if( $respuesta=="success"){
             echo' 
              
