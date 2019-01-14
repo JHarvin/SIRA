@@ -94,7 +94,7 @@ function verificarGarantia(codigo){
 
       $("#aplica").val(respuesta.garantia);
     $("#importe").text(respuesta.precio);
-
+  $("#batp").val("Bateria para: AUTO precio:"+respuesta.precio);
             if(respuesta.garantia=="No aplica garantia "){$("#btnDevolver").hide();}
 
 
