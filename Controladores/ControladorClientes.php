@@ -11,6 +11,8 @@
 require_once"../Modelos/modeloclienteina.php";
 require_once"../Modelos/ModeloClientes.php";
 require_once"../Modelos/ModeloAlquiler.php";
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 class ClientesController{
    
     #FUNCIÓN REGISTRAR

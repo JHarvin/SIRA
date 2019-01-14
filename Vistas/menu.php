@@ -4,10 +4,17 @@ session_start();
 if(!empty($_SESSION["usuario"])){
 
 $usuario=$_SESSION["usuario"];
+<<<<<<< HEAD
 
 $idpersonalBit=$_SESSION["id"];
 
 
+=======
+$idpersonalBit=$_SESSION["id"];
+
+        
+}
+>>>>>>> a5793fd269a55712a77c47414378b932cb03ec96
 
 ?>
     <header class="app-header" style="background-color:#7f8be8;">
@@ -115,10 +122,14 @@ $idpersonalBit=$_SESSION["id"];
           <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reporteusuario.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Usuarios</a><li>
           <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reporteautos.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Autos</a><li>
 
+<<<<<<< HEAD
 
             <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label"> Respaldar/restaurar</span></a></li>
 
 
+=======
+            <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label"> Respaldar/restaurar</span></a></li>
+>>>>>>> a5793fd269a55712a77c47414378b932cb03ec96
 
         </li>
 
