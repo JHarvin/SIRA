@@ -86,9 +86,14 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Precios alquiler</h1>
+          <h1><i class="fa fa-money"  style="font-size:25px;color:orange"></i>  Precios alquiler</h1>
           <p>Rent a Car Chacón </p>
         </div>
+
+<div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/precioalquiler.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
         
  </div>
        
@@ -106,13 +111,13 @@ alertify.defaults.theme.input = "form-control";
                 <tr>
                  
                   <th>NUMERO DE PLACA</th>
-                  <th>MARCA,MODELO,AÑO</th>
+                  <th>MARCA, MODELO, AÑO</th>
                    <th>TIPO</th>
                   <th>COLOR</th>
                 
                   <th>COMBUSTIBLE</th>
-                  <th>Precio alquiler(dia)</th>
-                 <th>Acciones</th>
+                  <th>PRECIO ALQUILER (DIA)</th>
+                 <th>ACCIONES</th>
                 
                 </tr>
               </thead>
@@ -171,7 +176,7 @@ alertify.defaults.theme.input = "form-control";
   </div>
   <div class="form-group col-md-4">
     <label for="precio">Cambie el precio de alquiler $</label>
-    <input type="text" class="form-control" id="precio" autofocus placeholder="digite precio del auto">
+    <input type="text" class="form-control" id="precio" autofocus placeholder="Digite precio del auto">
   </div>
                
                

@@ -111,18 +111,23 @@ function soloLetras(e) {
        <div class="app-title">
         <div>
         
-        <h1><i class="fa fa-address-card"></i> Modificar datos del cliente</h1>  
+             <div>
+          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:orange"></i>  Modificar datos del cliente</h1>
+          <p>Rent a Car Chacón </p>
+        </div>
+
+</div>
+               <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/modificarcliente.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
+        
+ </div> 
            </div> 
            </div>
            <div class="row">
            <div class="col-md-12">
            <div class="tile">
-
-           <h3 class="tile-title">Digite datos del cliente:</h3> 
-
-
-          
-
 
            <div class="tile-body">
            <form id="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">

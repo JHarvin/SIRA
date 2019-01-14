@@ -85,9 +85,13 @@ alertify.defaults.theme.input = "form-control";
       <main class="app-content">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i>Autos alquilados</h1>
+          <h1><i class="fa fa-road"  style="font-size:25px;color:orange"></i>  Autos alquilados</h1>
           <p>Rent a Car Chacón </p>
         </div>
+        <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/autosalquilados.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
         
  </div>
        
@@ -109,7 +113,7 @@ alertify.defaults.theme.input = "form-control";
                    <th>DUI</th>
                   <th>CLIENTE</th>
                 
-                 <th>Acciones</th>
+                 <th>ACCIONES</th>
                 
                 </tr>
               </thead>

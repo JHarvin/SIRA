@@ -153,6 +153,10 @@ alertify.defaults.theme.input = "form-control";
           
           
         </ul>
+                <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/agregarbaterias.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
 
 
@@ -212,15 +216,14 @@ alertify.defaults.theme.input = "form-control";
     <br>
 <div class="form-group col-md-4">
     <label class="control-label">Fecha</label>
-    <?php   $fecha_venta=date('Y-m-d')?>
   
       <input id="fecha_venta"  min="<?php echo $fecha_venta; ?>" 
       name="fecha_venta" type="date" value="<?php echo $fecha_venta; ?>"
-      class="form-control"  max="<?php echo $fecha_venta; ?>" >
+      class="form-control"  max="<?php echo $fecha_venta; ?>" data-format="dd/MM/yyyy" >
    
     </div>
     
-    
+   
 
 
 
@@ -228,9 +231,9 @@ alertify.defaults.theme.input = "form-control";
 
   
      
- <div class="tile-footer" align="center">
+ <div class="tile-footer" >
               <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
-              type="submit"  align="center"><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
+              type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
 
 

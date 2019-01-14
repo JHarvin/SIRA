@@ -73,10 +73,12 @@
            
            
             
-          <li><a class="treeview-item" href="../reportes/reporteproveedores.php"><i class="icon fa fa-circle-o"></i> Proveedores</a></li>
-            <li><a class="treeview-item" href="../reportes/reporteproductos.php"><i class="icon fa fa-circle-o"></i> Baterias disponibles</a></li>
-            <li><a class="treeview-item" href="../reportes/reportebateriasvendidas.php"><i class="icon fa fa-circle-o"></i> Baterias vendidas</a></li>
-            <li><a class="treeview-item" href="../reportes/reportebaterias_devueltas_clientes.php"><i class="icon fa fa-circle-o"></i>Baterias devueltas (cliente)</a></li>
+         
+            <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reporteproveedores.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Proveedores</a><li>
+            <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reporteproductos.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Baterias disponibles</a><li>
+            <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reportebateriasvendidas.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Baterias vendidas</a><li>
+            <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reportebaterias_devueltas_clientes.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Baterias devueltas (del cliente)</a><li>
+            <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reportebaterias_devueltas_proveedor.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Baterias devueltas (al proveedor)</a><li>
           </ul>
         </li>
         
