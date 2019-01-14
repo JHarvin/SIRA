@@ -18,7 +18,7 @@
 			$this->SetFont('Arial','B',15);
 			$this->Cell(30);
 			$this->SetTextColor(70, 130, 180);
-			$this->Cell(140,10, 'REPORTE DE VEHICULOS',0,0,'C');
+			$this->Cell(140,10, 'REPORTE DE AUTOS',0,0,'C');
 			$this->Ln(20);
 		}
 		function Footer()

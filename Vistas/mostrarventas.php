@@ -284,7 +284,7 @@ toastr.options = {
           </div>
         </div>
 
-
+        <input type="text" name="batp" id="batp" value="">
        <input type="hidden" id="ide" name="ide" class="form-control">
       </div>
 

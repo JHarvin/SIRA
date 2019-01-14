@@ -267,9 +267,15 @@ toastr.options = {
               <input type="text" class="form-control" id="estado" name="estado" disabled>
                  </label>
             </div>
-            <div class="col-12">
+            <div class="col-6">
               <label for="codigonuevo">
                 <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba el nuevo codigo de la bateria" value="">
+              </label>
+
+            </div>
+            <div class="col-6">
+              <label for="codigonuevo">
+                <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba el preciode la bateria" value="">
               </label>
 
             </div>

@@ -85,11 +85,11 @@ $stmt2->execute();
         $stmt =Conexion::conectar()->prepare("INSERT INTO tdevoluciones(codigo,tipo,importe,fecha,estado)
             VALUES (:codigo,:tipo,:importe,:fecha,'NO DEVUELTA')");
 
-        $eli =Conexion::conectar()->prepare("UPDATE tventas set codigo=:codigo");
+        $eli =Conexion::conectar()->prepare("UPDATE tventas set codigo=:codigo WHERE codigo=:codigo1");
 
         $stmtProd=Conexion::conectar()->prepare("DELETE FROM tproductos WHERE codigo=:codigo");
          $eli->bindParam(":codigo",$codigo2,PDO::PARAM_STR);
-          $eli->bindParam(":codigo",$codigo2,PDO::PARAM_STR);
+          $eli->bindParam(":codigo1",$codigo,PDO::PARAM_STR);
         $eli->execute();
 
 $stmtProd->bindParam(":codigo",$codigo,PDO::PARAM_STR);
