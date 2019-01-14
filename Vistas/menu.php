@@ -5,7 +5,7 @@ if(!empty($_SESSION["usuario"])){
 
 $usuario=$_SESSION["usuario"];
 
-
+$idpersonalBit=$_SESSION["id"];
 }
 
 ?>

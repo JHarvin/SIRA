@@ -119,7 +119,15 @@ $auto="AUTO";
 
         $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA' WHERE tdevoluciones.codigo =:codigo");
 
-  
+
+#Para agregar la nueva bateriasAintercambio
+
+$tproductos=Conexion::conectar()->prepare("INSERT INTO tproductos(tipo, codigo, en_existencias, precio_unitario, idproveedor, precio_venta, fecha_venta) VALUES (:auto,0,:codigo,0,:precio");
+
+  $tproductos->bindParam(":auto",$suto,PDO::PARAM_STR);
+  $tproductos->bindParam(":codigo",$codenew,PDO::PARAM_STR);
+  $tproductos->bindParam(":precio",$precionuevo,PDO::PARAM_STR);
+  $tproductos->execute();
          $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
 
 
