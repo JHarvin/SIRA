@@ -92,6 +92,10 @@ alertify.defaults.theme.input = "form-control";
           
           
         </ul>
+                       <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/agregarproveedores.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
        
        <div class="row">
