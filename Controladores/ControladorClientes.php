@@ -290,6 +290,8 @@ class ClientesController{
       public function inhabilitarController($dui){
          
         $respuesta=DatosCliente::inhabilitarModel($dui,"tclientes");
+        $bitacora=new BitacoraController();
+        $bitacora->guardarBitacoraController("Se deshabilitó un cliente ");
         
         if($respuesta=="success"){
             return "success";
@@ -300,6 +302,8 @@ class ClientesController{
     #para habilitar
     public function habilitarController($dui){
          $respuesta=DatosCliente::habilitarModel($dui,"tclientes");
+         $bitacora=new BitacoraController();
+         $bitacora->guardarBitacoraController("Se habilitó un cliente");
         
         if($respuesta=="success"){
             return "success";

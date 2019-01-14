@@ -37,7 +37,7 @@ $idpersonalBit=$_SESSION["id"];
 
             
             
-            
+            <!--hoy vienen los hermanos flores xD-->
 
           </ul>
         </li>
