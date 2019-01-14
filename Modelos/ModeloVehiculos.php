@@ -5,6 +5,7 @@
 #---------------------|__________________|---------------------------------------
 #-------------------|___________________|----------------------------------------
 require_once"Conexion.php";
+require_once"../Modelos/ModeloBitacora.php";
 class VehiculosModel extends Conexion{
   #--------------------------------------------------------------------------------
   #Funcion para validar que no se inserten placas iguales de los vehiculos---------
