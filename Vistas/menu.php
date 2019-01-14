@@ -4,7 +4,7 @@ session_start();
 if(!empty($_SESSION["usuario"])){
 
 $usuario=$_SESSION["usuario"];
-
+$idpersonalBit=$_SESSION["id"];
 
 }
 
@@ -119,7 +119,7 @@ $usuario=$_SESSION["usuario"];
           </ul>
         </li>
 
-            <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label">Respaldar/restaurar</span></a></li>
+            <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label"> Respaldar/restaurar</span></a></li>
 
       </ul>
     </aside>

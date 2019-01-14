@@ -269,13 +269,13 @@ toastr.options = {
             </div>
             <div class="col-6">
               <label for="codigonuevo">
-                <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba el nuevo codigo de la bateria" value="">
+                <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba nuevo codigo" value="">
               </label>
 
             </div>
             <div class="col-6">
-              <label for="codigonuevo">
-                <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba el preciode la bateria" value="">
+              <label for="precion">
+                <input type="text" name="precion" id="precion" class="form-control" placeholder="Escriba el precio" value="">
               </label>
 
             </div>
@@ -293,7 +293,7 @@ toastr.options = {
       <!-- Modal footer -->
       <div class="modal-footer">
 
-       <a href="../Vistas/mostrardevoluciones.php" class="btn btn-warning" id="btnDevolverPro" name="btnDevolverPro">Devolver<i class="fa fa-shopping-basket"></i></a>
+       <a href="#" class="btn btn-warning" id="btnDevolverPro" name="btnDevolverPro">Devolver<i class="fa fa-shopping-basket"></i></a>
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>

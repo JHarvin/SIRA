@@ -113,12 +113,13 @@ $stmtProd->execute();
     }
     //==========devolver proveedor================================
     #Funcion para mandar a la tabla de baterias devueltas
-    public function devolverModelPro($codigo){
+    public function devolverModelPro($codigo,$codenew,$precionuevo,$codigoProveedor){
         #-----------------------------------------------------
-
+$auto="AUTO";
 
         $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA' WHERE tdevoluciones.codigo =:codigo");
 
+  
          $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
 
 
