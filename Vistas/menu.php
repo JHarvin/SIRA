@@ -4,8 +4,7 @@ session_start();
 if(!empty($_SESSION["usuario"])){
     
 $usuario=$_SESSION["usuario"];
-    
-    
+        
 }
 
 ?>
@@ -63,8 +62,6 @@ $usuario=$_SESSION["usuario"];
 
             <li><a class="treeview-item" href="registrarUsuario.php"><i class="icon fa fa-circle-o"></i> Registrar Usuarios</a></li>
            
-            
-
 
             <li><a class="treeview-item" href="usuarios.php"><i class="icon fa fa-circle-o"></i> Usuarios habilitados</a></li>
             

@@ -73,7 +73,8 @@ class ClientesController{
         else if($validarDui=="success" && $validarLicencia=="success"){    
             
     $respuesta=DatosCliente::registroClienteModel($datosClienteController,"tclientes");
-        
+    $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se realizó el registro de un cliente ");
         if( $respuesta=="success"){
             echo' 
              
