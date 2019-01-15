@@ -267,19 +267,7 @@ toastr.options = {
               <input type="text" class="form-control" id="estado" name="estado" disabled>
                  </label>
             </div>
-            <div class="col-6">
-              <label for="codigonuevo">
-                <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba nuevo codigo" value="">
-              </label>
 
-            </div>
-            <div class="col-6">
-              <label for="precion">
-                <input type="text" name="precion" id="precion" class="form-control" placeholder="Escriba el precio" value="">
-              </label>
-
-            </div>
-          <small>Aqui debe ingresar el nuevo codigo de la bateria a ingresar, se asume que el precio seria el mismo con el cual el proveedor le vendio dicha vateria a devolver, datos como la fecha, son los unicos que cambiaran para agregar el nuevo producto de reemplazo.</small>
         </div>
           </div>
         </div>

@@ -1,13 +1,18 @@
  <!DOCTYPE html>
- <?php 
+ <?php
 require_once"../Controladores/ControladorRegistrarBaterias.php";
 require_once"../Controladores/ControladorRegistrarProveedor.php";
+$titulo="Agregar Baterias";
 session_start();
 if(!$_SESSION["validar"]){
-    
+
 
     header("location:../index.php");
     exit();
+}
+if (isset($_GET["fp_code"]) && !empty($_GET["fp_code"])) {
+  // code...
+  $titulo="".$_GET["fp_code"];
 }
 ?>
 
@@ -38,7 +43,7 @@ if(!$_SESSION["validar"]){
 alertify.defaults.glossary.title = 'أليرتفاي جي اس';
 alertify.defaults.glossary.ok = 'موافق';
 alertify.defaults.glossary.cancel = 'إلغاء';
-  
+
 
 
 function validarPrecios(){
@@ -69,14 +74,14 @@ function validarPrecios(){
 <link rel="stylesheet" href="../css/themes/semantic.css">
 <!-- include alertify script -->
 <script src="../js/alertify.js"></script>
-<script type="text/javascript">        
+<script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "zoom";
 alertify.defaults.theme.ok = "ui positive button";
 alertify.defaults.theme.cancel = "ui black button";
-    
+
 </script>
-    
+
 <!-- include boostrap theme  -->
 <link rel="stylesheet" href="../css/themes/bootstrap.css">
 
@@ -95,44 +100,44 @@ alertify.defaults.theme.input = "form-control";
     function eliminar(idE){
         var datos=new FormData();
     datos.append("idb",idE);
-        
-        
+
+
          $.ajax({
-        
+
         type: "POST",
         url: "../Controladores/ControladorAjaxEliminar.php",
         data: datos,
         cache:false,
         contentType:false,
         processData:false,
-        
+
         success:function(r){
-         
+
         if(r==1){
-        
+
            // $(".table").load("../Vistas/usuarios.php");
             toastr.success("Eliminado");
     }
           else if(r!=1){
-           
+
               alert("diferente "+r);
-              
+
           }
             else{
               //  $("#table").load();
-                
+
                 alert("Error -> "+r  );}
-        
+
     }
-        
-        
+
+
     });
-        
+
     }
-     
-    
+
+
     </script>
-   
+
 <!--Archivo de validacion-->
     <script src="js/validarRegistro.js"></script>
 
@@ -146,15 +151,15 @@ alertify.defaults.theme.input = "form-control";
 
  <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-battery-half" style="font-size:25px;color:orange"></i>  Agregar Baterias</h1>
+          <h1><i class="app-menu__icon fa fa-battery-half" style="font-size:25px;color:orange"></i>  <?php echo $titulo;?></h1>
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          
-          
+
+
         </ul>
                 <div id="imagen">
-       
+
          <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/agregarbaterias.pdf', '_blank', 'fullscreen=yes'); return false;">
 </div>
  </div>
@@ -162,36 +167,36 @@ alertify.defaults.theme.input = "form-control";
 
 <div class="row">
        <div  class="col-md-12">
-        
+
             <div class="tile">
-            
+
             <h3 class="tile-title"></h3>
             <div class="tile-body">
   <form id="formulario_registro" name="formulario_registro" method="post" onsubmit="return validarRegistro();" class="row">
- 
+
 
      <div class="form-group col-md-4">
         <label class="control-label">Proveedor</label>
                   <select class="form-control" name="idproveedor" id="idproveedor">
-                     
-                      <?php 
+
+                      <?php
                       $combo=new RegistrarProveedorController();
                       $combo->mostrarCombo();
-                      
+
                       ?>
-                      
+
                   </select>
                 </div>
 
-                           
+
     <div class="form-group col-md-4">
      <label class="control-label">Código</label>
       <input id="codigo" name="codigo" type="codigo" class="form-control" placeholder="Código"
       type="text" autocomplete="off" maxlength="5"  maxlength="100"  pattern=".{5,}" title="5 caracteres para codigo real" value=""  required>
-    
+
     </div>
 
-   
+
      <div class="form-group col-md-4">
       <label for="tipo">Tipo</label>
       <select name="tipo" id="tipo" class="form-control" required>
@@ -202,91 +207,91 @@ alertify.defaults.theme.input = "form-control";
 
    <div class="form-group col-md-4">
      <label class="control-label">Precio Unitario ($) </label>
-      <input id="precio_unitarioo"   name="precio_unitario" onchange="javascript:validarPrecios();" 
+      <input id="precio_unitarioo"   name="precio_unitario" onchange="javascript:validarPrecios();"
       type="text" autocomplete="off" class="form-control" placeholder="Precio de compra">
     </div>
-    
+
     <div class="form-group col-md-4">
      <label class="control-label">Precio Venta ($) </label>
-      <input id="precio_ventaa"    name="precio_venta"  onchange="javascript:validarPrecios();"  type="text" 
+      <input id="precio_ventaa"    name="precio_venta"  onchange="javascript:validarPrecios();"  type="text"
       class="form-control" autocomplete="off" placeholder="Precio venta">
     </div>
 
-   
+
     <br>
 <div class="form-group col-md-4">
     <label class="control-label">Fecha</label>
-  
-      <input id="fecha_venta"  min="<?php echo $fecha_venta; ?>" 
+
+      <input id="fecha_venta"  min="<?php echo $fecha_venta; ?>"
       name="fecha_venta" type="date" value="<?php echo $fecha_venta; ?>"
       class="form-control"  max="<?php echo $fecha_venta; ?>" data-format="dd/MM/yyyy" >
-   
+
     </div>
-    
-   
 
 
 
-   
 
-  
-     
+
+
+
+
+
  <div class="tile-footer" >
-              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary" 
+              <button id="btnRegistrar" name="btnRegistrar" class="btn btn-primary"
               type="submit"  ><i class="fa fa-fw fa-lg fa-check-circle"></i> Registrar </button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
             </div>
 
 
-             <?php 
+             <?php
                 #--para guardar registros se llama a la clase y funcion
               $registro= new RegistrarBateriasController();
               $registro->registrarBaterias();
-              
-                
+
+
                 ?>
 
                </form>
 
-  
+
   </div>
   <br>
 
-   
-   
 
 
-   
+
+
+
            </div><!--titlee-->
-          
+
             </div><!--class="col-md-12"-->
-           
+
           </div>
         </div>
-        
-        
-        
-    
-        
+
+
+
+
+
        </div>
-       
-       
-       
-        
-        
-        
+
+
+
+
+
+
       </div>
-      
-      
-      
-      
+
+
+
+
 </main>
 
 <!--para modal de repaciones-->
- 
+
 
 
 <!--para modal de autos disponibles lista-->
- 
+
 
 
 <!-- Essential javascripts for application to work-->
@@ -306,31 +311,31 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/toastr.js"></script>
     <script src="../js/notify.js"></script>
     <script src="../js/plugins/jquery.mask.min.js"></script>
-    
+
       <script type="text/javascript">
-      
+
  jQuery(function($){
             // Definimos las mascaras para cada input
             $('#precio_ventaa').mask('000.000.000.000.000,00', {reverse: true});
             $("#precio_unitarioo").mask('000.000.000.000.000,00', {reverse: true});
-            
+
         });
-          
-        
+
+
     </script>
     <script>
       $(function () {
-  $('#search').quicksearch('table tbody tr');               
+  $('#search').quicksearch('table tbody tr');
 });
     </script>
 
      <script>
-  
+
       $(document).ready(function() {
           //---para data tables codigo
     $('#tabla').DataTable( {
-        
-        
+
+
         "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "All"]],
            "language": {
             "lengthMenu": "Mostrar _MENU_",
@@ -338,27 +343,27 @@ alertify.defaults.theme.input = "form-control";
             "info": "Mostrando _PAGE_ de _PAGES_ paginas",
             "infoEmpty": "Busqueda no encontrada",
             "infoFiltered": "(Total de registrados _MAX_ )",
-            "sSearch":"Buscar",   
+            "sSearch":"Buscar",
             "paginate": {
             "previous": "Anterior",
                 "next": "Siguente"
     }
         }
-        
+
     } );
 } );
-    
+
     </script>
 
     <script>
-   
+
           function validaNumericos(event) {
     if(event.charCode >= 48 && event.charCode <= 57){
       return true;
      }
-     return false;        
-} 
-      
+     return false;
+}
+
     </script>
 
     <script>
@@ -379,20 +384,20 @@ toastr.options = {
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
-  
+
   "hideMethod": "fadeOut"
 }
-          
-          
+
+
       }
-        
-        
+
+
     </script>
-    
+
     <!--escript para buscar en la tabla-->
     <script>
       $(function () {
-  $('#search').quicksearch('table tbody tr');               
+  $('#search').quicksearch('table tbody tr');
 });
     </script>
 
@@ -401,20 +406,20 @@ toastr.options = {
       $("table tbody tr").click(function() {
           //---se obtiene el indice de la tabla
  //var nombre=$(this).find("td:eq(0)").text();
- // var id=$(this).find("td:eq(6)").text(); 
-           
-          
+ // var id=$(this).find("td:eq(6)").text();
+
+
           //---poniendo los datos en los inputs del modal
-          
-         
-        
+
+
+
          // $("#nombreU").text(nombre+"?");
           //$("#idDelete").text(id);
-  
+
 });
     </script>
-    
-    <script> 
+
+    <script>
 $('#precio_venta').mask('99.99');
      //   $('#precio_unitario').mask('999.99');
 </script>
@@ -423,7 +428,7 @@ $('#precio_unitario').mask('99.99');
 </script>
   <script>
     alertify.set('notifier','position', 'top-right');
-    </script> 
-    
+    </script>
+
 </body>
 </html>

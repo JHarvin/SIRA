@@ -123,15 +123,7 @@ $fecha=date("d/m/Y");
 
 #Para agregar la nueva bateriasAintercambio
 
-$tproductos=Conexion::conectar()->prepare("INSERT INTO tproductos(tipo, codigo, en_existencias, precio_unitario, idproveedor, precio_venta, fecha_venta) VALUES (:auto,:codigo,:cero,:precio,:proveedor,:precio,:fecha)");
 
-  $tproductos->bindParam(":auto",$suto,PDO::PARAM_STR);
-  $tproductos->bindParam(":codigo",$codenew,PDO::PARAM_STR);
-  $tproductos->bindParam(":precio",$precionuevo,PDO::PARAM_STR);
-  $tproductos->bindParam(":proveedor",$codigoProveedor,PDO::PARAM_INT);
-  $tproductos->bindParam(":cero",$cero,PDO::PARAM_INT);
-  $tproductos->bindParam(":fecha",$fecha,PDO::PARAM_STR);
-  $tproductos->execute();
          $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
 
 
