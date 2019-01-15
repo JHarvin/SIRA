@@ -3,13 +3,13 @@ $(document).ready(function(){
     $("#tabla tbody tr").click(function(){
         var codigo=$(this).find("td:eq(0)").text();
         var tipo=$(this).find("td:eq(4)").text();
-
+        var nom=$(this).find("td:eq(6)").text();
         //se ponen los datos en el modal
 
         $("#codigo").val(codigo);
         $("#tipobateria").val(tipo);
         $("#aplicagarantia").val("Aplica");
-
+        $("#nom").val(nom);
        verificarGarantia(codigo);
 
     });
@@ -22,13 +22,14 @@ $(document).ready(function(){
          var importe=$("#importe").text();
          var fecha=$("#fecha").val();
         var codigo2=$("#intercambio").val();
+        var nom=$("#nom").val();
         //alert(""+codigo2);
-      devolver(codigo,tipo,importe,fecha,codigo2);
+      devolver(codigo,tipo,importe,fecha,codigo2,nom);
     });
     //---------------------------------------------
 
 });
-function devolver(codigo,tipo,importe,fecha,codigo2){
+function devolver(codigo,tipo,importe,fecha,codigo2,nom){
     var codig=new FormData();
 
     codig.append("codigo",codigo);
@@ -36,6 +37,7 @@ function devolver(codigo,tipo,importe,fecha,codigo2){
     codig.append("importe",importe);
     codig.append("fecha",fecha);
     codig.append("codigo2",codigo2);
+    codig.append("nom",nom);
 
     $.ajax({
 

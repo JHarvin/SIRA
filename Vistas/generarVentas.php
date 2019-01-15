@@ -38,6 +38,10 @@ $datos=$lista->Baterias();
         <ul class="app-breadcrumb breadcrumb">
                
         </ul>
+                <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/generarventas.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
 <div class="row" >
 

@@ -79,11 +79,11 @@ $stmt2->execute();
     }
 
     #Funcion para mandar a la tabla de baterias devueltas
-    public function devolverModel($codigo,$tipo,$importe,$fecha,$codigo2){
+    public function devolverModel($codigo,$tipo,$importe,$fecha,$codigo2,$cliente){
         #-----------------------------------------------------
         $estado="NO DEVUELTA";
-        $stmt =Conexion::conectar()->prepare("INSERT INTO tdevoluciones(codigo,tipo,importe,fecha,estado)
-            VALUES (:codigo,:tipo,:importe,:fecha,'NO DEVUELTA')");
+        $stmt =Conexion::conectar()->prepare("INSERT INTO tdevoluciones(codigo,tipo,importe,fecha,estado,cliente)
+            VALUES (:codigo,:tipo,:importe,:fecha,'NO DEVUELTA',:cliente)");
 
         $eli =Conexion::conectar()->prepare("UPDATE tventas set codigo=:codigo WHERE codigo=:codigo1");
 
@@ -98,6 +98,7 @@ $stmtProd->execute();
          $stmt->bindParam(":tipo",$tipo,PDO::PARAM_STR);
          $stmt->bindParam(":importe",$importe,PDO::PARAM_STR);
          $stmt->bindParam(":fecha",$fecha,PDO::PARAM_STR);
+          $stmt->bindParam(":cliente",$cliente,PDO::PARAM_STR);
 
 
 
@@ -118,14 +119,14 @@ $stmtProd->execute();
 $auto="AUTO";
 $cero=0;
 $fecha=date("d/m/Y");
-        $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA' WHERE tdevoluciones.codigo =:codigo");
+        $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA', fecha_fin=:fecha WHERE tdevoluciones.codigo =:codigo");
 
 
 #Para agregar la nueva bateriasAintercambio
 
 
          $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
-
+ $stmt->bindParam(":fecha",$fecha,PDO::PARAM_STR);
 
 
         if($stmt->execute()){

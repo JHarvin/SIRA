@@ -47,7 +47,10 @@ alertify.defaults.theme.input = "form-control";
           <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Baterias Devueltas</h1>
           <p>Rent a Car Chacón </p>
         </div>
+       <div id="imagen">
 
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/bateriasdevueltas.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
 
 
@@ -64,11 +67,12 @@ alertify.defaults.theme.input = "form-control";
               <thead>
                 <tr class="bg">
                 <th>CODIGO</th>
-                
+
                 <th>PROVEEDOR</th>
 
                 <th>IMPORTE</th>
                     <th>FECHA</th>
+                    
                  <th>ESTADO</th>
 
 

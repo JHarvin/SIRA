@@ -12,7 +12,7 @@ class Devolver{
     public $importe;
      public $fecha;
     public $codigo2;
-
+public $nom;
 
 
     public function enviar(){
@@ -22,10 +22,11 @@ class Devolver{
          $importe1=$this->importe;
         $fecha1=$this->fecha;
         $codigo=$this->codigo2;
+        $cliente=$this->nom;
         #Se llama a la funcion en el controlador y luego en el controlador llama al
         #modelo que es el encargado de obtener las imagenes eliminarlas y luego eliminar
         #el registro de la bd-----------------------------------------------------------
-        $respuesta=DatosVentas::devolverModel($matricula,$tipo1,$importe1,$fecha1,$codigo);
+        $respuesta=DatosVentas::devolverModel($matricula,$tipo1,$importe1,$fecha1,$codigo,$cliente);
        //  $respuesta=DatosVentas::devolverModelPro($matricula);
         #Si la variable $respuesta cumple con la condicion se retorna 1 con echo al ajax
      echo $respuesta;
@@ -46,5 +47,5 @@ $a->tipo=$_POST["tipobateria"];
 $a->importe=$_POST["importe"];
 $a->fecha=$_POST["fecha"];
 $a->codigo2=$_POST["codigo2"];
-
+$a->nom=$_POST["nom"];
 $a->enviar();
