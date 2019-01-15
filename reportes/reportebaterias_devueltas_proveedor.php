@@ -6,7 +6,7 @@
 	$query = "SELECT
 	tdevoluciones.codigo,
 	tdevoluciones.tipo,
-	tdevoluciones.fecha
+	tdevoluciones.fecha_fin
 	FROM
 	tdevoluciones WHERE estado='DEVUELTA'";
 	
@@ -43,7 +43,7 @@
 		//$pdf->SetFillColor(123, 104, 238);
 		 $pdf->Cell(60,10,utf8_decode($item["codigo"]),1,0,'C',1);
 		 $pdf->Cell(60,10,utf8_decode($item["tipo"]),1,0,'C',1);
-		 $pdf->Cell(65,10,utf8_decode($item["fecha"]),1,1,'C',1);
+		 $pdf->Cell(65,10,utf8_decode($item["fecha_fin"]),1,1,'C',1);
 		//$pdf->Cell(50,10,utf8_decode($item["fecha"]),1,1,'C',1);
 		$pdf->SetFillColor(123, 104, 238);
 	 }

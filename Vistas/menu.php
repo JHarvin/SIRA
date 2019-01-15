@@ -9,6 +9,7 @@ $usuario=$_SESSION["usuario"];
 $idpersonalBit=$_SESSION["id"];
 
 
+$idpersonalBit=$_SESSION["id"];
 
 }
 
@@ -126,15 +127,22 @@ $idpersonalBit=$_SESSION["id"];
 
         </li>
 
+<<<<<<< HEAD
+        
+=======
 
 
 
+>>>>>>> e7873989633ebe430ef04fa66ff73b9fda7044c2
 
         </li>
 
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> e7873989633ebe430ef04fa66ff73b9fda7044c2
       </ul>
         <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label">Respaldar/restaurar</span></a></li>
     </aside>
