@@ -8,6 +8,12 @@ require_once"../Modelos/ModeloVehiculos.php";
 require_once"../Modelos/ModeloAlquiler.php";
 #-----------------------------------------------------------------------------
 require_once"../Modelos/ModeloPrecios.php";
+#-----------------------------------------------------------------------------
+require_once"../Modelos/ModeloBitacora.php";
+#-----------------------------------------------------------------------------
+require_once"ControladorBitacora.php";
+
+
 class RegistrarVehiculoController{
 
     public function registrarVController(){
@@ -59,7 +65,8 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
 
 
         $respuesta=VehiculosModel::registroVehiculoModel($datosController,"tvehiculos");
-
+        $bitacora=new BitacoraController();
+        $bitacora->guardarBitacoraController("Se registro el vehiculo placas: ".$_POST["nplaca"]);
         if( $respuesta=="success"){
             echo'
 
@@ -361,7 +368,9 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
 
 
         $respuesta=VehiculosModel::actualizarVehiculoModel($datosController,"tvehiculos");
-
+        $bitacora=new BitacoraController();
+         $bitacora->guardarBitacoraController("Se actualizaron los datos del vehiculo placas: ".$_POST["n_dplaca"]);
+       
         if( $respuesta=="success"){
             echo'
 
@@ -436,6 +445,7 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                      
                      }
                  // if para ver si el carro a sido alquilado
+                 
                  if($estado=="success"){
                      
                       echo'
