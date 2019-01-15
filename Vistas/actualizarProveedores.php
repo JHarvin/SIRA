@@ -88,7 +88,7 @@ alertify.defaults.theme.input = "form-control";
 </head>      
 <body class="app sidebar-mini rtl">
      <?php 
-    include"menu.php";
+    include"menuVentas.php";
     ?>
       <main class="app-content">
         <div class="app-title">
@@ -100,6 +100,10 @@ alertify.defaults.theme.input = "form-control";
           
           
         </ul>
+        <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/editarproveedor.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
        
      

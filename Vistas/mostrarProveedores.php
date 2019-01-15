@@ -177,13 +177,13 @@ alertify.defaults.theme.input = "form-control";
               <thead>
                 <tr>
 
-                  <th >Nombre</th>
-                  <th>Teléfono</th>
-                   <th>Email</th>
-                  <th>Dirección</th>
-                   <th>Estado</th>
-                    <th>Acciones</th>
-        
+                  <th >NOMBRE</th>
+                  <th>TELEFONO</th>
+                   <th>EMAIL</th>
+                  <th>DIRECCION</th>
+                   <th>ESTADO</th>
+                    <th>ACCIONES</th>
+        <th>ACCIONES</th>
                  
                  <th hidden></th>
                  

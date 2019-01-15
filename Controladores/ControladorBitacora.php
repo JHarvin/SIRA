@@ -23,6 +23,8 @@ class BitacoraController
 
     foreach ($respuesta as $row => $item) {
       echo'
+      <tr>
+      <td>
       <div class="timeline-post">
 
           <div class="content">
@@ -35,6 +37,8 @@ class BitacoraController
         </div>
 
       </div>
+      </td>
+      </tr>
       ';
     }
   }

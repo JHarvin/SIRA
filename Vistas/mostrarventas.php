@@ -45,6 +45,10 @@ alertify.defaults.theme.input = "form-control";
           <p>Rent a Car Chacón </p>
         </div>
 
+        <div id="imagen">
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/bateriasdisponibles.pdf', '_blank', 'fullscreen=yes'); return false;">
+</div>
  </div>
 
 
@@ -59,17 +63,14 @@ alertify.defaults.theme.input = "form-control";
             <div class="table table-responsive">
             <table id="tabla"  class="table table-striped">
               <thead>
-                <tr class="bg-info">
-                <th>Codigo</th>
-
-                <th>Fecha</th>
-                <th>Precio</th>
-                <th>Tipo</th>
-                <th>Proveedor</th>
-                <th>Garantia</th>
-                    <th>Cliente</th>
-
-
+                <tr class="bg">
+                <th>CODIGO</th>
+                <th>FECHA</th>
+                <th>PRECIO</th>
+                <th>TIPO</th>
+                <th>PROVEEDOR</th>
+                <th>GARANTIA</th>
+                <th>CLIENTE</th>
                 <th hidden></th>
               </tr>
               </thead>

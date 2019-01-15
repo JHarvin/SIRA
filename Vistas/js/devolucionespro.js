@@ -53,8 +53,9 @@ function devolver(codigo,codigonuevo,precion,bateria){
         if(respuesta==1){
 
 
-           //$("#tcuerpo").load("mantenimientos.php #tcuerpo > *");
+
           alertify.success("Bateria devuelta");
+          location.href="../Vistas/agregarProducto.php?fp_code=ok";
 
 
     }

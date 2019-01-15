@@ -62,14 +62,14 @@ alertify.defaults.theme.input = "form-control";
             <div class="table table-responsive">
             <table id="tabla"  class="table table-striped">
               <thead>
-                <tr class="bg-info">
-                <th>Codigo</th>
-                >
-                <th>Proveedor</th>
+                <tr class="bg">
+                <th>CODIGO</th>
+                
+                <th>PROVEEDOR</th>
 
-                <th>Importe</th>
-                    <th>Fecha</th>
-                 <th>Estado</th>
+                <th>IMPORTE</th>
+                    <th>FECHA</th>
+                 <th>ESTADO</th>
 
 
                 <th hidden></th>
@@ -267,19 +267,7 @@ toastr.options = {
               <input type="text" class="form-control" id="estado" name="estado" disabled>
                  </label>
             </div>
-            <div class="col-6">
-              <label for="codigonuevo">
-                <input type="text" name="codigonuevo" id="codigonuevo" class="form-control" placeholder="Escriba nuevo codigo" value="">
-              </label>
 
-            </div>
-            <div class="col-6">
-              <label for="precion">
-                <input type="text" name="precion" id="precion" class="form-control" placeholder="Escriba el precio" value="">
-              </label>
-
-            </div>
-          <small>Aqui debe ingresar el nuevo codigo de la bateria a ingresar, se asume que el precio seria el mismo con el cual el proveedor le vendio dicha vateria a devolver, datos como la fecha, son los unicos que cambiaran para agregar el nuevo producto de reemplazo.</small>
         </div>
           </div>
         </div>

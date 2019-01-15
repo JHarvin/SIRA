@@ -1,6 +1,8 @@
 <?php 
 
 require_once "../Modelos/ModeloActualizarBaterias.php";
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 
 #--Clase encargada
 class ActualizarBateriasController{
@@ -33,6 +35,8 @@ class ActualizarBateriasController{
                 );
             
             $respuesta=EditarBateria::actualizarBateriasModel($dato,"tproductos");
+             $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se realizó el registro de una bateria ");
             
             if($respuesta=="success"){
                  echo '

@@ -1,6 +1,8 @@
 <?php 
 //require_once "../Controladores/ControladorRegistrarProveedor.php";
 require_once"../Modelos/ModeloProveedores.php";
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 
  class RegistrarProveedorController
  {
@@ -38,7 +40,8 @@ require_once"../Modelos/ModeloProveedores.php";
         else if($validarNombre=="success" || $validarEmail=="success"){
             
             $respuesta=DatosProveedor::registroProveedorModel($datosProveedorController,"tproveedores");
-   
+   $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se realizó el registro de un Proveedor"); 
    if( $respuesta=="success"){
             echo' 
              
@@ -103,7 +106,8 @@ require_once"../Modelos/ModeloProveedores.php";
         public function mostrarProveedores(){
         
          $respuesta=DatosProveedor::mostrarProveedoresModel("tproveedores where status=1");
-        
+        $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se inhabilitado el proveedor"); 
         foreach($respuesta as $row =>$item){
         if ($item["status"]==1) {
          
@@ -117,7 +121,7 @@ require_once"../Modelos/ModeloProveedores.php";
                    
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"  ><i class="fa fa-edit"></i></a>
                   <a href="mostrarProveedores.php"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i i class="fa fa-arrow-circle-down"></i></a>
                   </td>
                   </div>
@@ -133,7 +137,8 @@ require_once"../Modelos/ModeloProveedores.php";
      public function provInahabilitadosController(){
         
         $respuesta= DatosProveedor::mostrarProveedoresModel("tproveedores where status=0");
-        
+          $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se habilitado el proveedor"); 
         foreach($respuesta as $row =>$item){
         if($item["status"]==0){//inicio if
          
@@ -144,11 +149,13 @@ require_once"../Modelos/ModeloProveedores.php";
                   <td>'.$item["telefono"].'</td>
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["email"].'</td>
+                   <td></td>
                   <td>Inhabilitado</td>
                 
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <button id="btnEditar" name="btnEditar" class="btn btn-info" disabled><i class="fa fa-edit"></i></button>
+                 
                   <a href="mostrarproveedor.php"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
                   </div>
                   </td>

@@ -20,6 +20,7 @@ if(!$_SESSION["validar"]){
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/datatables.min.css">
   </head>
   <body class="app sidebar-mini rtl">
 
@@ -48,20 +49,25 @@ echo "".$mostrar["nombre"];
  <p>Usuario: <?php
 echo $usuario;
  ?></p>
- <h4>Historial por meses</h4>
- <li class="btn btn-info btn-block fa fa-calendar">
-   ver 01/2019
- </li>
+
             </ul>
           </div>
         </div>
         <div class="col-md-9">
           <div class="tab-content">
             <div class="tab-pane active" id="user-timeline">
-              <?php
-              $mostrarBitacora=new BitacoraController();
-              $mostrarBitacora->mostrarBitacoraController($idpersonalBit);
-               ?>
+              <table id="tablaBitacora" name="tablaBitacora" class="table table-hover">
+                <thead>
+                <th>Historial</th>
+                </thead>
+                <tbody>
+                  <?php
+                  $mostrarBitacora=new BitacoraController();
+                  $mostrarBitacora->mostrarBitacoraController($idpersonalBit);
+                   ?>
+                </tbody>
+              </table>
+
 
             </div>
 
@@ -75,7 +81,33 @@ echo $usuario;
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/datatables.min.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="../js/plugins/pace.min.js"></script>
+
+    <script type="text/javascript">
+      //para buscador de Bitacora
+
+      $('#tablaBitacora').DataTable( {
+
+
+          "lengthMenu": [[4, 10, 50, -1], [4, 10, 50, "Todos"]],
+
+
+             "language": {
+              "lengthMenu": "Mostrar _MENU_",
+              "zeroRecords": "No se encontraron registros",
+              "info": "Mostrando _PAGE_ de _PAGES_ paginas",
+              "infoEmpty": "Busqueda no encontrada",
+              "infoFiltered": "(Total de registrados _MAX_ )",
+              "sSearch":"Buscar",
+              "paginate": {
+              "previous": "Anterior",
+                  "next": "Siguente"
+      }
+          }
+
+      } );
+    </script>
   </body>
 </html>
