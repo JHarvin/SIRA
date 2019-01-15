@@ -4,14 +4,11 @@ session_start();
 if(!empty($_SESSION["usuario"])){
 
 $usuario=$_SESSION["usuario"];
-<<<<<<< HEAD
 
 $idpersonalBit=$_SESSION["id"];
 
-=======
 
 $idpersonalBit=$_SESSION["id"];
->>>>>>> 26bce0749d5dcd258553e34a8bc6f47a2560184a
 }
 
 ?>
@@ -122,7 +119,6 @@ $idpersonalBit=$_SESSION["id"];
           <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reporteusuario.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Usuarios</a><li>
           <li><a class="treeview-item" href="#" onclick="window.open('../reportes/reporteautos.php', '_blank', 'fullscreen=yes'); return false;"><i class="icon fa fa-circle-o"></i>Autos</a><li>
 
-<<<<<<< HEAD
 
             
 
@@ -130,12 +126,10 @@ $idpersonalBit=$_SESSION["id"];
         <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label"> Respaldar/restaurar</span></a></li>
 
         
-=======
 
         </li>
 
             <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label">Respaldar/restaurar</span></a></li>
 
->>>>>>> 26bce0749d5dcd258553e34a8bc6f47a2560184a
       </ul>
     </aside>

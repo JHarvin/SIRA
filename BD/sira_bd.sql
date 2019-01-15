@@ -62,7 +62,7 @@ CREATE TABLE `tbitacora` (
   PRIMARY KEY (`idbitacora`),
   KEY `fk_personal` (`idpersonal`),
   CONSTRAINT `fk_personal` FOREIGN KEY (`idpersonal`) REFERENCES `tpersonal` (`idpersonal`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 INSERT INTO tbitacora VALUES("6","2019-01-11 23:38:11","Inicio de sesiÃ³n","2");
 INSERT INTO tbitacora VALUES("7","2019-01-11 23:47:36","Se actualizo el precio de alquiler del vehiculo placas: P202-205 a un precio de: 27","2");
@@ -71,6 +71,18 @@ INSERT INTO tbitacora VALUES("9","2019-01-12 00:11:45","Se actualizo el precio d
 INSERT INTO tbitacora VALUES("10","2019-01-12 00:42:06","Inicio de sesiÃ³n","2");
 INSERT INTO tbitacora VALUES("11","2019-01-12 10:02:19","Inicio de sesiÃ³n","2");
 INSERT INTO tbitacora VALUES("12","2019-01-12 10:02:38","Se actualizo el precio de alquiler del vehiculo placas: P404-404 a un precio de: 25","2");
+INSERT INTO tbitacora VALUES("13","2019-01-13 12:04:34","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("14","2019-01-13 15:43:41","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("15","2019-01-14 14:26:55","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("16","2019-01-14 15:23:34","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("17","2019-01-14 17:16:51","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("18","2019-01-14 21:54:04","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("19","2019-01-15 09:23:30","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("20","2019-01-15 11:10:33","Inicio de sesiÃ³n","2");
+INSERT INTO tbitacora VALUES("21","2019-01-15 11:23:37","Se realizÃ³ el registro de una bateria ","2");
+INSERT INTO tbitacora VALUES("22","2019-01-15 11:28:11","Se realizÃ³ el registro de una bateria ","2");
+INSERT INTO tbitacora VALUES("23","2019-01-15 11:29:47","Se realizÃ³ el registro de una bateria ","2");
+INSERT INTO tbitacora VALUES("24","2019-01-15 11:30:09","Se realizÃ³ el registro de una bateria ","2");
 
 
 
@@ -116,16 +128,34 @@ CREATE TABLE `tdevoluciones` (
   `importe` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `fecha` date NOT NULL,
   `estado` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `cliente` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_fin` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-INSERT INTO tdevoluciones VALUES("28","44444 ","CHIASO","11.11","2019-01-29","DEVUELTA");
-INSERT INTO tdevoluciones VALUES("29","32F2R","STARI","0","2018-11-29","DEVUELTA");
-INSERT INTO tdevoluciones VALUES("30","10086","AMERICA","0","2018-11-29","NO DEVUELTA");
-INSERT INTO tdevoluciones VALUES("31","44444","CHIASO","","2018-11-30","DEVUELTA");
-INSERT INTO tdevoluciones VALUES("32","99922","STARI","0","2018-11-30","NO DEVUELTA");
-INSERT INTO tdevoluciones VALUES("33","20000","AMAROCK","0","2019-11-30","DEVUELTA");
-INSERT INTO tdevoluciones VALUES("34","10000","AMERICA","0","0000-00-00","NO DEVUELTA");
+INSERT INTO tdevoluciones VALUES("28","44444 ","CHIASO","11.11","2019-01-29","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("29","32F2R","STARI","0","2018-11-29","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("30","10086","AMERICA","0","2018-11-29","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("31","44444","CHIASO","","2018-11-30","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("32","99922","STARI","0","2018-11-30","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("33","20000","AMAROCK","0","2019-11-30","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("34","10000","AMERICA","0","0000-00-00","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("35","77E8E","AMAROCK","0","2019-01-13","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("36","50333","RAYO","0","2019-01-13","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("37","91919","RAYO","0","2019-01-13","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("38","20199","RAYO","0","0000-00-00","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("39","22222","RAYO","0","2019-01-13","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("40","12121","SANGL","0","0000-00-00","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("41","77565","SANGL","0","0000-00-00","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("42","22333","SANGL","0","2019-01-14","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("43","09822","SANGL","0","2019-01-14","DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("44","22333","SANGL","0","0000-00-00","NO DEVUELTA","","");
+INSERT INTO tdevoluciones VALUES("45","43553","SANGL","0","0000-00-00","NO DEVUELTA","43553","");
+INSERT INTO tdevoluciones VALUES("46","43553","SANGL","0","2019-01-15","NO DEVUELTA","12133","");
+INSERT INTO tdevoluciones VALUES("47","12133","SANGL","0","0000-00-00","NO DEVUELTA","12133","");
+INSERT INTO tdevoluciones VALUES("48","12133","SANGL","0","0000-00-00","NO DEVUELTA","00999","");
+INSERT INTO tdevoluciones VALUES("49","00999","SANGL","0","0000-00-00","DEVUELTA","00999","15/01/2019");
+INSERT INTO tdevoluciones VALUES("50","00999","SANGL","0","0000-00-00","DEVUELTA","Jackeline Rodriguez","15/01/2019");
 
 
 
@@ -288,9 +318,10 @@ CREATE TABLE `tproductos` (
   PRIMARY KEY (`idproducto`),
   KEY `fk_proveedores` (`idproveedor`),
   CONSTRAINT `fk_proveedores` FOREIGN KEY (`idproveedor`) REFERENCES `tproveedores` (`idproveedor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-INSERT INTO tproductos VALUES("2","AUTO","46574","0","50","6","75.55","2019-01-12");
+INSERT INTO tproductos VALUES("5","AUTO","YY666","0","66","4","88","2019-01-15");
+INSERT INTO tproductos VALUES("6","AUTO","I8755","0","77","10","222","2019-01-15");
 
 
 
@@ -304,13 +335,15 @@ CREATE TABLE `tproveedores` (
   `direccion` varchar(165) COLLATE utf8_spanish_ci NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`idproveedor`,`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 INSERT INTO tproveedores VALUES("4","AMERICA","9918-8111","saul@hotmail.com"," san miguel la avenida","0");
 INSERT INTO tproveedores VALUES("5","AMAROCK","3333-3444","amarock@hotmail.com","san salvador colonia","0");
 INSERT INTO tproveedores VALUES("6","CHIASO","5445-4544","asoidjf@hotmail.com","Ã±asidjfaipoi p apsoidjfiejq as","0");
 INSERT INTO tproveedores VALUES("7","STARI","7746-7554","stari@hotmail.com","santa ana metapan","0");
 INSERT INTO tproveedores VALUES("8","RADIOCHACK","7746-6464","radioch@hotmail.com","plaza mundo soyapango","0");
+INSERT INTO tproveedores VALUES("9","RAYO","7759-9595","rayo@rayo.com","san salvador vulevar venezuela","0");
+INSERT INTO tproveedores VALUES("10","SANGL","8475-9009","sangl@yahoo.com","san salvador calle loma linda","0");
 
 
 
@@ -385,11 +418,20 @@ CREATE TABLE `tventas` (
   `precio` float NOT NULL,
   `garantia` int(11) NOT NULL,
   PRIMARY KEY (`idventa`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-INSERT INTO tventas VALUES("17","qqqqqqq","aaaaaaa","2018-11-29","77464","MOTO","4","20","0");
-INSERT INTO tventas VALUES("21","","","2018-11-30","11221","AUTO","4","66.66","0");
-INSERT INTO tventas VALUES("22","Gerson Bladimir","Colonia Santa Maria Ostuma","2019-01-12","77E8E","AUTO","5","99.99","6");
+INSERT INTO tventas VALUES("17","qqqqqqq","aaaaaaa","2018-11-29","89898","MOTO","4","20","0");
+INSERT INTO tventas VALUES("21","","","2018-11-30","89898","AUTO","4","66.66","0");
+INSERT INTO tventas VALUES("22","Gerson Bladimir","Colonia Santa Maria Ostuma","2019-01-12","89898","AUTO","5","99.99","6");
+INSERT INTO tventas VALUES("23","Juan Perez","Ilobasco CabaÃ±as","2019-01-13","89898","AUTO","9","99.99","4");
+INSERT INTO tventas VALUES("24","Marcia Aguilar","colonia los cocos san salvador","2019-01-13","89898","AUTO","9","99.99","3");
+INSERT INTO tventas VALUES("25","William Medrano","Ilobasco CabaÃ±as","2019-01-13","89898","AUTO","9","90","3");
+INSERT INTO tventas VALUES("26","Machado","santo domingo","2019-01-13","89898","AUTO","6","75.55","4");
+INSERT INTO tventas VALUES("27","Samuel","santo domingo","2019-01-13","89898","AUTO","9","33.33","5");
+INSERT INTO tventas VALUES("28","Claudia Casco","San Salvador","2019-01-14","89898","AUTO","9","90","6");
+INSERT INTO tventas VALUES("29","Mayra Carolina","puente cuscatlan","2019-01-14","YY666","AUTO","10","55.55","6");
+INSERT INTO tventas VALUES("30","Yanci Flores","san miguel","2019-01-14","YY666","AUTO","10","55.55","6");
+INSERT INTO tventas VALUES("31","Jackeline Rodriguez","San Sebastian San Vicente colonia santa fe","2019-01-15","YY666","AUTO","10","200","6");
 
 
 
