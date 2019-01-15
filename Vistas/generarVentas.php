@@ -229,9 +229,9 @@ Codigo
       "</tr>";
 
       tabla.append(datos);
-
       $("#preciofact").val(precio);
       $("#codigofact").val(codigo);
+
      }
 
     </script>
