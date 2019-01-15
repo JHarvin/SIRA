@@ -119,14 +119,14 @@ $stmtProd->execute();
 $auto="AUTO";
 $cero=0;
 $fecha=date("d/m/Y");
-        $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA' WHERE tdevoluciones.codigo =:codigo");
+        $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA', fecha_fin=:fecha WHERE tdevoluciones.codigo =:codigo");
 
 
 #Para agregar la nueva bateriasAintercambio
 
 
          $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
-
+ $stmt->bindParam(":fecha",$fecha,PDO::PARAM_STR);
 
 
         if($stmt->execute()){
