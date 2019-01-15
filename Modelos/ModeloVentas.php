@@ -116,10 +116,14 @@ $stmtProd->execute();
     public function devolverModelPro($codigo,$codenew,$precionuevo,$codigoProveedor){
         #-----------------------------------------------------
 $auto="AUTO";
-
+$cero=0;
+$fecha=date("d/m/Y");
         $stmt =Conexion::conectar()->prepare("UPDATE tdevoluciones SET estado= 'DEVUELTA' WHERE tdevoluciones.codigo =:codigo");
 
-  
+
+#Para agregar la nueva bateriasAintercambio
+
+
          $stmt->bindParam(":codigo",$codigo,PDO::PARAM_STR);
 
 

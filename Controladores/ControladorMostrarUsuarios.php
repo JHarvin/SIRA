@@ -1,5 +1,7 @@
 <?php 
 require_once "../Modelos/MostrarModel.php";
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 class MostrarUsuariosController{
     
     #Para mostrar usuarios desabilitados
@@ -127,6 +129,8 @@ class MostrarUsuariosController{
     public function inhabilitarController($id){
          
         $respuesta=MostrarUsuarios::inhabilitarModel($id,"tpersonal");
+         $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se inhabilitado el usuario:");
         
         if($respuesta=="success"){
             return "success";
@@ -137,7 +141,8 @@ class MostrarUsuariosController{
     #para habilitar
     public function habilitarController($id){
          $respuesta=MostrarUsuarios::habilitarModel($id,"tpersonal");
-        
+          $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se habilitado el usuario");
         if($respuesta=="success"){
             return "success";
             

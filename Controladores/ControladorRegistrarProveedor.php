@@ -1,6 +1,8 @@
 <?php 
 //require_once "../Controladores/ControladorRegistrarProveedor.php";
 require_once"../Modelos/ModeloProveedores.php";
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 
  class RegistrarProveedorController
  {
@@ -38,7 +40,8 @@ require_once"../Modelos/ModeloProveedores.php";
         else if($validarNombre=="success" || $validarEmail=="success"){
             
             $respuesta=DatosProveedor::registroProveedorModel($datosProveedorController,"tproveedores");
-   
+   $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se realizó el registro de un Proveedor"); 
    if( $respuesta=="success"){
             echo' 
              
@@ -103,7 +106,8 @@ require_once"../Modelos/ModeloProveedores.php";
         public function mostrarProveedores(){
         
          $respuesta=DatosProveedor::mostrarProveedoresModel("tproveedores where status=1");
-        
+        $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se inhabilitado el proveedor"); 
         foreach($respuesta as $row =>$item){
         if ($item["status"]==1) {
          
@@ -133,7 +137,8 @@ require_once"../Modelos/ModeloProveedores.php";
      public function provInahabilitadosController(){
         
         $respuesta= DatosProveedor::mostrarProveedoresModel("tproveedores where status=0");
-        
+          $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se habilitado el proveedor"); 
         foreach($respuesta as $row =>$item){
         if($item["status"]==0){//inicio if
          

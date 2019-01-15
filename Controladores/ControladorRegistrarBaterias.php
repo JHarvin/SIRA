@@ -1,6 +1,8 @@
 <?php 
 #Clase para registrar un nuevo proveedor
 require_once"../Modelos/ModeloRegistroBaterias.php";
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 
  class RegistrarBateriasController
  {
@@ -36,7 +38,8 @@ require_once"../Modelos/ModeloRegistroBaterias.php";
        
    }else{
        $respuesta=DatosBaterias::registroBateriasModel($datosBateriasController,"tproductos");
-   
+     $bitacora=new BitacoraController();
+    $bitacora->guardarBitacoraController("Se realizó el registro de una bateria "); 
    if( $respuesta=="success"){
             echo' 
              
