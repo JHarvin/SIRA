@@ -1,7 +1,8 @@
 <?php
 //Llama al modelo 
 require_once"../Modelos/ModeloVentas.php";
-
+require_once"../Controladores/ControladorBitacora.php";
+require_once"../Modelos/ModeloBitacora.php";
 
 class VentasController{
 	//clas epara registrar las ventas a la tabla
@@ -39,8 +40,10 @@ class VentasController{
        
    }else{
        $respuesta=DatosVentas::registroVentasModel($datosVentasController,"tventas");
-   
-   if( $respuesta=="success"){
+       $bitacora=new BitacoraController();
+       $bitacora->guardarBitacoraController("Se realizó una venta de Bateria ");
+  
+       if( $respuesta=="success"){
             echo' 
              
             <script type="text/javascript">
