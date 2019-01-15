@@ -76,7 +76,7 @@ class ClientesController{
             
     $respuesta=DatosCliente::registroClienteModel($datosClienteController,"tclientes");
     $bitacora=new BitacoraController();
-    $bitacora->guardarBitacoraController("Se realizó el registro de un cliente ");
+    $bitacora->guardarBitacoraController("Se realizó el registro del cliente: " .$_POST["nombre"] );
         if( $respuesta=="success"){
             echo' 
              
@@ -291,7 +291,7 @@ class ClientesController{
          
         $respuesta=DatosCliente::inhabilitarModel($dui,"tclientes");
         $bitacora=new BitacoraController();
-        $bitacora->guardarBitacoraController("Se deshabilitó un cliente ");
+        $bitacora->guardarBitacoraController("Se deshabilitó el cliente: ".$_POST["nombre"]);
         
         if($respuesta=="success"){
             return "success";
@@ -303,7 +303,7 @@ class ClientesController{
     public function habilitarController($dui){
          $respuesta=DatosCliente::habilitarModel($dui,"tclientes");
          $bitacora=new BitacoraController();
-         $bitacora->guardarBitacoraController("Se habilitó un cliente");
+         $bitacora->guardarBitacoraController("Se habilitó el cliente:".$_POST["nombre"]);
         
         if($respuesta=="success"){
             return "success";

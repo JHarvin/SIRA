@@ -46,8 +46,13 @@ alertify.defaults.theme.input = "form-control";
         </div>
 
         <div id="imagen">
+<<<<<<< HEAD
 
          <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/bateriasdisponibles.pdf', '_blank', 'fullscreen=yes'); return false;">
+=======
+       
+         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/bateriasvendidas.pdf', '_blank', 'fullscreen=yes'); return false;">
+>>>>>>> 48a5a2f902c6092d56fdc121786f4eca7e8bce6e
 </div>
  </div>
 
