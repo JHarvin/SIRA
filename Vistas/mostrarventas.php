@@ -46,7 +46,7 @@ alertify.defaults.theme.input = "form-control";
         </div>
 
         <div id="imagen">
-       
+
          <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/bateriasdisponibles.pdf', '_blank', 'fullscreen=yes'); return false;">
 </div>
  </div>
@@ -284,7 +284,7 @@ toastr.options = {
         </div>
           </div>
         </div>
-
+<input type="hidden" name="nom" id="nom" value="">
         <input type="text" name="batp" id="batp" value="">
        <input type="hidden" id="ide" name="ide" class="form-control">
       </div>
