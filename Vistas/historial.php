@@ -4,12 +4,12 @@ session_start();
 $datos="";
 $respuesta;
 if(!$_SESSION["validar"]){
-    
+
 
     header("location:../index.php");
     exit();
 }
- 
+
 ?>
 
 
@@ -27,7 +27,7 @@ if(!$_SESSION["validar"]){
     <script src="../js/toastr.js"></script>
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-    
+
     <!-- include the RTL css files-->
 
 <link rel="stylesheet" href="../css/alertify.rtl.css">
@@ -46,15 +46,15 @@ if(!$_SESSION["validar"]){
 alertify.defaults.glossary.title = 'أليرتفاي جي اس';
 alertify.defaults.glossary.ok = 'موافق';
 alertify.defaults.glossary.cancel = 'إلغاء';
-    
-    
-   
 
-    
+
+
+
+
 
 </script>
 
-    
+
     <!-- include alertify.css -->
 <link rel="stylesheet" href="../css/alertify.css">
 
@@ -64,13 +64,13 @@ alertify.defaults.glossary.cancel = 'إلغاء';
 <!-- include alertify script -->
 <script src="../js/alertify.js"></script>
 
-<script type="text/javascript">        
+<script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "zoom";
 alertify.defaults.theme.ok = "ui positive button";
 alertify.defaults.theme.cancel = "ui black button";
-    
-    
+
+
 </script>
 
 <!-- include boostrap theme  -->
@@ -106,13 +106,13 @@ function soloLetras(e) {
         }
     }
 </script>
-    
+
 <!--Archivo de validacion-->
 <script src="js/validarRegistro.js"></script>
 </head>
 
 <body class="app sidebar-mini rtl">
-     <?php 
+     <?php
     include"menu.php";
     ?>
       <main class="app-content">
@@ -121,10 +121,10 @@ function soloLetras(e) {
           <h1><i class="app-menu__icon fa fa-folder-open"  style="font-size:25px;color:orange"></i> Detalles</h1>
           <p>Rent a Car Chacón </p>
         </div>
-        
+
  </div>
       <div class="row">
-        <div class="col-md-3"><a class="mb-2 btn btn-primary btn-block" href="">Historial</a>
+        <div class="col-md-3"><a class="mb-2 btn btn-block" href="" style="background-color:orange; color:white;">Historial</a>
           <div class="tile p-0">
             <h4 class="tile-title folder-head">Fechas</h4>
             <div class="tile-body">
@@ -144,8 +144,8 @@ function soloLetras(e) {
      $respuesta=   $datos->verHistorial($_GET["placa"]);
     }
                                  ?>
-                               
-                                 
+
+
                         </tbody>
                     </table>
                 </div>
@@ -155,7 +155,7 @@ function soloLetras(e) {
         </div>
         <div class="col-md-9">
           <div class="tile">
-            
+
            <!--se cargan los datos-->
            <form>
   <div id="rowM" class="form-row">
@@ -178,90 +178,93 @@ function soloLetras(e) {
                   <label for="fechaInicio">Fecha de salida:</label>
                    <input type="text" class="form-control" id="fechaSalida" name="fechaSalida"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
-               
+
                 <div class="form-group col-md-6">
                   <label for="fechaInicio">Tipo de servicio</label>
                   <input type="text" class="form-control" id="tiposervicio" name="tiposervicio">
                 </div>
-                
-                
+
+
                  <div class="form-group col-md-6">
                   <label for="fechaInicio">Encargado de servicio</label>
                   <input type="text" class="form-control" id="encargado" name="encargado">
                 </div>
-                
+
                  <div class="form-group col-md-12">
                   <label for="fechaInicio">Servicio</label>
                   <textarea name="servicio" id="servicio" cols="30" rows="7" class="form-control"></textarea>
                 </div>
-                
-                
-                
-                
+
+
+
+
 
 
 
   </div>
 
 
-   
+
 
 
 </form>
-           
+
           </div>
         </div>
       </div>
-      
-        
-        
-        
+
+
+
+
       </div>
       </main>
-      
-      
+
+
       <!-- Essential javascripts for application to work-->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/notify.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.bootstrap.min.js"></script>
+
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script src="../js/dataTables.bootstrap4.min.js"></script>
      <script src="../Vistas/js/historial.js"></script>
       <script type="text/javascript">
-      
+
  jQuery(function($){
             // Definimos las mascaras para cada input
-            
+
             $("#telefono").mask("9999-9999");
             $('#dui').mask('99999999-9');
             $('#licencia').mask('9999-999999-999-9');
-          
-            
 
-            
+
+
+
         });
-          
-        
+
+
     </script>
     </script>
-    
-   
-    
-    
+
+
+
+
     <script type="text/javascript">
   $('.mask-telefono').mask('999-9999');
    $('.mask-dui').mask('99999999-9');
    $('.mask-licencia').mask('9999-999999-999-9');
     </script>
-    
-    
-   
+
+
+
     <script>
     alertify.set('notifier','position', 'top-right');
     </script>
-    
+
     </body>
-    
+
 </html>
