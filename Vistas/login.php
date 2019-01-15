@@ -48,7 +48,9 @@ session_destroy();
              
               <p class="semibold-text mb-2"><a href="recuparar/EnviarPassword.php">¿Olvidó la contraseña ?</a></p>
             </div>
+
           </div>
+
           <div class="container">    
            <button type="submit" class="btn btn-primary " style="background-color: #FF8E31;">       
            <i class="fa fa-sign-in fa-lg fa-fw"></i><span>Iniciar</span>       

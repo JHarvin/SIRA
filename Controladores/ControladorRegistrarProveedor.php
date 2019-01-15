@@ -117,7 +117,7 @@ require_once"../Modelos/ModeloProveedores.php";
                    
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"  ><i class="fa fa-edit"></i></a>
                   <a href="mostrarProveedores.php"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i i class="fa fa-arrow-circle-down"></i></a>
                   </td>
                   </div>
@@ -144,11 +144,13 @@ require_once"../Modelos/ModeloProveedores.php";
                   <td>'.$item["telefono"].'</td>
                   <td>'.$item["direccion"].'</td>
                   <td>'.$item["email"].'</td>
+                   <td></td>
                   <td>Inhabilitado</td>
                 
                   <td>
                   <div class="btn-group" role="group">
-                  <a href="actualizarProveedores.php?id='.$item["idproveedor"].'" id="btnEditar" name="btnEditar" class="btn btn-info"   ><i class="fa fa-edit"></i></a>
+                  <button id="btnEditar" name="btnEditar" class="btn btn-info" disabled><i class="fa fa-edit"></i></button>
+                 
                   <a href="mostrarproveedor.php"  class="btn btn-danger" data-toggle="modal" data-target="#modalValidar" ><i class="fa fa-arrow-circle-up"></i></a>
                   </div>
                   </td>
