@@ -36,7 +36,7 @@ if(!$_SESSION["validar"]){
           </div>
 
           <div id="imagen">
-       
+
          <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/bitacora.pdf', '_blank', 'fullscreen=yes'); return false;">
 </div>
 
