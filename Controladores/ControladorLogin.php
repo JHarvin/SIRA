@@ -26,10 +26,15 @@ class MvcController{
             #--variable username se obtiene de la bd cuando se retorna
             #--retorna con el nombre de la columna de la bd
             #--y el otro valor del post que  es el normal
-            if($respuesta["username"]==$_POST["usuarioLog"] &&
-              $respuesta["password"]==$_POST["usuarioPass"]
-              ){
-
+            if(!empty($_POST["usuarioLog"]) and !empty($_POST["usuarioPass"])){
+              
+              $con=$_POST["usuarioPass"];
+              $contra=$respuesta["password"];
+           // echo $con.' '.$respuesta["username"];
+              //$respuesta["username"]==$_POST["usuarioLog"] &&
+              //$respuesta["password"]==$_POST["usuarioPass"]
+              
+                if (password_verify($con, $contra)) {
                session_start();
                 $_SESSION["validar"]=true;
                $_SESSION["usuario"]=$respuesta["username"];
@@ -38,7 +43,22 @@ class MvcController{
                $bitacora->guardarBitacoraSesionController($respuesta["idpersonal"],"Inicio de sesión");
                 header("location:Vistas/inicio.php");
 
+              }else{
 
+                 echo '
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> Contraseña incorrecta
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+                ';
+
+
+              }
 
             }
             else{

@@ -12,8 +12,10 @@ class Datos extends Conexion{
     #Funcion para validar dui que no se repita
     public function validarusuario($username,$tabla){
         $stmt=Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where username=:username");
-         $stmt->bindParam(":username",$username,PDO::PARAM_STR);
-        $stmt->execute();
+         
+                        
+        $stmt->bindParam(":username",$username,PDO::PARAM_STR);
+         $stmt->execute();
         
         if($stmt->fetchColumn()>0){
             return "error";
