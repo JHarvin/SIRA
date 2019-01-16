@@ -43,11 +43,13 @@ class RegistrarUsuarioController{
             }
             $estado=1;
             #--strtoupper transforma todas las letras a mayusculas
-        $datosControladorRegistro =array("nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], 
+            #--$clave = password_hash($_POST["clave1"], PASSWORD_DEFAULT);
+        $datosControladorRegistro =array("nombre"=>$_POST["nombre"],
+                                         "telefono"=>$_POST["telefono"], 
         "email"=>$_POST["email"],
         "direccion"=>$_POST["direccion"],
         "username"=>$_POST["username"],
-        "password"=>$_POST["password"],
+        "password"=> password_hash($_POST["password"], PASSWORD_DEFAULT),
         "genero"=>$genero);
         
          #-----VAlidamos dui y lencia llamando a las dos funciones en el modelo
