@@ -34,7 +34,7 @@ $idpersonalBit=$_SESSION["id"];
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"><?php echo " ".$usuario; ?></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
 
-           
+               <li><a class="dropdown-item" href="../recuparar/actualizarpassword.php?fp_code=<?php echo $idpersonalBit?>&regresar=re"><i class="fa fa-key fa-lg"></i>Mod. Contraseña</a></li>
              <li><a class="dropdown-item" href="bitacora.php"><i class="fa fa-edit fa-lg"></i>   Bitacora</a></li>
             <li><a class="dropdown-item" href="../index.php"><i class="fa fa-sign-out fa-lg"></i>Salir</a></li>
 
@@ -135,26 +135,26 @@ $idpersonalBit=$_SESSION["id"];
         <li><a class="app-menu__item" href="BackupRestore.php"><i class="fa fa-database"></i><span class="app-menu__label">Respaldar/restaurar</span></a></li>
     </aside>
 
-<div class="modal modal-info fade in" id="cambiar">
+<div class="modal modal-info fade in" id="cambiarPassword">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <div class="modal-header">
 
-                <h4 class="modal-title">Cambiar contraseña de usuario.</h4>
+                <h4 class="modal-title">Cambiar contraseña. Usuario <?php echo $usuario;?></h4>
             </div>
 
             <div class="modal-body">
                 <!-- form start -->
                 <form class="form-horizontal">
-                    <div class="box-body">
+                    <div id="mcp" class="box-body">
 
-                        <div class="row" > 
+                        <div class="row" >
 
 
                             <div align="center" class="col-md-12">
-                                <input class="form-control" type="text" name="nombreA" placeholder="Contraseña actual"><br>
-                                <input class="form-control" type="text" name="nombreA" placeholder="Nueva contraseña">
+                                <input class="form-control" type="text" name="pass1" id="pass1" placeholder="Escriba nueva contraseña"><br>
+                                <input class="form-control" type="text" name="pass2" id="pass2" placeholder="Escriba otra vez la contraseña">
 
                             </div><!--fin columna-->
 
@@ -162,7 +162,7 @@ $idpersonalBit=$_SESSION["id"];
                         </div><!--fin row-->
 
                     </div>
-
+<input type="hidden" name="idmcp" id="idmcp" value="<?php $idpersonalBit?>">
                 </form>
 
             </div>
@@ -170,11 +170,10 @@ $idpersonalBit=$_SESSION["id"];
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Atras </button>
-                <button type="button"  class="btn btn-primary">Guardar</button>
+                <button type="button" id="upPass" name="upPass"  class="btn btn-primary">Guardar</button>
             </div>
         </div>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
-
