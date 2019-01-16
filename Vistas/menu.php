@@ -34,9 +34,7 @@ $idpersonalBit=$_SESSION["id"];
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"><?php echo " ".$usuario; ?></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
 
-             <a href="../Vistas/recuperar.php" class="btn">
-                <button class="btn btn-success btn-block btn-large " type="button">Cambiar Contraseña </button>
-                </a>
+           
              <li><a class="dropdown-item" href="bitacora.php"><i class="fa fa-edit fa-lg"></i>   Bitacora</a></li>
             <li><a class="dropdown-item" href="../index.php"><i class="fa fa-sign-out fa-lg"></i>Salir</a></li>
 
