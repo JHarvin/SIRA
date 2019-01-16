@@ -1,5 +1,6 @@
 <?php
 require_once"ModeloRecuperar.php";
+$regresar="2";
 if(isset($_GET["fp_code"]) && !empty($_GET["fp_code"])){
     $id=$_GET["fp_code"];
 }
