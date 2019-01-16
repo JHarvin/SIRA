@@ -12,7 +12,7 @@ class MvcController{
     #--Para inicio de sesion---------
 
     public function inicioSesionController(){
-
+//desde aquiiiiii
         if(isset($_POST["usuarioLog"])){
 
             $datosControladorLogin =array(
@@ -48,7 +48,7 @@ class MvcController{
                  echo '
 
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Error!</strong> Contraseña incorrecta
+  <strong>Error!</strong> Contraseña incorrectaa
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
