@@ -626,6 +626,7 @@ alertify.defaults.theme.input = "form-control";
             $("#btnEliminarVehiculo").click(function(){
 
                 var idEliminar=$("#numeroPl").text();
+
             eliminar(idEliminar);
 
             });
