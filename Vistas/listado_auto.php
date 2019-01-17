@@ -3,7 +3,7 @@ require_once"../Controladores/ControladorRegistrarVehiculo.php";
 require_once"../Controladores/ControladorClientes.php";
 session_start();
 if(!$_SESSION["validar"]){
-    
+
 
     header("location:../index.php");
     exit();
@@ -82,64 +82,64 @@ alertify.defaults.theme.input = "form-control";
 <body class="app sidebar-mini rtl">
     <script>
     function actualizar(placa,posicion){
-    
-   
+
+
     var datos=new FormData();
-    
+
     datos.append("placa",placa);
     datos.append("imagen",posicion);
-    
-    
-    
+
+
+
      $.ajax({
-        
+
         type: "POST",
         url: "../Vistas/ajaxActualizarImagen.php",
         data: datos,
         cache:false,
         contentType:false,
         processData:false,
-        
+
         success:function(respuesta){
-         
+
 
         if(respuesta==1){
-         
-           
+
+
            $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
           alertify.success("Auto en alquiler");
-           
-            
+
+
     }
           else if(respuesta!=1){
             $("#tcuerpo").load("listado_auto.php #tcuerpo >*");
           alertify.success("Auto en alquiler");
-              
+
           }
             else{
               //  $("#table").load();
-                
+
                 alert("Error -> "+respuesta  );}
-        
+
     }
-        
-        
+
+
     });
-    
+
 }
     </script>
      <?php
     include"menu.php";
     ?>
       <main class="app-content">
-       
+
 <div class="app-title">
         <div>
           <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:orange"></i>  Autos registrados </h1>
           <p>Rent a Car Chacón </p>
         </div>
                               <div id="imagen">
-       
+
          <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/autosregistrados.pdf', '_blank', 'fullscreen=yes'); return false;">
 </div>
  </div>
@@ -148,7 +148,7 @@ alertify.defaults.theme.input = "form-control";
          <!--contenedor de la tabla de vehiculos (principal vista)-->
           <div id="contenedorTabla" class="tile">
 
-            
+
 
 
             <div class="table table-responsive" >
@@ -246,7 +246,7 @@ alertify.defaults.theme.input = "form-control";
       <input type="hidden" id="numeroImg" name="numeroImg" value="">
 
 </form>
-      
+
     </div>
 
 <!-- Modal footer -->
@@ -449,7 +449,7 @@ alertify.defaults.theme.input = "form-control";
                     <label for="fechaFin">Fecha de devolucion(fin)</label>
                    <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required onblur="calcularDias();">
                 </div>
-                
+
                 <div class="form-group col-md-6" style="border-style: solid double;">
                     <h5>
                         <label id="dias"></label>
@@ -482,7 +482,7 @@ alertify.defaults.theme.input = "form-control";
         <button class="btn btn-info" data-toggle="modal" data-target="#modalAlquilar" data-dismiss="modal"><i class="fa fa-undo"></i>Atras</button>
               <button class="btn btn-info" data-dismiss="modal"><i class="fa fa-ban"></i>Cancelar</button>
               </div>
-               
+
               </div>
 
             </div>
@@ -491,7 +491,7 @@ alertify.defaults.theme.input = "form-control";
 </div>
 
 
-    
+
      <!------------------------------------------------------->
 
       <!-- Essential javascripts for application to work-->
@@ -608,7 +608,7 @@ alertify.defaults.theme.input = "form-control";
 
            $("#placarent").val(placa);
         $("#autoname").val(nombre);
-          
+
           //poniendo la placa para cambiar imagen
          // $("#placaimg").val(placa);
 
@@ -633,7 +633,7 @@ alertify.defaults.theme.input = "form-control";
         });
 
     </script>
-     
+
      <script>
     //----Se ejecuta cuando se da click en el boton eliminar del modal eliminar
         //----La funcion llama a otra funcion que se encarga de ejecutar el ajax
@@ -702,8 +702,8 @@ alertify.defaults.theme.input = "form-control";
             $('#fechaFin').datepicker('clearDates');
             $('#fechaFin').datepicker('setStartDate', getDate(selected));
         //--para calcular dias
-        
-    
+
+
         });
     </script>
     <script>

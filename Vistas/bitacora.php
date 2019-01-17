@@ -47,11 +47,8 @@ if(!$_SESSION["validar"]){
           <div class="tile p-0">
             <ul class="nav flex-column nav-tabs user-tabs">
               <li class="nav-item"><a class="nav-link active" href="#user-timeline" data-toggle="tab">Bitacora</a></li>
-<p>Nombre: <?php $datos=new BitacoraController();
-$mostrar=$datos->obtenerNombreController($idpersonalBit);
-echo "".$mostrar["nombre"];
- ?></p>
- <p>Usuario: <?php
+
+ <p> Usuario: <?php
 echo $usuario;
  ?></p>
 

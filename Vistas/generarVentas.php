@@ -18,12 +18,23 @@ $datos=$lista->Baterias();
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/buscarInput.css">
-    
+
 <link rel="stylesheet" href="../css/alertify.rtl.css">
 <link rel="stylesheet" href="../css/themes/default.rtl.css">
 
 <!-- include alertify -->
 <script src="../js/alertify.js"></script>
+<style>
+@media print{
+
+button,.btn{
+
+  display: none !important;
+
+}
+
+}
+</style>
   </head>
   <body class="app sidebar-mini rtl" class="panel panel-info">
   <?php
@@ -36,10 +47,10 @@ $datos=$lista->Baterias();
           <p>Rent a Car Chacón </p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-               
+
         </ul>
  </div>
-<div class="row" >
+<div id="muestra" class="row" >
 
       <form class="POST" >
 
@@ -48,16 +59,16 @@ $datos=$lista->Baterias();
                <div class="card-tittle" style="background-color:#E84D13;">
                    <h2  style="font-size:25px;color:white">Datos de factura:</h2>
                </div>
-  
-  
+
+
 
     <label class="control-label">Fecha</label>
     <?php   $fecha=date('Y-m-d')?>
-  
-      <input id="fecha"  min="<?php echo $fecha; ?>" 
+
+      <input id="fecha"  min="<?php echo $fecha; ?>"
       name="fecha" type="date" value="<?php echo $fecha; ?>"
       class="form-control"  max="<?php echo $fecha; ?>" >
-   
+
                <br>
                <input type="text" class="form-control" placeholder="Nombre del cliente"
                id="cliente" name="cliente" onkeypress="return soloLetras(event)" autocomplete="off"
@@ -66,7 +77,7 @@ $datos=$lista->Baterias();
                <input type="text" id="direccion" name="direccion"class="form-control" placeholder="Direccion"
                autocomplete="off"  maxlength="150"  pattern=".{7,}" title="7 o mas caracteres para Direccion real">
                <br>
-               <?php 
+               <?php
                if($datos["tipo"]=="MOTO"){
                 ?>
                <input type="text" id="garantia" onkeypress="return validaNumericos(event)"name="garantia" class="form-control"  placeholder="Garantía (Meses)" autocomplete="off" disabled value="00">
@@ -79,7 +90,7 @@ $datos=$lista->Baterias();
                <?php }?>
 
 <br>
-               <button class="btn btn-info" id="factura"><i class="far fa-file-alt"></i>Imprimir factura</button>
+               <button class="btn btn-info" id="factura" <input type="button" value="Imprimir Tabla" onclick="window.print();"></i>Imprimir factura</button>
                <br>
            </div>
            <div class="card col-md-9">
@@ -87,14 +98,14 @@ $datos=$lista->Baterias();
               <h3>Datos bateria</h3>
           </div>
 
-        
+
   <div class="form-row">
-    
+
     <div class="col">
 
     <label>Código</label>
-      <input class="form-control" id="codigo" name="codigo" type="text" 
-       value="<?php echo $datos["codigo"]; ?>" 
+      <input class="form-control" id="codigo" name="codigo" type="text"
+       value="<?php echo $datos["codigo"]; ?>"
         disabled>
     </div>
 
@@ -113,27 +124,27 @@ $datos=$lista->Baterias();
       <input type="text" class="form-control" id="precio_venta" name="precio_venta"
       value="<?php echo $datos["precio_venta"]; ?>" disabled>
     </div>
-  
-    
-    
+
+
+
   </div>
 
-  
+
    <div class="card-footer">
        <button type="button" id="limp" name="btnguardarb" id="btnguardarb" class="btn btn-primary" onclick="agregarT()">
        <i class="icon fa fa-cart-plus fa-3x" id="l"></i>Agregar al carrito</button>
        <a href="../Vistas/bateriaInicio.php" class="btn btn-danger"><i class="fa fa-plus-circle"></i>Baterias Disponibles</a>
-   </div> 
-   
-  
+   </div>
 
-               
+
+
+
            </div>
-           
-            
-           
+
+
+
            <div class="card col-md-9 ">
-               
+
                <table class="table table-striped" name="tabla" id="tabla">
                    <thead>
                 <tr>
@@ -141,18 +152,18 @@ $datos=$lista->Baterias();
                   <th>Tipo</th>
                    <th>Proveedor</th>
                   <th>Precio($)</th>
-                 
-                 
-                 
+
+
+
                 </tr>
               </thead>
                    <tbody class="tabla_ajax">
-                
+
                <tr>
 
-                 
+
                 </tr>
-                   </tbody> 
+                   </tbody>
                </table>
 
 
@@ -162,38 +173,40 @@ $datos=$lista->Baterias();
                     <button class="btn btn-success" type="submit" name="btnguardar" id="btnguardar"><i class="fa fa-check-circle">
                        </i>Registrar Venta </button>
                       <button type="reset" class="btn btn-secondary"><i class="fa fa-fw fa-lg fa-times-circle"></i> Cancelar </button>
-                    
-                    
-               </div>
-           </div> 
-           
 
-       </div>   
-       </form> 
-    
+
+               </div>
+           </div>
+
+
+       </div>
+       </form>
+
        </div>
 
       </div>
-      
-      
-     
-      
+
+
+
+
 </main>
 
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
-    
+
     <!-- The javascript plugin to display page loading on top-->
     <script src="../js/plugins/pace.min.js"></script>
     <script type="text/javascript" src="../js/plugins/select2.min.js"></script>
     <script src="../js/jquery.quicksearch2.2.1.js" ></script>
     <script src="js/ventas.js"></script>
+    <script src="../js/JQuery.print.min.js"></script>
+
     <!--escript n la tabla-->
-  
-  
-   
+
+
+
 
     <script>
      function agregarT()
@@ -217,7 +230,7 @@ $datos=$lista->Baterias();
 
     </script>
 
-    
+
 
  <script type="text/javascript">
         $(document).ready(function() {
@@ -227,27 +240,27 @@ $datos=$lista->Baterias();
         });
     </script>
 
-           
+
        <div class="modal" id="modalValidar">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" >
 
       <!-- Modal Header -->
-     
+
 
    </body>
 
 
        <script>
-   
+
          //funcionpara valida solo numero en el campo de telefono
           function validaNumericos(event) {
     if(event.charCode >= 48 && event.charCode <= 57){
       return true;
      }
-     return false;        
-} 
-        
+     return false;
+}
+
     </script>
 
      <script type="text/javascript">
@@ -267,7 +280,7 @@ $datos=$lista->Baterias();
         return false;
     }
         }
-        
+
     </script>
-    
+
 </html>

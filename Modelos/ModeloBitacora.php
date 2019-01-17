@@ -49,7 +49,7 @@ class BitacoraModel
         $stmt =Conexion::conectar()->prepare("
         SELECT DATE_FORMAT(fecha,'%d/%m/%Y %h:%i:%s %p') as fecha,acciones,tpersonal.nombre as nombre
         from tbitacora,tpersonal
-        where tbitacora.idpersonal=:id and DATE_FORMAT(tbitacora.fecha,'%d/%m/%Y') = date_format(now(), '%d/%m/%Y')
+        where tbitacora.idpersonal=:id
         GROUP BY tbitacora.fecha
         ");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
@@ -59,7 +59,7 @@ class BitacoraModel
     }
     public function mostrarBitacoraNombre($id){
       $stmt =Conexion::conectar()->prepare("
-    SELECT nombre from tpersonal, tbitacora WHERE tbitacora.idpersonal=:id
+    SELECT tpersonal.nombre as nombre from tpersonal, tbitacora WHERE tbitacora tpersonal.idpersonal=:id
       ");
       $stmt->bindParam(":id", $id, PDO::PARAM_INT);
       $stmt->execute();
