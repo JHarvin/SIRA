@@ -63,11 +63,11 @@ alertify.defaults.theme.input = "form-control";
             <table id="tabla"  class="table table-striped">
               <thead>
                 <tr class="bg-info">
-                <th>Tipo</th>
+                <th>Codigo</th>
                 
                 <th>Fecha</th>
                 <th>Precio</th>
-                <th>Codigo</th>
+                <th>Tipo</th>
                 <th>Proveedor</th>
                 <th>Garantia</th>
                     <th>Cliente</th>
@@ -251,17 +251,25 @@ toastr.options = {
             <h3 class="tile-title">Devoluciones</h3>
         <div class="row">
             <div class="col-md-6">
+                <label id="importes">Codigo
                 <input type="text" class="form-control" placeholder="Codigo" id="codigo" name="codigo">
+                                   </label>  
             </div>
             <div class="col-md-6">
+                <label id="importes">Proveedor
                 <input type="text" class="form-control" placeholder="Codigo" id="tipobateria" name="tipobateria">
+                 </label>
             </div>
              <div class="col-md-6">
+                 <label id="importes">Garantia
                 <input type="text" class="form-control" id="aplica" name="aplica">
+                   </label>   
             </div>
             
               <div class="col-md-6">
+                  <label id="importes">Fecha de Devolucion
                 <input type="date" class="form-control" id="fecha" name="fecha">
+                      </label>
             </div>
              <div class="col-md-6">
               <label id="importes">Cantidad a pagar(importe): $
@@ -283,7 +291,7 @@ toastr.options = {
       <!-- Modal footer -->
       <div class="modal-footer">
 
-       <a href="../Vistas/mostrarventas.php" class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></a>
+       <a href="../Vistas/mostrardevoluciones.php" class="btn btn-warning" id="btnDevolver" name="btnDevolver">Devolver<i class="fa fa-shopping-basket"></i></a>
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>

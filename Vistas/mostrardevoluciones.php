@@ -65,7 +65,7 @@ alertify.defaults.theme.input = "form-control";
                 <tr class="bg-info">
                 <th>Codigo</th>
                 >
-                <th>Tipo</th>
+                <th>Proveedor</th>
                 
                 <th>Importe</th>
                     <th>Fecha</th>
@@ -250,17 +250,25 @@ toastr.options = {
             <h3 class="tile-title">Devoluciones Proveedor</h3>
         <div class="row">
             <div class="col-md-6">
+                                 <label id="importes">Codigo
                 <input type="text" class="form-control" placeholder="Codigo" id="codigo" name="codigo">
+                </label>
             </div>
             <div class="col-md-6">
+                <label id="importes">Proveedor
                 <input type="text" class="form-control" placeholder="Codigo" id="tipobateria" name="tipobateria">
+                </label>
             </div>
              <div class="col-md-6">
+                 <label id="importes">Fecha devolucion al proveedor
                 <input type="date" class="form-control" id="fechapro" name="fechapro">
+                 </label>
             </div>
             
              <div class="col-md-6">
+                 <label id="importes">Estado
               <input type="text" class="form-control" id="estado" name="estado">
+                 </label>
             </div>
             
         </div>
