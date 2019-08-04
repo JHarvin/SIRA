@@ -39,6 +39,7 @@ class MvcController{
                 $_SESSION["validar"]=true;
                $_SESSION["usuario"]=$respuesta["username"];
                $_SESSION["id"]=$respuesta["idpersonal"];
+               $_SESSION["seguridad"]=$respuesta["seguridad"];
                $bitacora=new BitacoraController();
                $bitacora->guardarBitacoraSesionController($respuesta["idpersonal"],"Inicio de sesión");
                 header("location:Vistas/inicio.php");

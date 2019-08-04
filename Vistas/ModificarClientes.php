@@ -107,20 +107,19 @@ function soloLetras(e) {
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;
+">
        <div class="app-title">
         <div>
         
              <div>
-          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:orange"></i>  Modificar datos del cliente</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:#788499;
+"></i>  Modificar datos del cliente</h1>
+          <p>RentalSys </p>
         </div>
 
 </div>
-               <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/modificarcliente.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+            
         
  </div> 
            </div> 
@@ -142,8 +141,9 @@ function soloLetras(e) {
            </div>
            <!--Dui y licencia de conducir-->
            <div class="form-group col-md-3"> 
-           <label class="label label-success">DUI:</label>
-           <input type="text" name="duiUpdate" id="duiUpdate" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." value="<?php echo $datos["dui"] ?>" required>
+           <label class="label label-success">DUI: </label>
+           <input type="text" name="duiUpd" id="duiUpd" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." value="<?php echo $datos["dui"] ?>" disabled>
+           <input type="hidden" name="duiUpdate" id="duiUpdate" class="form-control mask-dui" autocomplete="off" autofocus placeholder="Dui..." value="<?php echo $datos["dui"] ?>" required>
            </div>
            <div class="form-group col-md-3">
            <label class="label label-success">N° Licenia de conducir</label>
@@ -166,7 +166,7 @@ function soloLetras(e) {
 				</div>
 				</div>
                 <div class="tile-footer">
-              <button type="submit" id="btnGuardarCliente" class="btn btn-primary"  ><i class="fa fa-fw fa-lg fa-check-circle"></i>Actualizar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-undo"></i>Atras</button>
+              <button type="submit" id="btnGuardarCliente" class="btn btn-primary"  ><i class="fa fa-fw fa-lg fa-edit"></i>Actualizar</button>&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-undo"></i>Atras</button>
             </div>
              
              <?php

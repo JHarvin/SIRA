@@ -3,12 +3,12 @@
 #En el archivo php que se incluye esta la funcion de registrar el alquiler en la bd
 #------------------------------------------------------------------------------------
 require_once"../Modelos/ModeloAlquiler.php";
+
 class AlquilarVehiculoController{
     
     
     public function alquilarVehiculo($datosAlquilerController){
-         
-       
+  
 $respuesta=ModeloAlquilar::registrarAlquilerModel($datosAlquilerController,"talquiler");
         if($respuesta=="success"){
             return "success";

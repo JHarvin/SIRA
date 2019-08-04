@@ -31,28 +31,20 @@ if(!$_SESSION["validar"]){
   <?php
       include"menu.php";
       ?>
- <main class="app-content">
+ <main class="app-content" style="background-color:#788499;
+">
  <div class="app-title">
         <div>
           <h1><i class="fa fa-dashboard"></i> Inicio</h1>
-          <p>Rent a car chacon</p>
+          <p>RentalSys</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           
-          <li class="breadcrumb-item"><a href="#">Rent a Car Chacon</a></li>
+          <li class="breadcrumb-item"><a href="#">RentalSys</a></li>
           
         </ul>
-         <div class="col-md-6 col-lg-3">
-          <div class="widget-small primary coloured-icon"><i class="icon fa fa-wrench fa-2x"></i>
-            <div class="info">
-              <h4>
-                  Venta de Baterias para autos y motos
-              </h4>
-             
-            </div>
-          </div>
-        </div>
+        
         <div class="col-md-6 col-lg-3">
           <div class="widget-small info coloured-icon"><i class="icon fa fa-road fa-2x"></i>
             <div class="info">
@@ -71,9 +63,11 @@ if(!$_SESSION["validar"]){
         
          
         
-        <div id="imagen">
-         
-          <img class="rounded-circle user-image" src="../images/logo.png">
+        <div id="imagen" class="col-md-12">
+         <center>
+           <img class="rounded-circle user-image" src="../images/logo.png" width="600">
+         </center>
+          
       </div>
         
       </div>

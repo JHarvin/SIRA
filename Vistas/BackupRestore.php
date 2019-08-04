@@ -68,17 +68,16 @@ if(respuesta==1){
     //----para alertas bootstrap abajo
     ?>
 
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;
+">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-database"  style="font-size:25px;color:orange"></i> Respaldo y restauración de datos </h1>
-          <p>Rent a Car Chacon </p>
+          <h1><i class="app-menu__icon fa fa-database"  style="font-size:25px;color:#788499
+"></i> Respaldo y restauración de datos </h1>
+          <p>RentalSys</p>
         </div>
 
-                <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/respaldo.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+                
 
  </div>
 

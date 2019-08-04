@@ -14,22 +14,15 @@ $idpersonalBit=$_SESSION["id"];
 }
 
 ?>
-    <header class="app-header" style="background-color:#7f8be8;">
-    <a class="app-header__logo" href="inicio.php" style="background-color:#E84D13;">RentalSys</a>
-      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+    <header class="app-header" style="background-color:#0F6099;">
+    <a class="app-header__logo" href="inicio.php" style="background-color:#788499;">RentalSys</a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" style="background-color:#788499; color:white;"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
 
         <!--Para cambiar al modulo de ventas-->
 
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-shopping-cart fa-lg">Venta de Baterias</i></a>
-
-         <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="bateriaInicio.php"><i class="fa fa-cart-plus fa-lg"></i> Ir a ventas</a></li>
-
-          </ul>
-
-          </li>
+        
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"><?php echo " ".$usuario; ?></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
@@ -57,7 +50,8 @@ $idpersonalBit=$_SESSION["id"];
          <li><a class="app-menu__item" href="mantenimientos.php"><i class="fa fa-wrench"></i><span class="app-menu__label">Mantenimiento</span></a></li>
 
          <li><a class="app-menu__item" href="alquilados.php"><i class="fa fa-road"></i><span class="app-menu__label">Autos alquilados</span></a></li>
-
+<?php
+if($_SESSION["seguridad"]=="A"){?>
 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users">
 
         </i><span class="app-menu__label">Usuarios</span>
@@ -81,7 +75,7 @@ $idpersonalBit=$_SESSION["id"];
 
           </ul>
         </li>
-
+<?php }?>
 
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-address-card-o">

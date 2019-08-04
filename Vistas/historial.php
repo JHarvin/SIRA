@@ -3,6 +3,11 @@ require_once"../Controladores/ControladorHistorial.php";
 session_start();
 $datos="";
 $respuesta;
+if (isset($_GET["placa"]) && !empty($_GET["placa"])) {
+    $mostrarM = new HistorialController();
+    $marca = $mostrarM->mostrarMarca($_GET["placa"]);
+}
+
 if(!$_SESSION["validar"]){
 
 
@@ -115,23 +120,18 @@ function soloLetras(e) {
      <?php
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;
+">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-wrench"   style="font-size:25px;color:orange"></i> Detalles</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="fa fa-wrench"   style="font-size:25px;color:#788499
+"></i> Detalles</h1>
+          <p>RentalSys </p>
         </div>
-<<<<<<< HEAD
-        <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/detalles.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
-=======
-
->>>>>>> 26bce0749d5dcd258553e34a8bc6f47a2560184a
  </div>
       <div class="row">
-        <div class="col-md-3"><a class="mb-2 btn btn-block" href="" style="background-color:orange; color:white;">Historial</a>
+        <div class="col-md-6"><a class="mb-1 btn btn-block" href="" style="background-color:#0F6099
+; color:white;">Historial</a>
           <div class="tile p-0">
             <h4 class="tile-title folder-head">Fechas</h4>
             <div class="tile-body">
@@ -160,7 +160,7 @@ function soloLetras(e) {
             </div>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-6">
           <div class="tile">
 
            <!--se cargan los datos-->
@@ -168,38 +168,52 @@ function soloLetras(e) {
   <div id="rowM" class="form-row">
 
 
-     <div class="form-group col-md-6">
+     <div class="form-group col-md-6" >
     <label for="autoname">Auto</label>
-    <input type="text" class="form-control" id="autoDetalle" disabled>
+    <input type="text" class="form-control" style="border-left: 6px solid #0F6099;
+
+  background-color: lightgrey;" id="autoDetalle" disabled value="<?php echo $marca["marca"]; ?>">
   </div>
   <div class="form-group col-md-6">
     <label for="placarente">Placas del auto</label>
-    <input type="text" class="form-control" id="placaDetalle" disabled>
+    <input style="border-left: 6px solid #0F6099;
+
+  background-color: lightgrey;" type="text" class="form-control" id="placaDetalle" disabled>
   </div>
 
                <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha de entrada:</label>
-                   <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input style="border-left: 6px solid #0F6099;
+
+  background-color: lightgrey;" type="text" class="form-control" id="fechaInicio" name="fechaInicio"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
                  <div class="form-group col-md-6">
                   <label for="fechaInicio">Fecha de salida:</label>
-                   <input type="text" class="form-control" id="fechaSalida" name="fechaSalida"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                   <input style="border-left: 6px solid #0F6099;
+
+  background-color: lightgrey;" type="text" class="form-control" id="fechaSalida" name="fechaSalida"  autocomplete="off" data-format="dd/MM/yyyy" required>
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="fechaInicio">Tipo de servicio</label>
-                  <input type="text" class="form-control" id="tiposervicio" name="tiposervicio">
+                  <input style="border-left: 6px solid #0F6099;
+
+  background-color: lightgrey;" type="text" class="form-control" id="tiposervicio" name="tiposervicio">
                 </div>
 
 
                  <div class="form-group col-md-6">
                   <label for="fechaInicio">Encargado de servicio</label>
-                  <input type="text" class="form-control" id="encargado" name="encargado">
+                  <input style="border-left: 6px solid #0F6099;
+
+  background-color: lightgrey;" type="text" class="form-control" id="encargado" name="encargado">
                 </div>
 
                  <div class="form-group col-md-12">
                   <label for="fechaInicio">Servicio</label>
-                  <textarea name="servicio" id="servicio" cols="30" rows="7" class="form-control"></textarea>
+                  <textarea style="border-left: 6px solid #0F6099;
+
+  background-color: lightgrey;" name="servicio" id="servicio" cols="30" rows="4" class="form-control"></textarea>
                 </div>
 
 

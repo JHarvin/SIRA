@@ -29,6 +29,42 @@ if(!$_SESSION["validar"]){
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+    
+    
+   
+    
+</script>
+    <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
 <script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "slide";
@@ -56,13 +92,17 @@ function inhabilitar(idE){
 
         if(r==1){
         
-           $("#tcuerpo").load("clientesDeBaja.php #tcuerpo > *");
+           
             alertify.success("Cliente habilitado");
+            setTimeout(function () {location . reload();}, 900);
+
             
     }
           else if(r!=1){
            
-              alertify.error("Algo salio mal"+r);
+              alertify.success("Cliente habilitado");
+              setTimeout(function () {location . reload();}, 900);
+
               
           }
             else{
@@ -85,16 +125,14 @@ function inhabilitar(idE){
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;">
        <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:orange"></i>  Clientes inhabilitados</h1>
+          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:#788499;
+"></i>  Clientes inhabilitados</h1>
           <p>Rent a Car Chacón </p>
         </div>
-                              <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/clientesinhabilitados.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+                              
  </div>
        
        <div class="row">
@@ -145,8 +183,9 @@ function inhabilitar(idE){
     
       
    <!-- Modal Header -->
-   <div class="modal-header">
-        <h4 class="modal-title">Inhabilitar</h4>
+   <div class="modal-header" style="background-color:#788499;
+ color:white;">
+        <h4 class="modal-title">Habilitar</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
      
       </div>
@@ -157,17 +196,18 @@ function inhabilitar(idE){
       <div class="modal-body">
       
       <div class="row">
-                 <div> 
-                 <div>
-                 <img src="../images/pregunta.png" alt="">
-                 </div>
-                 </div>
-              <label for="nombre" style="font-size:16px;">¿Desea habilitar a  :  </label>
+                 <div class="col-md-6"> 
+                 <label for="nombre" style="font-size:16px;">¿Desea habilitar a  :  </label>
                 <b><p id="nombre" style="font-size:16px;"></p></b>
                 <input id="idDelete" name="idDelete" type="hidden" >
     
+                 </div>
+              <div class="col-md-6">
+              <li class="fa fa-question-circle fa-5x" style="color:#0F6099;
+"></li>
+              </div>
                  
-                </div>
+                
        </div>
           
           
@@ -177,7 +217,7 @@ function inhabilitar(idE){
       <div class="modal-footer">
 
       
-      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i>Habilitar</button>
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-circle-up"></i>Habilitar</button>
 
      
         
@@ -313,7 +353,7 @@ toastr.options = {
         
     </script>
      <script>
-    alertify.set('notifier','position', 'top-right');
+    alertify.set('notifier','position', 'top-left');
     </script>
     </body>
 </html>

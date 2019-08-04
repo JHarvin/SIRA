@@ -20,7 +20,7 @@ session_destroy();
   </head>
   <body>
     <section class="material-half-bg">
-      <div class="cover" style="background: linear-gradient(130deg, #7f8be8 30%, gray 100%);"></div>
+      <div class="cover" style="background-color:#0F6099;"></div>
     </section>
 
     <section class="login-content" >
@@ -28,13 +28,14 @@ session_destroy();
       <div class="logo" style="font:60019px;
         color: white;
        ">
-        <h1  >Rent a Car Chacón </h1>
+        <h1  >RentalSys </h1>
 
 
       </div>
       <div class="login-box">
         <form class="login-form" method="post">
-          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user" style="font-size:40px;color:orange"></i>Incio de sesión</h3>
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user" style="font-size:40px;color:#0F6099;
+"></i>Incio de sesión</h3>
           <div class="form-group">
             <label class="control-label">Nombre de usuario</label>
             <input id="usuarioLog" name="usuarioLog" class="form-control" type="text" placeholder="Nombre de usuario" autofocus required autocomplete="off">
@@ -52,7 +53,8 @@ session_destroy();
           </div>
 
           <div class="container">    
-           <button type="submit" class="btn btn-primary " style="background-color: #FF8E31;">       
+           <button type="submit" class="btn btn-primary " style="background-color: #0F6099;
+;">       
            <i class="fa fa-sign-in fa-lg fa-fw"></i><span>Iniciar</span>       
  <div class="dot"></div>    </div>  
 

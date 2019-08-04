@@ -101,16 +101,15 @@ alertify.defaults.theme.input = "form-control";
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499
+;">
         <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:orange"></i>  Modificar registo de usuario</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:#788499
+;"></i>  Modificar registo de usuario</h1>
+          <p>RentalSys </p>
         </div>
-        <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/modregistrarusuarios.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+        
  </div>
        
        

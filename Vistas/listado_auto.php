@@ -128,20 +128,43 @@ alertify.defaults.theme.input = "form-control";
 
 }
     </script>
+    <script>
+    function mostrarCHaMotor(){
+var chasis,motor;
+$(document).ready(function(){
+ $("#tabla tbody tr").dblclick(function(){
+         chasis=$(this).find("td:eq(12)").text();
+         motor=$(this).find("td:eq(13)").text();
+        
+        
+        //se ponen los datos en el modal
+        
+        $("#dchasis").text(chasis);
+        $("#dmotor").text(motor);
+        
+        
+       
+    $("#modalChM").modal();
+    });
+
+});
+  
+
+    }
+    </script>
      <?php
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;
+">
 
 <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:orange"></i>  Autos registrados </h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:#788499;
+"></i>  Autos registrados </h1>
+          <p>RentalSys </p>
         </div>
-                              <div id="imagen">
-
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/autosregistrados.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+                            
  </div>
        <div class="row">
       <div class="col-md-12">
@@ -152,7 +175,7 @@ alertify.defaults.theme.input = "form-control";
 
 
             <div class="table table-responsive" >
-            <table id="tabla"  class="table display table-striped  " style="font-size:13.4px;">
+            <table id="tabla"  class="table display table-striped  " style="font-size:13.4px;" ondblclick="mostrarCHaMotor()">
               <thead>
                 <tr>
                  <th></th>
@@ -168,6 +191,9 @@ alertify.defaults.theme.input = "form-control";
                  <th hidden></th>
                  <th hidden></th>
                  <th hidden></th>
+                 <th hidden></th>
+                 <th hidden></th>
+                 
                 </tr>
               </thead>
               <tbody id="tcuerpo">
@@ -193,6 +219,43 @@ alertify.defaults.theme.input = "form-control";
       <!------------------------------------------------------------------------->
       <!-- Modales -->
       <!------------------------------------------------------------------------->
+    <!--Modal para mostrar numero de chasis y motor del carro-->
+    <!--------------------------------------------------------------------------->
+    <div class="modal" id="modalChM">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" style="background-color:#788499;
+color:white;">
+        <h4 class="modal-title">Numero de chasis y motor </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+              
+       
+<div class="row">
+<div class="col-md-12">
+  <b><label>Número de chasis</label> </b><p id="dchasis"></p> <b>Número de motor:</b> <p id="dmotor"></p>
+</div>
+
+</div>
+
+          </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+        <i class="fa fa-undo"></i> Retroceder</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+      <!------------------------------------------------------------------------->
        <!-- Modal para eliminar vehiculo -->
        <!------------------------------------------------------------------------->
       <div class="modal" id="modalEliminar">
@@ -200,7 +263,8 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header" style="background-color:#788499;
+color:white;">
         <h4 class="modal-title">Eliminar </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -208,9 +272,17 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal body -->
       <div class="modal-body">
 
-              <div><img src="../images/pregunta.png" alt=""></div>
-         <label>¿Desea Eliminar este vehiculo?</label> <b><p id="nombrePl"></p> Placas: <p id="numeroPl"></p> </b>
-
+              
+       
+<div class="row">
+<div class="col-md-6">
+  <label>¿Desea Eliminar este vehiculo?</label> <b><p id="nombrePl"></p> Placas: <p id="numeroPl"></p> </b>
+</div>
+<div class="col-md-6">
+<li class="fa fa-question-circle fa-5x" style="color:#0F6099
+;"></li>
+</div>
+</div>
 
           </div>
 
@@ -409,7 +481,7 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal fade" id="modalTiempo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#788499; color:white;">
+            <div class="modal-header" style="background-color:#788499; color:white;">
                 <h4 class="modal-title w-100 font-weight-bold">Tiempo de alquiler del auto</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -450,17 +522,23 @@ alertify.defaults.theme.input = "form-control";
                    <input type="text" class="form-control" id="fechaFin" name="fechaFin"  autocomplete="off" data-format="dd/MM/yyyy" required onblur="calcularDias();">
                 </div>
 
-                <div class="form-group col-md-6" style="border-style: solid double;">
+                <div class="form-group col-md-6" style="border-left: 6px solid #0F6099;
+;
+  background-color: lightgrey;">
                     <h5>
                         <label id="dias"></label>
                     </h5>
                 </div>
-                <div class="form-group col-md-6" style="border-style: solid double;">
+                <div class="form-group col-md-6" style="border-left: 6px solid #0F6099;
+;
+  background-color: lightgrey;">
                     <h5>
                         <label id="precio"></label>
                     </h5>
                 </div>
-                 <div class="form-group col-md-12" style="border-style: solid double;">
+                 <div class="form-group col-md-12" style="border-left: 6px solid #0F6099;
+;
+  background-color: lightgrey;">
                     <h5>
                         <label id="precioxdia"></label>
                     </h5>

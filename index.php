@@ -3,8 +3,6 @@
 require_once "Modelos/ModeloLogin.php";
 require_once "Modelos/ModeloRegistrarUsuario.php";
 require_once "Controladores/ControladorLogin.php";
-require_once"Modelos/ModeloProveedores.php";
-require_once"Modelos/ModeloRegistroBaterias.php";
 require_once'fpdf/fpdf.php';
 #Para bitacora, NO BORRAR..................
 require_once"Controladores/ControladorBitacora.php";

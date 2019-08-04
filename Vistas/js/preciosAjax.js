@@ -25,10 +25,11 @@ divM.insertAdjacentHTML('afterend', '<div class="alert alert-danger alert-dismis
 
         if(r==1){
     
-           // setTimeout(alertify.success("Usuario inhabilitado"),5000);
-    location.reload();
-          // $("#tabla").load("usuarios.php #tabla > *");
-            alertify.success("Precio agregado")
+           
+            alertify.success("Precio agregado");
+            setTimeout(function () {
+              location.reload();
+            }, 900);
             
     }
           else if(r!=1){
@@ -77,9 +78,12 @@ divM.insertAdjacentHTML('afterend', '<div class="alert alert-danger alert-dismis
         if(r==1){
     
            // setTimeout(alertify.success("Usuario inhabilitado"),5000);
-    location.reload();
-          // $("#tabla").load("usuarios.php #tabla > *");
-            alertify.success("Usuario inhabilitado")
+    
+         
+            alertify.success("Precio actualizado");
+            setTimeout(function () {
+              location.reload();
+            }, 900);
             
     }
           else if(r!=1){

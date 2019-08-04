@@ -164,7 +164,8 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                  <td hidden>'.$item["imagen2"].'</td>
                  <td hidden>'.$item["imagen3"].'</td>
                  <td hidden>'.$item["imagen4"].'</td>
-
+                <td hidden>'.$item["numerochasis"].'</td>
+                <td hidden>'.$item["numeromotor"].'</td>
                 </tr>
 
         ';
@@ -199,7 +200,8 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                  <td hidden>'.$item["imagen2"].'</td>
                  <td hidden>'.$item["imagen3"].'</td>
                  <td hidden>'.$item["imagen4"].'</td>
-
+                <td hidden>'.$item["numerochasis"].'</td>
+                <td hidden>'.$item["numeromotor"].'</td>
                 </tr>
 
         ';
@@ -234,7 +236,8 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
                  <td hidden>'.$item["imagen2"].'</td>
                  <td hidden>'.$item["imagen3"].'</td>
                  <td hidden>'.$item["imagen4"].'</td>
-
+                 <td hidden>'.$item["numerochasis"].'</td>
+                <td hidden>'.$item["numeromotor"].'</td>
                 </tr>
 
         ';
@@ -313,7 +316,7 @@ $validarLicencia=VehiculosModel::validarPlaca(strtoupper($_POST["nplaca"]),"tveh
              }
         
         }
-        //-----------------FALTA AGREGAR IMAGEN<-------------<--------<-------
+        
     }
     public function actualizarImgController($img,$posicion,$placa){
         
@@ -455,12 +458,12 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td>'.$km.'</td>
+                 
                    <td style="background-color:'.$colortd.'">'.$fechaProxima.'</td>
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-eye" title="ver detalles"></i></a>
                   
 
 
@@ -472,9 +475,9 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>
                   <div class="btn-group" role="group">
 
-                  <button disabled href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></button>
-                  <button disabled class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
-                  <button disabled class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+                  <button disabled href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-wrench" title="mantenimiento"></i></button>
+                  <button disabled class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="fecha de revision"></i></button>
+                  
      
 
 
@@ -497,12 +500,12 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td>'.$km.'</td>
+                  
                    <td style="background-color:'.$colortd.'">'.$fechaProxima.'</td>
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-eye" title="ver detalles"></i></a>
                   <button id="habilitarCarro" class="btn btn-warning" data-toggle="modal" data-target="#modalQuitarH" >
 <li class="fa fa-arrow-up"></li>
 </button>
@@ -516,9 +519,9 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>
                   <div class="btn-group" role="group">
 
-                  <button disabled href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></button>
-                  <button disabled  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
-                  <button disabled class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+                  <button disabled href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-wrench " title="mantenimiento"></i></button>
+                  <button disabled  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="fecha revision"></i></button>
+                  
      
 
 
@@ -541,12 +544,12 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td>'.$km.'</td>
+                  
                    <td style="background-color:'.$colortd.'">'.$fechaProxima.'</td>
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-eye" title="ver detalles"></i></a>
                   
 
 
@@ -558,9 +561,9 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
-                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
-                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-wrench" title="mantenimiento"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="fecha revision"></i></button>
+                  
      
 
 
@@ -581,12 +584,12 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>'.$item["numero_de_placa"].'</td>
                   <td>'.$item["marca"].' '.$item["year"].'</td>
                   <td>'.$item["tipo"].'</td>
-                  <td>'.$km.'</td>
+                  
                    <td style="background-color:'.$colortd.'">'.$fechaProxima.'</td>
                     <td>
                   <div class="btn-group" role="group">
 
-                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-search" title="ver detalles"></i></a>
+                  <a href="historial.php?placa='.$item["numero_de_placa"].'" class="btn btn-primary" ><i class="fa fa-eye" title="ver detalles"></i></a>
                   
 
 
@@ -598,9 +601,9 @@ $mante=VehiculosModel::verificarMantenimientoTodos($item["numero_de_placa"]);
                   <td>
                   <div class="btn-group" role="group">
 
-                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-money" title="registrar precio"></i></a>
-                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="editar precio"></i></button>
-                  <button  class="btn btn-info" data-toggle="modal" data-target="#modalRevision" ><i class="fa fa-truck" title="Revisar mantenimiento"></i></button>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" ><i class="fa fa-wrench" title="mantenimiento"></i></a>
+                  <button  class="btn btn-secondary" data-toggle="modal" data-target="#modalEditar" ><i class="fa fa-edit" title="fecha revision"></i></button>
+                  
      
 
 

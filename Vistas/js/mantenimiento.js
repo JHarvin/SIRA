@@ -151,11 +151,15 @@ function sacarMantenimiento(placa){
             
           if(respuesta==1){
               alertify.success("Auto disponible");
-              $("#tabla").load("../Vistas/mantenimiento.php #tabla > *");
+               setTimeout(function () {
+                   location.reload();
+               }, 900);
           }
             else{
                  alertify.success("Auto disponible");
-              $("#tabla").load("../Vistas/mantenimiento.php #tabla > *");
+               setTimeout(function () {
+                   location.reload();
+               }, 900);
             }
                 
       

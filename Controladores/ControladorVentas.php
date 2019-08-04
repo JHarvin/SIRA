@@ -134,7 +134,7 @@ class VentasController{
                   <td>'.date("d/m/Y", strtotime($item["fecha"])).' fecha dev prov: '.$item["fecha_fin"].'</td>
 
 
-                  <td>'.$item["estado"].'Por Cliente:'.$item["cliente"].'</td>
+                  <td>'.$item["estado"].'</td>
 
                   <td>
                    <div class="btn-group" role="group">

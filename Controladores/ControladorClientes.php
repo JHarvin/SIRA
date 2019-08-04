@@ -82,7 +82,7 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-right");
-          alertify.success("Registro Guardado    ✔");
+          alertify.success("Registro Guardado ");
         
         
             </script>
@@ -94,7 +94,7 @@ class ClientesController{
              
             <script type="text/javascript">
              alertify.set("notifier","position", "top-right");
-          alertify.error("Algo salio mal :(");
+          alertify.error("Algo salio mal");
         
             </script>
             ';  
@@ -254,7 +254,7 @@ class ClientesController{
                  echo '
                 
                <script>
-                alertify.set("notifier","position", "top-center");
+                alertify.set("notifier","position", "top-right");
                alertify.success("Datos actualizados correctamente");
                
             
@@ -271,7 +271,7 @@ class ClientesController{
                 echo '
                 
                <script>
-                alertify.set("notifier","position", "top-center");
+                alertify.set("notifier","position", "top-right");
                alertify.error("algo salio mal");
                
             

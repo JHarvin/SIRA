@@ -35,11 +35,13 @@ class RegistrarUsuarioController{
             if(preg_match('/^[a-zA-Z]+$/',$_POST["nombre"]) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST["email"]) &&
               preg_match('/^[0-9]+$/',$_POST["telefono"])
               ){}
-            if(isset($_POST["masculino"]) ){
-                $genero="M";
+            $genero = $_POST["genero"];
+            $seguridad=$_POST["seguridad"];
+            if($seguridad=="Administrador" || $seguridad=="A"){
+              $seguridad="A";
             }
-            else if(isset($_POST["femenino"])){
-                $genero="F";
+            else if($seguridad!="Administrador" || $seguridad!="A"){
+              $seguridad="N";
             }
             $estado=1;
             #--strtoupper transforma todas las letras a mayusculas
@@ -50,7 +52,8 @@ class RegistrarUsuarioController{
         "direccion"=>$_POST["direccion"],
         "username"=>$_POST["username"],
         "password"=> password_hash($_POST["password"], PASSWORD_DEFAULT),
-        "genero"=>$genero);
+        "genero"=>$genero,
+      "seguridad"=>$seguridad);
         
          #-----VAlidamos dui y lencia llamando a las dos funciones en el modelo
             #------------------------------------
@@ -96,7 +99,7 @@ class RegistrarUsuarioController{
             <script type="text/javascript">
              alertify.set("notifier","position", "top-right");
 
-          alertify.success("Registro Guardado    ✔");
+          alertify.success("Registro Guardado ");
 
         
 
@@ -131,4 +134,3 @@ class RegistrarUsuarioController{
 
 }
 
-?>

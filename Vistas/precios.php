@@ -83,17 +83,14 @@ alertify.defaults.theme.input = "form-control";
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;">
          <div class="app-title">
         <div>
-          <h1><i class="fa fa-money"  style="font-size:25px;color:orange"></i>  Precios alquiler</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="fa fa-money"  style="font-size:25px;color:#788499
+"></i>  Precios alquiler</h1>
+          <p>RentalSys </p>
         </div>
 
-<div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/precioalquiler.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
         
  </div>
        
@@ -150,7 +147,7 @@ alertify.defaults.theme.input = "form-control";
   <div class="modal fade" id="modalPrecioEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#7f8be8;">
+            <div class="modal-header" style="background-color:#788499; color:white;">
                 <h4 class="modal-title w-100 font-weight-bold">Editar precio de alquiler</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -162,7 +159,7 @@ alertify.defaults.theme.input = "form-control";
             <div class="modal-body">
             
                
-<form>
+
   <div id="rowM" class="form-row">
     
     
@@ -176,7 +173,7 @@ alertify.defaults.theme.input = "form-control";
   </div>
   <div class="form-group col-md-4">
     <label for="precio">Cambie el precio de alquiler $</label>
-    <input type="text" class="form-control" id="precio" autofocus placeholder="Digite precio del auto">
+    <input type="text" class="form-control" id="precio" autocomplete="off" autofocus placeholder="Digite precio del auto">
   </div>
                
                
@@ -185,7 +182,7 @@ alertify.defaults.theme.input = "form-control";
   
   
   
-</form>
+
               
 
             </div>
@@ -213,7 +210,7 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal fade" id="modalPrecio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#7f8be8;">
+            <div class="modal-header" style="background-color:#788499; color:white;">
                 <h4 class="modal-title w-100 font-weight-bold">Precio por dia de alquiler</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -225,7 +222,7 @@ alertify.defaults.theme.input = "form-control";
             <div class="modal-body">
             
                
-<form>
+
   <div id="rowM" class="form-row">
     
     
@@ -239,7 +236,7 @@ alertify.defaults.theme.input = "form-control";
   </div>
   <div class="form-group col-md-4">
     <label for="precio">Digite precio $</label>
-    <input type="text" class="form-control" id="precioup" name="precioup" autofocus placeholder="digite precio del auto">
+    <input type="text" class="form-control" id="precioup" name="precioup" autocomplete="off" autofocus placeholder="digite precio del auto">
   </div>
                
                
@@ -248,7 +245,7 @@ alertify.defaults.theme.input = "form-control";
   
   
   
-</form>
+
               
 
             </div>
@@ -357,6 +354,7 @@ alertify.defaults.theme.input = "form-control";
     <script>
         //--mascara para poner precio del auto
     $('#precio').mask('000.000.000.000.000,00', {reverse: true});
+    $('#precioup').mask('000.000.000.000.000,00', {reverse: true});
     </script>
      
      <script>

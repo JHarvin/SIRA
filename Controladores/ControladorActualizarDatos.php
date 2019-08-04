@@ -44,7 +44,7 @@ class ActualizarDatosController{
                  echo '
                 
                <script>
-                alertify.set("notifier","position", "top-center");
+                alertify.set("notifier","position", "top-right");
                alertify.success("Datos actualizados correctamente");
              
              

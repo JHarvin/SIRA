@@ -14,7 +14,13 @@ $(document).ready(function(){
         var mes=$("#mes").val();
         var kilom=$("#kilom").val();
        // alert(""+mes);
-        ingresarKMM(placa,mes,kilom);
+       if(mes<2 || mes>11){
+ var divM = document.getElementById('rowM');
+ divM.insertAdjacentHTML('afterend', '<div class="alert alert-danger alert-dismissible fade show" role="alert">el numero de meses tiene que estar entre 2 y 11 meses!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+       }else if(mes>1 || mes<12){
+           ingresarKMM(placa, mes, kilom);
+       }
+        
     });
 });
 
@@ -40,9 +46,11 @@ function ingresarKMM(placa,mes,kilom){
         if(respuesta=="success"){
          
            
-           $("#tcuerpo").load("mantenimientos.php #tcuerpo > *");
-          alertify.success("Registrado para cambios");
            
+          alertify.success("Registrado para cambios");
+           setTimeout(function () {
+               location.reload();
+           }, 900);
             
     }
           else{

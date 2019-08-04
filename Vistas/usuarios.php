@@ -32,6 +32,42 @@ if(!$_SESSION["validar"]){
     <script src="../js/alertify.min.js"></script>
     <script src="../Vistas/js/validarRegistro.js"></script>
 <link rel="stylesheet" href="../css/datatables.min.css">
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+    
+    
+   
+    
+</script>
+    <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
 <script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "slide";
@@ -61,9 +97,10 @@ alertify.defaults.theme.input = "form-control";
     
            // setTimeout(alertify.success("Usuario inhabilitado"),5000);
     
-          $("#tcuerpo").load("usuarios.php #tcuerpo > *");
+          
             alertify.success("Usuario inhabilitado")
-            window.Location=("../Vistas/usuariosina.php");
+            setTimeout(function () {location . reload();}, 900);
+
     }
           else if(r!=1){
            
@@ -89,16 +126,14 @@ alertify.defaults.theme.input = "form-control";
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;">
       <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:orange"></i> Usuarios habilitados</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:#788499
+"></i> Usuarios habilitados</h1>
+          <p>RentalSys </p>
         </div>
-        <div id="imagen">
        
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/usuarioshabilitados.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
  </div>
 
  </div>
@@ -198,7 +233,7 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header" style="background-color:#788499; color:white;">
 
         <h4 class="modal-title">Seleccione </h4>
 
@@ -208,15 +243,17 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal body -->
       <div class="modal-body">
       <div class="row">
-                 <div> 
-                 <img src="../images/pregunta.png" alt="">
-                 </div>
+                 
                  
               <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
           
     
                  <input type="hidden" id="ide" name="ide" class="form-control">
+                 <div> 
+                 <li class="fa fa-question-circle fa-5x" style="color:#0F6099;
+"></li>
+                 </div>
                 </div>
 
        </div>
@@ -366,7 +403,7 @@ alertify.defaults.theme.input = "form-control";
         
     </script>
      <script>
-    alertify.set('notifier','position', 'righ');
+    alertify.set('notifier','position', 'top-left');
     </script>
     </body>
 </html>

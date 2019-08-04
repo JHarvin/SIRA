@@ -34,17 +34,16 @@ $datos=$auto->editarVehiculoController();
     //----para alertas bootstrap abajo
     ?>
      
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;
+">
        <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-car"   style="font-size:25px;color:orange"></i>  Modificar autos</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-car"   style="font-size:25px;color:#788499;
+"></i>  Modificar autos</h1>
+          <p>RentalSys </p>
         </div>
 
-        <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/modificarautos.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+        
         
  </div>
        
@@ -171,8 +170,7 @@ $datos=$auto->editarVehiculoController();
             
            // $("#ano").mask("9999");
         $("#n_dplaca").mask("P999-999");
-            $("#chasisn").mask("9999999999999999");
-          $("#nmotor").mask("9999999999999999");
+          
         });
           
         

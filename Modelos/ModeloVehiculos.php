@@ -222,8 +222,38 @@ class VehiculosModel extends Conexion{
     #---------------------------------------------------------------
     public function borrarVehiculoModel($placa,$tabla){
        
-        #Luego elimino el registro de la bd
-        $stmt =Conexion::conectar()->prepare("DELETE FROM $tabla WHERE numero_de_placa = :placa");
+        #Primero se eliminara de las tablas con llave foranea
+        #------------------------------------------------------------------------------------------
+        #tprecios
+        $stprecios=Conexion::conectar()->prepare("DELETE FROM tprecios WHERE numero_de_placa=:placa");
+        $stprecios->bindParam(":placa",$placa,PDO::PARAM_STR);
+
+        $stprecios->execute();
+        #-------------------------------------------------------------------------------------------
+        #tmantenimiento
+        $stmantenimiento = Conexion::conectar()->prepare("DELETE FROM tmantenimiento WHERE numero_de_placa=:placa");
+        $stmantenimiento->bindParam(":placa", $placa, PDO::PARAM_STR);
+        $stmantenimiento->execute();
+        #---------------------------------------------------------------------------------------------
+        #trevision
+        $strevision = Conexion::conectar()->prepare("DELETE FROM trevision WHERE numero_de_placa=:placa");
+        $strevision->bindParam(":placa", $placa, PDO::PARAM_STR);
+        $strevision->execute();
+        #---------------------------------------------------------------------------------------------
+        #talquiler
+        $stalquiler = Conexion::conectar()->prepare("DELETE FROM talquiler WHERE numero_de_placa=:placa");
+        $stalquiler->bindParam(":placa", $placa, PDO::PARAM_STR);
+        $stalquiler->execute();
+        #---------------------------------------------------------------------------------------------
+        #tkilometraje
+        $stkilometraje = Conexion::conectar()->prepare("DELETE FROM tkilometraje WHERE numero_de_placa=:placa");
+        $stkilometraje->bindParam(":placa", $placa, PDO::PARAM_STR);
+        $stkilometraje->execute();
+        #---------------------------------------------------------------------------------------------
+#=====================================================================================================
+        #-------------------------------------------------------------------------------------------
+        #Luego elimino el registro de la llave primaria
+        $stmt =Conexion::conectar()->prepare("DELETE FROM $tabla WHERE numero_de_placa=:placa");
         
           $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
         
@@ -234,7 +264,7 @@ class VehiculosModel extends Conexion{
         else{
             return "error";
         }
-        $stmt->close();
+        
         
     }
     #Para obtener los datos del carro por medio del get 
@@ -374,7 +404,7 @@ class VehiculosModel extends Conexion{
         
     }
     #----------------------------------------------------------------
-    #Copiar desde aqui al otro proyecto
+    
    public function verKmModel($placa){
        $stmt=Conexion::conectar()->prepare("SELECT tkilometraje.numero_de_placa as placa, tkilometraje.cada_cuantos_kilometros as km, tkilometraje.cada_cuantos_meses_revision as mes,tkilometraje.fecha from tkilometraje
 WHERE tkilometraje.numero_de_placa=:placa");

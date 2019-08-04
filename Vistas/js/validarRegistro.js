@@ -12,7 +12,7 @@ function validarRegistro(){
     var direccion = document.querySelector("#direccion").value;
     var direccion = document.querySelector("#dui").value;
     var licencia = document.querySelector("#licencia").value;
-
+var seguridad =$("#seguridad").val();
 
     var email= document.querySelector("#email").value;
    // var rMasculino =document.querySelector("#masculino").checked;
@@ -23,7 +23,7 @@ function validarRegistro(){
     //---validacion si no a seleccionado genero
    if(!document.querySelector("#masculino").checked && !document.querySelector("#femenino").checked){
        alertify.set("notifier","position", "top-center");
-      alertify.error("Error seleccione genero ✘");
+      alertify.error("Error seleccione genero");
        return false;
    }
     
@@ -84,7 +84,10 @@ function validarRegistro(){
     }
     
 
-   
+   if(seguridad=="Seleccione..." || seguridad=="S"){
+                 alertify.error("Seleccione el nivel de seguridad o acceso que tendra el usuario");
+                  return false;
+   }
     
     
     
@@ -96,7 +99,7 @@ function validarRegistro(){
 }
 
 
-//---------Funcion para actualizar el registro con jquery
+//Esta funcion no se usa-----------------------------------------
 //--------el jquery se agrega en usuarios.php--------------------
 
 function actualizar(id,nombre,telefono,direccion,user,pass,dui){

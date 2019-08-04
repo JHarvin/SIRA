@@ -112,17 +112,15 @@ function soloLetras(e) {
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:orange"></i>  Registrar clientes</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-address-card-o"  style="font-size:25px;color:#788499;
+"></i>  Registrar clientes</h1>
+          <p>RentalSys </p>
         </div>
 
-               <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/registrarcliente.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+              
         
  </div>
            <div class="row">

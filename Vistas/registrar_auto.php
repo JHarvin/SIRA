@@ -39,16 +39,15 @@ if(!$_SESSION["validar"]){
     //----para alertas bootstrap abajo
     ?>
      
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;
+;">
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:orange"></i>  Registrar autos </h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-car"  style="font-size:25px;color:#788499;
+"></i>  Registrar autos </h1>
+          <p>RentalSys </p>
         </div>
-                              <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/auto.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+                           
  </div>
        
        <div class="row">
@@ -93,11 +92,11 @@ if(!$_SESSION["validar"]){
     
     <div class="form-group col-md-3">
       <label for="numero_motor">Número de motor</label>
-      <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Numero de motor" autocomplete="off" required>
+      <input id="numero_motor" name="numero_motor" type="text" class="form-control" placeholder="Numero de motor" autocomplete="off" required onkeypress="return checkCM(event)">
     </div>
     <div class="form-group col-md-3">
       <label for="color">Número de chasis</label>
-      <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" autocomplete="off" pattern=".{17}" title="17 numeros para chasis" required>
+      <input type="text" class="form-control" id="chasis" name="chasis" placeholder="numero de chasis" autocomplete="off" title="17 numeros para chasis" required onkeypress="return checkCM(event)">
     </div>
     
     
@@ -193,8 +192,8 @@ if(!$_SESSION["validar"]){
             
            // $("#ano").mask("9999");
         $("#nplaca").mask("P999-999");
-            $("#chasis").mask("99999999999999999");
-          $("#numero_motor").mask("99999999999999999");
+            
+          
         });
           
         
@@ -320,6 +319,24 @@ minViewMode: "years",
 
     //Tecla de retroceso para borrar, siempre la permite
     if (tecla == 8 || tecla==32) {
+        return true;
+    }
+
+    // Patron de entrada, en este caso solo acepta numeros y letras
+    patron = /[A-Za-z0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+    </script>
+    <script>
+    //----------------------------------------------------------------
+    //para solo numeros y letras en numero de motor y numero de chasis
+    //----------------------------------------------------------------
+     function checkCM(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar
+    if (tecla == 8 ) {
         return true;
     }
 

@@ -82,16 +82,15 @@ alertify.defaults.theme.input = "form-control";
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;
+">
          <div class="app-title">
         <div>
-          <h1><i class="fa fa-road"  style="font-size:25px;color:orange"></i>  Autos alquilados</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="fa fa-road"  style="font-size:25px;color:#788499;
+"></i>  Autos alquilados</h1>
+          <p>RentalSys </p>
         </div>
-        <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/autosalquilados.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+        
         
  </div>
        
@@ -155,7 +154,8 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal fade" id="modalDevolver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
+            <div class="modal-header" style="background-color:#788499;
+color:white;">
                 <h4 class="modal-title w-100 font-weight-bold">Devolver</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -165,12 +165,19 @@ alertify.defaults.theme.input = "form-control";
             
             
             <div class="modal-body">
-            
-               
-<label id="ldevolver">¿Desea devolver el carro?
+            <div class="row">
+            <div class="col-md-6">
+            <label id="ldevolver">¿Desea devolver el carro?
              <p id="dplaca"></p>
              <p id="carro"></p>
              </label>
+            </div>
+            <div class="col-md-6">
+            <li class="fa fa-question-circle fa-5x" style="color:#0F6099;"></li>
+            </div>
+            </div>
+               
+
               
 
             </div>

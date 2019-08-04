@@ -9,28 +9,6 @@ if(!$_SESSION["validar"]){
     exit();
 }
 
-
-  
-
-  
-
- 
-
-
-if(isset($_GET["ok"]) && !empty($_GET["ok"])){
-    
-     echo '
-                <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
-    <script src="../js/alertify.min.js"></script>
-               <script>
-               
-               alertify.success("Datos actualizados correctamente");
-               
-            
-               </script>';
-    
-}
-
 ?>
 <html lang="es">
 <head>
@@ -46,13 +24,48 @@ if(isset($_GET["ok"]) && !empty($_GET["ok"])){
     <!-- efectos del input buscar-->
     <link rel="stylesheet" href="../css/buscarInput.css">
     <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/alertify.min.css">
-    <script src="../js/alertify.min.js"></script>
+    
+    
     <script src="../Vistas/js/validarRegistro.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+    
+    
+   
+    
+</script>
+    <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
 <script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "slide";
@@ -80,13 +93,16 @@ function inhabilitar(idE){
 
         if(r==1){
         
-           $("#tabla").load("clientes.php #tabla > *");
+           
             alertify.success("Cliente inhabilitado");
-            
+          setTimeout(function () {location . reload();}, 900);
+
     }
           else if(r!=1){
            
-              alertify.error("Algo salio mal"+r);
+              alertify.success("Cliente inhabilitado");
+              setTimeout(function () {location . reload();}, 900);
+
               
           }
             else{
@@ -109,16 +125,14 @@ function inhabilitar(idE){
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;">
         <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-address-card-o" style="font-size:25px;color:orange"></i> Clientes habilitados</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-address-card-o" style="font-size:25px;color:#788499;
+"></i> Clientes habilitados</h1>
+          <p>RentalSys</p>
         </div>
-                      <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/clienteshabilitados.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+                     
  </div>
        
        <div class="row">
@@ -169,7 +183,8 @@ function inhabilitar(idE){
     
       
    <!-- Modal Header -->
-   <div class="modal-header">
+   <div class="modal-header" style="background-color:#788499;
+; color:white;">
         <h4 class="modal-title">Inhabilitar</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
      
@@ -180,16 +195,20 @@ function inhabilitar(idE){
       <!-- Modal body -->
       <div class="modal-body">
       <div class="row">
-                 <div> 
-                 <img src="../images/pregunta.png" alt="">
-                 </div>
-                 
-              <label for="nombre" style="font-size:16px;">¿Desea Inhabilitar a :  </label>
+                 <div class="col-md-6"> 
+                  <label for="nombre" style="font-size:16px;">¿Desea Inhabilitar a :  </label>
                 <b><p id="nombre" style="font-size:16px;"></p></b>
           
              
                 <input id="idDelete" name="idDelete" type="hidden" >
-                </div>
+                 </div>
+                 
+                 <div class="col-md-6">
+                 <li class="fa fa-question-circle fa-5x" style="color:#0F6099;
+"></li>
+                 </div>
+             
+                
        </div>
           
           
@@ -199,7 +218,7 @@ function inhabilitar(idE){
       <div class="modal-footer">
 
       
-      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Inahabilitar</button>
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-circle-down"></i> Inahabilitar</button>
 
      
         
@@ -336,7 +355,7 @@ toastr.options = {
         
     </script>
      <script>
-    alertify.set('notifier','position', 'top-right');
+    alertify.set('notifier','position', 'top-left');
     </script>
     </body>
 </html>

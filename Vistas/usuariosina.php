@@ -33,6 +33,42 @@ if(!$_SESSION["validar"]){
     <script src="../js/alertify.min.js"></script>
 <script src="../Vistas/js/validarRegistro.js"></script>
 <link rel="stylesheet" href="../css/datatables.min.css">
+<link rel="stylesheet" href="../css/alertify.rtl.css">
+<link rel="stylesheet" href="../css/themes/default.rtl.css">
+
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+alertify.defaults.glossary.title = 'أليرتفاي جي اس';
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+    
+    
+   
+    
+</script>
+    <!-- include alertify.css -->
+<link rel="stylesheet" href="../css/alertify.css">
+<!-- include semantic ui theme  -->
+<link rel="stylesheet" href="../css/themes/semantic.css">
+<!-- include alertify script -->
+<script src="../js/alertify.js"></script>
+<script type="text/javascript">        
+//override defaults
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "ui positive button";
+alertify.defaults.theme.cancel = "ui black button";
+    
+</script>
+    
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="../css/themes/bootstrap.css">
+
+<!-- include alertify script -->
+
+
 <script type="text/javascript">
 //override defaults
 alertify.defaults.transition = "slide";
@@ -60,8 +96,10 @@ alertify.defaults.theme.input = "form-control";
 
         if(r==1){
         
-           $("#tcuerpo").load("usuariosina.php #tcuerpo > *");
+           
             alertify.success("Usuario Habilitado");
+            setTimeout(function () {location . reload();}, 900);
+
             
     }
           else if(r!=1){
@@ -88,16 +126,15 @@ alertify.defaults.theme.input = "form-control";
      <?php 
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499
+;">
         <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:orange"></i> Usuarios inhabilitados</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:#788499
+;"></i> Usuarios inhabilitados</h1>
+          <p>RentalSys </p>
         </div>
-               <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/usuariosinhabilitados.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+               
  </div>
        <div class="row">
       <div class="col-md-12">
@@ -200,7 +237,8 @@ alertify.defaults.theme.input = "form-control";
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header" style="background-color:#788499
+; color:white;">
 
 
 
@@ -215,18 +253,21 @@ alertify.defaults.theme.input = "form-control";
       <!-- Modal body -->
       <div class="modal-body">
       <div class="row">
-                 <div> 
-                 <img src="../images/pregunta.png" alt="">
-                 </div>
                  
-              <label for="nombreU" style="font-size:16px;">¿Desea Inahabilitar a :  </label>
+              <div class="col-md-6">
+              <label for="nombreU" style="font-size:16px;">¿Desea Habilitar a :  </label>
                 <b><p id="nombreU" style="font-size:16px;"></p></b>
           
     
                  <input type="hidden" id="ide" name="ide" class="form-control">
-                </div>
+              </div>   
+              
+                
        
-    
+    <div class="col-md-6"> 
+                 <li class="fa fa-question-circle fa-5x" style="color:#0F6099;
+"></li>
+                 </div>
             
               
           </div>
@@ -242,7 +283,7 @@ alertify.defaults.theme.input = "form-control";
 
 
 
-      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-alt-circle-down"></i> Habilitar</button>
+      <button id="btnInhabilitar" name="btnInhabilitar" class="btn btn-info" data-dismiss="modal"><i class="fa fa-arrow-circle-up"></i> Habilitar</button>
 
       
 
@@ -361,7 +402,7 @@ alertify.defaults.theme.input = "form-control";
         
     </script>
      <script>
-    alertify.set('notifier','position', 'righ');
+    alertify.set('notifier','position', 'top-left');
     </script>
     </body>
 </html>

@@ -88,6 +88,7 @@ alertify.defaults.theme.input = "form-control";
     function validarRegistro(){
   var password = document.querySelector("#password").value;
     var password2 = document.querySelector("#rPassword").value;
+    var seguridad=document.querySelector("#seguridad").value;
          if(password!=" "){
         var caracteresPassword=password.length;
         var expresion=/^[a-zA-Z0-9]*$/;
@@ -109,27 +110,30 @@ alertify.defaults.theme.input = "form-control";
         
         
     }
+    if(seguridad=="Seleccione..." || seguridad=="S"){
+      document.querySelector("label[for='seguridad']").innerHTML += "<br> Seleccione nivel de acceso al sistema";
+            return false;
+    }
         
         return true;
     }
     </script>
 </head> 
 
-     <?php 
-    include"menu.php";
-    ?>
+    
     
 <body class="app sidebar-mini rtl">
-    <main class="app-content">  
+ <?php
+include "menu.php";
+?>
+    <main class="app-content" style="background-color:#788499;">  
          <div class="app-title">
         <div>
-          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:orange"></i>  Registrar Usuarios</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-users"  style="font-size:25px;color:#788499;
+"></i>  Registrar Usuarios</h1>
+          <p>RentalSys </p>
         </div>
-        <div id="imagen">
        
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/registrarusuario.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
  </div>
        <div class="row">
         <div class="col-md-12">
@@ -145,10 +149,10 @@ alertify.defaults.theme.input = "form-control";
            <label class="control-label">Género:</label>
            <div class="form-check">
            <label class="form-check-label" >
-           <input class="form-check-input" style="Margin-right: 30px;" type="radio" id="masculino" name="masculino" value="Masculino">  Masculino </label>
+           <input class="form-check-input" style="Margin-right: 30px;" type="radio" id="masculino" name="genero" value="Masculino">  Masculino </label>
           
            <label class="form-check-label" style="Margin-left: 60px;">
-           <input class="form-check-input"    type="radio" id="femenino" name="femenino" value="Femenino">Femenino</label>
+           <input class="form-check-input"    type="radio" id="femenino" name="genero" value="Femenino">Femenino</label>
            
            </div>
            </div>  
@@ -172,6 +176,14 @@ alertify.defaults.theme.input = "form-control";
                 <div class="form-group col-md-3">
                   <label for="rPassword" class="control-label">Vuelva a escribir la contraseña</label>
                   <input type="password" class="form-control" placeholder="Otra vez" id="rPassword" name="rPassword" value="" required>
+                </div>
+                 <div class="form-group col-md-3">
+                  <label for="seguridad" class="control-label">Nivel de seguridad:</label>
+                  <select name="seguridad" id="seguridad" class="form-control">
+                  <option value="S" selected="true">Seleccione...</option>
+                  <option value="A">Administrador</option>
+                  <option value="N">Empleado</option>
+                  </select>
                 </div>
                 <div class="form-group col-md-12">
                   <label class="control-label">Dirección</label>

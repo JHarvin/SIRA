@@ -17,15 +17,15 @@ class EnvioEliminar{
         #Se llama a la funcion en el controlador y luego en el controlador llama al
         #modelo que es el encargado de obtener las imagenes eliminarlas y luego eliminar
         #el registro de la bd-----------------------------------------------------------
-        $respuesta=EliminarVehiculoController::eliminarVehiculo($matricula);
+        $respuesta=EliminarVehiculoController::eliminarVehiculo($this->nplaca);
         #Si la variable $respuesta cumple con la condicion se retorna 1 con echo al ajax
         if($respuesta=="success"){
-            echo 1;
+            echo "success";
         
         }
         #Sino se cumple retornamos cero
         else{
-            echo 0;
+            echo "error";
         }
         
         

@@ -9,19 +9,23 @@ class EliminarVehiculoController{
     
     #---------------------------------------------------
     public function eliminarVehiculo($placa){
-        #Variable imagenes que las obtiene de la funcion para luego mandar la dir al modelo
-       
         
+       #Se obtiene la direccion de cada imagen y luego se elimina
+       $imagenes=VehiculosModel::obtenerDireccionImagenes($placa,"tvehiculos");
+        #se procede a eliminar las imagenes
+        #se puede hacer en el modelo pero por esta vez sera aqui en el controlador
+        unlink($imagenes["imagen"]);
+        unlink($imagenes["imagen2"]);
+        unlink($imagenes["imagen3"]);
+        unlink($imagenes["imagen4"]);
+
         #Luego se manda la ruta al modelo para que sean eliminadas las imagenes
-        $respuesta=VehiculosModel::borrarVehiculoModel($placa,"tvehiculos");
+        return VehiculosModel::borrarVehiculoModel($placa,"tvehiculos");
         
         #Se retorna al php ajaxEliminarAuto.php para que luego los mande al ajax
         
-       return $respuesta;
+       
         
         
     }
 }
-
-
-?>

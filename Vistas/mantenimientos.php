@@ -130,18 +130,14 @@ alertify.defaults.theme.input = "form-control";
      <?php
     include"menu.php";
     ?>
-      <main class="app-content">
+      <main class="app-content" style="background-color:#788499;">
        
  <div class="app-title">
         <div>
-          <h1><i class="fa fa-wrench"  style="font-size:25px;color:orange"></i> Mantenimiento</h1>
-          <p>Rent a Car Chacón </p>
+          <h1><i class="app-menu__icon fa fa-wrench"  style="font-size:25px;color:#788499;"></i> Mantenimiento</h1>
+          <p>RentalSys</p>
         </div>
-
-        <div id="imagen">
-       
-         <img class="rounded-circle user-image" width="40" height="40" src="../images/ayuda.png"  href="#" onclick="window.open('../Files/mantenimientos.pdf', '_blank', 'fullscreen=yes'); return false;">
-</div>
+        
  </div>
        <div class="row">
       <div class="col-md-12">
@@ -158,7 +154,7 @@ alertify.defaults.theme.input = "form-control";
                  <th>NUMERO DE PLACA</th>
                   <th>MARCA,MODELO,AÑO</th>
                   <th>TIPO</th>
-                   <th>Kilometraje</th>
+                   
                    <th>Fecha de proximo revision</th>
                   <th>Ver detalles</th>
 
@@ -192,11 +188,11 @@ alertify.defaults.theme.input = "form-control";
        <!-- Modal para editar km vehiculo -->
        <!------------------------------------------------------------------------->
       <div class="modal" id="modalEditar">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header" style="background-color:#788499; color:white;">
         <h4 class="modal-title">Editar </h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -205,27 +201,27 @@ alertify.defaults.theme.input = "form-control";
       <div class="modal-body">
         <div class="row">
             <input type="hidden" id="idkm">
-            <div class="col-md-6">
+            <div id="rowM" class="col-md-12">
            
                 <label for="fechain">Cada cuantos meses será la revisión</label>
 
                
 
-                <input type="text" class="form-control" class="form-control" id="mes" name="mes" pattern=".{9,}">
+                <input type="text" class="form-control" class="form-control" id="mes" name="mes" onkeypress="return check(event)">
 
             </div>
             
-            <div class="col-md-6">
-                <label for="kilom">Ingrese el kilometraje a siguente revisión</label>
-                <input type="text" class="form-control mask-kilom" id="kilom" name="kilom">
-            </div>
+            
+                
+                <input type="hidden" class="form-control mask-kilom" id="kilom" name="kilom" value="2000">
+            
         </div>
 
           </div>
           
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button id="btnActualizarKMM" name="btnActualizarV" class="btn btn-success" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
+      <button id="btnActualizarKMM" name="btnActualizarV" class="btn btn-success"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
         |
         <button type="button" class="btn btn-danger" data-dismiss="modal">
         <i class="fa fa-undo"></i> Cancelar</button>
@@ -234,209 +230,20 @@ alertify.defaults.theme.input = "form-control";
     </div>
   </div>
 </div>
-<!------------------------------------------------------------------------->
- <!-- Modal para actualizar la imagenes del vehiculo -->
- <!------------------------------------------------------------------------->
-<div class="modal" id="imagenModal">
-<div class="modal-dialog modal-sm">
-<div class="modal-content">
 
-<!-- Modal Header -->
-<div class="modal-header">
-  <h4 class="modal-title">Selecione imagen </h4>
-  <button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-
-<!-- Modal body -->
-<div class="modal-body">
-
-      <input type="file" id="imagen1" name="imagen1" class="form-control">
-      <input type="hidden" id="placaimg" name="placaimg" value="">
-
-    </div>
-
-<!-- Modal footer -->
-<div class="modal-footer">
-<button id="btnCambiarImagen" name="btnCambiarImagen" class="btn btn-info" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-check-circle"></i> Cambiar</button>
-  |
-  <button type="button" class="btn btn-danger" data-dismiss="modal">
-  <i class="fa fa-undo"></i> Cancelar</button>
-</div>
-
-</div>
-</div>
-</div>
-
-      <!------------------------------------------------------------------------->
-      <!-- Modal  PARA PONER IMAGEN DEL CARRO-->
-      <!------------------------------------------------------------------------->
- <div class="modal" id="modalDetalle">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Imagenes del vehiculo </h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-
-
-    <div id="img" name="img">
-      <!--Imagenes-->
-       <!--Para imagen 1-->
-        <a id="imagen1" data-fancybox="gallery" href=""> <img id="imagenDC"  src="" width="165" height="100"></a>
-        <!--Para imagen 2-->
-        <a id="imagen2" data-fancybox="gallery" href=""> <img id="imagenDC2"  src="" width="165" height="100"></a>
-        <!--Para imagen 3-->
-        <a id="imagen3" data-fancybox="gallery" href=""> <img id="imagenDC3"  src="" width="165" height="100"></a>
-        <!--Para imagen 4-->
-<a id="imagen4" data-fancybox="gallery" href=""> <img id="imagenDC4"  src="" width="165" height="100"></a>
-    <!--Fin imagenes-->
-</div>
-
-
-
-      <!-- Modal footer -->
-      <div class="modal-footer btn-group" role="group">
-        <button type="button" id="btn1" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
-        <i class="fa fa-image"></i>Cambiar imagen 1</button>
-        <button id="btn2" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
-        <i class="fa fa-image"></i>Cambiar imagen 2</button>
-        <button id="btn3" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
-        <i class="fa fa-image"></i>Cambiar imagen 3</button>
-        <button id="btn3" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#imagenModal" data-dismiss="modal">
-        <i class="fa fa-image"></i>Cambiar imagen 4</button>
-
-        <button id="btn4" type="button" class="btn btn-info" data-dismiss="modal">
-        <i class="fa fa-undo"></i>Atras</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-    </div>
-
-      <!------------------------------------------------------------------------->
-      <!-- |MODAL PARA PREGUNTAR SI ALQUILAR EL CARRO O MANDARLO A MANTENIMIENTO|-->
-      <!------------------------------------------------------------------------->
-      <div class="modal" id="modalOpcion">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header panel-info">
-        <h4 class="modal-title">Elegir Acción </h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-
-
-
-
-          </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-      <a href="#" id="btnIrAlquiler" name="btnIrAlquiler" class="btn btn-success" data-toggle="modal" data-target="#modalAlquilar" data-dismiss="modal"> <i class="fa fa-key"></i> Alquilar Vehiculo</a>
-        |
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMantenimiento" data-dismiss="modal">
-        <i class="fa fa-exclamation-triangle"></i> Mandar a Mantenimiento</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-     <!-------------------------------------------------------------------------->
-      <!-- |MODAL PARA MOSTRAR LOS CLIENTES Y ALQUILAR EL VEHICUO|--------------->
-      <!------------------------------------------------------------------------->
-
-      <div class="modal" id="modalAlquilar">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Rentar auto </h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-     <div class="table table-responsive">
-         <table id="clientesAquiler" style="font-size:13.5px;">
-             <thead>
-                 <th>Cliente</th>
-                 <th>Teléfono</th>
-                 <th>Dirección</th>
-                 <th>DUI</th>
-                 <th>Licencia de conducir</th>
-                 <th>Genero</th>
-                 <th>Estado</th>
-                 <th>Rentar</th>
-             </thead>
-             <tbody>
-                 <?php
-                  $clientes=new ClientesController();
-                  $clientes->mostrarClienteAlquiler();
-                 ?>
-             </tbody>
-         </table>
-
-
-     </div>
-
-
-
-          </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-      <button id="btnRetrocederAlquiler" name="btnRetrocederAlquiler" class="btn btn-info" data-dismiss="modal"> <i class="fa fa-undo"></i> Retroceder</button>
-
-      </div>
-
-    </div>
-  </div>
-</div>
+   
+   
 
       <!------------------------------------------------------------------------->
 
-      <!-- Modal para mostrar contrato -->
-<div class="modal fade" id="modalContrato" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalLongTitle">Contrato</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="contratoP">
-           
-        </p>
-      </div>
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-primary">Aceptar</button>
-        <button type="button" class="btn btn-primary" onclick="printContrato()">Aceptar e Imprimir contrato</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      </div>
-    </div>
-  </div>
-</div>
+     
   <!--------------------------------------------------------->
    <!--Modal para quitar de mantenimiento-->
    <!------------------------------------------------------------->
     <div class="modal fade" id="modalQuitarH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center" >
+            <div class="modal-header" style="background-color:#788499; color:white;" >
                 <h4 class="modal-title w-100 font-weight-bold">Habilitar auto</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -446,11 +253,20 @@ alertify.defaults.theme.input = "form-control";
 
 
             <div class="modal-body">
-
+<div class="row">
+<div class="col-md-6">
 
 <p>¿Desea sacar de mantenimiento el auto?</p>
 <p id="sacarplaca"></p>
 <p id="sacarcarro"></p>
+</div>
+<div class="col-md-6">
+ <li class="fa fa-question-circle fa-5x" style="color:#0F6099;
+"></li>
+
+</div>
+</div>
+
 
 
             </div>
@@ -473,9 +289,9 @@ alertify.defaults.theme.input = "form-control";
      <!--Modal para mantenimiento insertar-->
      <!------------------------------------------------------->
       <div class="modal fade" id="modalMantenimiento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg" role="document" >
         <div class="modal-content">
-            <div class="modal-header text-center" style="background-color:#7f8be8;">
+            <div class="modal-header" style="background-color:#788499; color:white;">
                 <h4 class="modal-title w-100 font-weight-bold">Mantenimiento</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -518,6 +334,42 @@ alertify.defaults.theme.input = "form-control";
                 </div>
                 
                 
+
+
+  
+
+
+  
+
+               <div class="form-group col-md-6">
+                  <label for="fechasalida">Fecha de salida:</label>
+                   <input type="text" class="form-control" id="fechasalida" name="fechasalida"  autocomplete="off" data-format="dd/MM/yyyy" required>
+                </div>
+               
+                
+                
+                
+                 <div class="form-group col-md-6">
+                  <label for="encargado">Encargado de servicio</label>
+                  <input type="text" class="form-control" id="encargado" name="encargado">
+                </div>
+                
+                 <div class="form-group col-md-12">
+                  <label for="servicio">Servicio</label>
+                  <textarea name="servicio" id="servicio" cols="30" rows="7" class="form-control"></textarea>
+                </div>
+                
+                
+                
+                
+
+
+
+  
+
+
+   
+
 
 
 
@@ -678,7 +530,7 @@ alertify.defaults.theme.input = "form-control";
                 
                  <div class="form-group col-md-12">
                   <label for="fechaInicio">Servicio</label>
-                  <textarea name="servicio" id="servicio" cols="30" rows="7" class="form-control"></textarea>
+                  <textarea name="servicio" id="servicio" cols="30" rows="5" class="form-control"></textarea>
                 </div>
                 
                 
@@ -770,7 +622,7 @@ alertify.defaults.theme.input = "form-control";
     <script src="../js/plugins/pace.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/dataTables.bootstrap.min.js"></script>
-
+<script src="../js/jquery.maskedinput.js"></script>
 
     <script src="../js/fancybox.min.js"></script>
     <script src="../Vistas/js/eliminarVehiculo.js"></script>
@@ -832,7 +684,21 @@ alertify.defaults.theme.input = "form-control";
     } );
 } );
     </script>
+<script>
+function check(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
 
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla == 8 || tecla==32) {
+        return true;
+    }
+
+    // Patron de entrada, en este caso solo acepta numeros y letras
+    patron = /[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+</script>
 
     <script>
     //--------pone los datos en el modal

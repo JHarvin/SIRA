@@ -11,10 +11,17 @@ class HistorialController{
             <td hidden>'.$placa.'</td>
             <td>'.$item["entrada"].'</td>
             <td>'.$item["salida"].'</td>
-            <td><button id="btnVer" class="btn btn-warning">ver</button></td>
+            <td><button id="btnVer" class="btn btn-info">
+            <li class="fa fa-eye"></li>ver</button></td>
             </tr>
             ';
         }
+     }
+
+     public function mostrarMarca($placa){
+
+         $respuesta=MantenimientoModel::mostrarMacaModel($placa);
+         return $respuesta;
      }
     
 }

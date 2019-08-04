@@ -1,6 +1,37 @@
 <?php
 require_once"Conexion.php";
 class MantenimientoModel extends Conexion{
+
+    public function verificarTiempo($datosModel,$tabla){
+        $stmt = Conexion::conectar()->prepare("SELECT count(*) as total from $tabla where numero_de_placa=:placa");
+$stmt->bindParam(":placa", $datosModel["placa"], PDO::PARAM_STR);
+$stmt->execute();
+
+if ($stmt->fetchColumn() > 0) {
+    return "success";
+} else {
+    return "error";
+}
+
+    }
+
+    public function updateKiloMesesModel($datosModel,$tabla){
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla
+        SET cada_cuantos_meses_revision=:meses WHERE numero_de_placa= :placa");
+
+$stmt->bindParam(":placa", $datosModel["placa"], PDO::PARAM_STR);
+
+$stmt->bindParam(":meses", $datosModel["meses"], PDO::PARAM_INT);
+
+// $stmt->bindParam(":tipo",$datosModel["tipo"],PDO::PARAM_STR);
+if ($stmt->execute()) {
+    return "success";
+} else {return "error";}
+
+$stmt->close();
+
+    }
+
     public function guardarKmModel($datosModel,$tabla){
           $stmt =Conexion::conectar()->prepare("INSERT INTO $tabla(numero_de_placa,fecha,tipomantenimiento,status) VALUES (
         :placa,:fecha,:tipo,0)");
@@ -57,7 +88,10 @@ class MantenimientoModel extends Conexion{
     
     #Funcion para ver los datos de fechas de la revision del vehiculo
     public function verHistorialModel($placa){
-         $stmt=Conexion::conectar()->prepare("SELECT DISTINCT tmantenimiento.fecha as entrada, trevision.fechasalida as salida FROM tmantenimiento,trevision WHERE tmantenimiento.numero_de_placa=:placa  and trevision.numero_de_placa=:placa");
+         $stmt=Conexion::conectar()->prepare("SELECT DISTINCTROW mantenimiento.fecha as entrada, revision.fechasalida as salida  FROM tmantenimiento mantenimiento INNER JOIN trevision revision
+ON mantenimiento.numero_de_placa=:placa AND revision.numero_de_placa=:placa and mantenimiento.id=revision.idrevision
+
+");
          $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
          $stmt->execute();
          return $stmt->fetchAll();
@@ -65,7 +99,10 @@ class MantenimientoModel extends Conexion{
     }
     #Función para ver los datos seleccionados de las fechas de la placa del carro
     public function verDatosHistorialModel($fechaInicio,$fechaFin,$placa){
-         $stmt=Conexion::conectar()->prepare("SELECT tmantenimiento.tipomantenimiento as tipo,trevision.encargadoservicio as encargado, servicio from tmantenimiento,trevision where tmantenimiento.numero_de_placa=:placa and tmantenimiento.fecha=:fechainicio and trevision.fechasalida=:fechafin");
+         $stmt=Conexion::conectar()->prepare("SELECT tmantenimiento.tipomantenimiento as tipo,
+         trevision.encargadoservicio as encargado, 
+         servicio from tmantenimiento,trevision 
+         where tmantenimiento.numero_de_placa=:placa and tmantenimiento.fecha=:fechainicio and trevision.fechasalida=:fechafin");
          $stmt->bindParam(":placa",$placa,PDO::PARAM_STR);
         $stmt->bindParam(":fechainicio",$fechaInicio,PDO::PARAM_STR);
         $stmt->bindParam(":fechafin",$fechaFin,PDO::PARAM_STR);
@@ -88,5 +125,17 @@ class MantenimientoModel extends Conexion{
             return "error";
         }
         $stmt->close();
+    }
+
+    public function mostrarMacaModel($placa){
+        $stmt = Conexion::conectar()->prepare("SELECT CONCAT(tvehiculos.marca,',',tvehiculos.`year`) as marca
+          from tvehiculos
+         where tvehiculos.numero_de_placa=:placa");
+$stmt->bindParam(":placa", $placa, PDO::PARAM_STR);
+
+$stmt->execute();
+return $stmt->fetch();
+$stmt->close();
+
     }
 }

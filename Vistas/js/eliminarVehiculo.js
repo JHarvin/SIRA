@@ -27,24 +27,29 @@
         success:function(r){
 
 
-        if(r==1){
+        if(r=="success"){
 
 
 
-
-            // se recarga la tabla
-            location.reload();
+alertify.success("Registro Eliminado ");
+            
+            setTimeout(function () {
+              location.reload();
+            }, 900);
            //$("#tabla").load("listado_auto.php");
             //$("#modalDetalle").load("listado_auto.php");
-           alertify.success("Registro Eliminado");
+           
 
     }
-          else if(r!=1){
+          else if(r!="success"){
            //para probar
 
-          $("#tabla").load("listado_auto.php");
-             // $("#modalDetalle").load("listado_auto.php #modalDetalle");
+          
+             
             alertify.success("Registro Eliminado");
+            setTimeout(function () {
+              location.reload();
+            }, 900);
 
           }
             else{

@@ -5,10 +5,22 @@ class TiempoController{
     public $km;
     public $mes;
     public function guardarTiempoController(){
+        $respuesta;
         $datos=array("placa"=>$this->placa,
                      "km"=>$this->km,
                      "meses"=>$this->mes);
-        $respuesta=MantenimientoModel::ingresarKiloMesesModel($datos,"tkilometraje");
+                     $verificar=MantenimientoModel::verificarTiempo($datos,"tkilometraje");
+                     if($verificar=="success"){
+
+$respuesta = MantenimientoModel::updateKiloMesesModel($datos, "tkilometraje");
+
+                     }
+                     else{
+
+$respuesta = MantenimientoModel::ingresarKiloMesesModel($datos, "tkilometraje");
+
+                     }
+        
         echo $respuesta;
         
     }
